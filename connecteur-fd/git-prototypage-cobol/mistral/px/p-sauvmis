@@ -1,0 +1,90 @@
+if [ -f /tmp/RESSAU8 ]
+   then mv /tmp/RESSAU8 /tmp/RESSAU9 2>>/dev/null
+fi 
+if [ -f /tmp/RESSAU7 ]
+   then mv /tmp/RESSAU7 /tmp/RESSAU8 2>>/dev/null
+fi 
+if [ -f /tmp/RESSAU6 ]
+   then mv /tmp/RESSAU6 /tmp/RESSAU7 2>>/dev/null
+fi 
+if [ -f /tmp/RESSAU5 ]
+   then mv /tmp/RESSAU5 /tmp/RESSAU6 2>>/dev/null
+fi 
+if [ -f /tmp/RESSAU4 ]
+   then mv /tmp/RESSAU4 /tmp/RESSAU5 2>>/dev/null
+fi 
+if [ -f /tmp/RESSAU3 ]
+   then mv /tmp/RESSAU3 /tmp/RESSAU4 2>>/dev/null
+fi 
+if [ -f /tmp/RESSAU2 ]
+   then mv /tmp/RESSAU2 /tmp/RESSAU3 2>>/dev/null
+fi 
+if [ -f /tmp/RESSAU1 ]
+   then mv /tmp/RESSAU1 /tmp/RESSAU2 2>>/dev/null
+fi 
+if [ -f /tmp/RESSAU ]
+   then mv /tmp/RESSAU /tmp/RESSAU1 2>>/dev/null
+fi 
+wall ">>>>>>> Attention : La Sauvegarde Automatique a été lancée <<<<<<<<<<"
+if [ "$OSTYPE" = "linux-gnu" ]
+then echo -e "Sauvegarde Automatique " >/tmp/RESSAU
+     echo -e "Démarrée le \c" >>/tmp/RESSAU
+     date >>/tmp/RESSAU
+     if [ -h /rdx ]
+     then if [ -s /acu/mistral/f/DEVSAU ]
+          then mount `cat /acu/mistral/f/DEVSAU` /media/usbdisk 2>>/tmp/RESSAU
+          else mount /dev/sdb1 /media/usbdisk 2>>/tmp/RESSAU
+          fi
+          sleep 2
+          if [ `du /media/usbdisk |wc -l` =  "1" ] 
+          then echo "ERREUR !! - Pas de support dans le lecteur" >>/tmp/RESSAU
+               echo -e "Fin de Sauvegarde le \c" >>/tmp/RESSAU
+               date >>/tmp/RESSAU
+               exit
+          fi
+     fi
+     tar cvfP `cat /acu/mistral/f/REPSAU` >/tmp/p-sauvmis 2>>/tmp/RESSAU
+     echo -e "Fin de Sauvegarde le \c" >>/tmp/RESSAU
+     date >>/tmp/RESSAU
+     if [ -h /rdx ]
+     then umount /media/usbdisk 2>>/tmp/RESSAU
+     fi
+else echo "Sauvegarde Automatique " >/tmp/RESSAU
+     echo "Démarrée le \c" >>/tmp/RESSAU
+     date >>/tmp/RESSAU
+     if [ -d /rdxaix ]
+     then mount -V jfs2 -o log=/dev/usbms0 /dev/usbms0 /rdxaix 2>/tmp/RESMOUNT
+          sleep 2
+          if [ -s /tmp/RESMOUNT ]
+          then TESTSUPPORT=`grep -E "formatage|efsenable" /tmp/RESMOUNT`
+               if [ -n $TESTSUPPORT ]
+               then /acu/mistral/px/formatrdx >>/tmp/FORMATRDX 2>>/tmp/FORMATRDX
+                    mount -V jfs2 -o log=/dev/usbms0 /dev/usbms0 /rdxaix 
+                    rm /tmp/RESMOUNT >>/dev/null 2>>/dev/null
+               else TESTSUPPORT=`grep fonctionner /tmp/RESMOUNT`
+                    if [ -n $TESTSUPPORT ]
+                        then echo "ERREUR !! - Pas de support dans le lecteur" >>/tmp/RESSAU
+                             echo "Fin de Sauvegarde le \c" >>/tmp/RESSAU
+                             date >>/tmp/RESSAU
+                             rm /tmp/RESMOUNT >>/dev/null 2>>/dev/null
+                             exit
+                    fi
+               fi 
+          fi
+     fi
+     if [ -d /rdxaix ]
+     then MOUNT_POINT=$(df -M /rdxaix 2>/dev/null|awk '(NR==2) {print $2}')
+          if [ $MOUNT_POINT = "/rdxaix" ]
+          then tar cvfd `cat /acu/mistral/f/REPSAU` >/tmp/p-sauvmis 2>>/tmp/RESSAU
+               umount /rdxaix 2>>/tmp/RESSAU
+          else echo "ERREUR !! - Problème avec le support RDX" >>/tmp/RESSAU
+          fi
+     else tar cvfd `cat /acu/mistral/f/REPSAU` >/tmp/p-sauvmis 2>>/tmp/RESSAU
+     fi
+     echo "Fin de Sauvegarde le \c" >>/tmp/RESSAU
+     date >>/tmp/RESSAU
+fi
+#envoi mail si parametre dans PRM
+if [ "$OSTYPE" != "linux-gnu" ]
+then /usr/local/bin/sudo -u mistral /acu/mistral/px/ATD_SP /acu/mistral/o ctrlressau.acu 0001 SAU 2>/acu/mistral/ferr/CTRLRESSAU $>/acu/mistral/ferr/RESSAU
+fi

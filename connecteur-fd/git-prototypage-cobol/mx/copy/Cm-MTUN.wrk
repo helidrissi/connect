@@ -1,0 +1,14 @@
+      * Zones utilisées par la ComboBox des Unités.
+       01 Cm-MTUN.
+           05 Cm-MTUN-Handle HANDLE OF COMBO-BOX.
+           78 Cm-MTUN-NbMaxItems VALUE IS 46.
+           05 Cm-MTUN-9-2 PIC 9(2) COMP-1.
+           05 Cm-MTUN-9-3 PIC 9(3) COMP-1.
+           05 Cm-MTUN-Items OCCURS Cm-MTUN-NbMaxItems TIMES.
+               10 Cm-MTUN-LIB PIC X(12).
+               10 FILLER      PIC X(3).
+               10 Cm-MTUN-RAN PIC 99.
+           05 Cm-MTUN-SelectedItem PIC 99.
+           05 Cm-MTUN-LoadedItems PIC 9(3) COMP-1 VALUE IS 0.
+           05 Cm-MTUN-OpenedFile PIC 9.
+        

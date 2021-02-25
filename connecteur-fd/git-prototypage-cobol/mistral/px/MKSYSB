@@ -1,0 +1,12 @@
+rm /acu/mistral/f/MKSYSB 2>/dev/null
+echo "Sauvegarde Système démarrée"
+echo "Sauvegarde Système démarrée le \c" >>/acu/mistral/f/MKSYSB
+date >>/acu/mistral/f/MKSYSB
+if  [ -b /dev/usbms0 ]
+then SUPPORT="/dev/usbms0"
+else SUPPORT="/dev/rmt0"
+fi
+mksysb -i -e -p $SUPPORT 2>>/acu/mistral/f/MKSYSB >>/acu/mistral/f/MKSYSB
+echo "Sauvegarde Système terminée le \c" >>/acu/mistral/f/MKSYSB
+date >>/acu/mistral/f/MKSYSB
+echo "Sauvegarde Système terminée "

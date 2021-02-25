@@ -1,0 +1,1 @@
+/EndProlog/a\ statusdict \/duplexer get exec \   \{ \<\< \/Duplex true \/Tumble false \>\> setpagedevice \} \   \{ \<\< \/Duplex false \>\> setpagedevice \} \   ifelse                                                                                                                                              

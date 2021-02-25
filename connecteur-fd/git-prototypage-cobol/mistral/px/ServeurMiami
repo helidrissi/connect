@@ -1,0 +1,2 @@
+/usr/java14_64/bin/java -Djava.class.path=/acu/mistral/java/mistral.jar fr.mistral.dlrix.miami.MiamiServer 4250 /acuf/TRACEMIAMI
+

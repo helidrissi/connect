@@ -1,0 +1,19 @@
+total=0
+rm /tmp/Taille-Acuf 2>>/dev/null
+du -k /acuf/*/f | cut -f 2 |while read repert
+    do
+        repertparent=`echo $repert |cut -f 1,2,3 -d "/"`
+        if [ -h $repert -o -h $repertparent ]
+        then :
+        else du -k $repert |cut -f 1 -d "	" >>/tmp/Taille-Acuf
+        fi
+    done
+
+    for nombre in `cat /tmp/Taille-Acuf`
+    do
+       total=`expr $total + $nombre`
+    done
+
+total=`expr $total / 1000`
+echo "Total = $total Mg"
+rm /tmp/Taille-Acuf

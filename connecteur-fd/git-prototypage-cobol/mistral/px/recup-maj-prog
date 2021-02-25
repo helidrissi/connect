@@ -1,0 +1,15 @@
+#if [ -f /acu/mistral/f/MAJ-AFAIRE ]
+#   then echo "" >/dev/null
+#   else exit
+#fi
+cd /acuf
+mkdir cdrom  2>>/dev/null
+cd cdrom
+ftp -i -v -n 195.6.127.57 << !
+user majclient majclient
+binary
+passive
+mget *
+quit
+!!
+#rm -f /acu/mistral/f/MAJ-AFAIRE

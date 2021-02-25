@@ -1,0 +1,5 @@
+      * mcli-m.lks
+      * mcli-m.lks is generated from W:\mx\spro\mcli-m.Psf
+      * This is a generated file. DO NOT modify this file directly.
+       77 LK-ZONE-PALM     PIC  X(500).
+           COPY  "LK-MCLI-M.wrk".

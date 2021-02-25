@@ -1,0 +1,29 @@
+/mistral/px/RV
+/mistral/java/
+/mistral/webapps/
+/mistral/ferr/
+/mx/logos/
+/mx/l/
+# fichiers de données de test
+/mx/o/TEST-*
+
+*.Dll
+*.acu
+*.adb
+*.class
+*.jar
+
+*.old/
+fg/
+ft/
+*.log
+*.trc
+*.out
+*.err
+
+.*.swp
+
+# fichiers de données C$REDIRECT
+F00*
+
+*.webp

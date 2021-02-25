@@ -1,0 +1,75 @@
+       01 DSC-ARGS.
+           02 DSC-FILENAME           PIC X(12).
+      * C$REDIRECT; identification fichier à la place du filename
+           02 DSC-FILE-HANDLE        PIC X(8).
+           02 DSC-COMMAND            PIC X(12).
+           02 DSC-OPEN-MODE          PIC X(12).
+           02 DSC-READ-KEY-NAME      PIC X(12).
+      * C$REDIRECT; seul le numéro de clé est disponible
+           02 DSC-READ-KEY-NUMBER    PIC S9(4)
+              SIGN IS TRAILING SEPARATE CHARACTER.
+           02 DSC-READ-KEY-VALUE     PIC X(20).
+           02 DSC-READ-RECORD-NUMBER PIC 9(12).
+           02 DSC-READ-DIRECTION     PIC X(12).
+           02 DSC-REWRITE-KEY-VALUE  PIC X(20).
+           02 DSC-START-KEY-NAME     PIC X(12).
+           02 DSC-READ-LOCK          PIC 9(1).
+           02 DSC-READ-CACHE-COUNT   PIC 9(3).
+           02 DSC-SENT-RECORD-SIZE   PIC 9(9).
+      * C$REDIRECT; seul le numéro de clé est disponible
+           02 DSC-START-KEY-NUMBER   PIC S9(4)
+              SIGN IS TRAILING SEPARATE CHARACTER.
+           02 DSC-START-KEY-VALUE    PIC X(20).
+           02 DSC-START-KEY-OPERATOR PIC X(12).
+           02 DSC-DELETE-KEY-VALUE   PIC X(20).
+           02 DSC-CACHE-POINTER      USAGE IS POINTER VALUE NULL.
+       01 DSCLIENT-RECORD.
+           02 DSC-RECORD-SIZE        PIC 9(9).
+           02 DSC-RECORD             PIC X(1000).
+           02 DSC-BUFFER             PIC X(1000).
+           02 DSC-FULL-RECORD-SIZE   PIC 9(9).
+       01 DSCLIENT-CACHE-RECORD.
+      * contient la taille (size(recordNumber) + size(record)) * count
+           02 DSC-FULL-RECORD-MSIZE PIC 9(12).
+           02 DSC-INDEX-START       PIC 9(12).
+           02 DSC-INDEX-STOP        PIC 9(12).
+      * buffer pour l'envoi des messages
+      * ne pas utiliser de buffer ralentit les transferts en
+      * multipliant les allers-retours
+      * le buffer doit pouvoir contenir le préambule
+      * DSCLIENT-COMMON-CMD, puis le détail de la commande, puis
+      * l'enregistrement à transmettre le cas échéant
+       01 DSCLIENT-SEND-BUFFER             pic x(2000).
+      * taille actuelle dans le dsclient-send-buffer
+       01 DSCLIENT-SEND-SIZE               pic 9(4).
+      * stocke les retours d'erreur
+       01 DSCLIENT-ERROR.
+           02 DSC-LOCK-PID                 pic 9(8).
+           02 DSC-MESSAGE                  pic x(100).
+      * erreur de communication avec le serveur (la commande ou la
+      * réponse n'a pas été envoyée dans son intégralité)
+       01 dsc-errno                        signed-short.
+           88 e-connection-failed          value 1.
+           88 e-read-failed                value 2.
+           88 e-write-failed               value 3.
+           88 e-close-failed               value 4.
+      * Le serveur déclenche une erreur explicite
+      * les codes erreurs correspondent aux codes cobol
+      * Il faut ajouter les valeurs dans la routine de traduction
+      * translate-remote-errno
+       01 dsc-remote-errno                 signed-short.
+           88 dsc-err                      value 10 thru 255.
+      * 02 (dup ok) - non implémenté
+           88 e-dsc-dup-ok                 value 02.
+           88 e-dsc-eof                    value 10.
+           88 e-dsc-dup                    value 20.
+      * 23 (not found) - non utilisé, le serveur émet en EOF
+      * qui est traduit de manière contextuelle en not found OU EOF
+           88 e-dsc-not-found              value 23.
+           88 e-dsc-system                 value 30.
+           88 e-dsc-locked-record          value 99.
+      * Nombre de tentative de réouverture de connexion
+       01 dsc-connection-try               pic 9(1).
+      * 0 : pas de retry (la première tentative doit être la bonne)
+      * 1 : 1 retry, ...
+       01 dsc-connection-try-max           pic 9(1) value 1.

@@ -1,0 +1,144 @@
+      * mar.wrk
+      * mar.wrk is generated from W:\mx\spro\mar.Psf
+      * This is a generated file. DO NOT modify this file directly.
+
+       77 Key-Status IS SPECIAL-NAMES CRT STATUS PIC 9(5) VALUE 0.
+           88 Enter-Pushed VALUE 13.
+           88 Exit-Pushed VALUE 27.
+           88 Message-Received VALUE 95.
+           88 Event-Occurred VALUE 96.
+           88 Screen-No-Input-Field VALUE 97.
+           88 Screen-Time-Out VALUE 99.
+      * property-defined variable
+
+      * user-defined variable
+           COPY  "cobcap.wrk".
+           COPY  "LK-LISTE.wrk".
+       77 LK-ZONE-PALM     PIC  X(500).
+       77 Screen1-Handle
+                  USAGE IS HANDLE OF WINDOW VALUE NULL.
+       77 Default-Font
+                  USAGE IS HANDLE OF FONT DEFAULT-FONT.
+       77 Small-Font
+                  USAGE IS HANDLE OF FONT SMALL-FONT.
+       77 RAFRAIC24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 MODIFIE24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 QUITTER24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 CPT  PIC  9(10).
+       77 CPT-EDIT         PIC  ZbZZZbZZZbZZ9.
+       77 USERxxx20-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 SUPPRIM24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 IMPRIME24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 AIDExxx24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 TRIERAE10-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 TRIER-DISABLELETTRED12-JPG   PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 TRIERDE10-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 TRIERDD10-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 CDF  PIC  X.
+       77 CDFB PIC  X.
+       77 SV-MAR-CREE      PIC  X(4).
+       77 Screen1-Gd-1-Row-Highlight-Color         PIC  9(6).
+       77 Screen1-Gd-1-Cursor-X        PIC  9(5).
+       77 Screen1-Gd-1-Cursor-Y        PIC  9(5).
+       77 Screen1-Gd-1-Cursor-X-Old    PIC  9(5).
+       77 Screen1-Gd-1-Cursor-Y-Old    PIC  9(5).
+       01 Screen1-Gd-1-Record.
+           05 Screen1-Gd-1-COD PIC  X(4).
+           05 Screen1-Gd-1-LIB PIC  X(20).
+           05 Screen1-Gd-1-ABR PIC  X(8).
+           05 Screen1-Gd-1-TVH PIC  X(4).
+           05 Screen1-Gd-1-RaF2            PIC  X(1).
+       77 Screen1-Gd-1-Record-Old      PIC  X(37).
+       78 Nombre-Messages-Aide VALUE IS 4. 
+       01 Liste-Messages-Aide.
+           05 FILLER           PIC  X(50)
+                      VALUE IS "Code identifiant la marque".
+           05 FILLER           PIC  X(50)
+                      VALUE IS "Libellé long de la marque".
+           05 FILLER           PIC  X(50)
+                      VALUE IS "Libellé abrégé de la marque".
+           05 FILLER           PIC  X(50)
+                      VALUE IS "Correspondance avec marque  TVH".
+       01 Message-Aide REDEFINES Liste-Messages-Aide  PIC  X(50)
+                  OCCURS NOMBRE-MESSAGES-AIDE TIMES.
+       77 WENABLE          PIC  9
+                  VALUE IS 1.
+       77 W-MXPARAM        PIC  9(9).
+       77 Screen1-St-1-Handle
+                  USAGE IS HANDLE OF STATUS-BAR VALUE NULL.
+       77 W-LOG-PALM       PIC  9(3)
+                  VALUE IS 25.
+       77 W-NPR-PALM       PIC  9(4)
+                  VALUE IS 169.
+       77 Tmp-9-3          PIC  9(3).
+       77 W-KEY-ORDER      PIC  X(1)
+                  VALUE IS "A".
+       77 W-KEY-NUM        PIC  9
+                  VALUE IS 1.
+       77 PMELICEN-FILE-STATUS         PIC  X(2).
+       77 TRIERAD10-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 FILE-STATUS      PIC  X(2).
+       77 PREVISU24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ZOOMxxx12-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 MODU-TVH         PIC  9.
+       77 NB-COL           PIC  9.
+       77 IMPORTx24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 SUPPRIMER32-BMP  PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 MODIFIER32-BMP   PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 RAFRAICHIR32-BMP PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 Calibri12
+                  USAGE IS HANDLE OF FONT VALUE NULL.
+       77 Calibri12B
+                  USAGE IS HANDLE OF FONT VALUE NULL.
+       77 TRIERAD10-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 FLECHEB16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ZOOM20-BMP       PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 FLECHEB24-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 W-COL-PROTO      PIC  9(6)
+                  VALUE IS 1.
+       77 W-COLOR-PROTO    PIC  9(6)
+                  VALUE IS 1.

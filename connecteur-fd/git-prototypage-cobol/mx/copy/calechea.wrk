@@ -1,0 +1,17 @@
+       77 W-NJE-ECH        PIC  999.
+       01 W-D-ECH          PIC  9(8).
+       01 R-W-D-ECH REDEFINES W-D-ECH.
+           02 W-SA-ECH         PIC  9(4).
+           02 R-W-SA-ECH REDEFINES W-SA-ECH.
+               04 W-S-ECH          PIC  99.
+               04 W-A-ECH          PIC  99.
+           02 W-M-ECH          PIC  99.
+           02 W-J-ECH          PIC  99.
+       77 W-ECH            PIC  99.
+       77 W-TER            PIC  99.
+       77 W-PEC            PIC  9.
+       77 W-FMS            PIC  9.
+       77 W-CED            PIC  9.
+       77 W-J2ADD          PIC  999.
+       77 WECHEA-RESULT    PIC S9999.
+       77 WECHEA-RESTE     PIC S9(3)V99.

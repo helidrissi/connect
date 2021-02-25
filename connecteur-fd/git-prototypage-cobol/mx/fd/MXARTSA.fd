@@ -1,0 +1,161 @@
+      *(( XFD FILE = ARTSA ))
+       FD  MXARTSA
+           LABEL RECORD IS STANDARD.
+       01 ENR-MASA.
+           02 CLE1-MASA.
+      *(( XFD NAME = CODE_AGENCE ))
+      *(( XFD COMMENT Code agence ))
+               04 AGE-MASA         PIC  XXX.
+               04 CLE3-MASA.
+      *(( XFD NAME = CODE_ARTICLE ))
+      *(( XFD COMMENT Code article ))
+                   06 COD-MASA         PIC  X(20).
+      *(( XFD NAME = CASIER ))
+      *(( XFD COMMENT N° casier ))
+           02 CAS-MASA         PIC  X(7).
+      *(( XFD NAME = GESTION_STOCK ))
+      *(( XFD COMMENT Gestion Stock : 1=oui   2=Non   9=Dépot-Vente ))
+           02 STO-MASA         PIC  9.
+      *(( XFD NAME = STOCK_MINI ))
+      *(( XFD COMMENT Mini ))
+           02 MIN-MASA         PIC  9(4).
+      *(( XFD NAME = STOCK_MAXI ))
+      *(( XFD COMMENT Maxi ))
+           02 MAX-MASA         PIC  9(5).
+      *(( XFD NAME = DATE_MAJ_MINMAX ))
+      *(( XFD COMMENT Date actualisation Mini & Maxi ))
+           02 DAM-MASA         PIC  9(8).
+      *(( XFD NAME = OBSERVATIONS ))
+      *(( XFD COMMENT Observations ))
+           02 OBS-MASA         PIC  X(60).
+      *(( XFD NAME = STOCK_INITIAL ))
+      *(( XFD COMMENT Stock initial en quantité ))
+           02 SIQ-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = STOCK_INI_VALEUR ))
+      *(( XFD COMMENT Prix unitaire stock initial ))
+           02 SIP-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = EN_CDE_CLI ))
+      *(( XFD COMMENT Qté en commande client ))
+           02 QCC-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = EN_CDE_FRN ))
+      *(( XFD COMMENT Qté en commande fournisseur ))
+           02 QCF-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = ENTREES_MOIS ))
+      *(( XFD COMMENT Qtés entrées mois ))
+           02 EQM-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = ENTREES_EXERCICE ))
+      *(( XFD COMMENT Qtés entrées exercice ))
+           02 EQE-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = TRANSFERTS_MOIS ))
+      *(( XFD COMMENT Qtés entrées intenes mois ))
+           02 TQM-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = TRANSFERT_EXERCICE ))
+      *(( XFD COMMENT Qtés entrées intenes exercice ))
+           02 TQE-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = RETROC_MOIS ))
+      *(( XFD COMMENT Qtés sorties rétrocessions mois ))
+           02 RSQM-MASA        PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = RETROC_EXERCICE ))
+      *(( XFD COMMENT Qtés sorties rétrocessions exercice ))
+           02 RSQE-MASA        PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = SORTIES_MOIS ))
+      *(( XFD COMMENT Qtés sorties mois ))
+           02 SQM-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = SORTIES_EXERCICE ))
+      *(( XFD COMMENT Qtés sorties exercice ))
+           02 SQE-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = SORTIES_INT_MOIS ))
+      *(( XFD COMMENT Qtés sorties internes mois ))
+           02 IQM-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = SORTIES_INT_EXO ))
+      *(( XFD COMMENT Qtés sorties internes exercice ))
+           02 IQE-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = VENTES_MANQUEES ))
+      *(( XFD COMMENT Ventes manquées exercice ))
+           02 VTM-MASA         PIC  9(6)V99.
+      *(( XFD NAME = STOCK_CENTRAL ))
+      *(( XFD COMMENT Stock central actuel ))
+           02 STC-MASA         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = STOCK_MOIS ))
+      *(( XFD COMMENT Stock mois x 12 (1=M ))
+           02 QSTM-MASA        PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER
+                      OCCURS 12 TIMES.
+      *(( XFD NAME = PAMP_MOIS ))
+      *(( XFD COMMENT PAMP ou PRMP selon valorisation stock x 12 mois (1&2 non utilisé) ))
+           02 PMPM-MASA        PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER
+                      OCCURS 12 TIMES.
+      *(( XFD NAME = DELAI_LIVRAISON ))
+      *(( XFD COMMENT Délai livraison x 5 dernières réception ))
+           02 DEL-MASA         PIC  999
+                      OCCURS 5 TIMES.
+      *(( XFD NAME = DATE_1ERE_ENTREE ))
+      *(( XFD COMMENT Date 1ère entrée en stock ))
+           02 DEN-MASA         PIC  9(8).
+           02 R-DEN-MASA REDEFINES DEN-MASA.
+               04 SDEN-MASA        PIC  99.
+               04 ADEN-MASA        PIC  99.
+               04 MDEN-MASA        PIC  99.
+               04 JDEN-MASA        PIC  99.
+      *(( XFD NAME = DATE_DER_INVENTAIR ))
+      *(( XFD COMMENT Date dernier inventaire ))
+           02 DDI-MASA         PIC  9(8).
+           02 R-DDI-MASA REDEFINES DDI-MASA.
+               04 SDDI-MASA        PIC  99.
+               04 ADDI-MASA        PIC  99.
+               04 MDDI-MASA        PIC  99.
+               04 JDDI-MASA        PIC  99.
+      *(( XFD NAME = PAMP_ACTUEL ))
+      *(( XFD COMMENT PAMP actuel ))
+           02 PAMP-MASA        PIC  9(7)V99.
+      *(( XFD NAME = PAMP_1 ))
+      *(( XFD COMMENT PAMP mois -1 ))
+           02 PAMP1-MASA       PIC  9(7)V99.
+      *(( XFD NAME = PRMP_ACTUEL ))
+      *(( XFD COMMENT PRMP actuel ))
+           02 PRMP-MASA        PIC  9(7)V99.
+      *(( XFD NAME = PRMP_1 ))
+      *(( XFD COMMENT PRMP mois -1 ))
+           02 PRMP1-MASA       PIC  9(7)V99.
+      *(( XFD NAME = DEPRECIATION ))
+      *(( XFD COMMENT Montant dépréciation x 5 ans ))
+           02 DPV-MASA         PIC  9(8)V99
+                      OCCURS 5 TIMES.
+      *(( XFD NAME = POURCENT_DEPREC ))
+      *(( XFD COMMENT % dépréciation x 5 ans ))
+           02 DPP-MASA         PIC  9(3)V99
+                      OCCURS 5 TIMES.
+      *(( XFD NAME = INDIC_INVTAIRE_SAI ))
+      *(( XFD COMMENT Indicateur inventaire initial saisi (1=oui ))
+           02 IOE-MASA         PIC  9.
+      *(( XFD NAME = INDIC_REAPPRO ))
+      *(( XFD COMMENT Indicateur réapprovisionnement automatique:  0=Oui   1=Non   2=/Min Max/Formule Wilson  3=/Mini si Réappro sur conso ))
+           02 REA-MASA         PIC  9.
+      *(( XFD NAME = MODELE_ETIQUETTE ))
+      *(( XFD COMMENT Modèle étiquettes ))
+           02 ETI-MASA         PIC  99.
+      *(( XFD NAME = TYPE_ETIQUETTE ))
+      *(( XFD COMMENT Type Etiquette: Blanc= /Imprimante Laser   B= Imprimante Code Barre ))
+           02 TETI-MASA        PIC  X.
+      *(( XFD NAME = DATE_MODIF ))
+           02 DME-MASA         PIC  9(8).
+
+      *(( XFD COMMENT Périodicité inventaire (Cf TABDIV) ))
+           02 PINV-MASA        PIC  X.
+           02 FILLER           PIC  X(25).

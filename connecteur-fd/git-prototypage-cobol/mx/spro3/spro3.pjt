@@ -1,0 +1,1480 @@
+; CASEMaker AcuBench Workspace File, Version 10.3
+; WARNING: DO NOT MODIFY THIS FILE!
+
+[WORKSPACE_CONTENT]
+PROJECT_LIST=spro3
+CONFIGURATION_LIST=Debug Mode,Release Mode
+CURRENT_CONFIGURATION=Debug Mode
+
+[PROJECT_CONTENT-spro3]
+RELATIVE_PATH=.
+COPYLIB_PATH=\mx\copy
+OBJECT_PATH=\mx\o3
+LIST_PATH=\mx\l
+RESOURCE_PATH=\mx\resource
+DATALAYOUT_PATH=\mx\fd
+REMOTE_PATH=192,63,63,102:10300:/webp/mx/o3
+MAIN_PROGRAM_TYPE=2
+REMOTE_SERVER_NAME=192,63,63,102
+REMOTE_SERVER_PORT=10300
+REMOTE_SERVER_DIR=/webp/mx/o3
+
+[PROGRAM_CONTENT-spro3:PROGRAM1]
+RELATIVE_PATH=art-c.psf
+
+[PROGRAM_CONTENT-spro3:PROGRAM2]
+RELATIVE_PATH=mar.psf
+
+[PROGRAM_CONTENT-spro3:PROGRAM3]
+RELATIVE_PATH=mar-handler.psf
+
+[PROGRAM_CONTENT-spro3:PROGRAM4]
+RELATIVE_PATH=menu3-credirect.psf
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT1]
+RELATIVE_PATH=\mistral\fd\ATTACH.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT2]
+RELATIVE_PATH=\mistral\fd\COBCAP.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT3]
+RELATIVE_PATH=\mx\fd\MXAGENCE.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT4]
+RELATIVE_PATH=\mx\fd\MXART.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT5]
+RELATIVE_PATH=\mx\fd\MXART2.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT6]
+RELATIVE_PATH=\mx\fd\MXART3.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT7]
+RELATIVE_PATH=\mx\fd\MXARTSA.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT8]
+RELATIVE_PATH=\mx\fd\MXARTSA2.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT9]
+RELATIVE_PATH=\mx\fd\MXCATFOU.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT10]
+RELATIVE_PATH=\mx\fd\MXDOCTEC.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT11]
+RELATIVE_PATH=\mx\fd\MXCOMMENT.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT12]
+RELATIVE_PATH=\mx\fd\MXFAMART.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT13]
+RELATIVE_PATH=\mx\fd\MXDOCTEC2.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT14]
+RELATIVE_PATH=\mx\fd\MXFOU.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT15]
+RELATIVE_PATH=\mx\fd\MXGRAFAM.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT16]
+RELATIVE_PATH=\mx\fd\MXLDIS.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT17]
+RELATIVE_PATH=\mx\fd\MXMARQUE.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT18]
+RELATIVE_PATH=\mx\fd\MXMARQUE2.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT19]
+RELATIVE_PATH=\mx\fd\MXPARAM.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT20]
+RELATIVE_PATH=\mx\fd\MXDOCTECEXT.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT21]
+RELATIVE_PATH=\mx\fd\TEST-REL.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT22]
+RELATIVE_PATH=\mx\fd\TEST-SEQ.dlt
+
+[DATALAYOUT_CONTENT-spro3:DATALAYOUT23]
+RELATIVE_PATH=\mx\fd\TEST-SEQ2.dlt
+
+[FOLDER_CONTENT-spro3:Source]
+ACCEPTED_FILE_EXTENSION=*.cbl;*.cob
+CREATED_TIME=18:41:50, mercredi 4 novembre 2020
+
+[FOLDER_CONTENT-spro3:Screen]
+ACCEPTED_FILE_EXTENSION=*.scr;*.stf
+CREATED_TIME=18:41:50, mercredi 4 novembre 2020
+
+[FOLDER_CONTENT-spro3:Report]
+ACCEPTED_FILE_EXTENSION=*.rpt;*.rtf
+CREATED_TIME=18:41:50, mercredi 4 novembre 2020
+
+[FOLDER_CONTENT-spro3:Copylib]
+ACCEPTED_FILE_EXTENSION=*.cpy;*.wrk;*.lnk;*.lks;*.mnu;*.prd;*.evt;*.def
+CREATED_TIME=18:41:50, mercredi 4 novembre 2020
+
+[FOLDER_CONTENT-spro3:Object]
+ACCEPTED_FILE_EXTENSION=*.acu;*.cbx;*.obj;*.lib
+CREATED_TIME=18:41:50, mercredi 4 novembre 2020
+
+[FOLDER_CONTENT-spro3:List]
+ACCEPTED_FILE_EXTENSION=*.lst;*.log;*.asq
+CREATED_TIME=18:41:50, mercredi 4 novembre 2020
+
+[FOLDER_CONTENT-spro3:Resource]
+ACCEPTED_FILE_EXTENSION=*.ico;*.bmp;*.jpg;*.jpe;*.jpeg;*.tif;*.tiff;*.png
+CREATED_TIME=18:41:50, mercredi 4 novembre 2020
+
+[FOLDER_CONTENT-spro3:FD]
+ACCEPTED_FILE_EXTENSION=*.fd;*.sd;*.sl
+CREATED_TIME=18:41:50, mercredi 4 novembre 2020
+
+[FOLDER_CONTENT-spro3:Remote]
+ACCEPTED_FILE_EXTENSION=*.acu;*.cbx;*.obj;*.lib
+CREATED_TIME=18:41:50, mercredi 4 novembre 2020
+
+[FILE_CONTENT-spro3:FILE1]
+RELATIVE_PATH=Source\menu3-credirect.cbl
+FOLDER_NAME=Source
+OWNER_PATH=menu3-credirect.psf
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE2]
+RELATIVE_PATH=Source\art-c.cbl
+FOLDER_NAME=Source
+OWNER_PATH=art-c.psf
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE3]
+RELATIVE_PATH=Source\mar.cbl
+FOLDER_NAME=Source
+OWNER_PATH=mar.psf
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE4]
+RELATIVE_PATH=Source\mar-handler.cbl
+FOLDER_NAME=Source
+OWNER_PATH=mar-handler.psf
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE5]
+RELATIVE_PATH=C:\Program Files (x86)\Micro Focus\extend 10.3.1\AcuGT\sample\def\acugui.def
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE6]
+RELATIVE_PATH=C:\Program Files (x86)\Micro Focus\extend 10.3.1\AcuGT\sample\def\acucobol.def
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE7]
+RELATIVE_PATH=C:\Program Files (x86)\Micro Focus\extend 10.3.1\AcuGT\sample\def\crtvars.def
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE8]
+RELATIVE_PATH=C:\Program Files (x86)\Micro Focus\extend 10.3.1\AcuGT\sample\def\fonts.def
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE9]
+RELATIVE_PATH=C:\Program Files (x86)\Micro Focus\extend 10.3.1\AcuGT\sample\def\showmsg.def
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE10]
+RELATIVE_PATH=C:\Program Files (x86)\Micro Focus\extend 10.3.1\AcuGT\sample\def\showmsg.cpy
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE11]
+RELATIVE_PATH=\mistral\def\acugui.def
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE12]
+RELATIVE_PATH=\mistral\def\acucobol.def
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE13]
+RELATIVE_PATH=\mistral\def\crtvars.def
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE14]
+RELATIVE_PATH=\mistral\def\fonts.def
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE15]
+RELATIVE_PATH=\mistral\def\showmsg.def
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE16]
+RELATIVE_PATH=\mistral\copy\cobcap.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE17]
+RELATIVE_PATH=\mistral\copy\lk-cjbuser.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE18]
+RELATIVE_PATH=\mistral\copy\lk-userproc.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE19]
+RELATIVE_PATH=\mx\copy\LK-ART-C.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE20]
+RELATIVE_PATH=\mx\copy\LK-HIV-C.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE21]
+RELATIVE_PATH=\mx\copy\LK-SBD-C.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE22]
+RELATIVE_PATH=\mx\copy\envmis.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE23]
+RELATIVE_PATH=\mistral\def\filesys.def
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE24]
+RELATIVE_PATH=\mistral\def\handler.cpy
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE25]
+RELATIVE_PATH=\mx\copy\envmis-handler.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE26]
+RELATIVE_PATH=\mx\copy\envmis-stat.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE27]
+RELATIVE_PATH=\mistral\def\showmsg.cpy
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE28]
+RELATIVE_PATH=\mistral\copy\envmis-credirect.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE29]
+RELATIVE_PATH=\mx\copy\envmis-handler.cpy
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\menu3-credirect.cbl
+
+[FILE_CONTENT-spro3:FILE30]
+RELATIVE_PATH=\mistral\def\palette.def
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE31]
+RELATIVE_PATH=\mistral\copy\recherche-photo.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE32]
+RELATIVE_PATH=\mistral\copy\LK-ATT-AUTRES.WRK
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE33]
+RELATIVE_PATH=\mx\copy\Cm-MART-INO.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE34]
+RELATIVE_PATH=\mx\copy\numval.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE35]
+RELATIVE_PATH=\mistral\copy\Mis-EnregOccupe.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE36]
+RELATIVE_PATH=\mx\copy\lk-att.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE37]
+RELATIVE_PATH=\mx\copy\gencod.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE38]
+RELATIVE_PATH=\mx\copy\LK-ART-ASA.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE39]
+RELATIVE_PATH=\mx\copy\LK-VCF-C.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE40]
+RELATIVE_PATH=\mistral\copy\LK-LISTE.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE41]
+RELATIVE_PATH=\mx\copy\LK-MART-L.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE42]
+RELATIVE_PATH=\mx\copy\LK-CDOCTEC.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE43]
+RELATIVE_PATH=\mx\copy\arrondi.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE44]
+RELATIVE_PATH=\mistral\copy\Ef-Date.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE45]
+RELATIVE_PATH=\mx\copy\Cm-MART-POL.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE46]
+RELATIVE_PATH=\mx\copy\Cm-MTUN.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE47]
+RELATIVE_PATH=\mx\copy\LK-MTYM-L.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE48]
+RELATIVE_PATH=\mx\copy\LK-MGFA-T.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE49]
+RELATIVE_PATH=\mx\copy\LK-MFOU-L.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE50]
+RELATIVE_PATH=\mx\copy\LK-SCODART-L.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE51]
+RELATIVE_PATH=\mx\copy\LK-CALPVART.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE52]
+RELATIVE_PATH=\mx\copy\positions.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE53]
+RELATIVE_PATH=\mistral\copy\Mis-EnregOccupe-Screen.cpy
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE54]
+RELATIVE_PATH=\mistral\copy\envmis.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE55]
+RELATIVE_PATH=\mistral\copy\recherche-photo.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE56]
+RELATIVE_PATH=\mistral\copy\assign-fic-unix.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE57]
+RELATIVE_PATH=\mx\copy\arrondi.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE58]
+RELATIVE_PATH=\mx\copy\gencod.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE59]
+RELATIVE_PATH=\mx\copy\inversmx.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE60]
+RELATIVE_PATH=\mx\copy\numval.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE61]
+RELATIVE_PATH=\mistral\copy\MisCentreFenetre.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE62]
+RELATIVE_PATH=\mistral\copy\Ef-Date10-Fic2Ecr.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE63]
+RELATIVE_PATH=\mistral\copy\Ef-Date-DoFic2Ecr.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE64]
+RELATIVE_PATH=\mx\copy\Cm-MTUN.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE65]
+RELATIVE_PATH=\mx\copy\Cm-LoadAndSelect.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE66]
+RELATIVE_PATH=\mx\copy\Cm-MART-POL.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE67]
+RELATIVE_PATH=\mx\copy\Cm-MART-INO.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE68]
+RELATIVE_PATH=\mistral\copy\Ef-Num-Ecr2Fic.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE69]
+RELATIVE_PATH=\mistral\copy\Ef-Date10-Ecr2Fic.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE70]
+RELATIVE_PATH=\mistral\copy\Ef-Date-DoEcr2Fic-YYYYMM.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE71]
+RELATIVE_PATH=\mistral\copy\Ef-Date-DoEcr2Fic-DD.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE72]
+RELATIVE_PATH=\mistral\copy\Ef-Date-Verif-YYYYMM.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE73]
+RELATIVE_PATH=\mistral\copy\Ef-Date-Verif-DD.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE74]
+RELATIVE_PATH=\mistral\copy\Mis-EnregOccupe.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE75]
+RELATIVE_PATH=\mistral\copy\palette-save.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE76]
+RELATIVE_PATH=\mistral\copy\palette-restore.cbl
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE77]
+RELATIVE_PATH=\mx\copy\kobalt-missing.wrk
+FOLDER_NAME=Copylib
+OWNER_PATH=Source\mar-handler.cbl
+
+[FILE_CONTENT-spro3:FILE78]
+RELATIVE_PATH=\mx\o3\menu3-credirect.acu
+FOLDER_NAME=Object
+OWNER_PATH=Source\menu3-credirect.cbl
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE79]
+RELATIVE_PATH=\mx\o3\art-c.acu
+FOLDER_NAME=Object
+OWNER_PATH=Source\art-c.cbl
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE80]
+RELATIVE_PATH=\mx\o3\mar-handler.acu
+FOLDER_NAME=Object
+OWNER_PATH=Source\mar-handler.cbl
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE81]
+RELATIVE_PATH=\mx\o3\mar.acu
+FOLDER_NAME=Object
+OWNER_PATH=Source\mar.cbl
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE82]
+RELATIVE_PATH=\mx\l\menu3-credirect.lst
+FOLDER_NAME=List
+OWNER_PATH=Source\menu3-credirect.cbl
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE83]
+RELATIVE_PATH=\mx\l\art-c.lst
+FOLDER_NAME=List
+OWNER_PATH=Source\art-c.cbl
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE84]
+RELATIVE_PATH=\mx\l\mar.lst
+FOLDER_NAME=List
+OWNER_PATH=Source\mar.cbl
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE85]
+RELATIVE_PATH=\mx\l\mar-handler.lst
+FOLDER_NAME=List
+OWNER_PATH=Source\mar-handler.cbl
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE86]
+RELATIVE_PATH=\mistral\resource\RAFRAIC24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE87]
+RELATIVE_PATH=\mistral\resource\MODIFIE12.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE88]
+RELATIVE_PATH=\mistral\resource\PARAMST24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE89]
+RELATIVE_PATH=\mistral\resource\CREERxx12.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE90]
+RELATIVE_PATH=\mistral\resource\FLECHEG24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE91]
+RELATIVE_PATH=\mistral\resource\FLECHED24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE92]
+RELATIVE_PATH=\mistral\resource\MODIFIE24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE93]
+RELATIVE_PATH=\mistral\resource\SAUVEGA24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE94]
+RELATIVE_PATH=\mistral\resource\CREERxx24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE95]
+RELATIVE_PATH=\mistral\resource\SUPPRIM24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE96]
+RELATIVE_PATH=\mistral\resource\ZOOMxxx12.BMP
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE97]
+RELATIVE_PATH=\mistral\resource\EXPANDxx7.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE98]
+RELATIVE_PATH=\mistral\resource\COLLAPSE7.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE99]
+RELATIVE_PATH=\mistral\resource\INFORMA12.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE100]
+RELATIVE_PATH=\mistral\resource\TROMBON24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE101]
+RELATIVE_PATH=\mistral\resource\DUPLIQU12.BMP
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE102]
+RELATIVE_PATH=\mistral\resource\CODEBAR16.jpg
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE103]
+RELATIVE_PATH=\mistral\resource\TROMBO324.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE104]
+RELATIVE_PATH=\mistral\resource\RAFRAIC12.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE105]
+RELATIVE_PATH=\mistral\resource\RECHERC24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE106]
+RELATIVE_PATH=\mistral\resource\EUROBXX12.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE107]
+RELATIVE_PATH=\mistral\resource\TERMINX24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE108]
+RELATIVE_PATH=\mx\resource\QUITTER24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE109]
+RELATIVE_PATH=\mx\resource\FLECHEB24.BMP
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE110]
+RELATIVE_PATH=\mistral\resource\WARNING24.BMP
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE111]
+RELATIVE_PATH=\mistral\resource\ZOOMxxx16.BMP
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE112]
+RELATIVE_PATH=\mistral\resource\VALIDER24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE113]
+RELATIVE_PATH=\mistral\resource\ANNULER24.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE114]
+RELATIVE_PATH=\mistral\resource\COMPOSI12.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE115]
+RELATIVE_PATH=\mistral\resource\COMPOKI12.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE116]
+RELATIVE_PATH=\mistral\resource\EQUIVAL12.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE117]
+RELATIVE_PATH=\mistral\resource\COMPLEM12.jpg
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE118]
+RELATIVE_PATH=\mistral\resource\ECHASTD12.jpg
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE119]
+RELATIVE_PATH=\mistral\resource\VALIDER16.BMP
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE120]
+RELATIVE_PATH=\mistral\resource\ANNULER16.BMP
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE121]
+RELATIVE_PATH=\mistral\resource\OCCUPEX01.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\art-c.cbl
+
+[FILE_CONTENT-spro3:FILE122]
+RELATIVE_PATH=\mistral\resource\RAFRAICHIR32.BMP
+FOLDER_NAME=Resource
+OWNER_PATH=Source\mar.cbl
+
+[FILE_CONTENT-spro3:FILE123]
+RELATIVE_PATH=\mistral\resource\MODIFIER32.BMP
+FOLDER_NAME=Resource
+OWNER_PATH=Source\mar.cbl
+
+[FILE_CONTENT-spro3:FILE124]
+RELATIVE_PATH=\mistral\resource\SUPPRIMER32.BMP
+FOLDER_NAME=Resource
+OWNER_PATH=Source\mar.cbl
+
+[FILE_CONTENT-spro3:FILE125]
+RELATIVE_PATH=\mistral\resource\FLECHEB24.BMP
+FOLDER_NAME=Resource
+OWNER_PATH=Source\mar.cbl
+
+[FILE_CONTENT-spro3:FILE126]
+RELATIVE_PATH=\mistral\resource\TRIERAE10.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\mar.cbl
+
+[FILE_CONTENT-spro3:FILE127]
+RELATIVE_PATH=\mistral\resource\TRIERDE10.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\mar.cbl
+
+[FILE_CONTENT-spro3:FILE128]
+RELATIVE_PATH=\mistral\resource\TRIERDD10.JPG
+FOLDER_NAME=Resource
+OWNER_PATH=Source\mar.cbl
+
+[FILE_CONTENT-spro3:FILE129]
+RELATIVE_PATH=\mx\fd\COBCAP.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mistral\fd\COBCAP.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE130]
+RELATIVE_PATH=\mx\fd\COBCAP.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mistral\fd\COBCAP.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE131]
+RELATIVE_PATH=\mx\fd\MXPARAM.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXPARAM.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE132]
+RELATIVE_PATH=\mx\fd\MXMARQUE.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXMARQUE.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE133]
+RELATIVE_PATH=\mx\fd\MXFOU.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXFOU.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE134]
+RELATIVE_PATH=\mx\fd\MXGRAFAM.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXGRAFAM.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE135]
+RELATIVE_PATH=\mx\fd\MXFAMART.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXFAMART.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE136]
+RELATIVE_PATH=\mx\fd\MXARTSA.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXARTSA.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE137]
+RELATIVE_PATH=\mx\fd\MXART.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXART.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE138]
+RELATIVE_PATH=\mx\fd\MXART2.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXART2.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE139]
+RELATIVE_PATH=\mx\fd\MXARTSA2.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXARTSA2.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE140]
+RELATIVE_PATH=\mx\fd\MXCATFOU.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXCATFOU.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE141]
+RELATIVE_PATH=\mx\fd\MXART3.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXART3.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE142]
+RELATIVE_PATH=\mx\fd\MXDOCTEC.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXDOCTEC.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE143]
+RELATIVE_PATH=\mx\fd\MXDOCTEC2.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXDOCTEC2.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE144]
+RELATIVE_PATH=\mx\fd\ATTACH.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mistral\fd\ATTACH.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE145]
+RELATIVE_PATH=\mx\fd\MXAGENCE.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXAGENCE.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE146]
+RELATIVE_PATH=\mx\fd\MXPARAM.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXPARAM.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE147]
+RELATIVE_PATH=\mx\fd\MXMARQUE.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXMARQUE.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE148]
+RELATIVE_PATH=\mx\fd\MXFOU.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXFOU.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE149]
+RELATIVE_PATH=\mx\fd\MXGRAFAM.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXGRAFAM.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE150]
+RELATIVE_PATH=\mx\fd\MXFAMART.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXFAMART.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE151]
+RELATIVE_PATH=\mx\fd\MXARTSA.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXARTSA.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE152]
+RELATIVE_PATH=\mx\fd\MXART.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXART.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE153]
+RELATIVE_PATH=\mx\fd\MXART2.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXART2.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE154]
+RELATIVE_PATH=\mx\fd\MXARTSA2.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXARTSA2.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE155]
+RELATIVE_PATH=\mx\fd\MXCATFOU.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXCATFOU.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE156]
+RELATIVE_PATH=\mx\fd\MXART3.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXART3.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE157]
+RELATIVE_PATH=\mx\fd\MXDOCTEC.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXDOCTEC.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE158]
+RELATIVE_PATH=\mx\fd\MXDOCTEC2.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXDOCTEC2.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE159]
+RELATIVE_PATH=\mx\fd\ATTACH.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mistral\fd\ATTACH.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE160]
+RELATIVE_PATH=\mx\fd\MXAGENCE.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXAGENCE.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE161]
+RELATIVE_PATH=\mx\fd\MXDOCTECEXT.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXDOCTECEXT.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE162]
+RELATIVE_PATH=\mx\fd\MXDOCTECEXT.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXDOCTECEXT.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE163]
+RELATIVE_PATH=\mx\fd\MXCOMMENT.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXCOMMENT.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE164]
+RELATIVE_PATH=\mx\fd\MXCOMMENT.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXCOMMENT.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE165]
+RELATIVE_PATH=\mx\fd\MXLDIS.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXLDIS.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE166]
+RELATIVE_PATH=\mx\fd\MXLDIS.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXLDIS.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE167]
+RELATIVE_PATH=\mx\fd\MXMARQUE2.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXMARQUE2.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE168]
+RELATIVE_PATH=\mx\fd\MXMARQUE2.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\MXMARQUE2.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE169]
+RELATIVE_PATH=\mx\fd\TEST-REL.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\TEST-REL.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE170]
+RELATIVE_PATH=\mx\fd\TEST-REL.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\TEST-REL.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE171]
+RELATIVE_PATH=\mx\fd\TEST-SEQ.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\TEST-SEQ.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE172]
+RELATIVE_PATH=\mx\fd\TEST-SEQ.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\TEST-SEQ.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE173]
+RELATIVE_PATH=\mx\fd\TEST-SEQ2.fd
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\TEST-SEQ2.dlt
+ATTRIBUTE=0
+
+[FILE_CONTENT-spro3:FILE174]
+RELATIVE_PATH=\mx\fd\TEST-SEQ2.sl
+FOLDER_NAME=FD
+OWNER_PATH=\mx\fd\TEST-SEQ2.dlt
+ATTRIBUTE=0
+
+[PROJECT_COMPILE_SETTING-spro3:Debug Mode]
+ADDITIONAL_OPTIONS=-Td 8192 -Si REDIRECT
+; Standard Options
+OBJECT_FILE=0
+NAME_OBJECT_FILE=%objectdir%\@.acu
+NAME_ERROR_FILE=@.err
+MAX_ERROR_COUNT=1
+MAX_ERROR_COUNT_NUM=100
+REMOTE_SERVER_NAME=192.63.63.102
+REMOTE_SERVER_PORT=10920
+REMOTE_SERVER_DIR=/webp/mx/o
+REMOTE_OBJECT_FILE=@.acu
+; Listing Options
+LISTING_FILE=1
+NAME_LISTING_FILE=%listdir%\@.lst
+SUMMARY_INFO=1
+FULL_LINSTING=1
+; Compatibility Options
+ENABLE_COMPATIBILITY=1
+COMPATIBILITY_VERSION=102
+; File Options
+XFD_FILE_VERSION=0
+; Source Options
+; ReservedWord Options
+; DataStorage Options
+SIGN_IS_SEPARATE=1
+INIT_WORKING_STORAGE=1
+ALIGNMENT_DATA_BOUNDARY=4
+SYNC_BOUNDARY_LIMIT_NUMBER=4
+; Video Options
+IMPLY_CONVERT_NUMERIC_ACCEPT=1
+; Mapping Options
+; Precompiler Options
+NAME_PRECOMPILE_OUTPUT_FILE=%listdir%\@.asq
+; Native Code Options
+; Debugger Options
+INCLUDE_ALL_INFO=1
+; Interop Options
+; Miscellaneous Options
+ARRAY_BOUNDARY_CHECK=1
+OFF_LOCAL_OPTIMIZER=1
+SPACE_AS_ZERO=1
+CODE_VERSION=1
+CODE_VERSION_NUMBER=102
+
+[PROJECT_RUNTIME_SETTING-spro3:Debug Mode]
+; Common Options
+NAME_CONFIGURATION_FILE=\etc\cblconfi
+SUPPRESS_WARNING_MSG=1
+; Io Options
+; Debug Options
+; ThinClient Options
+REMOTE_CONFIG_NAME=192.63.63.102:10920:/webp/mistral/cfg/cblconfig
+REMOTE_CONFIG_DEBUG=0
+REMOTE_CONFIG_DEBUG_PORT=5632
+
+[PROJECT_ENVIRONMENT_SETTING-spro3:Debug Mode]
+VARIABLE0=RUNNAME,Wrun32.exe
+VARIABLE1=COMPILERNAME,Ccbl32.exe
+VARIABLE2=CODE_PREFIX,%objectdir%
+VARIABLE3=ACUPATH,C:\Program Files (x86)\Micro Focus\extend 10.2.1\AcuGT\bin
+VARIABLE4=COPYPATH,W:\mistral\def;W:;%layoutdir%;W:;w:\mistral\resource;%screendir%;%reportdir%;%copydir%;\mistral\copy
+VARIABLE5=THINNAME,AcuThin.exe
+
+[PROJECT_LIBRARY_SETTING-spro3:Debug Mode]
+NAME_LIBRARY_FILE=%objectdir%\@.lib
+
+[FILE_COMPILE_OPTION-spro3:Debug Mode:Source\art-c.cbl]
+COPY_DEPENDENCE=\mx\fd\COBCAP.sl;\mx\fd\MXPARAM.sl;\mx\fd\MXMARQUE.sl;\mx\fd\MXFOU.sl;\mx\fd\MXGRAFAM.sl;\mx\fd\MXFAMART.sl;\mx\fd\MXARTSA.sl;\mx\fd\MXART.sl;\mx\fd\MXART2.sl;\mx\fd\MXARTSA2.sl;\mx\fd\MXCATFOU.sl;\mx\fd\MXART3.sl;\mx\fd\MXDOCTEC.sl;\mx\fd\MXDOCTEC2.sl;\mx\fd\ATTACH.sl;\mx\fd\MXDOCTECEXT.sl;\mx\fd\MXAGENCE.sl;\mx\fd\COBCAP.fd;\mx\fd\MXPARAM.fd;\mx\fd\MXMARQUE.fd;\mx\fd\MXFOU.fd;\mx\fd\MXGRAFAM.fd;\mx\fd\MXFAMART.fd;\mx\fd\MXARTSA.fd;\mx\fd\MXART.fd;\mx\fd\MXART2.fd;\mx\fd\MXARTSA2.fd;\mx\fd\MXCATFOU.fd;\mx\fd\MXART3.fd;\mx\fd\MXDOCTEC.fd;\mx\fd\MXDOCTEC2.fd;\mx\fd\ATTACH.fd;\mx\fd\MXDOCTECEXT.fd;\mx\fd\MXAGENCE.fd;\mistral\def\acugui.def;\mistral\def\acucobol.def;\mistral\def\crtvars.def;\mistral\def\palette.def;\mistral\def\showmsg.def;\mistral\copy\recherche-photo.wrk;\mistral\copy\LK-ATT-AUTRES.WRK;\mx\copy\Cm-MART-INO.wrk;\mx\copy\numval.wrk;\mistral\copy\Mis-EnregOccupe.wrk;\mx\copy\lk-att.wrk;\mx\copy\gencod.wrk;\mx\copy\LK-ART-ASA.wrk;\mx\copy\LK-VCF-C.wrk;\mistral\copy\LK-LISTE.wrk;\mx\copy\LK-MART-L.wrk;\mx\copy\LK-CDOCTEC.wrk;\mx\copy\arrondi.wrk;\mistral\copy\Ef-Date.wrk;\mx\copy\Cm-MART-POL.wrk;\mx\copy\Cm-MTUN.wrk;\mx\copy\LK-MTYM-L.wrk;\mx\copy\LK-MGFA-T.wrk;\mx\copy\LK-MFOU-L.wrk;\mx\copy\LK-SCODART-L.wrk;\mistral\copy\cobcap.wrk;\mistral\copy\lk-cjbuser.wrk;\mistral\copy\lk-userproc.wrk;\mx\copy\LK-CALPVART.wrk;\mx\copy\positions.wrk;\mx\copy\LK-ART-C.wrk;\mistral\copy\Mis-EnregOccupe-Screen.cpy;\mistral\def\showmsg.cpy;\mistral\resource\RAFRAIC24.JPG;\mistral\resource\MODIFIE12.JPG;\mistral\resource\PARAMST24.JPG;\mistral\resource\CREERxx12.JPG;\mistral\resource\FLECHEG24.JPG;\mistral\resource\FLECHED24.JPG;\mistral\resource\MODIFIE24.JPG;\mistral\resource\SAUVEGA24.JPG;\mistral\resource\CREERxx24.JPG;\mistral\resource\SUPPRIM24.JPG;\mistral\resource\ZOOMxxx12.BMP;\mistral\resource\EXPANDxx7.JPG;\mistral\resource\COLLAPSE7.JPG;\mistral\resource\INFORMA12.JPG;\mistral\resource\TROMBON24.JPG;\mistral\resource\DUPLIQU12.BMP;\mistral\resource\CODEBAR16.jpg;\mistral\resource\TROMBO324.JPG;\mistral\resource\RAFRAIC12.JPG;\mistral\resource\RECHERC24.JPG;\mistral\resource\EUROBXX12.JPG;\mistral\resource\TERMINX24.JPG;\mx\resource\QUITTER24.JPG;\mx\resource\FLECHEB24.BMP;\mistral\resource\ZOOMxxx12.BMP;\mistral\resource\WARNING24.BMP;\mistral\resource\ZOOMxxx16.BMP;\mistral\resource\VALIDER24.JPG;\mistral\resource\ANNULER24.JPG;\mistral\resource\COMPOSI12.JPG;\mistral\resource\COMPOKI12.JPG;\mistral\resource\EQUIVAL12.JPG;\mistral\resource\COMPLEM12.jpg;\mistral\resource\ECHASTD12.jpg;\mistral\resource\VALIDER16.BMP;\mistral\resource\ANNULER16.BMP;\mistral\copy\envmis.cbl;\mistral\copy\recherche-photo.cbl;\mistral\copy\assign-fic-unix.cbl;\mx\copy\arrondi.cbl;\mx\copy\gencod.cbl;\mx\copy\inversmx.cbl;\mx\copy\numval.cbl;\mistral\copy\MisCentreFenetre.cbl;\mistral\copy\Ef-Date10-Fic2Ecr.cbl;\mistral\copy\Ef-Date-DoFic2Ecr.cbl;\mistral\copy\Ef-Date10-Fic2Ecr.cbl;\mistral\copy\Ef-Date-DoFic2Ecr.cbl;\mistral\copy\Ef-Date10-Fic2Ecr.cbl;\mistral\copy\Ef-Date-DoFic2Ecr.cbl;\mistral\copy\Ef-Date10-Fic2Ecr.cbl;\mistral\copy\Ef-Date-DoFic2Ecr.cbl;\mx\copy\Cm-MTUN.cbl;\mx\copy\Cm-LoadAndSelect.cbl;\mx\copy\Cm-MTUN.cbl;\mx\copy\Cm-LoadAndSelect.cbl;\mx\copy\Cm-MART-POL.cbl;\mx\copy\Cm-LoadAndSelect.cbl;\mx\copy\Cm-MART-INO.cbl;\mx\copy\Cm-LoadAndSelect.cbl;\mistral\copy\Ef-Date10-Fic2Ecr.cbl;\mistral\copy\Ef-Date-DoFic2Ecr.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Num-Ecr2Fic.cbl;\mistral\copy\Ef-Date10-Ecr2Fic.cbl;\mistral\copy\Ef-Date-DoEcr2Fic-YYYYMM.cbl;\mistral\copy\Ef-Date-DoEcr2Fic-DD.cbl;\mistral\copy\Ef-Date-Verif-YYYYMM.cbl;\mistral\copy\Ef-Date-Verif-DD.cbl;\mistral\copy\Ef-Date-DoFic2Ecr.cbl;\mistral\copy\Mis-EnregOccupe.cbl;\mistral\resource\OCCUPEX01.JPG;\mistral\copy\Ef-Date10-Fic2Ecr.cbl;\mistral\copy\Ef-Date-DoFic2Ecr.cbl;\mistral\copy\palette-save.cbl;\mistral\copy\palette-restore.cbl;\mistral\copy\Ef-Date10-Ecr2Fic.cbl;\mistral\copy\Ef-Date-DoEcr2Fic-YYYYMM.cbl;\mistral\copy\Ef-Date-DoEcr2Fic-DD.cbl;\mistral\copy\Ef-Date-Verif-YYYYMM.cbl;\mistral\copy\Ef-Date-Verif-DD.cbl;\mistral\copy\Ef-Date-DoFic2Ecr.cbl
+ADDITIONAL_OPTIONS=-Td 8192 -Si REDIRECT
+FOLLOW_PROJECT=1
+; Standard Options
+OBJECT_FILE=0
+NAME_OBJECT_FILE=%objectdir%\@.acu
+NAME_ERROR_FILE=@.err
+MAX_ERROR_COUNT=1
+MAX_ERROR_COUNT_NUM=100
+REMOTE_SERVER_NAME=192.63.63.102
+REMOTE_SERVER_PORT=10920
+REMOTE_SERVER_DIR=/webp/mx/o
+REMOTE_OBJECT_FILE=@.acu
+; Listing Options
+LISTING_FILE=1
+NAME_LISTING_FILE=%listdir%\@.lst
+SUMMARY_INFO=1
+FULL_LINSTING=1
+; Compatibility Options
+ENABLE_COMPATIBILITY=1
+COMPATIBILITY_VERSION=102
+; File Options
+XFD_FILE_VERSION=0
+; Source Options
+; ReservedWord Options
+; DataStorage Options
+SIGN_IS_SEPARATE=1
+INIT_WORKING_STORAGE=1
+ALIGNMENT_DATA_BOUNDARY=4
+SYNC_BOUNDARY_LIMIT_NUMBER=4
+; Video Options
+IMPLY_CONVERT_NUMERIC_ACCEPT=1
+; Mapping Options
+; Precompiler Options
+NAME_PRECOMPILE_OUTPUT_FILE=%listdir%\@.asq
+; Native Code Options
+; Debugger Options
+INCLUDE_ALL_INFO=1
+; Interop Options
+; Miscellaneous Options
+ARRAY_BOUNDARY_CHECK=1
+OFF_LOCAL_OPTIMIZER=1
+SPACE_AS_ZERO=1
+CODE_VERSION=1
+CODE_VERSION_NUMBER=102
+
+[FILE_COMPILE_OPTION-spro3:Debug Mode:Source\mar-handler.cbl]
+COPY_DEPENDENCE=\mx\fd\COBCAP.sl;\mx\fd\MXMARQUE.sl;\mx\fd\MXMARQUE2.sl;\mx\fd\TEST-SEQ2.sl;\mx\fd\TEST-SEQ.sl;\mx\fd\TEST-REL.sl;\mx\fd\MXART.sl;\mx\fd\MXLDIS.sl;\mx\fd\MXCATFOU.sl;\mx\fd\MXART2.sl;\mx\fd\COBCAP.fd;\mx\fd\MXMARQUE.fd;\mx\fd\MXMARQUE2.fd;\mx\fd\TEST-SEQ2.fd;\mx\fd\TEST-SEQ.fd;\mx\fd\TEST-REL.fd;\mx\fd\MXART.fd;\mx\fd\MXLDIS.fd;\mx\fd\MXCATFOU.fd;\mx\fd\MXART2.fd;\mistral\def\acugui.def;\mistral\def\acucobol.def;\mistral\def\crtvars.def;\mistral\def\showmsg.def;\mistral\copy\cobcap.wrk;\mistral\copy\lk-cjbuser.wrk;\mistral\copy\lk-userproc.wrk;\mx\copy\kobalt-missing.wrk;\mx\copy\envmis.wrk;\mistral\def\filesys.def;\mistral\def\handler.cpy;\mx\copy\envmis-handler.wrk;\mx\copy\envmis-stat.wrk;\mistral\def\showmsg.cpy;\mistral\copy\envmis-credirect.cbl;\mx\copy\envmis-handler.cpy
+ADDITIONAL_OPTIONS=-Td 8192 -Si REDIRECT
+FOLLOW_PROJECT=1
+; Standard Options
+OBJECT_FILE=0
+NAME_OBJECT_FILE=%objectdir%\@.acu
+NAME_ERROR_FILE=@.err
+MAX_ERROR_COUNT=1
+MAX_ERROR_COUNT_NUM=100
+REMOTE_SERVER_NAME=192.63.63.102
+REMOTE_SERVER_PORT=10920
+REMOTE_SERVER_DIR=/webp/mx/o
+REMOTE_OBJECT_FILE=@.acu
+; Listing Options
+LISTING_FILE=1
+NAME_LISTING_FILE=%listdir%\@.lst
+SUMMARY_INFO=1
+FULL_LINSTING=1
+; Compatibility Options
+ENABLE_COMPATIBILITY=1
+COMPATIBILITY_VERSION=102
+; File Options
+XFD_FILE_VERSION=0
+; Source Options
+; ReservedWord Options
+; DataStorage Options
+SIGN_IS_SEPARATE=1
+INIT_WORKING_STORAGE=1
+ALIGNMENT_DATA_BOUNDARY=4
+SYNC_BOUNDARY_LIMIT_NUMBER=4
+; Video Options
+IMPLY_CONVERT_NUMERIC_ACCEPT=1
+; Mapping Options
+; Precompiler Options
+NAME_PRECOMPILE_OUTPUT_FILE=%listdir%\@.asq
+; Native Code Options
+; Debugger Options
+INCLUDE_ALL_INFO=1
+; Interop Options
+; Miscellaneous Options
+ARRAY_BOUNDARY_CHECK=1
+OFF_LOCAL_OPTIMIZER=1
+SPACE_AS_ZERO=1
+CODE_VERSION=1
+CODE_VERSION_NUMBER=102
+
+[FILE_COMPILE_OPTION-spro3:Debug Mode:Source\mar.cbl]
+COPY_DEPENDENCE=\mx\fd\MXPARAM.sl;\mx\fd\COBCAP.sl;\mx\fd\MXMARQUE.sl;\mx\fd\MXPARAM.fd;\mx\fd\COBCAP.fd;\mx\fd\MXMARQUE.fd;\mistral\def\acugui.def;\mistral\def\acucobol.def;\mistral\def\crtvars.def;\mistral\def\fonts.def;\mistral\def\palette.def;\mistral\def\showmsg.def;\mistral\copy\cobcap.wrk;\mistral\copy\lk-cjbuser.wrk;\mistral\copy\lk-userproc.wrk;\mistral\copy\LK-LISTE.wrk;\mistral\def\showmsg.cpy;\mistral\resource\RAFRAICHIR32.BMP;\mistral\resource\MODIFIER32.BMP;\mistral\resource\SUPPRIMER32.BMP;\mistral\resource\ZOOMxxx12.BMP;\mistral\resource\FLECHEB24.BMP;\mistral\resource\TRIERAE10.JPG;\mistral\resource\TRIERDE10.JPG;\mistral\resource\TRIERDD10.JPG;\mistral\copy\envmis.cbl
+ADDITIONAL_OPTIONS=-Td 8192 -Si REDIRECT
+FOLLOW_PROJECT=1
+; Standard Options
+OBJECT_FILE=0
+NAME_OBJECT_FILE=%objectdir%\@.acu
+NAME_ERROR_FILE=@.err
+MAX_ERROR_COUNT=1
+MAX_ERROR_COUNT_NUM=100
+REMOTE_SERVER_NAME=192.63.63.102
+REMOTE_SERVER_PORT=10920
+REMOTE_SERVER_DIR=/webp/mx/o
+REMOTE_OBJECT_FILE=@.acu
+; Listing Options
+LISTING_FILE=1
+NAME_LISTING_FILE=%listdir%\@.lst
+SUMMARY_INFO=1
+FULL_LINSTING=1
+; Compatibility Options
+ENABLE_COMPATIBILITY=1
+COMPATIBILITY_VERSION=102
+; File Options
+XFD_FILE_VERSION=0
+; Source Options
+; ReservedWord Options
+; DataStorage Options
+SIGN_IS_SEPARATE=1
+INIT_WORKING_STORAGE=1
+ALIGNMENT_DATA_BOUNDARY=4
+SYNC_BOUNDARY_LIMIT_NUMBER=4
+; Video Options
+IMPLY_CONVERT_NUMERIC_ACCEPT=1
+; Mapping Options
+; Precompiler Options
+NAME_PRECOMPILE_OUTPUT_FILE=%listdir%\@.asq
+; Native Code Options
+; Debugger Options
+INCLUDE_ALL_INFO=1
+; Interop Options
+; Miscellaneous Options
+ARRAY_BOUNDARY_CHECK=1
+OFF_LOCAL_OPTIMIZER=1
+SPACE_AS_ZERO=1
+CODE_VERSION=1
+CODE_VERSION_NUMBER=102
+
+[FILE_COMPILE_OPTION-spro3:Debug Mode:Source\menu3-credirect.cbl]
+COPY_DEPENDENCE=\mx\fd\COBCAP.sl;\mx\fd\COBCAP.fd;\mistral\def\acugui.def;\mistral\def\acucobol.def;\mistral\def\crtvars.def;\mistral\def\fonts.def;\mistral\def\showmsg.def;\mistral\copy\cobcap.wrk;\mistral\copy\lk-cjbuser.wrk;\mistral\copy\lk-userproc.wrk;\mx\copy\LK-ART-C.wrk;\mx\copy\LK-HIV-C.wrk;\mx\copy\LK-SBD-C.wrk;\mx\copy\envmis.wrk;\mistral\def\filesys.def;\mistral\def\handler.cpy;\mx\copy\envmis-handler.wrk;\mx\copy\envmis-stat.wrk;\mistral\def\showmsg.cpy;\mistral\copy\envmis-credirect.cbl;\mx\copy\envmis-handler.cpy
+FOLLOW_PROJECT=1
+; Standard Options
+NAME_OBJECT_FILE=.\object\@.acu
+NAME_ERROR_FILE=@.err
+MAX_ERROR_COUNT_NUM=100
+REMOTE_SERVER_NAME=192,63,63,102
+REMOTE_SERVER_PORT=10300
+REMOTE_SERVER_DIR=/webp/mx/o3
+REMOTE_OBJECT_FILE=@.acu
+; Listing Options
+NAME_LISTING_FILE=.\list\@.lst
+; Compatibility Options
+; File Options
+XFD_FILE_VERSION=0
+; Source Options
+SOURCE_FORMAT_TYPE=2
+; ReservedWord Options
+; DataStorage Options
+ALIGNMENT_DATA_BOUNDARY=4
+SYNC_BOUNDARY_LIMIT_NUMBER=4
+; Video Options
+; Mapping Options
+; Precompiler Options
+NAME_PRECOMPILE_OUTPUT_FILE=.\list\@.asq
+; Native Code Options
+; Debugger Options
+INCLUDE_ALL_INFO=1
+; Interop Options
+; Miscellaneous Options
+DEBUGGING=1
+
+[PROJECT_COMPILE_SETTING-spro3:Release Mode]
+; Standard Options
+NAME_OBJECT_FILE=.\object\@.acu
+NAME_ERROR_FILE=@.err
+MAX_ERROR_COUNT_NUM=100
+REMOTE_SERVER_NAME=192,63,63,102
+REMOTE_SERVER_PORT=10300
+REMOTE_SERVER_DIR=/webp/mx/o3
+REMOTE_OBJECT_FILE=@.acu
+; Listing Options
+NAME_LISTING_FILE=.\list\@.lst
+; Compatibility Options
+; File Options
+XFD_FILE_VERSION=0
+; Source Options
+SOURCE_FORMAT_TYPE=2
+; ReservedWord Options
+; DataStorage Options
+ALIGNMENT_DATA_BOUNDARY=4
+SYNC_BOUNDARY_LIMIT_NUMBER=4
+; Video Options
+; Mapping Options
+; Precompiler Options
+NAME_PRECOMPILE_OUTPUT_FILE=.\list\@.asq
+; Native Code Options
+; Debugger Options
+; Interop Options
+; Miscellaneous Options
+
+[PROJECT_RUNTIME_SETTING-spro3:Release Mode]
+; Common Options
+NAME_CONFIGURATION_FILE=\etc\cblconfi
+; Io Options
+; Debug Options
+; ThinClient Options
+REMOTE_CONFIG_NAME=192,63,63,102:10300:/etc/cblconfig
+REMOTE_CONFIG_DEBUG=0
+REMOTE_CONFIG_DEBUG_PORT=5632
+
+[PROJECT_ENVIRONMENT_SETTING-spro3:Release Mode]
+VARIABLE0=RUNNAME,Wrun32.exe
+VARIABLE1=COMPILERNAME,Ccbl32.exe
+VARIABLE2=CODE_PREFIX,.\object
+VARIABLE3=ACUPATH,%acudir%\bin
+VARIABLE4=COPYPATH,.\screen;.\copylib;.\report;.\resource;.\fd;%acudir%\sample\def;%layoutdir%
+VARIABLE5=THINNAME,AcuThin.exe
+
+[PROJECT_LIBRARY_SETTING-spro3:Release Mode]
+NAME_LIBRARY_FILE=.\object\@.lib
+
+[FILE_COMPILE_OPTION-spro3:Release Mode:Source\art-c.cbl]
+FOLLOW_PROJECT=1
+RECPMPILE=1
+; Standard Options
+NAME_OBJECT_FILE=.\object\@.acu
+NAME_ERROR_FILE=@.err
+MAX_ERROR_COUNT_NUM=100
+REMOTE_SERVER_NAME=192,63,63,102
+REMOTE_SERVER_PORT=10300
+REMOTE_SERVER_DIR=/webp/mx/o3
+REMOTE_OBJECT_FILE=@.acu
+; Listing Options
+NAME_LISTING_FILE=.\list\@.lst
+; Compatibility Options
+; File Options
+XFD_FILE_VERSION=0
+; Source Options
+SOURCE_FORMAT_TYPE=2
+; ReservedWord Options
+; DataStorage Options
+ALIGNMENT_DATA_BOUNDARY=4
+SYNC_BOUNDARY_LIMIT_NUMBER=4
+; Video Options
+; Mapping Options
+; Precompiler Options
+NAME_PRECOMPILE_OUTPUT_FILE=.\list\@.asq
+; Native Code Options
+; Debugger Options
+; Interop Options
+; Miscellaneous Options
+
+[FILE_COMPILE_OPTION-spro3:Release Mode:Source\mar-handler.cbl]
+FOLLOW_PROJECT=1
+RECPMPILE=1
+; Standard Options
+NAME_OBJECT_FILE=.\object\@.acu
+NAME_ERROR_FILE=@.err
+MAX_ERROR_COUNT_NUM=100
+REMOTE_SERVER_NAME=192,63,63,102
+REMOTE_SERVER_PORT=10300
+REMOTE_SERVER_DIR=/webp/mx/o3
+REMOTE_OBJECT_FILE=@.acu
+; Listing Options
+NAME_LISTING_FILE=.\list\@.lst
+; Compatibility Options
+; File Options
+XFD_FILE_VERSION=0
+; Source Options
+SOURCE_FORMAT_TYPE=2
+; ReservedWord Options
+; DataStorage Options
+ALIGNMENT_DATA_BOUNDARY=4
+SYNC_BOUNDARY_LIMIT_NUMBER=4
+; Video Options
+; Mapping Options
+; Precompiler Options
+NAME_PRECOMPILE_OUTPUT_FILE=.\list\@.asq
+; Native Code Options
+; Debugger Options
+; Interop Options
+; Miscellaneous Options
+
+[FILE_COMPILE_OPTION-spro3:Release Mode:Source\mar.cbl]
+FOLLOW_PROJECT=1
+RECPMPILE=1
+; Standard Options
+NAME_OBJECT_FILE=.\object\@.acu
+NAME_ERROR_FILE=@.err
+MAX_ERROR_COUNT_NUM=100
+REMOTE_SERVER_NAME=192,63,63,102
+REMOTE_SERVER_PORT=10300
+REMOTE_SERVER_DIR=/webp/mx/o3
+REMOTE_OBJECT_FILE=@.acu
+; Listing Options
+NAME_LISTING_FILE=.\list\@.lst
+; Compatibility Options
+; File Options
+XFD_FILE_VERSION=0
+; Source Options
+SOURCE_FORMAT_TYPE=2
+; ReservedWord Options
+; DataStorage Options
+ALIGNMENT_DATA_BOUNDARY=4
+SYNC_BOUNDARY_LIMIT_NUMBER=4
+; Video Options
+; Mapping Options
+; Precompiler Options
+NAME_PRECOMPILE_OUTPUT_FILE=.\list\@.asq
+; Native Code Options
+; Debugger Options
+; Interop Options
+; Miscellaneous Options
+
+[FILE_COMPILE_OPTION-spro3:Release Mode:Source\menu3-credirect.cbl]
+FOLLOW_PROJECT=1
+RECPMPILE=1
+; Standard Options
+NAME_OBJECT_FILE=.\object\@.acu
+NAME_ERROR_FILE=@.err
+MAX_ERROR_COUNT_NUM=100
+REMOTE_SERVER_NAME=192,63,63,102
+REMOTE_SERVER_PORT=10300
+REMOTE_SERVER_DIR=/webp/mx/o3
+REMOTE_OBJECT_FILE=@.acu
+; Listing Options
+NAME_LISTING_FILE=.\list\@.lst
+; Compatibility Options
+; File Options
+XFD_FILE_VERSION=0
+; Source Options
+SOURCE_FORMAT_TYPE=2
+; ReservedWord Options
+; DataStorage Options
+ALIGNMENT_DATA_BOUNDARY=4
+SYNC_BOUNDARY_LIMIT_NUMBER=4
+; Video Options
+; Mapping Options
+; Precompiler Options
+NAME_PRECOMPILE_OUTPUT_FILE=.\list\@.asq
+; Native Code Options
+; Debugger Options
+; Interop Options
+; Miscellaneous Options

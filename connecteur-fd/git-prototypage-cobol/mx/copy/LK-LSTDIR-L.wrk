@@ -1,0 +1,20 @@
+      * Linkage de LSTDIR-L
+       01 LK-LSTDIR-L.
+      * répertoire des fichiers à lister
+           05 LK-LSTDIR-L-REP  PIC X(50).
+      * Extension: si renseigné, liste des fichiers ayant cette extension (exemple : txt)
+      * si "jpg" on affiche les jpg JPG jpeg JPEG 
+           05 LK-LSTDIR-L-EXT  PIC X(10).
+      * Préfixe: si renseigné, liste des fichiers commençant par ce prefixe (exemple : VO)
+           05 LK-LSTDIR-L-PRE  PIC X(10).
+      * Nom du fichier sélectionné 
+           05 LK-LSTDIR-L-FIC PIC X(50).
+      * 1 = menu contextuel pour supprimer un fichier   
+           05 LK-LSTDIR-L-DEL PIC 9.
+           05 LK-LSTDIR-L-CAT PIC 9.        | 1 = Bouton spécial accès à l'éclaté de pièces Caterpillar (Interface 35 -19)
+           05 LK-LSTDIR-L-AGE PIC XXX.      | Agence (si appel depuis selintx / Caterpillar)
+           05 LK-LSTDIR-L-ORI PIC X.        | Origine "D" ou "R" (si appel depuis selintx / Caterpillar)
+           05 LK-LSTDIR-L-TYB PIC X.        | Type bon si SAV (si appel depuis selintx / Caterpillar)
+           05 LK-LSTDIR-L-BON PIC 9(8).     | N° de bon (si appel depuis selintx / Caterpillar)
+           05 LK-LSTDIR-L-KRAMP PIC 9.      | 1 = Bouton spécial accès au catalogue en ligne KRAMP (Interface 35 -22)
+           05 FILLER            PIC X(44).

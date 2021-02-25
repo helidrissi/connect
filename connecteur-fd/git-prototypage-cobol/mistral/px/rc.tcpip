@@ -1,0 +1,11 @@
+/acu/mistral/px/VncTomcat &
+/acu/mistral/px/START-MYSQL 2>/acu/mysql/START-MYSQL >/acu/mysql/START-MYSQL&
+/usr/local/bin/sudo -u mistral /usr/acucobol8/bin/lance &
+/usr/local/bin/sudo -u mistral /usr/acucobol8/bin/lance81 &
+/usr/local/bin/sudo -u mistral /usr/acucobol8/bin/lance82 &
+/usr/local/bin/sudo -u mistral /usr/acucobol8/bin/lance83 &
+/usr/local/bin/sudo -u mistral /usr/acucobol8/bin/lance84 &
+/usr/local/bin/sudo -u mistral /usr/acucobol8/bin/lance85 &
+/usr/local/bin/sudo -u mistral /usr/acucobol8/bin/lanceMIAMI &
+/usr/local/bin/sudo -u mistral /acu/mistral/px/StartMiami &
+

@@ -1,0 +1,54 @@
+       01 DSC-ARGS.
+           02 DSC-FILENAME           PIC X(12).
+           02 DSC-COMMAND            PIC X(12).
+           02 DSC-OPEN-MODE          PIC X(12).
+           02 DSC-READ-KEY-NAME      PIC X(12).
+           02 DSC-READ-KEY-VALUE     PIC X(20).
+           02 DSC-READ-DIRECTION     PIC X(12).
+           02 DSC-REWRITE-KEY-VALUE  PIC X(20).
+           02 DSC-START-KEY-NAME     PIC X(12).
+           02 DSC-START-KEY-VALUE    PIC X(20).
+           02 DSC-START-KEY-OPERATOR PIC X(12).
+           02 DSC-DELETE-KEY-VALUE   PIC X(20).
+           02 DSC-RECORD             PIC X(1000).
+           02 DSC-RECORD-SIZE        PIC 9(9).
+       01 DSCLIENT-COMMON-CMD.
+           02 PROCESS-ID-CMD        PIC  9(8).
+           02 FILENAME-CMD          PIC  X(12).
+           02 COMMAND-CMD           PIC  X(12).
+       01 DSCLIENT-OPEN-CMD.
+           02 OPEN-MODE-CMD         PIC  X(12).
+       01 DSCLIENT-READ-CMD.
+           02 KEY-NAME-CMD          PIC  X(12).
+           02 KEY-VALUE-CMD         PIC  X(20).
+           02 DIRECTION-CMD         PIC  X(12).
+       01 DSCLIENT-REWRITE-CMD.
+           02 KEY-VALUE-CMD         PIC  X(20).
+       01 DSCLIENT-START-CMD.
+           02 KEY-NAME-CMD          PIC  X(12).
+           02 KEY-VALUE-CMD         PIC  X(20).
+           02 KEY-OPERATOR-CMD      PIC  X(12).
+       01 DSCLIENT-DELETE-CMD.
+           02 KEY-VALUE-CMD         PIC  X(20).
+       01 DSCLIENT-STATUS.
+           02 DSC-INVALID           PIC  9(1).
+           02 DSC-EOF               PIC  9(1).
+       01 DSCLIENT-INTERNAL-STATUS.
+      * 0  - OK, no result
+      * 1  - ERROR, no result
+      * 2  - OK, result available
+      * 3  - ERROR, result available
+           02 DSC-COMMAND-STATUS    PIC  9(2).
+       01 DSCLIENT-INTERNAL-ERROR.
+      * cf envmis.cbl, TEST-STATUS, Stat
+      * < 10 - pas une erreur                / IND-STAT=0
+      * 10 - EOF                             / IND-STAT=0
+      * 22 - Clé en double -> pas une erreur / IND-STAT=0
+      * 23 - Enreg non trouvé                / IND-STAT=0
+      * 93 - Enreg locké -> récupération PID / IND-STAT=2
+      * 99 - comme 93 IND-STAT               / IND-STAT=1
+      * 41 - fichier déjà ouvert             / IND-STAT=3
+      * 00 - undefined
+           02 DSC-ERROR-CODE        PIC  9(2).
+           02 DSC-LOCK-PID          PIC  9(8).
+           02 DSC-ERROR-MESSAGE     PIC  X(300).                       

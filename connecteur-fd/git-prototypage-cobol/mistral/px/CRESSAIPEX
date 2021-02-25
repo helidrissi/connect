@@ -1,0 +1,60 @@
+clear1
+echo "       PROCEDURE DE RAJOUT DE LA PAIE EN JEU D' ESSAI"
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
+echo "\n"
+echo "S'assurer que personne ne travaille dans  PEX"
+echo "\n"
+echo "\n"
+echo "Environnement (exemples : /acuf /acuf/S2): \c"
+read DIR2
+if [ ! -d $DIR2/palme ]
+   then echo "\n      Environnement INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ ! -d $DIR2 ]
+   then echo "\n"
+   echo "Proc‚dure non R‚alisable \c"
+   read ok
+   exit
+fi
+echo "Confirmez-vous (Taper 'OUI' Pour confirmer) \c"
+read OK
+if [ $OK != "OUI" ]
+    then
+    echo "\n"
+    echo " Procédure Non Réalisée - Taper • \c "
+    read ok
+    exit
+fi
+if [ -d $DIR2/E ]
+   then :
+   else echo "\n"
+   echo "Jeu d'Essai Inexistant : Non Réalisable \c"
+   read ok
+   exit
+fi
+if [ -d $DIR2/E/pex ]
+   then echo "\n"
+   echo "Procédure Déjà Réalisée : Non Réalisable \c"
+   read ok
+   exit
+fi
+echo "\n"
+echo " Traitement en Cours - Veuillez Patienter "
+echo "     .Création de l'environnement"
+cd $DIR2
+cd E
+mkdir pex pex/f pex/ft
+echo "     .Copie des Fichiers PAIE  "
+cp $DIR2/pex/f/B[A-T]*  pex/f
+cp $DIR2/pex/f/[C-Z]*  pex/f
+if [ $? != 0 ] 
+         then echo "\n"
+              echo "    ATTENTION Problême: cp pex/f ---> E/pex/f "
+              echo "    Contacter MISTRAL Informatique \c"
+              read ok
+              exit
+fi
+echo "\n"
+echo "Procédure Terminée "

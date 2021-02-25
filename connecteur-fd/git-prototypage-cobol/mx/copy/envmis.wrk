@@ -1,0 +1,6 @@
+      * Working storage pour le fonctionnement des handlers
+       copy "filesys.def".
+       copy "handler.cpy".
+       copy "envmis-handler.wrk".
+       copy "envmis-stat.wrk".
+       

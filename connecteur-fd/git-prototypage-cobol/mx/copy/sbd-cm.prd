@@ -1,0 +1,1162 @@
+      * sbd-cm.prd
+      * sbd-cm.prd is generated from W:\mx\spro\sbd-cm.Psf
+      * This is a generated file. DO NOT modify this file directly.
+
+       Acu-Initial-Routine.
+      *    Before-Init
+      * get system information
+           ACCEPT System-Information FROM System-Info
+      * get terminal information
+           ACCEPT Terminal-Abilities FROM Terminal-Info
+      * set custom color
+           MOVE 3 TO Wpal-Color-Id
+           MOVE 69 TO Wpal-Red
+           MOVE 122 TO Wpal-Green
+           MOVE 211 TO Wpal-Blue
+           CALL "W$PALETTE" USING Wpalette-Set-Color, Wpalette-Data
+           MOVE 6 TO Wpal-Color-Id
+           MOVE 223 TO Wpal-Red
+           MOVE 223 TO Wpal-Green
+           MOVE 255 TO Wpal-Blue
+           CALL "W$PALETTE" USING Wpalette-Set-Color, Wpalette-Data
+           MOVE 7 TO Wpal-Color-Id
+           MOVE 237 TO Wpal-Red
+           MOVE 255 TO Wpal-Green
+           MOVE 221 TO Wpal-Blue
+           CALL "W$PALETTE" USING Wpalette-Set-Color, Wpalette-Data
+           MOVE 12 TO Wpal-Color-Id
+           MOVE 0 TO Wpal-Red
+           MOVE 128 TO Wpal-Green
+           MOVE 0 TO Wpal-Blue
+           CALL "W$PALETTE" USING Wpalette-Set-Color, Wpalette-Data
+           MOVE 15 TO Wpal-Color-Id
+           MOVE 255 TO Wpal-Red
+           MOVE 255 TO Wpal-Green
+           MOVE 150 TO Wpal-Blue
+           CALL "W$PALETTE" USING Wpalette-Set-Color, Wpalette-Data
+      * set font
+           PERFORM Acu-Init-Font
+      * load bitmap
+           PERFORM Acu-Init-Bmp
+      * create pop-up menu
+           PERFORM Acu-Init-Popup
+      * open file
+           PERFORM Acu-Open-Files
+      *    After-Init
+           .
+
+       Acu-Init-Font.
+      * font setting
+           INITIALIZE WFONT-DATA Calibri10
+           MOVE 10 TO WFONT-SIZE
+           MOVE "Calibri" TO WFONT-NAME
+           SET WFCHARSET-DEFAULT TO TRUE
+           SET WFONT-BOLD TO FALSE
+           SET WFONT-ITALIC TO FALSE
+           SET WFONT-UNDERLINE TO FALSE
+           SET WFONT-STRIKEOUT TO FALSE
+           SET WFFAMILY-DONT-CARE TO TRUE
+           SET WFONT-FIXED-PITCH TO FALSE
+           CALL "W$FONT" USING WFONT-GET-FONT, Calibri10, WFONT-DATA
+           INITIALIZE WFONT-DATA Calibri12
+           MOVE 12 TO WFONT-SIZE
+           MOVE "Calibri" TO WFONT-NAME
+           SET WFCHARSET-DEFAULT TO TRUE
+           SET WFONT-BOLD TO FALSE
+           SET WFONT-ITALIC TO FALSE
+           SET WFONT-UNDERLINE TO FALSE
+           SET WFONT-STRIKEOUT TO FALSE
+           SET WFFAMILY-DONT-CARE TO TRUE
+           SET WFONT-FIXED-PITCH TO FALSE
+           CALL "W$FONT" USING WFONT-GET-FONT, Calibri12, WFONT-DATA
+           INITIALIZE WFONT-DATA Calibri9
+           MOVE 9 TO WFONT-SIZE
+           MOVE "Calibri" TO WFONT-NAME
+           SET WFCHARSET-DEFAULT TO TRUE
+           SET WFONT-BOLD TO FALSE
+           SET WFONT-ITALIC TO FALSE
+           SET WFONT-UNDERLINE TO FALSE
+           SET WFONT-STRIKEOUT TO FALSE
+           SET WFFAMILY-DONT-CARE TO TRUE
+           SET WFONT-FIXED-PITCH TO FALSE
+           CALL "W$FONT" USING WFONT-GET-FONT, Calibri9, WFONT-DATA
+           INITIALIZE WFONT-DATA Calibri11
+           MOVE 11 TO WFONT-SIZE
+           MOVE "Calibri" TO WFONT-NAME
+           SET WFCHARSET-DEFAULT TO TRUE
+           SET WFONT-BOLD TO FALSE
+           SET WFONT-ITALIC TO FALSE
+           SET WFONT-UNDERLINE TO FALSE
+           SET WFONT-STRIKEOUT TO FALSE
+           SET WFFAMILY-DONT-CARE TO TRUE
+           SET WFONT-FIXED-PITCH TO FALSE
+           CALL "W$FONT" USING WFONT-GET-FONT, Calibri11, WFONT-DATA
+           .
+
+       Acu-Init-Bmp.
+      * bitmap loading
+           COPY RESOURCE "IMPRIMER32.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "IMPRIMER32.BMP", GIVING 
+              IMPRIMER32-BMP
+           COPY RESOURCE "W:\mx\resource\MODIFIE16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "MODIFIE16.BMP", GIVING 
+              MODIFIE16-BMP
+           COPY RESOURCE "COLLAPSE7.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "COLLAPSE7.JPG", GIVING 
+              COLLAPSE7-JPG
+           COPY RESOURCE "ZOOMxxx10.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "ZOOMxxx10.BMP", GIVING 
+              ZOOMxxx10-BMP
+           COPY RESOURCE "FLECHEB24.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "FLECHEB24.BMP", GIVING 
+              FLECHEB24-BMP
+           COPY RESOURCE "DOLLARX12.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "DOLLARX12.JPG", GIVING 
+              DOLLARX12-JPG
+           COPY RESOURCE "ZOOMxxx12.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "ZOOMxxx12.BMP", GIVING 
+              ZOOMxxx12-BMP
+           COPY RESOURCE "NOSERIE12.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "NOSERIE12.JPG", GIVING 
+              NOSERIE12-JPG
+           COPY RESOURCE "W:\mx\resource\SAUVEGA16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "SAUVEGA16.BMP", GIVING 
+              SAUVEGA16-BMP
+           COPY RESOURCE "W:\mx\resource\ADDxxxx16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "ADDxxxx16.BMP", GIVING 
+              ADDxxxx16-BMP
+           COPY RESOURCE "W:\mx\resource\FLECHEB24.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "FLECHEB24.BMP", GIVING 
+              FLECHEB24-BMP
+           COPY RESOURCE "W:\mx\resource\IMPRIMER32.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "IMPRIMER32.BMP", GIVING 
+              IMPRIMER32-BMP
+           COPY RESOURCE "TERMINER32.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "TERMINER32.BMP", GIVING 
+              TERMINER32-BMP
+           COPY RESOURCE "TROMBONE32.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "TROMBONE32.BMP", GIVING 
+              TROMBONE32-BMP
+           COPY RESOURCE "WARBLAN24.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "WARBLAN24.JPG", GIVING 
+              WARBLAN24-JPG
+           COPY RESOURCE "VALIDER16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "VALIDER16.BMP", GIVING 
+              VALIDER16-BMP
+           COPY RESOURCE "ANNULER16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "ANNULER16.BMP", GIVING 
+              ANNULER16-BMP
+           COPY RESOURCE "TOUTCOC24.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "TOUTCOC24.JPG", GIVING 
+              TOUTCOC24-JPG
+           COPY RESOURCE "TOUTDEC24.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "TOUTDEC24.JPG", GIVING 
+              TOUTDEC24-JPG
+           COPY RESOURCE "RELIQOK16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "RELIQOK16.BMP", GIVING 
+              RELIQOK16-BMP
+           COPY RESOURCE "RELIQNO16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "RELIQNO16.BMP", GIVING 
+              RELIQNO16-BMP
+           COPY RESOURCE "VALIDER24.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "VALIDER24.JPG", GIVING 
+              VALIDER24-JPG
+           COPY RESOURCE "ANNULER24.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "ANNULER24.JPG", GIVING 
+              ANNULER24-JPG
+           COPY RESOURCE "COLISXX16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "COLISXX16.BMP", GIVING 
+              COLISXX16-BMP
+           COPY RESOURCE "VALIDER16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "VALIDER16.BMP", GIVING 
+              VALIDER16-BMP
+           COPY RESOURCE "W:\mx\resource\RAFRAICHIR32.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "RAFRAICHIR32.BMP", 
+              GIVING RAFRAICHIR32-BMP
+           .
+
+       Acu-Init-Popup.
+           PERFORM Acu-Screen2-Mn-2-Menu
+           MOVE Menu-Handle TO Screen2-Mn-2-Handle
+           PERFORM Acu-Screen2-Mn-fonction-Menu
+           MOVE Menu-Handle TO Screen2-Mn-Fonction-Handle
+           PERFORM Acu-Screen1-Mn-Fonctions-Menu
+           MOVE Menu-Handle TO Screen1-Mn-Fonctions-Handle
+           PERFORM Acu-Screen1-Mn-Boutons-Menu
+           MOVE Menu-Handle TO Screen1-Mn-Boutons-Handle
+           .
+
+       Acu-Exit-Rtn.
+      * destroy font
+           PERFORM Acu-Exit-Font
+      * destroy bitmap
+           PERFORM Acu-Exit-Bmp
+           PERFORM Acu-Close-Files
+      *    After-Program
+           EXIT PROGRAM
+           STOP RUN
+           .
+       Acu-Exit-Font.
+      * font destroy
+           IF Calibri10 NOT = NULL
+              DESTROY Calibri10
+              SET Calibri10 TO NULL
+           END-IF
+           IF Calibri12 NOT = NULL
+              DESTROY Calibri12
+              SET Calibri12 TO NULL
+           END-IF
+           IF Calibri9 NOT = NULL
+              DESTROY Calibri9
+              SET Calibri9 TO NULL
+           END-IF
+           IF Calibri11 NOT = NULL
+              DESTROY Calibri11
+              SET Calibri11 TO NULL
+           END-IF
+           .
+
+       Acu-Exit-Bmp.
+      * bitmap destroy
+           IF IMPRIMER32-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY IMPRIMER32-BMP
+              MOVE 0 TO IMPRIMER32-BMP
+           END-IF
+           IF MODIFIE16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY MODIFIE16-BMP
+              MOVE 0 TO MODIFIE16-BMP
+           END-IF
+           IF COLLAPSE7-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY COLLAPSE7-JPG
+              MOVE 0 TO COLLAPSE7-JPG
+           END-IF
+           IF ZOOMxxx10-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY ZOOMxxx10-BMP
+              MOVE 0 TO ZOOMxxx10-BMP
+           END-IF
+           IF FLECHEB24-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY FLECHEB24-BMP
+              MOVE 0 TO FLECHEB24-BMP
+           END-IF
+           IF DOLLARX12-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY DOLLARX12-JPG
+              MOVE 0 TO DOLLARX12-JPG
+           END-IF
+           IF ZOOMxxx12-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY ZOOMxxx12-BMP
+              MOVE 0 TO ZOOMxxx12-BMP
+           END-IF
+           IF NOSERIE12-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY NOSERIE12-JPG
+              MOVE 0 TO NOSERIE12-JPG
+           END-IF
+           IF SAUVEGA16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY SAUVEGA16-BMP
+              MOVE 0 TO SAUVEGA16-BMP
+           END-IF
+           IF ADDxxxx16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY ADDxxxx16-BMP
+              MOVE 0 TO ADDxxxx16-BMP
+           END-IF
+           IF FLECHEB24-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY FLECHEB24-BMP
+              MOVE 0 TO FLECHEB24-BMP
+           END-IF
+           IF IMPRIMER32-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY IMPRIMER32-BMP
+              MOVE 0 TO IMPRIMER32-BMP
+           END-IF
+           IF TERMINER32-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY TERMINER32-BMP
+              MOVE 0 TO TERMINER32-BMP
+           END-IF
+           IF TROMBONE32-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY TROMBONE32-BMP
+              MOVE 0 TO TROMBONE32-BMP
+           END-IF
+           IF WARBLAN24-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY WARBLAN24-JPG
+              MOVE 0 TO WARBLAN24-JPG
+           END-IF
+           IF VALIDER16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY VALIDER16-BMP
+              MOVE 0 TO VALIDER16-BMP
+           END-IF
+           IF ANNULER16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY ANNULER16-BMP
+              MOVE 0 TO ANNULER16-BMP
+           END-IF
+           IF TOUTCOC24-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY TOUTCOC24-JPG
+              MOVE 0 TO TOUTCOC24-JPG
+           END-IF
+           IF TOUTDEC24-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY TOUTDEC24-JPG
+              MOVE 0 TO TOUTDEC24-JPG
+           END-IF
+           IF RELIQOK16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY RELIQOK16-BMP
+              MOVE 0 TO RELIQOK16-BMP
+           END-IF
+           IF RELIQNO16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY RELIQNO16-BMP
+              MOVE 0 TO RELIQNO16-BMP
+           END-IF
+           IF VALIDER24-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY VALIDER24-JPG
+              MOVE 0 TO VALIDER24-JPG
+           END-IF
+           IF ANNULER24-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY ANNULER24-JPG
+              MOVE 0 TO ANNULER24-JPG
+           END-IF
+           IF COLISXX16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY COLISXX16-BMP
+              MOVE 0 TO COLISXX16-BMP
+           END-IF
+           IF VALIDER16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY VALIDER16-BMP
+              MOVE 0 TO VALIDER16-BMP
+           END-IF
+           IF RAFRAICHIR32-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY RAFRAICHIR32-BMP
+              MOVE 0 TO RAFRAICHIR32-BMP
+           END-IF
+           .
+
+       Acu-Open-Files.
+      *    Before-Open
+      *    After-Open
+           .
+
+       Acu-Screen2-Routine.
+      *    Before-Routine
+           PERFORM Acu-Screen2-Scrn
+           PERFORM Acu-Screen2-Proc
+      *    After-Routine
+           .
+
+       Acu-Screen3-Routine.
+      *    Before-Routine
+           PERFORM Acu-Screen3-Scrn
+           PERFORM Acu-Screen3-Proc
+      *    After-Routine
+           .
+
+       Acu-ScreenRUP-Routine.
+      *    Before-Routine
+           PERFORM Acu-ScreenRUP-Scrn
+           PERFORM Acu-ScreenRUP-Proc
+      *    After-Routine
+           .
+
+       Acu-ScreenLIV-Routine.
+      *    Before-Routine
+           PERFORM Acu-ScreenLIV-Scrn
+           PERFORM Acu-ScreenLIV-Proc
+      *    After-Routine
+           .
+
+       Acu-ScreenMarge-Routine.
+      *    Before-Routine
+           PERFORM Acu-ScreenMarge-Scrn
+           PERFORM Acu-ScreenMarge-Proc
+      *    After-Routine
+           .
+
+       Acu-Screen1-Routine.
+      *    Before-Routine
+           PERFORM Acu-Screen1-Scrn
+           PERFORM Acu-Screen1-Proc
+           PERFORM Screen1-Aft-Routine
+           .
+
+       Acu-ScreenRech-Routine.
+      *    Before-Routine
+           PERFORM Acu-ScreenRech-Scrn
+           PERFORM Acu-ScreenRech-Proc
+      *    After-Routine
+           .
+
+       Acu-Screen2-Scrn.
+           PERFORM Acu-Screen2-Create-Win
+           PERFORM Acu-Screen2-Init-Data
+           .
+
+       Acu-Screen3-Scrn.
+           PERFORM Acu-Screen3-Create-Win
+           PERFORM Acu-Screen3-Init-Data
+           .
+
+       Acu-ScreenRUP-Scrn.
+           PERFORM Acu-ScreenRUP-Create-Win
+           PERFORM Acu-ScreenRUP-Init-Data
+           .
+
+       Acu-ScreenLIV-Scrn.
+           PERFORM Acu-ScreenLIV-Create-Win
+           PERFORM Acu-ScreenLIV-Init-Data
+           .
+
+       Acu-ScreenMarge-Scrn.
+           PERFORM Acu-ScreenMarge-Create-Win
+           PERFORM Acu-ScreenMarge-Init-Data
+           .
+
+       Acu-Screen1-Scrn.
+           PERFORM Acu-Screen1-Create-Win
+           PERFORM Acu-Screen1-Init-Data
+           .
+
+       Acu-ScreenRech-Scrn.
+           PERFORM Acu-ScreenRech-Create-Win
+           PERFORM Acu-ScreenRech-Init-Data
+           .
+
+       Acu-Screen2-Create-Win.
+           PERFORM Screen2-Bef-Create
+      * display screen
+              DISPLAY Floating GRAPHICAL WINDOW
+                 LINES 67,00, SIZE 210,00, CELL HEIGHT 13, 
+                 CELL WIDTH 7, BOXED, COLOR IS 65792, LABEL-OFFSET 0, 
+                 LINK TO THREAD, NO SCROLL, TITLE-BAR, USER-GRAY, 
+                 USER-WHITE, NO WRAP, ATW-CSS-ID "max_screen_sbd_2", 
+                 EVENT PROCEDURE Screen2-Event-Proc, 
+                 HANDLE IS Screen2-Handle
+      * toolbar
+           DISPLAY Screen2 UPON Screen2-Handle
+      *    After-Create
+           .
+
+       Acu-Screen3-Create-Win.
+           PERFORM Screen3-Bef-Create
+      * display screen
+              DISPLAY Floating GRAPHICAL WINDOW
+                 LINES 85,77, SIZE 210,00, CELL HEIGHT 13, 
+                 CELL WIDTH 7, BOXED, COLOR IS 65793, LABEL-OFFSET 0, 
+                 LINK TO THREAD, NO SCROLL, TITLE-BAR, USER-GRAY, 
+                 USER-WHITE, NO WRAP, ATW-CSS-ID "max_screen_sbd_3", 
+                 EVENT PROCEDURE Screen3-Event-Proc, 
+                 HANDLE IS Screen3-Handle
+      * toolbar
+           DISPLAY Screen3 UPON Screen3-Handle
+      *    After-Create
+           .
+
+       Acu-ScreenRUP-Create-Win.
+           PERFORM ScreenRUP-Bef-Create
+      * display screen
+              DISPLAY Floating GRAPHICAL WINDOW
+                 LINES 20,08, SIZE 44,43, CELL HEIGHT 13, CELL WIDTH 7, 
+                 COLOR IS 65730, LABEL-OFFSET 0, LINK TO THREAD, 
+                 NO SCROLL, 
+                 TITLE " RUPTURE DE STOCK", TITLE-BAR, USER-GRAY, 
+                 USER-WHITE, NO WRAP, 
+                 EVENT PROCEDURE ScreenRUP-Event-Proc, 
+                 HANDLE IS ScreenRUP-Handle
+      * toolbar
+           DISPLAY ScreenRUP UPON ScreenRUP-Handle
+      *    After-Create
+           .
+
+       Acu-ScreenLIV-Create-Win.
+           PERFORM ScreenLIV-Bef-Create
+      * display screen
+              DISPLAY Floating GRAPHICAL WINDOW
+                 LINES 28,62, SIZE 104,57, CELL HEIGHT 13, 
+                 CELL WIDTH 7, BOXED, COLOR IS 65793, LABEL-OFFSET 0, 
+                 LINK TO THREAD, MODELESS, NO SCROLL, 
+                 TITLE ScreenLIV-Tit, TITLE-BAR, USER-GRAY, USER-WHITE, 
+                 NO WRAP, 
+                 EVENT PROCEDURE ScreenLIV-Event-Proc, 
+                 HANDLE IS ScreenLIV-Handle
+      * toolbar
+           DISPLAY ScreenLIV UPON ScreenLIV-Handle
+      *    After-Create
+           .
+
+       Acu-ScreenMarge-Create-Win.
+      *    Before-Create
+      * display screen
+              DISPLAY Floating GRAPHICAL WINDOW
+                 LINES 8,62, SIZE 30,29, CELL HEIGHT 13, CELL WIDTH 7, 
+                 COLOR IS 65793, LABEL-OFFSET 0, LINK TO THREAD, 
+                 MODELESS, NO SCROLL, TITLE MPL-MAGD, TITLE-BAR, 
+                 USER-GRAY, USER-WHITE, NO WRAP, 
+                 EVENT PROCEDURE Screen4-Event-Proc, 
+                 HANDLE IS Screen4-Handle
+      * toolbar
+           DISPLAY ScreenMarge UPON Screen4-Handle
+      *    After-Create
+           .
+
+       Acu-Screen1-Create-Win.
+           PERFORM Screen1-Bef-Create
+      * display screen
+              DISPLAY Independent GRAPHICAL WINDOW
+                 LINES 67,00, SIZE 210,00, CELL HEIGHT 13, 
+                 CELL WIDTH 7, AUTO-MINIMIZE, COLOR IS 65793, 
+                 LABEL-OFFSET 0, MODELESS, NO SCROLL, WITH SYSTEM MENU, 
+                 TITLE PROLOG-PALM, TITLE-BAR, USER-GRAY, USER-WHITE, 
+                 NO WRAP, ATW-CSS-ID "max_screen_sbd_1", 
+                 EVENT PROCEDURE Screen1-Event-Proc, 
+                 HANDLE IS Screen1-Handle
+      * toolbar
+           DISPLAY Screen1 UPON Screen1-Handle
+      *    After-Create
+           .
+
+       Acu-ScreenRech-Create-Win.
+           PERFORM ScreenRech-Bef-Create
+      * display screen
+              DISPLAY Floating GRAPHICAL WINDOW
+                 LINES 3,46, SIZE 61,57, CELL HEIGHT 13, CELL WIDTH 7, 
+                 COLOR IS 65793, LABEL-OFFSET 0, LINK TO THREAD, 
+                 MODELESS, NO SCROLL, 
+                 TITLE "Rechercher un article", TITLE-BAR, USER-GRAY, 
+                 USER-WHITE, NO WRAP, 
+                 HANDLE IS ScreenRech-Handle
+      * toolbar
+           DISPLAY ScreenRech UPON ScreenRech-Handle
+      *    After-Create
+           .
+
+       Acu-Screen2-Init-Data.
+      *    Before-Initdata
+           PERFORM Acu-Screen2-Cm-TCO-Content
+           PERFORM Acu-Screen2-Cm-CVM-Content
+           PERFORM Acu-Screen2-DaGd-1-Content
+           PERFORM Acu-Screen2-Cm-1-Content
+           PERFORM Screen2-AfterInitData
+           .
+
+       Acu-Screen3-Init-Data.
+      *    Before-Initdata
+           PERFORM Acu-Screen3-Cm-MFA-Content
+           PERFORM Acu-Screen3-Cm-TFA-Content
+           PERFORM Acu-Screen3-DaGd-2-Content
+           PERFORM Acu-Screen3-Cm-1-Content
+           PERFORM Screen3-AfterInitData
+           .
+
+       Acu-ScreenRUP-Init-Data.
+      *    Before-Initdata
+           PERFORM ScreenRUP-Aft-Initdata
+           .
+
+       Acu-ScreenLIV-Init-Data.
+      *    Before-Initdata
+           PERFORM Acu-ScreenLIV-Gd-1-Content
+           PERFORM ScreenLIV-Aft-Initdata
+           .
+
+       Acu-ScreenMarge-Init-Data.
+      *    Before-Initdata
+           PERFORM ScreenMarge-Aft-Initdata
+           .
+
+       Acu-Screen1-Init-Data.
+      *    Before-Initdata
+           PERFORM Acu-Screen1-Cm-Typ-Content
+           PERFORM Acu-Screen1-Cm-TCO-Content
+           PERFORM Screen1-AfterInitData
+           .
+
+       Acu-ScreenRech-Init-Data.
+      *    Before-Initdata
+           PERFORM ScreenRech-Aft-Initdata
+           .
+      * Screen2
+       Acu-Screen2-Proc.
+           PERFORM UNTIL Exit-Pushed
+              ACCEPT Screen2  
+                 ON EXCEPTION PERFORM Acu-Screen2-Evaluate-Func
+              END-ACCEPT
+              EVALUATE TRUE
+      * Screen2-Pb-TTC Link To
+              WHEN Key-Status = 1636
+                 PERFORM Screen2-Pb-TTC-Link
+      * Screen2-Pb-Precedent Link To
+              WHEN Key-Status = 9862
+                 PERFORM Screen2-Pb-Precedent-LinkTo
+      * Screen2-Pb-Suivant Link To
+              WHEN Key-Status = 9861
+                 PERFORM Screen2-Pb-Suivant-LinkTo
+      * Screen2-Pb-RC Link To
+              WHEN Key-Status = 2012
+                 PERFORM Screen2-Pb-RC-LinkTo
+      * Screen2-Pb-Valider Link To
+              WHEN Key-Status = 9858
+                 PERFORM Screen2-Pb-Valider-LinkTo
+      * Screen2-Pb-Ajouter Link To
+              WHEN Key-Status = 9857
+                 PERFORM Ajout-Ligne
+      * Screen2-Pb-FicheArt Link To
+              WHEN Key-Status = 9701
+                 PERFORM Screen2-Pb-FicheArt-Link
+              END-EVALUATE
+           END-PERFORM
+           DESTROY Screen2-Handle
+           INITIALIZE Key-Status
+           .
+      * Screen3
+       Acu-Screen3-Proc.
+           PERFORM UNTIL Exit-Pushed
+              ACCEPT Screen3  
+                 ON EXCEPTION PERFORM Acu-Screen3-Evaluate-Func
+              END-ACCEPT
+              EVALUATE TRUE
+      * Screen3-Pb-Modifier Link To
+              WHEN Key-Status = 9854
+                 PERFORM Screen3-Pb-Modifier-LinkTo
+      * Screen3-Pb-Terminer Link To
+              WHEN Key-Status = 9840
+                 PERFORM Screen3-Pb-Terminer-LinkTo
+      * Screen3-Pb-Sauvegarder Link To
+              WHEN Key-Status = 9819
+                 PERFORM Screen3-Pb-Sauvegarder-Link
+      * Screen3-Pb-TXT Link To
+              WHEN Key-Status = 126
+                 PERFORM Screen3-Pb-TXT-Link
+      * Screen3-Pb-Precedent Link To
+              WHEN Key-Status = 9862
+                 PERFORM Screen3-Pb-Precedent-LinkTo
+              END-EVALUATE
+           END-PERFORM
+           DESTROY Screen3-Handle
+           INITIALIZE Key-Status
+           .
+      * ScreenRUP
+       Acu-ScreenRUP-Proc.
+           PERFORM UNTIL Exit-Pushed
+              ACCEPT ScreenRUP  
+                 ON EXCEPTION PERFORM Acu-ScreenRUP-Evaluate-Func
+              END-ACCEPT
+           END-PERFORM
+           DESTROY ScreenRUP-Handle
+           INITIALIZE Key-Status
+           .
+      * ScreenLIV
+       Acu-ScreenLIV-Proc.
+           PERFORM UNTIL Exit-Pushed
+              ACCEPT ScreenLIV  
+                 ON EXCEPTION PERFORM Acu-ScreenLIV-Evaluate-Func
+              END-ACCEPT
+           END-PERFORM
+           DESTROY ScreenLIV-Handle
+           INITIALIZE Key-Status
+           .
+      * ScreenMarge
+       Acu-ScreenMarge-Proc.
+           PERFORM UNTIL Exit-Pushed
+              ACCEPT ScreenMarge  
+                 ON EXCEPTION PERFORM Acu-ScreenMarge-Evaluate-Func
+              END-ACCEPT
+           END-PERFORM
+           DESTROY Screen4-Handle
+           INITIALIZE Key-Status
+           .
+      * Screen1
+       Acu-Screen1-Proc.
+           PERFORM UNTIL Exit-Pushed
+              ACCEPT Screen1  
+                 ON EXCEPTION PERFORM Acu-Screen1-Evaluate-Func
+              END-ACCEPT
+              EVALUATE TRUE
+      * Screen1-Pb-Creer Link To
+              WHEN Key-Status = 9853
+                 PERFORM Screen1-Pb-Creer-LinkTo
+      * Screen1-Pb-Agence Link To
+              WHEN Key-Status = 1011
+                 PERFORM Screen1-Pb-Agence-LinkTo
+              END-EVALUATE
+           END-PERFORM
+           DESTROY Screen1-Handle
+           INITIALIZE Key-Status
+           .
+      * ScreenRech
+       Acu-ScreenRech-Proc.
+           PERFORM UNTIL Exit-Pushed
+              ACCEPT ScreenRech  
+                 ON EXCEPTION PERFORM Acu-ScreenRech-Evaluate-Func
+              END-ACCEPT
+              EVALUATE TRUE
+      * ScreenRech-Pb-Valider Link To
+              WHEN Key-Status = 9858
+                 PERFORM ScreenRech-Pb-Valider-Link
+              END-EVALUATE
+           END-PERFORM
+           DESTROY ScreenRech-Handle
+           INITIALIZE Key-Status
+           .
+
+      * Screen2-Cm-TCO
+       Acu-Screen2-Cm-TCO-Content.
+           .
+
+      * Screen2-Cm-CVM
+       Acu-Screen2-Cm-CVM-Content.
+           .
+
+      * Screen2-DaGd-1
+       Acu-Screen2-DaGd-1-Content.
+      * Cells Settings
+           MODIFY Screen2-DaGd-1, X = 1, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-FONT = Small-Font, 
+              CELL-DATA = "T", 
+           MODIFY Screen2-DaGd-1, X = 2, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-FONT = Small-Font, 
+              CELL-DATA = "Produit", 
+           MODIFY Screen2-DaGd-1, X = 3, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-FONT = Small-Font, 
+              CELL-DATA = "Description", 
+           MODIFY Screen2-DaGd-1, X = 4, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-FONT = Small-Font, 
+              CELL-DATA = "Quantité", 
+           MODIFY Screen2-DaGd-1, X = 5, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-FONT = Small-Font, 
+              CELL-DATA = "PU Brut", 
+           MODIFY Screen2-DaGd-1, X = 6, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-FONT = Small-Font, 
+              CELL-DATA = "% R", 
+           MODIFY Screen2-DaGd-1, X = 7, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-FONT = Small-Font, 
+              CELL-DATA = "PU Net", 
+           MODIFY Screen2-DaGd-1, X = 8, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-FONT = Small-Font, 
+              CELL-DATA = "Montant", 
+           MODIFY Screen2-DaGd-1, X = 9, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-FONT = Small-Font, 
+              CELL-DATA = "S", 
+           MODIFY Screen2-DaGd-1, X = 10, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-FONT = Small-Font, 
+              CELL-DATA = "P", 
+           MODIFY Screen2-DaGd-1, X = 11, Y = 1, CELL-DATA = "Marge", 
+           MODIFY Screen2-DaGd-1, X = 12, Y = 1, CELL-DATA = "% MB", 
+           .
+
+      * Screen2-Cm-1
+       Acu-Screen2-Cm-1-Content.
+           MODIFY Screen2-Cm-1, MASS-UPDATE = 1, RESET-LIST = 1
+           MODIFY Screen2-Cm-1, ITEM-TO-ADD = TABLE 
+              Screen2-Cm-1-Container
+           MODIFY Screen2-Cm-1, MASS-UPDATE = 0
+           MODIFY Screen2-Cm-1, VALUE Screen2-Cm-1-Value
+           .
+
+      * Screen3-Cm-MFA
+       Acu-Screen3-Cm-MFA-Content.
+           .
+
+      * Screen3-Cm-TFA
+       Acu-Screen3-Cm-TFA-Content.
+           .
+
+      * Screen3-DaGd-2
+       Acu-Screen3-DaGd-2-Content.
+      * Cells Settings
+           MODIFY Screen3-DaGd-2, X = 1, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, 
+           MODIFY Screen3-DaGd-2, X = 2, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, CELL-DATA = 
+              "        Mode paiement", 
+           MODIFY Screen3-DaGd-2, X = 3, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, 
+           MODIFY Screen3-DaGd-2, X = 4, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, CELL-DATA = "Ech", 
+           MODIFY Screen3-DaGd-2, X = 5, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, CELL-DATA = "éance", 
+           MODIFY Screen3-DaGd-2, X = 6, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, 
+           MODIFY Screen3-DaGd-2, X = 7, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, CELL-DATA = "     Terme", 
+           MODIFY Screen3-DaGd-2, X = 8, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, CELL-DATA = "Echéance prévue", 
+           MODIFY Screen3-DaGd-2, X = 9, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, CELL-DATA = "%", 
+           MODIFY Screen3-DaGd-2, X = 10, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, CELL-DATA = "Montant échéance", 
+           .
+
+      * Screen3-Cm-1
+       Acu-Screen3-Cm-1-Content.
+           MODIFY Screen3-Cm-1, MASS-UPDATE = 1, RESET-LIST = 1
+           MODIFY Screen3-Cm-1, ITEM-TO-ADD = TABLE 
+              Screen3-Cm-1-Container
+           MODIFY Screen3-Cm-1, MASS-UPDATE = 0
+           .
+
+      * ScreenLIV-Gd-1
+       Acu-ScreenLIV-Gd-1-Content.
+      * Cells Settings
+           MODIFY ScreenLIV-Gd-1, X = 1, Y = 1, CELL-DATA = "T", 
+           MODIFY ScreenLIV-Gd-1, X = 2, Y = 1, CELL-DATA = "Produit", 
+           MODIFY ScreenLIV-Gd-1, X = 3, Y = 1, CELL-DATA = 
+              "Description", 
+           MODIFY ScreenLIV-Gd-1, X = 4, Y = 1, CELL-DATA = "Proposé", 
+           MODIFY ScreenLIV-Gd-1, X = 5, Y = 1, CELL-DATA = "Commandé", 
+           MODIFY ScreenLIV-Gd-1, X = 6, Y = 1, CELL-DATA = "Livré", 
+           MODIFY ScreenLIV-Gd-1, X = 7, Y = 1, CELL-DATA = "Rel", 
+           MODIFY ScreenLIV-Gd-1, X = 8, Y = 1, CELL-DATA = "Stock", 
+           .
+
+      * Screen1-Cm-Typ
+       Acu-Screen1-Cm-Typ-Content.
+           .
+
+      * Screen1-Cm-TCO
+       Acu-Screen1-Cm-TCO-Content.
+           .
+
+      * Screen2
+       Acu-Screen2-Evaluate-Func.
+           EVALUATE TRUE
+              WHEN Exit-Pushed
+                 PERFORM Acu-Screen2-Exit
+              WHEN Event-Occurred
+                 IF Event-Type = Cmd-Close
+                    PERFORM Acu-Screen2-Exit
+                 END-IF
+      * Screen2-Pb-Marge Link To
+              WHEN Key-Status = 9860
+                 PERFORM Screen2-Pb-Marge-Link
+      * Screen2-Pb-Annuler Link To
+              WHEN Key-Status = 2008
+                 PERFORM Screen2-Pb-Annuler-LinkTo
+      * Screen2-Pb-Supprimer Link To
+              WHEN Key-Status = 9856
+                 PERFORM Screen2-Pb-Supprimer-LinkTo
+      * Screen2-Pb-Terminer Link To
+              WHEN Key-Status = 9840
+                 PERFORM Screen2-Pb-Terminer-LinkTo
+      * Screen2-Pb-Imprimer Link To
+              WHEN Key-Status = 9816
+                 PERFORM Screen2-Pb-Imprimer-LinkTo
+      * Screen2-Pb-Modifier Link To
+              WHEN Key-Status = 9854
+                 PERFORM Screen2-Pb-Modifier-LinkTo
+      * Screen2-Pb-Liste Link To
+              WHEN Key-Status = 1007
+                 PERFORM Screen2-Pb-Liste-LinkTo
+      * Screen2-Pb-Ags Link To
+              WHEN Key-Status = 2050
+                 PERFORM Screen2-Pb-Ags-Link
+      * MI-Articles Link To
+              WHEN Key-Status = 1001
+                 PERFORM Call-Liste-Art
+      * MI-Famillesarticles Link To
+              WHEN Key-Status = 1005
+                 PERFORM Call-Liste-Fsa
+      * Screen2-Pb-ListeFou Link To
+              WHEN Key-Status = 1066
+                 PERFORM Call-Liste-Fou
+      * Screen2-Pb-AppliquerForfait Link To
+              WHEN Key-Status = 1085
+                 PERFORM Applic-Forfait
+      * Screen2-Pb-Serie Link To
+              WHEN Key-Status = 1031
+                 PERFORM Screen2-Pb-Serie-Link
+      * MI-Fichearticle Link To
+              WHEN Key-Status = 4001
+                 PERFORM Screen2-Mn-1-MI-Fichearticle-Link
+      * MI-Documentationarticle Link To
+              WHEN Key-Status = 4002
+                 PERFORM Screen2-Mn-1-MI-Documentationarticle-Link
+      * MI-Rechercherdanslacommande Link To
+              WHEN Key-Status = 4003
+                 PERFORM Screen2-Mn-1-MI-Rechercherdanslacommande-Link
+           END-EVALUATE
+           PERFORM Screen2-LinkTo
+           MOVE 1 TO Accept-Control
+           .
+
+      * Screen3
+       Acu-Screen3-Evaluate-Func.
+           EVALUATE TRUE
+              WHEN Exit-Pushed
+                 PERFORM Acu-Screen3-Exit
+              WHEN Event-Occurred
+                 IF Event-Type = Cmd-Close
+                    PERFORM Acu-Screen3-Exit
+                 END-IF
+      * Screen3-Pb-Imprimer Link To
+              WHEN Key-Status = 9816
+                 PERFORM Screen3-Pb-Imprimer-Link
+      * Screen3-Pb-Attach Link To
+              WHEN Key-Status = 6854
+                 PERFORM Screen3-Pb-Attach-Link
+      * Screen2-Pb-Terminera Link To
+              WHEN Key-Status = 9840
+                 PERFORM Screen2-Pb-Terminer-LinkTo
+           END-EVALUATE
+           MOVE 1 TO Accept-Control
+           .
+
+      * ScreenRUP
+       Acu-ScreenRUP-Evaluate-Func.
+           EVALUATE TRUE
+              WHEN Exit-Pushed
+                 PERFORM Acu-ScreenRUP-Exit
+              WHEN Event-Occurred
+                 IF Event-Type = Cmd-Close
+                    PERFORM Acu-ScreenRUP-Exit
+                 END-IF
+      * ScreenRUP-Pb-Sortie Link To
+              WHEN Key-Status = 6702
+                 PERFORM ScreenRUP-Pb-Sortie-Link
+      * ScreenRUP-Pb-Cde Link To
+              WHEN Key-Status = 6703
+                 PERFORM ScreenRUP-Pb-Cde-Link
+      * ScreenRUP-Pb-Vmanque Link To
+              WHEN Key-Status = 6706
+                 PERFORM ScreenRUP-Pb-Vmanque-Link
+      * ScreenRUP-Pb-Annuler Link To
+              WHEN Key-Status = 6705
+                 PERFORM ScreenRUP-Pb-Annuler-Link
+      * ScreenRUP-Pb-LivPart Link To
+              WHEN Key-Status = 6709
+                 PERFORM ScreenRUP-Pb-LivPart-Link
+      * ScreenRUP-Pb-ValidLP Link To
+              WHEN Key-Status = 9858
+                 PERFORM ScreenRUP-Pb-ValidLP-Link
+      * ScreenRUP-Pb-AnnulLP Link To
+              WHEN Key-Status = 9860
+                 PERFORM ScreenRUP-Pb-AnnulLP-Link
+           END-EVALUATE
+           MOVE 1 TO Accept-Control
+           .
+
+      * ScreenLIV
+       Acu-ScreenLIV-Evaluate-Func.
+           EVALUATE TRUE
+              WHEN Exit-Pushed
+                 PERFORM Acu-ScreenLIV-Exit
+              WHEN Event-Occurred
+                 IF Event-Type = Cmd-Close
+                    PERFORM Acu-ScreenLIV-Exit
+                 END-IF
+      * ScreenLIV-Pb-Livrer Link To
+              WHEN Key-Status = 1081
+                 PERFORM ScreenLIV-Pb-Livrer-Link
+      * ScreenLIV-Pb-Annuler Link To
+              WHEN Key-Status = 1082
+                 PERFORM ScreenLIV-Pb-Annuler-Link
+      * ScreenLIV-Pb-Valider Link To
+              WHEN Key-Status = 1101
+                 PERFORM ScreenLIV-Pb-Valider-Link
+      * ScreenLIV-Pb-Abandon Link To
+              WHEN Key-Status = 1102
+                 PERFORM ScreenLIV-Pb-Abandon-Link
+           END-EVALUATE
+           MOVE 1 TO Accept-Control
+           .
+
+      * ScreenMarge
+       Acu-ScreenMarge-Evaluate-Func.
+           EVALUATE TRUE
+              WHEN Exit-Pushed
+                 PERFORM Acu-ScreenMarge-Exit
+              WHEN Event-Occurred
+                 IF Event-Type = Cmd-Close
+                    PERFORM Acu-ScreenMarge-Exit
+                 END-IF
+      * ScreenMarge-Pb-Valider Link To
+              WHEN Key-Status = 9858
+                 PERFORM ScreenMarge-Pb-Valider-Link
+      * ScreenMarge-Pb-Annuler Link To
+              WHEN Key-Status = 1302
+                 PERFORM ScreenMarge-Pb-Annuler-Link
+           END-EVALUATE
+           MOVE 1 TO Accept-Control
+           .
+
+      * Screen1
+       Acu-Screen1-Evaluate-Func.
+           EVALUATE TRUE
+              WHEN Exit-Pushed
+                 PERFORM Acu-Screen1-Exit
+              WHEN Event-Occurred
+                 IF Event-Type = Cmd-Close
+                    PERFORM Acu-Screen1-Exit
+                 END-IF
+      * Screen1-Pb-Modifier Link To
+              WHEN Key-Status = 9854
+                 PERFORM Screen1-Pb-Modifier-LinkTo
+      * Screen1-Pb-Sauvegarder Link To
+              WHEN Key-Status = 9819
+                 PERFORM Screen1-Pb-Sauvegarder-LinkTo
+      * Screen1-Pb-Imprimer Link To
+              WHEN Key-Status = 9816
+                 PERFORM Screen1-Pb-Imprimer-LinkTo
+      * Screen1-Pb-ListeCli Link To
+              WHEN Key-Status = 9806
+                 PERFORM Screen1-Pb-ListeCli-LinkTo
+      * Screen1-Pb-Ags Link To
+              WHEN Key-Status = 1631
+                 PERFORM Screen1-Pb-Ags-Link
+      * Screen1-Pb-Dps Link To
+              WHEN Key-Status = 1632
+                 PERFORM Screen1-Pb-Dps-Link
+      * Screen1-Pb-Itc Link To
+              WHEN Key-Status = 1018
+                 PERFORM Screen1-Ef-Itc-Ev-Cmd-Goto
+      * Screen1-Pb-Terminer Link To
+              WHEN Key-Status = 9840
+                 PERFORM Screen1-Pb-Terminer-LinkTo
+      * Screen1-Pb-Fonctions Link To
+              WHEN Key-Status = 4501
+                 PERFORM Screen1-Pb-Fonctions-Link
+      * MI-SaisiepiècessurOR Link To
+              WHEN Key-Status = 6001
+                 PERFORM Screen1-Mn-1-MI-SaisiepiecessurOR-Link
+      * MI-RetoursdepiècessurOR Link To
+              WHEN Key-Status = 6002
+                 PERFORM Screen1-Mn-1-MI-RetoursdepiecessurOR-Link
+      * MI-PrestationssurOR Link To
+              WHEN Key-Status = 6003
+                 PERFORM Screen1-Mn-1-MI-PrestationssurOR-Link
+      * MI-BLpiècessousgarantie Link To
+              WHEN Key-Status = 6004
+                 PERFORM Screen1-Mn-1-MI-BLpiecessousgarantie-Link
+      * MI-ImportdevisSAV Link To
+              WHEN Key-Status = 6005
+                 PERFORM Screen1-Mn-1-MI-ImportdevisSAV-Link
+      * MI-Encaissementdécaissement Link To
+              WHEN Key-Status = 6006
+                 PERFORM Screen1-Mn-1-MI-Encaissementdecaissement-Link
+      * Screen1-Pb-AutresBoutons Link To
+              WHEN Key-Status = 4500
+                 PERFORM Screen1-Pb-AutresBoutons-Link
+      * MI-Dupliquer Link To
+              WHEN Key-Status = 2328
+                 PERFORM Screen1-Pb-Dupliquer-Link
+      * MI-Supprimer Link To
+              WHEN Key-Status = 2329
+                 PERFORM Screen1-Pb-Supprimer-LinkTo
+      * MI-Ajouterunbon Link To
+              WHEN Key-Status = 2330
+                 PERFORM Screen1-Pb-AjoutBon-Link
+      * Screen1-Pb-Suivant Link To
+              WHEN Key-Status = 9861
+                 PERFORM Screen1-Pb-Lignes-LinkTo
+      * Screen1-Pb-ListeBon Link To
+              WHEN Key-Status = 1007
+                 PERFORM Screen1-Pb-ListeBon-LinkTo
+           END-EVALUATE
+           MOVE 1 TO Accept-Control
+           .
+
+      * ScreenRech
+       Acu-ScreenRech-Evaluate-Func.
+           EVALUATE TRUE
+              WHEN Exit-Pushed
+                 PERFORM Acu-ScreenRech-Exit
+              WHEN Event-Occurred
+                 IF Event-Type = Cmd-Close
+                    PERFORM Acu-ScreenRech-Exit
+                 END-IF
+      * ScreenRech-Pb-Annuler Link To
+              WHEN Key-Status = 9858
+                 PERFORM ScreenRech-Pb-Annuler-Link
+      * ScreenRech-Pb-Liste Link To
+              WHEN Key-Status = 2000
+                 PERFORM ScreenRech-Pb-Liste-Link
+           END-EVALUATE
+           MOVE 1 TO Accept-Control
+           .
+
+       Acu-Close-Files.
+      *    Before-Close
+      *    After-Close
+           .
+
+      * MXFAMART
+
+      * MXART
+
+      * MXCLID
+
+      * MXGRAFAM
+
+      * MXPREGEN
+
+      * MXARTSA
+
+      * MXPREGENV
+
+      * MXPARAM
+
+      * COBCAP
+
+      * MXBDIS
+
+      * MXAGEDIS
+
+      * MXAGENCE
+
+      * MXPARDIS
+
+      * MXMARQUE
+
+      * MXLDIS
+
+      * MXHISVTE
+
+      * MXCLI
+
+      * MXCATFOU
+
+      * MXGRAFAD
+
+      * MXFOU
+
+      * MXART2
+
+      * MXDOCTEC
+
+      * ARTSA2
+
+      * MXLDIS2
+
+      * MXBDIS2
+
+      * MXAGENCE2
+
+      * MXCOMMENT
+
+      * INTSEL
+
+      * MXCLI2
+
+      * MXAGENCE3
+
+      * ATTACH
+
+       Acu-Screen2-Exit.
+           SET Exit-Pushed TO TRUE
+           .
+
+       Acu-Screen3-Exit.
+           SET Exit-Pushed TO TRUE
+           .
+
+       Acu-ScreenRUP-Exit.
+           SET Exit-Pushed TO TRUE
+           .
+
+       Acu-ScreenLIV-Exit.
+           SET Exit-Pushed TO TRUE
+           .
+
+       Acu-ScreenMarge-Exit.
+           SET Exit-Pushed TO TRUE
+           .
+
+       Acu-Screen1-Exit.
+           SET Exit-Pushed TO TRUE
+           .
+
+       Acu-ScreenRech-Exit.
+           SET Exit-Pushed TO TRUE
+           .
+

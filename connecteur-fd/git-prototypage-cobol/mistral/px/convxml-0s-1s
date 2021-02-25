@@ -1,0 +1,18 @@
+# conversion fichier xml sans séparateur en fichier xml avec séparateur
+while read fic
+do
+cp $fic $fic.sv
+# $0A > ]
+cat $fic | tr "\012" "]" > $fic.n
+# "]" > sup
+sed 's/]//g' $fic.n > $fic.n2
+# $0D > ]
+cat $fic.n2 | tr "\015" "]" > $fic.n3
+# "]" > sup
+sed 's/]//g' $fic.n3 > $fic.n4
+# ">" > ">0D"
+sed 's/>/>/g' $fic.n4 > $fic.n5
+# $0D > $0A
+cat $fic.n5 | tr "\015" "\012" > $fic
+rm $fic.n*
+done

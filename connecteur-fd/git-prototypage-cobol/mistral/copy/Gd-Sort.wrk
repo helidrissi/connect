@@ -1,0 +1,24 @@
+      * Zones utilisées par les tris de grilles.
+       01 Gd-Sort.
+      * Indice de la première ligne à trier.
+           05 Gd-Sort-First PIC 9(3) COMP-1.       
+      * Indice de la dernière ligne à trier.
+           05 Gd-Sort-Last PIC 9(6) COMP-1. 
+      * Indices utilisés pour boucler sur la grille.   
+           05 Gd-Sort-I PIC 9(3) COMP-1.
+           05 Gd-Sort-J PIC 9(3) COMP-1.
+           05 Gd-Sort-K PIC 9(3) COMP-1.              
+      * Variables tampons.
+           78 Gd-Sort-NbMaxKeys VALUE IS 500.
+           05 Gd-Sort-Keys PIC X(16) OCCURS Gd-Sort-NbMaxKeys.
+           05 Gd-Sort-Key-I PIC X(16).
+           05 Gd-Sort-Key-J PIC X(16).
+           05 Gd-Sort-Swap-I PIC X(512).
+           05 Gd-Sort-Swap-J PIC X(512).
+           05 Gd-Sort-Swap9-I PIC 9.
+           05 Gd-Sort-Swap9-J PIC 9.
+      * Colonne de tri = valeur HIDDEN-DATA (Gd-SortH)
+           02 Gd-Sort-KeyHidden PIC 9.
+      * Pour ne pas avoir le message de dépassement de capacité
+           02 Gd-Sort-SansMsg PIC 9.
+

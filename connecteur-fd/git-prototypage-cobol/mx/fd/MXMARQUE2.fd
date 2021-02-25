@@ -1,0 +1,28 @@
+      *(( XFD FILE = MARQUE ))
+      *Marques Matériels
+      *t.sl
+      *  X(40).
+      *
+      *
+      *      *  X(40).
+      *      *
+      **      *
+       FD  MXMARQUE2
+           LABEL RECORD IS STANDARD.
+       01 ENR-MMAR2.
+           02 CLE1-MMAR2.
+      *(( XFD NAME = CODE_MARQUE ))
+      *(( XFD COMMENT Code Marque ))
+               03 COD-MMAR2        PIC  X(4).
+           02 CLE2-MMAR2.
+      *(( XFD NAME = LIBELLE_MARQUE ))
+      *(( XFD COMMENT Libellé ))
+               03 LIB-MMAR2        PIC  X(20).
+           02 CLE3-MMAR2.
+      *(( XFD NAME = ABREGE_MARQUE ))
+      *(( XFD COMMENT Abrégé ))
+               03 ABR-MMAR2        PIC  X(8).
+
+      *(( XFD COMMENT Code Marque chez TVH (nécessaire pour le transfert des commandes) ))
+           02 TVH-MMAR2        PIC  X(4).
+           02 FILLER           PIC  X(25).

@@ -1,0 +1,11 @@
+      * Linkage du programme ATT qui permet de gérer les fichiers rattachés à un élément
+       01 LK-ATT-AUTRES.
+      *    Type de l'élément dont les fichiers sont à gérer (ex : MAT pour les matériels)
+           02 LK-ATT-AUTRES-TYP PIC X(4).
+      *    Clé de ATTACH de départ
+           02 LK-ATT-AUTRES-CLE1 PIC X(30).
+           02 LK-ATT-AUTRES-SOC  PIC 9(4).
+           02 LK-ATT-AUTRES-NBR  PIC 9(3).
+      *    Clés de ATTACH à afficher
+           02 LK-ATT-AUTRES-CLEA PIC X(10)  OCCURS 200.
+           02 FILLER PIC X(170).

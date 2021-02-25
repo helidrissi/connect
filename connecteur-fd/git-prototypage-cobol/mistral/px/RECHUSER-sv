@@ -1,0 +1,3 @@
+$1/bin/acurcl -info -n $2 2>/tmp/RECHUSER$3
+egrep $3 /tmp/RECHUSER$3 |cut -c 23- |cut -c -18 > /acu/mistral/ft/RECHUSER$3
+rm /tmp/RECHUSER$3 2>>/dev/null

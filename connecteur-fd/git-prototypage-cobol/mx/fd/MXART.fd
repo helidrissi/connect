@@ -1,0 +1,295 @@
+      *(( XFD FILE = ART ))
+       FD  MXART
+           LABEL RECORD IS STANDARD.
+       01 ENR-MART.
+           02 CLE1-MART.
+      *(( XFD NAME = CODE_ARTICLE ))
+      *(( XFD COMMENT Code article ))
+               04 COD-MART         PIC  X(20).
+               04 CODR-MART REDEFINES COD-MART.
+
+      *(( XFD COMMENT Identifiant ))
+                   06 CO1-MART         PIC  X(4).
+      *(( XFD NAME = CODE_ARTICLE_SS_ID ))
+      *(( XFD COMMENT Référence article (2ème partie du code ))
+      *
+      *
+      *
+                   06 CO2-MART         PIC  X(16).
+           02 CLE2-MART.
+      *(( XFD NAME = DESIGNATION_ART ))
+      *(( XFD COMMENT Désignation ))
+      *
+      *
+               04 DES-MART         PIC  X(40).
+      *(( XFD NAME = DESIGNATION2_ART ))
+      *(( XFD COMMENT Complément désignation ))
+      *
+      *
+      *
+           02 DE2-MART         PIC  X(20).
+      *(( XFD NAME = INDIC_LIB_MODIF ))
+      *(( XFD COMMENT Désignation modifiable: 0=non 1=oui ))
+           02 MOD-MART         PIC  9.
+           02 CLE3-MART.
+      *(( XFD NAME = CODE_FOURNISSEUR ))
+      *(( XFD COMMENT Code fournisseur ))
+               04 FOU-MART         PIC  9(6).
+               04 CLE8-MART.
+      *(( XFD NAME = REFERENCE_FOU ))
+      *(( XFD COMMENT Référence fournisseur ))
+                   06 REF-MART         PIC  X(21).
+      *(( XFD NAME = CODE_REMISE_FRN ))
+      *(( XFD COMMENT Code remise fournisseur ))
+           02 CRF-MART         PIC  99.
+           02 CLE4-MART.
+      *(( XFD NAME = CODE_FAMILLE_ART ))
+      *(( XFD COMMENT Code famille ))
+               04 GRA-MART         PIC  99.
+      *(( XFD NAME = CODE_SOUS_FAM_ART ))
+      *(( XFD COMMENT Code sous-famille ))
+               04 FAM-MART         PIC  99.
+           02 CLE6-MART.
+      *(( XFD NAME = REFERENCE_INTERNE ))
+      *(( XFD COMMENT Référence interne ))
+      *
+      *
+      *
+               04 RFI-MART         PIC  X(8).
+               04 RFIN-MART REDEFINES RFI-MART  PIC  9(8).
+           02 CLE7-MART.
+      *(( XFD NAME = REF_NORMALISEE ))
+      *(( XFD COMMENT Référence normalisée ))
+               04 RFN-MART         PIC  X(16).
+           02 CLE9-MART.
+      *(( XFD NAME = GENCOD ))
+      *(( XFD COMMENT Code Gencod (Code Barre ))
+      *
+      *
+               04 GCOD-MART        PIC  9(13).
+      *(( XFD NAME = CODE_POLITIQUE_PX ))
+      *(( XFD COMMENT Politique de prix: 1=Coef/PA   2=Coef/PTF  3=PV - remise   4=PA et PV   5=PR x TxM   6=PxTarif + PA ))
+           02 POL-MART         PIC  9.
+      *(( XFD NAME = CODE_DEVISE ))
+      *(( XFD COMMENT Code devise ))
+           02 DEV-MART         PIC  XXX.
+      *(( XFD NAME = PRIX_TARIF_DEVISE ))
+      *(( XFD COMMENT Prix tarif fournisseur en devise (sauf politique 4 PA + PV : prix achat en devise) ))
+           02 PDE-MART         PIC  9(8)V99.
+      *(( XFD NAME = TARIF_FOURNISSEUR ))
+      *(( XFD COMMENT Prix tarif fournisseu ))
+           02 PTF-MART         PIC  9(7)V99.
+      *(( XFD NAME = REMISE_FOURNISSEUR ))
+      *(( XFD COMMENT Remise fournisseur ))
+           02 REM-MART         PIC  S99V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = PRIX_ACHAT_FOU ))
+      *(( XFD COMMENT Prix d'achat net ))
+           02 PAC-MART         PIC  9(7)V99.
+      *(( XFD NAME = PRIX_REVIENT_INDUS ))
+      *(( XFD COMMENT Prix de revient industriel (spécif FWK ))
+           02 PRI-MART         PIC  9(7)V99.
+      *(( XFD NAME = PRIX_ACHAT_TARIF ))
+      *(( XFD COMMENT Prix d'achat tarif (si Politique de prix 6 ))
+           02 PAT-MART         PIC  9(7)V99.
+      *(( XFD NAME = COEFFICIENT ))
+      *(( XFD COMMENT Coefficient multiplicateur ))
+           02 COE-MART         PIC  99V999.
+      *(( XFD NAME = PRIX_VENTE_HT ))
+      *(( XFD COMMENT Prix de vente HT ))
+      *
+      *
+           02 PVT-MART         PIC  9(7)V99.
+      *(( XFD NAME = PRIX_VENTE_TTC ))
+      *(( XFD COMMENT Prix de vente TTC ))
+           02 TTC-MART         PIC  9(7)V99.
+      *(( XFD NAME = INDIC_FUA ))
+      *(( XFD COMMENT Indicateur FUA:  0= Sans    1=Montant   2=% sur PA ))
+           02 IFA-MART         PIC  9.
+      *(( XFD NAME = POURCENTAGE_FUA ))
+      *(( XFD COMMENT % FUA (IFA = 2 ))
+           02 PFA-MART         PIC  99V99.
+      *(( XFD NAME = COEF_SUR_FUA ))
+      *(( XFD COMMENT Coefficient sur FUA ))
+           02 CFU-MART         PIC  9V999.
+      *(( XFD NAME = MONTANT_FUA ))
+      *(( XFD COMMENT Montant frais unitaires d'approche (FUA ))
+           02 FUA-MART         PIC  9(6)V99.
+      *(( XFD NAME = PRIX_AU_XXX ))
+      *(( XFD COMMENT Unité de prix (Exemple: Prix au 100  UPR=100 ))
+           02 UPR-MART         PIC  9(5).
+      *(( XFD NAME = COEFF_SUR_PX_REV ))
+      *(( XFD COMMENT Coeff PR / PA (si pol = 5 ))
+           02 CPR-MART         PIC  9V999.
+      *(( XFD NAME = TAUX_DE_MARQUE ))
+      *(( XFD COMMENT Taux de marque (Pol. Prix = 5 ))
+           02 TXM-MART         PIC  99V99.
+      *(( XFD NAME = CODE_REMISE_CLIENT ))
+      *(( XFD COMMENT Code remise client ))
+           02 CRC-MART         PIC  999.
+      *(( XFD NAME = INDIC_SAISONNIER ))
+      *(( XFD COMMENT Indicateur saisonnier: 0=non 1=oui ))
+      *
+      *
+           02 SAI-MART         PIC  9.
+      *(( XFD NAME = CONDITIONT-ACHAT ))
+      *(( XFD COMMENT Conditionnement Achat ))
+           02 UAC-MART         PIC  9(5).
+      *(( XFD NAME = DATE_MAJ_TARIF ))
+      *(( XFD COMMENT Date mise à jour tarif ))
+           02 DAT-MART         PIC  9(8).
+           02 R-DAT-MART REDEFINES DAT-MART.
+               04 SDAT-MART        PIC  99.
+               04 ADAT-MART        PIC  99.
+               04 MDAT-MART        PIC  99.
+               04 JDAT-MART        PIC  99.
+      *(( XFD NAME = INDIC_MULTI_APPRO ))
+      *(( XFD COMMENT Indicateur multi-appro: 0=non 1=oui ))
+           02 MUL-MART         PIC  9.
+      *(( XFD NAME = POIDS ))
+      *(( XFD COMMENT Poids unitaire ))
+           02 POI-MART         PIC  9(5)V999.
+      *(( XFD NAME = CODE_POLITIQUE_VTE ))
+      *(( XFD COMMENT Politique Vente: 0=non concerné 1=avec concurrence 9 (ou 2)=sans concurrence ))
+           02 ICO-MART         PIC  9.
+      *(( XFD NAME = INDIC_DOCUMENT ))
+      *(( XFD COMMENT Indicateur documentation: 0=non 1oui ))
+           02 DOC-MART         PIC  9.
+      *(( XFD NAME = INDIC_EDIT_TARIF ))
+      *(( XFD COMMENT Indicateur tarif: 0=édité sur tarif    1=non édité    2=interdit à la vente ))
+           02 TAR-MART         PIC  9.
+      *(( XFD NAME = INDIC_TARIF_COL ))
+      *(( XFD COMMENT Indicateur tarif Vente à colonnes: 0=non 1=remise sur tarif général 2=prix net ))
+           02 ITC-MART         PIC  9.
+           02 TAR-COL-MART
+                      OCCURS 6 TIMES.
+      *(( XFD NAME = BORNE_TARIF_COL ))
+      *(( XFD COMMENT Borne supérieure TC ))
+      *
+      *
+      *
+               04 BSU-MART         PIC  9(5).
+      *(( XFD NAME = REMISE_TARIF_COL ))
+      *(( XFD COMMENT Remise TC ))
+               04 RTG-MART         PIC  99V99.
+      *(( XFD NAME = PV_TARIF_COL ))
+      *(( XFD COMMENT Prix de vente net TC ))
+               04 PVN-MART         PIC  9(7)V99.
+      *(( XFD NAME = UNITE_ACHAT ))
+      *(( XFD COMMENT Code unité d'achat ))
+           02 CUA-MART         PIC  99.
+      *(( XFD NAME = UNITE_VENTE ))
+      *(( XFD COMMENT Code unité de vente ))
+           02 CUV-MART         PIC  99.
+      *(( XFD NAME = NOMBRE_UV_PAR_UA ))
+      *(( XFD COMMENT Nombre d'unités de vente par unité d'achat ))
+           02 NUU-MART         PIC  9(4)V9(4).
+      *(( XFD NAME = INDIC_COMPOSITION ))
+      *(( XFD COMMENT Indicateur composition: 0=non 1=ensemble fixe 2=ensemble variable 3=kit ))
+           02 INO-MART         PIC  9.
+      *(( XFD NAME = CODE_MARQUE ))
+      *(( XFD COMMENT Code marque ))
+           02 MAR-MART         PIC  XXXX.
+      *(( XFD NAME = TYPE ))
+      *(( XFD COMMENT Type ))
+           02 TYP-MART         PIC  X(16).
+      *(( XFD NAME = VOLUME ))
+      *(( XFD COMMENT Volume ))
+           02 VOL-MART         PIC  9(4)V99.
+      *(( XFD NAME = INDIC_MOTEUR ))
+      *(( XFD COMMENT Indicateur existence moteur : 0=non 1=oui ))
+           02 IMO-MART         PIC  9.
+      *(( XFD NAME = MARQUE_MOTEUR ))
+      *(( XFD COMMENT Marque moteur ))
+           02 MARM-MART        PIC  XXXX.
+      *(( XFD NAME = MODELE_MOTEUR ))
+      *(( XFD COMMENT Modèle moteur ))
+           02 MODM-MART        PIC  X(14).
+      *(( XFD NAME = TYPE_MOTEUR ))
+      *(( XFD COMMENT Type moteur ))
+           02 TYPM-MART        PIC  X(16).
+      *(( XFD NAME = EDITION_COMPO_BL ))
+      *(( XFD COMMENT Indicateur édition composition sur BL: 1=oui 2=non ))
+           02 EDB-MART         PIC  9.
+      *(( XFD NAME = EDITION_COMPO_FACT ))
+      *(( XFD COMMENT Indicateur édition composition sur facture: 1=oui 2=non ))
+           02 EDF-MART         PIC  9.
+      *(( XFD NAME = DEST_LOC_OU_VTE ))
+      *(( XFD COMMENT Destination: 0=vente  1=location   2=vente + location ))
+           02 ILV-MART         PIC  9.
+      *(( XFD NAME = CODE_NATURE_ORI ))
+      *(( XFD COMMENT Nature: 0=origine 1=adaptable  2=occasion ))
+           02 NAT-MART         PIC  9.
+      *(( XFD NAME = DATE_CREATION ))
+      *(( XFD COMMENT Date création ))
+           02 DCR-MART         PIC  9(8).
+           02 R-DCR-MART REDEFINES DCR-MART.
+               04 SDCR-MART        PIC  99.
+               04 ADCR-MART        PIC  99.
+               04 MDCR-MART        PIC  99.
+               04 JDCR-MART        PIC  99.
+      *(( XFD NAME = CODE_SUPPRESSION ))
+      *(( XFD COMMENT Code annulation: 0=non  1oui ))
+           02 CANN-MART        PIC  9.
+      *(( XFD NAME = AUTEUR_SUPPRESSION ))
+      *(( XFD COMMENT Auteur annulation (initiales ))
+           02 IANN-MART        PIC  X(4).
+      *(( XFD NAME = DATE_SUPPRESSION ))
+      *(( XFD COMMENT Date  Annulation ))
+           02 DANN-MART        PIC  9(8).
+      *(( XFD NAME = NO_IDENTIF_CEE ))
+      *(( XFD COMMENT N  identification CEE ))
+           02 TVA-MART         PIC  X(10).
+           02 R-TVA-MART REDEFINES TVA-MART.
+
+      *(( XFD COMMENT Pour MobiVip R3: PAMP ou PRMP ))
+               04 PRMOB-MART       PIC  9(7)V99.
+
+      *(( XFD COMMENT Pour MobiVip R3: Indicateur gestion de stock: 1=Oui  2=Non  9=Dépot vente ))
+               04 STOMOB-MART      PIC  9.
+      *(( XFD NAME = MODE_CALCUL_PX_ENS ))
+      *(( XFD COMMENT Pour les ensembles, Mode calcul Prix = 0=Total composant  1=Prix fixe ))
+           02 MOP-MART         PIC  9.
+      *(( XFD NAME = CODE_CARACT_GRAS ))
+      *(( XFD COMMENT Gras sur export Word ou indic nouvel article Landa ))
+           02 STGRA-MART       PIC  9.
+      *(( XFD NAME = CODE_CARACT_ITALIC ))
+      *(( XFD COMMENT Italique sur export Word ou indice article LLLL Landa ))
+           02 STITA-MART       PIC  9.
+      *(( XFD NAME = CODE_CARACT_SOULIG ))
+      *(( XFD COMMENT Souligné sur export Word ))
+           02 STSOU-MART       PIC  9.
+      *(( XFD NAME = AUTEUR_MODIF ))
+      *(( XFD COMMENT Auteur modification ))
+           02 IMOD-MART        PIC  X(4).
+      *(( XFD NAME = DATE_MODIF ))
+      *(( XFD COMMENT Date modification ))
+           02 DMOD-MART        PIC  9(8).
+      *(( XFD NAME = HERE_MODIF ))
+      *(( XFD COMMENT Heure modification ))
+           02 HMOD-MART        PIC  99V99.
+           02 R-HMOD-MART REDEFINES HMOD-MART.
+               05 HHMOD-MART       PIC  99.
+               05 MMMOD-MART       PIC  99.
+      *(( XFD NAME = AUTEUR_CREATION ))
+      *(( XFD COMMENT Auteur création ))
+           02 ICR-MART         PIC  X(4).
+      *(( XFD NAME = ACHAT_INTERDIT ))
+      *(( XFD COMMENT Achat Interdit: 0=Non 1=Oui ))
+           02 ACHI-MART        PIC  9.
+      *(( XFD NAME = INDIC_PV_SAISI ))
+      *(( XFD COMMENT Indicateur Prix de Vente saisi 0=Non 1=H.T 2=TTC ))
+           02 ISPV-MART        PIC  9.
+      *(( XFD NAME = PAYS ))
+      *(( XFD COMMENT Code pays d'origine (/déclaration DEB) ))
+           02 PAY-MART         PIC  XXX.
+      *(( XFD NAME = No_societe ))
+      *(( XFD COMMENT Société d'appartenance de la pièce (ICA avec Réf) ))
+           02 SOC-MART         PIC  9(4).
+      *(( XFD NAME = No_societe ))
+      *(( XFD COMMENT Autorisé sur Webtop (1=non) ))
+           02 WEB-MART         PIC  9.
+      *(( XFD NAME = CONDITIONT-VENTE ))
+      *(( XFD COMMENT Conditionnement Vente ))
+           02 UVE-MART         PIC  9(5).
+           02 FILLER           PIC  X(4).

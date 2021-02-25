@@ -1,0 +1,7 @@
+# Exemple de procedure qui contient la creation du jeu d'essai
+# et le rajout d'une societe comptable
+# 1er parametre = environement
+# 2eme parametre = societe
+#
+px/cre-ess /acuf 0001
+px/cre-ess-cx2 /acuf 0002

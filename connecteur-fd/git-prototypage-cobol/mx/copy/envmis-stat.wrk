@@ -1,0 +1,15 @@
+      * variables d'échange pour les codes erreurs qui remplacent
+      * les appels c$rerr
+               
+      * Traitement des erreurs 
+       01 Handler-Stat                     EXTERNAL.
+      *    =Inconnu / IO=C$IO / DB=DB ; permet d'adapter la récupération
+      *    des informations complémentaires
+           05 Handler-Last-Mode            PIC X(2).
+           05 Handler-Primary-Error        PIC X(2).
+           05 Handler-Secondary-Error      PIC X(10).
+      * Stockage du propriétaire du lock dans le cas d'une erreur lock
+      * (99) / type -> cf process-id
+           05 Handler-Process-Id           PIC 9(8).
+       01 Handler-Text-Message             PIC X(40)
+                                           EXTERNAL.

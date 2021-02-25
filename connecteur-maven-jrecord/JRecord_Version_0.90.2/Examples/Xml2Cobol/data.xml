@@ -1,0 +1,16 @@
+<Daten>
+  <Record>
+    <TEXTFELD>HalloWelt</TEXTFELD>
+      <ZAHL1>512345622</ZAHL1>
+      <ZAHL2>123456789.88</ZAHL2>
+      <DATUM>2017-12-21</DATUM>
+      <ZAHL3>355</ZAHL3>
+  </Record>
+  <Record>
+    <TEXTFELD>HalloSAS</TEXTFELD>
+      <ZAHL1>10000000055</ZAHL1>
+      <ZAHL2>-23456789.88</ZAHL2>
+      <DATUM>2016-12-21</DATUM>
+      <ZAHL3>12345</ZAHL3>
+  </Record>
+</Daten>

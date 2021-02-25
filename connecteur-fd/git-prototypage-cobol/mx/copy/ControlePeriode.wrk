@@ -1,0 +1,36 @@
+      * DATE SAISIE
+       01  PeriodeSaisie PIC 9(8).
+       01  R-PeriodeSaisie REDEFINES PeriodeSaisie.
+           05 PeriodeSaisie-AM PIC 9(6).
+           05 PeriodeSaisie-Jour PIC 9(2).
+      * 77  X-PeriodeSaisie PIC X(10).
+
+
+       77  DateSaisie-Erreur PIC 9.
+       77  IndicePeriode pic 99.
+      * 77  IndicePeriodeInd pic 9.
+      * 77  IndicePeriodeClot pic 9.
+      * 88  PeriodeClot value 1.      
+
+      *    PERIODE EN COURS
+       01  PeriodeEnCours PIC 9(6).
+       01  R-PeriodeEnCours REDEFINES PeriodeEnCours.
+           05 PeriodeEnCours-An PIC 9(4).
+           05 PeriodeEnCours-Mois PIC 9(2).
+      
+      *    DEBUT DE LA PERIODE AUTORISEE
+       01  PeriodeDebut PIC 9(6).
+       01  R-PeriodeDebut REDEFINES PeriodeDebut.
+           05 PeriodeDebut-An PIC 9(4).
+           05 PeriodeDebut-Mois PIC 9(2).
+
+      *    DEBUT DE LA PERIODE DE STOCK (MOIS EN COURS - 12 MOIS)
+       01  PeriodeDebut12 PIC 9(6).
+       01  R-PeriodeDebut12 REDEFINES PeriodeDebut12.
+           05 PeriodeDebut12-An PIC 9(4).
+           05 PeriodeDebut12-Mois PIC 9(2).
+
+       01  PeriodeTest PIC 9(6).
+       01  R-PeriodeTest REDEFINES PeriodeTest.
+           05 PeriodeTest-An PIC 9(4).
+           05 PeriodeTest-Mois PIC 9(2).

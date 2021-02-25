@@ -1,0 +1,11 @@
+      * Zones utilisées par la ComboBox des Compositions.
+       01 Cm-MART-INO.
+           05 Cm-MART-INO-Handle HANDLE OF COMBO-BOX.
+           78 Cm-MART-INO-NbMaxItems VALUE IS 5.
+           05 Cm-MART-INO-9-3 PIC 9(3) COMP-1.
+           05 Cm-MART-INO-Items OCCURS Cm-MART-INO-NbMaxItems TIMES.
+               10 Cm-MART-INO-LIB PIC X(15).
+               10 FILLER          PIC X(33).
+               10 Cm-MART-INO-COD PIC 9(1).
+           05 Cm-MART-INO-SelectedItem PIC 9(1).
+           05 Cm-MART-INO-LoadedItems PIC 9(3) COMP-1 VALUE IS 0.

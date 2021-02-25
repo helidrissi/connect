@@ -1,0 +1,145 @@
+      * mcli-m.wrk
+      * mcli-m.wrk is generated from W:\mx\spro\mcli-m.Psf
+      * This is a generated file. DO NOT modify this file directly.
+
+       77 Key-Status IS SPECIAL-NAMES CRT STATUS PIC 9(4) VALUE 0.
+           88 Exit-Pushed VALUE 27.
+           88 Message-Received VALUE 95.
+           88 Event-Occurred VALUE 96.
+           88 Screen-No-Input-Field VALUE 97.
+           88 Screen-Time-Out VALUE 99.
+      * property-defined variable
+
+      * user-defined variable
+           COPY  "cobcap.wrk".
+           COPY  "Ef-Pos.wrk".
+           COPY  "rech.wrk".
+       01 TAB-MITC.
+           02 TCLI-MITC        PIC  9(9)
+                      OCCURS 80 TIMES.
+           02 TITC-MITC        PIC  9(9)
+                      OCCURS 80 TIMES.
+           02 TCOD-MITC        PIC  9(8)
+                      OCCURS 80 TIMES.
+       77 W-Selection      PIC  9.
+       77 W-ORD-MCLI       PIC  9(9).
+       77 W-Count-Int      PIC  9(2).
+       77 Screen1-Handle
+                  USAGE IS HANDLE OF WINDOW VALUE NULL.
+       77 W-LOG-PALM       PIC  9(3).
+       77 W-NPR-PALM       PIC  9(3).
+       77 s    PIC  X(20).
+       77 I    PIC  9(3).
+       77 I2   PIC  9(3).
+       77 W-SEL            PIC  9(3).
+       77 W-COD-DEB        PIC  X(25).
+       77 SV-COD-DEB       PIC  X(25).
+       77 W-COD-FIN        PIC  X(25).
+       77 SV-COD-FIN       PIC  X(25).
+       77 W-NBART          PIC  Z(5)9.
+       77 W-NBART-LIB      PIC  X(40).
+       77 W-TMP-COD-MCLI   PIC  9(8).
+       77 W-TMP-RAI-MCLI   PIC  X(50).
+       01 Gd-1-Record.
+           05 Gd-1-Col-1       PIC  Z(8).
+           05 Gd-1-Col-2       PIC  X(30).
+           05 Gd-1-Col-3       PIC  X(30).
+       01 Gd-1-Data.
+           05 Gd-1-COD         PIC  9(8).
+           05 Gd-1-DES         PIC  X(30).
+       77 Gd-1-Index       PIC  9(6).
+       77 Gd-1-Max         PIC  9(6).
+       77 Gd-1-WCursor-X   PIC  S9(5).
+       77 Gd-1-WCursor-Y   PIC  S9(5).
+       77 Gd-1-Old-WCursor-X           PIC  S9(5).
+       77 Gd-1-Old-WCursor-Y           PIC  S9(5).
+       01 Gd-2-Record.
+           05 Gd-2-Col-1       PIC  Z(8).
+           05 Gd-2-Col-2       PIC  X(30).
+       01 Gd-2-Data.
+           05 Gd-2-COD         PIC  9(8).
+           05 Gd-2-Fco         PIC  9(8).
+       77 Gd-2-Erreur      PIC  9.
+       77 Gd-2-Index       PIC  9(6).
+       77 Gd-2-Max         PIC  9(6).
+       77 Gd-2-NbSel       PIC  9(6).
+       77 Gd-2-WCursor-X   PIC  S9(5).
+       77 Gd-2-WCursor-Y   PIC  S9(5).
+       77 Gd-2-Old-WCursor-X           PIC  S9(5).
+       77 Gd-2-Old-WCursor-Y           PIC  S9(5).
+       77 Af-Pos           PIC  X(8).
+       77 Small-Font
+                  USAGE IS HANDLE OF FONT SMALL-FONT.
+       77 QUITTER24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 FLECHBB12-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ENGRDOU24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 VALIDER24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 Screen1-St-1-Handle
+                  USAGE IS HANDLE OF STATUS-BAR VALUE NULL.
+       77 Default-Font
+                  USAGE IS HANDLE OF FONT DEFAULT-FONT.
+       77 SUPPRIM24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 PLUSxxx16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 FILE-STATUS      PIC  X(2).
+       77 INTERLO16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 INTERLB24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 INTERLB16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ASSIGN-RECH      PIC  X(32).
+       77 ASSIGN-RECHCMD   PIC  X(32).
+       77 WASS-RECH        PIC  X(20)
+                  VALUE IS "MCLI-M-RECH".
+       77 Screen1-Ef-1-Valuea          PIC  X(30).
+       77 SAUVEGA16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ENGRDOU16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 VALIDER16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 AJOUTLG16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 W-Screen1-Gd-1-Lines         PIC  S9(4)V9(2)
+                  VALUE IS 35,46.
+       77 W-Screen1-Gd-2-Lines         PIC  S9(4)V9(2)
+                  VALUE IS 35,46.
+       77 W-RGPD           PIC  9
+                  VALUE IS 0.
+       77 SV-RGPD          PIC  9.
+       77 Screen1-Visible  PIC  9
+                  VALUE IS 0.
+       77 VALIDER32-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 SUPPRIMER32-BMP  PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ENGRENAGE32-BMP  PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 AJOUTLG16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 PLUSxxx16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.

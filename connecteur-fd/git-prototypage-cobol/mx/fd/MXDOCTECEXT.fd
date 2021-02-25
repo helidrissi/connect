@@ -1,0 +1,27 @@
+      *(( XFD FILE = DOCTECEXT ))
+       FD  MXDOCTECEXT
+           LABEL RECORD IS STANDARD.
+       01 ENR-MDTEX.
+           02 CLE1-MDTEX.
+      *(( XFD NAME = Origine ))
+               04 ORI-MDTEX        PIC  XXX.
+               04 R-ORI-MDTEX REDEFINES ORI-MDTEX.
+
+      *(( XFD COMMENT Module: A=achats D=distribution J=LSD M=vente matériel R=réparation  L=location F=LLD E=Contrat entretien B=Fichiers de base P=Parc V=Fiche Mat ))
+                   05 ACT-MDTEX        PIC  X.
+
+      *(( XFD COMMENT Stade: A=Articles M=Catalogue matériel  P=Prestations  D=devis ))
+                   05 NIT-MDTEX        PIC  X.
+
+      *(( XFD COMMENT Indicateur composition:  E=si entête ))
+                   05 INO-MDTEX        PIC  X.
+      *(( XFD NAME = cle_doc ))
+      *(( XFD COMMENT Clé du fichier concerné (article ))
+               04 CLE-MDTEX        PIC  X(30).
+               04 R-CLE-MDTEX REDEFINES CLE-MDTEX.
+                   06 MAT-MDTEX        PIC  9(10).
+                   06 SUI-MDTEX        PIC  X(20).
+               04 LIG-MDTEX        PIC  999.
+      *(( XFD NAME = valeur ))
+           02 VAL-MDTEX        PIC  X(400).
+           02 FILLER           PIC  X(20).

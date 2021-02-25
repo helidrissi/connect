@@ -1,0 +1,4 @@
+       77 WG-GCOD         PIC 9(13).    
+       77 WG-NGCOD        PIC 9(13).    
+       77 WG-ART          PIC X(20).    | Code article
+       77 WG-DAT          PIC 9(8).

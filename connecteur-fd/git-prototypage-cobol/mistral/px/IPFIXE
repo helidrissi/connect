@@ -1,0 +1,6 @@
+echo "Interrogation du routeur - Veuillez patienter"
+( echo MISTRALVPN  ; sleep 1 ;
+echo 70766qgihw ; sleep 1 ;
+echo "terminal length 0 " ; sleep 1;
+echo "sh int Dialer1 "; sleep 1 ;
+echo exit; sleep 1 ) | telnet 192.168.1.252  |grep "Internet"

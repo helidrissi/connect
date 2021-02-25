@@ -1,0 +1,129 @@
+      *(( XFD FILE = CHACLI ))
+       FD  MXCHACLI
+           LABEL RECORD IS STANDARD.
+       01 ENR-MCHC.
+           02 CLE1-MCHC.
+      *(( XFD NAME = NO_CHANTIER ))
+      *(( XFD COMMENT N° Ordre Chantier ))
+               04 ORD-MCHC         PIC  9(9).
+               04 R-ORD-MCHC REDEFINES ORD-MCHC.
+
+      *(( XFD COMMENT N° de Mobile (000=Système Central ))
+                   06 MOB-MCHC         PIC  9(3).
+                   06 ORD2-MCHC        PIC  9(6).
+           02 CLE2-MCHC.
+      *(( XFD NAME = NO_INTERNE_CLIENT ))
+      *(( XFD COMMENT N° interne client ou prospect ))
+               03 NCP-MCHC         PIC  9(9).
+      *(( XFD NAME = NOM_CHANTIER ))
+      *(( XFD COMMENT Nom ))
+               03 RAI-MCHC         PIC  X(25).
+      *(( XFD NAME = ADRESSE_CHANTIER ))
+           02 ADR-MCHC         PIC  X(75).
+      *(( XFD NAME = CODE_PAYS ))
+      *(( XFD COMMENT Pays ))
+           02 PAY-MCHC         PIC  XXX.
+      *(( XFD NAME = CODE_POSTAL_CHANTI ))
+      *(( XFD COMMENT Code postal ))
+           02 POS-MCHC         PIC  X(8).
+      *(( XFD NAME = VILLE_CHANTIER ))
+           02 VIL-MCHC         PIC  X(25).
+      *(( XFD NAME = TEL_CHANTIER ))
+           02 TEL-MCHC         PIC  X(12).
+      *(( XFD NAME = FAX_CHANTIER ))
+           02 FAX-MCHC         PIC  X(12).
+      *(( XFD NAME = INDIC_FACT_ADR_CHC ))
+      *(( XFD COMMENT Indicateur Facturation à l'adresse du chantier ))
+           02 FAC-MCHC         PIC  9.
+      *(( XFD NAME = INDIC_TRAIT ))
+           02 TRA-MCHC         PIC  9.
+      *(( XFD NAME = DATE_CREATION ))
+      *(( XFD COMMENT Date de création ))
+           02 CRE-MCHC         PIC  9(8).
+           02 R-CRE-MCHC REDEFINES CRE-MCHC.
+               03 SCRE-MCHC        PIC  99.
+               03 ACRE-MCHC        PIC  99.
+               03 MCRE-MCHC        PIC  99.
+               03 JCRE-MCHC        PIC  99.
+      *(( XFD NAME = DATE_CLOTURE ))
+      *(( XFD COMMENT Date de cloture ))
+           02 CLO-MCHC         PIC  9(8).
+           02 R-CLO-MCHC REDEFINES CLO-MCHC.
+               03 SCLO-MCHC        PIC  99.
+               03 ACLO-MCHC        PIC  99.
+               03 MCLO-MCHC        PIC  99.
+               03 JCLO-MCHC        PIC  99.
+      *(( XFD NAME = NO_BS_COMPLEMENTS ))
+      *(( XFD COMMENT N° de Bons de sortie complémentaires ))
+           02 BSMS-MCHC        PIC  9(6)
+                      OCCURS 10 TIMES.
+      *(( XFD NAME = POLE_ACTIVITE ))
+      *(( XFD COMMENT Pole d'activité (Grand chantier ))
+           02 GCH-MCHC         PIC  X(2).
+      *(( XFD NAME = INSTRUCTIONS ))
+      *(( XFD COMMENT Instructions ))
+           02 INS-MCHC         PIC  X(30)
+                      OCCURS 2 TIMES.
+      *(( XFD NAME = DISTANCE ))
+      *(( XFD COMMENT Distance ))
+           02 DIS-MCHC         PIC  9(4).
+      *(( XFD NAME = CODE_COMMERCIAL ))
+      *(( XFD COMMENT Commercial ))
+           02 REP-MCHC         PIC  X(4).
+      *(( XFD NAME = CODE_ORI_AFFAIRE ))
+      *(( XFD COMMENT Origine Affaire ))
+           02 ORA-MCHC         PIC  X.
+      *(( XFD NAME = CODE_AGENCE ))
+      *(( XFD COMMENT Agence de relation ))
+           02 AGR-MCHC         PIC  XXX.
+      *(( XFD NAME = INDIC_ADR_CHC_CLI ))
+      *(( XFD COMMENT Indicateur adresse du chantier 1 = adrese du client 2 = adresse de facturation du client ))
+           02 IAC-MCHC         PIC  9.
+      *(( XFD NAME = NO_TARIF_LOCATION ))
+      *(( XFD COMMENT Tarif Location ))
+           02 TLO-MCHC         PIC  XX.
+           02 TSE-MCHC.
+      *(( XFD NAME = CODE_TERRITOIRE ))
+      *(( XFD COMMENT Territoire ))
+               03 TER-MCHC         PIC  XX.
+      *(( XFD NAME = CODE_SECTEUR ))
+      *(( XFD COMMENT Secteur ))
+               03 SEC-MCHC         PIC  XXX.
+      *(( XFD NAME = NON_UTILISE ))
+           02 CNT-MCHC         PIC  XX.
+      *(( XFD NAME = NO_TARIF_SPE_LOC ))
+      *(( XFD COMMENT N° Tarif spécial Location ))
+           02 TSL-MCHC         PIC  X(4).
+      *(( XFD NAME = INDIC_CHC_MANUTENT ))
+      *(( XFD COMMENT Indicateur chantier Manutention ))
+           02 MAN-MCHC         PIC  9.
+      *(( XFD NAME = NO_BS_ECHAFAUDAGE ))
+      *(( XFD COMMENT N° de bon de sortie échaffaudage ))
+           02 BSM-MCHC         PIC  9(6).
+      *(( XFD NAME = INDIC_STADE_CHC ))
+           02 STA-MCHC         PIC  9.
+      *(( XFD NAME = DATE_MAJ_ENREG ))
+      *(( XFD COMMENT Date Mise à Jour Enregistrement ))
+           02 DME-MCHC         PIC  9(8).
+           02 R-DME-MCHC REDEFINES DME-MCHC.
+               04 SDME-MCHC        PIC  99.
+               04 ADME-MCHC        PIC  99.
+               04 MDME-MCHC        PIC  99.
+               04 JDME-MCHC        PIC  99.
+           02 ANA7-MCHC        PIC  9(7).
+           02 R-ANA7-MCHC REDEFINES ANA7-MCHC.
+      *(( XFD NAME = CODE_COMTE ))
+      *(( XFD COMMENT Comté ou province (département pour pays autre que France ))
+               04 CTE-MCHC         PIC  9(3).
+      *(( XFD NAME = CODE_ANALYTIQUE ))
+               04 ANA-MCHC         PIC  9(4).
+      *(( XFD NAME = NO_AFFAIRE ))
+      *(( XFD COMMENT N° affaire ))
+           02 NAF-MCHC         PIC  X(10).
+      *(( XFD NAME = INDIC_DEMAT ))
+      *(( XFD COMMENT Code plan de prévention dématérialisé ))
+           02 MPP-MCHC         PIC  X(3).
+
+      *(( XFD COMMENT Info spécifique : REGIS LOC ID import chantier ))
+           02 SPE-MCHC         PIC  X(6).
+           02 FILLER           PIC  X(14).

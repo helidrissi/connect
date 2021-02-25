@@ -1,0 +1,16 @@
+      *(( XFD FILE = CARTECS ))
+       FD  MXCARTECS
+           LABEL RECORD IS STANDARD.
+       01 ENR-MCTCS.
+           02 CLE1-MCTCS.
+      *(( XFD NAME = CODE_CTE ))
+      *(( XFD COMMENT Code caractéristique technique ))
+               04 COD-MCTCS        PIC  X(3).
+      *(( XFD NAME = NO_ORDRE ))
+      *(( XFD COMMENT N° ))
+               04 ORD-MCTCS        PIC  9(3).
+           02 CLE2-MCTCS.
+      *(( XFD NAME = LIBELLE ))
+      *(( XFD COMMENT Libellé ))
+               04 LIB-MCTCS        PIC  X(30).
+           02 FILLER           PIC  X(39).

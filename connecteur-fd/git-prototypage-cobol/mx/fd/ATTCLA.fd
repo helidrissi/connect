@@ -1,0 +1,83 @@
+      *(( XFD FILE = ATTCLA ))
+       FD  ATTCLA.
+       01 ENR-ATTC.
+           02 CLE1-ATTC.
+      *(( XFD NAME = no_classificaton ))
+      *(( XFD COMMENT Identifiant interne ))
+               03 ORD-ATTC         PIC  9(5).
+      *(( XFD NAME = origine ))
+      *(( XFD COMMENT Origine de l'élément auquel cette classification se rattache :  MAT=Matériel  ART=Article  CMT=Catalogue Matériel  PER=Personnel  DGE=Demande Garantie   ORE=O.R   VGP=Contôle Technique  MFE=Fiche d'expertise matériel  MCL=Check-list SAV   FR=Note de frais (Rembo ))
+           02 ORI-ATTC         PIC  X(4).
+      *(( XFD NAME = libelle ))
+      *(( XFD COMMENT Libéllé ))
+           02 LIB-ATTC         PIC  X(30).
+      *(( XFD NAME = synchro_mobivip ))
+      *(( XFD COMMENT A synchroniser / MobilVip: 1=Oui  0=Non ))
+           02 SYNC-ATTC        PIC  9.
+      *(( XFD NAME = par_defaut ))
+      *(( XFD COMMENT Indique si cette classification est cochée par défaut lors de l'ajout d'un nouveau document ))
+           02 DEF-ATTC         PIC  9.
+      *(( XFD NAME = supprime_vente ))
+      *(( XFD COMMENT A conserver après la vente si paramètre suppression implémenté en PGX ))
+           02 DEL-ATTC         PIC  9.
+      *(( XFD NAME = photo ))
+      *(( XFD COMMENT Classeur photo:  0=Non  1=oui ))
+           02 PHO-ATTC         PIC  9.
+      *(( XFD NAME = synchro_mobitec ))
+      *(( XFD COMMENT A synchroniser / MobilTec: 1=Oui  0=Non ))
+           02 SMBT-ATTC        PIC  9.
+      *(( XFD NAME = plan_prevention ))
+      *(( XFD COMMENT Plan de prévention (si chantier):  0=Non  1=oui ))
+           02 PPV-ATTC         PIC  9.
+      *(( XFD NAME = fiche_interv ))
+      *(( XFD COMMENT Fiche d'intervention (/O.R):  0=Non  1=oui ))
+           02 FI-ATTC          PIC  9.
+      *(( XFD NAME = facture ))
+      *(( XFD COMMENT Facture (/O.R):  0=Non  1=oui ))
+           02 FAC-ATTC         PIC  9.
+      *(( XFD NAME = check_list ))
+      *(( XFD COMMENT Check-list (/O.R):  0=Non  1=oui ))
+           02 CL-ATTC          PIC  9.
+      *(( XFD NAME = visible_web ))
+      *(( XFD COMMENT Wisible webtop:  0=Non  1=oui ))
+           02 WEB-ATTC         PIC  9.
+      *(( XFD NAME = controle_tech ))
+      *(( XFD COMMENT Controle technique (/O.R):  0=Non  1=oui ))
+           02 CT-ATTC          PIC  9.
+      *(( XFD NAME = exp_materiel ))
+      *(( XFD COMMENT Expertise matériel (/O.R):  0=Non  1=oui ))
+           02 EXP-ATTC         PIC  9.
+      *(( XFD NAME = synchro_mobimag ))
+      *(( XFD COMMENT A synchroniser / MobilMag: 1=Oui  0=Non ))
+           02 SMMG-ATTC        PIC  9.
+      *(( XFD NAME = vgp ))
+      *(( XFD COMMENT Rapport VGP (/O.R):  0=Non  1=oui ))
+           02 VGP-ATTC         PIC  9.
+      *(( XFD NAME = reserve_societe ))
+      *(( XFD COMMENT Réservé à une société ))
+           02 RSO-ATTC         PIC  9.
+      *(( XFD NAME = no_societe ))
+      *(( XFD COMMENT N° société concernée (si autorisé à voir ))
+           02 SOC-ATTC         PIC  9(4).
+      *(( XFD NAME = envoi_mail_facture ))
+      *(( XFD COMMENT A joindre à l'envoi de la facture par mail ))
+           02 ATF-ATTC         PIC  9.
+      *(( XFD NAME = envoi_mail_bon ))
+      *(( XFD COMMENT A joindre à l'envoi du bon par mail (BS/BR) ))
+           02 ATB-ATTC         PIC  9.
+      *(( XFD NAME = synchro_mobitrans ))
+      *(( XFD COMMENT Protocole Transport (A synchroniser / MobilTrans: 1=Oui  0=Non) ))
+           02 SMTR-ATTC        PIC  9.
+
+      *(( XFD COMMENT Réservé Comptabilité ))
+           02 CX-ATTC          PIC  9.
+
+      *(( XFD COMMENT Pas d'export Terre-Net/Agriaffaires ))
+           02 PEPM-ATTC        PIC  9.
+
+      *(( XFD COMMENT Document signé ))
+           02 SIG-ATTC         PIC  9.
+
+      *(( XFD COMMENT Specifique: rapport Praxedo si BS ))
+           02 SPE-ATTC         PIC  9.
+           02 FILLER           PIC  X(47).

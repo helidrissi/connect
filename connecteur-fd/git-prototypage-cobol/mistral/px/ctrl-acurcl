@@ -1,0 +1,4 @@
+dat=`date '+%Y%m%d-%H%M'`
+/usr/acucobol72/bin/acurcl -info -n 10072 2> /usr1/trace/acu$dat
+ps aux >> /usr1/trace/ps$dat
+ps -ef>>/usr1/trace/ps-ef$dat

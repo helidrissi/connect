@@ -1,0 +1,76 @@
+      *(( XFD FILE = ATTACH ))
+       FD  ATTACH.
+       01 ENR-ATT.
+           02 CLE1-ATT.
+      *(( XFD NAME = no_ordre ))
+      *(( XFD COMMENT N° d'ordre  document ))
+               03 ORD-ATT          PIC  9(10).
+               03 R-ORD-ATT REDEFINES ORD-ATT.
+                   05 MOB-ATT          PIC  9(3).
+                   05 ORD2-ATT         PIC  9(7).
+      *(( XFD NAME = no_societe ))
+      *(( XFD COMMENT N° société (0 si Matériel ou Type Matériel ))
+           02 SOC-ATT          PIC  9(4).
+      *(( XFD NAME = origine ))
+      *(( XFD COMMENT Type de l'élément auquel est rattaché le fichier    Voir valeur de ce paramètre dans onglet "File control" ))
+           02 ORI-ATT          PIC  X(4).
+      *(( XFD NAME = cle ))
+      *(( XFD COMMENT Clé primaire de l'élément ))
+           02 CLE-ATT          PIC  X(30).
+
+      *(( XFD COMMENT Clé primaire sous forme numérique de l'élément ))
+           02 CLE-R-ATT REDEFINES CLE-ATT.
+               03 CLEN-ATT         PIC  9(18).
+               03 FILLER           PIC  X(12).
+      *(( XFD NAME = ran ))
+      *(( XFD COMMENT Rang d'affichage de ce fichier parmi tous ceux de l'élément auquel il est rattaché (permet notemment de repérer le fichier principal ))
+           02 RAN-ATT          PIC  999.
+      *(( XFD NAME = titre ))
+      *(( XFD COMMENT Titre du fichier ))
+           02 TIT-ATT          PIC  X(40).
+      *(( XFD NAME = commentaire ))
+      *(( XFD COMMENT Commentaires décrivant le fichier ))
+           02 COM-ATT          PIC  X(255).
+      *(( XFD NAME = mime_type ))
+      *(( XFD COMMENT Mime type de l'élément (exemple image/jpg pour un JPEG ))
+           02 MIM-ATT          PIC  X(30).
+      *(( XFD NAME = nom_fichier ))
+      *(( XFD COMMENT Contient le nom du fichier sur le disque ou bien le nom de l'URL si commence par "http" ))
+           02 FIC-ATT          PIC  X(128).
+      *(( XFD NAME = auteur_creation ))
+      *(( XFD COMMENT Initiales de la personne ayant attaché ce ficher à l'élément ))
+           02 ICRE-ATT         PIC  X(4).
+      *(( XFD NAME = date_creation ))
+      *(( XFD COMMENT Date d'ajout de ce fichier ))
+           02 DCRE-ATT         PIC  9(8).
+      *(( XFD NAME = date_modif ))
+      *(( XFD COMMENT Date de MAJ de l'enregistrement (Synchro MobiVip ))
+           02 DME-ATT          PIC  9(8).
+      *(( XFD NAME = Origine_MobiTec_Mo ))
+      *(( XFD COMMENT Origine si synchro Mobitec ou Mobistac ))
+           02 ORIMBT-ATT       PIC  XX.
+      *(( XFD NAME = Doc_non_transmis ))
+      *(( XFD COMMENT 1=Document à ne pas faire suivre (Mobistac-> Mobitrans) ))
+           02 NONS-ATT         PIC  9.
+      *(( XFD NAME = Heure_signature ))
+      *(( XFD COMMENT Heure signature document (Mobisign) ))
+           02 HEU-ATT          PIC  99V99.
+      *(( XFD NAME = Xml_signature ))
+      *(( XFD COMMENT Fichier pdf généré suite signature (Mobisign) - ou bien suite de l'URL si le champ FIC-ATT n'est pas suffisant ))
+           02 XMLS-ATT         PIC  X(50).
+
+      *(( XFD COMMENT Client signature Mobisign ))
+           02 CLI-ATT          PIC  9(6).
+
+      *(( XFD COMMENT Client divers signature Mobisign ))
+           02 CDV-ATT          PIC  9(6).
+
+      *(( XFD COMMENT Interlocuteur signature Mobisign ))
+           02 ITC-ATT          PIC  9(9).
+
+      *(( XFD COMMENT Indicateur signature intervenant pour Mobistac si 2 signatures, sinon indic rapport Praxedo ))
+           02 SIGI-ATT         PIC  9.
+
+      *(( XFD COMMENT N° ligne bon de sortie si photo faite par Mobistac ou Mobitrans ))
+           02 LIGB-ATT         PIC  9(4).
+           02 FILLER           PIC  X(77).

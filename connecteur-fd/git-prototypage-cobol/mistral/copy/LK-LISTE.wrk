@@ -1,0 +1,309 @@
+
+      * Linkage des listes standards
+       01 LK-LISTE.
+      *    Nombre d'éléments sélectionnés
+           05 LK-LISTE-NBSEL PIC 9(3).
+      *    Nombre de sélections possibles
+      *    1 -> Liste Simple
+      *    2,3,4... -> Liste multiple
+           05 LK-LISTE-MAXSEL PIC 9(3).
+      *    TABLE des Codes du fichier Sélection
+      *    Si liste simple, code disponible dans LK-LISTE-COD(1)
+      *    Si liste multiple, LK-LISTE-COD(i)
+      *       avec i de 1 à LK-LISTE-NBSEL
+           05 LK-LISTE-SELECT.
+              06 LK-LISTE-COD PIC X(6) OCCURS 80.
+           05 R-LK-LISTE-SELECT REDEFINES LK-LISTE-SELECT.
+              06 LK-LISTE-CODN PIC 9(6) OCCURS 80.
+           05 R1-LK-LISTE-SELECT REDEFINES LK-LISTE-SELECT.
+              06 FILLER       PIC X(6).
+              06 LK-LISTE-LIB PIC X(40).
+              06 LK-LISTE-LIB8 PIC X(40).
+      *    Cas particulier des codes sur plus de 8 caractères
+           05 R2-LK-LISTE-SELECT REDEFINES LK-LISTE-SELECT.
+              06 LK-LISTE-CO8 PIC X(8) OCCURS 60.
+           05 R2-LK-LISTE-SELECT REDEFINES LK-LISTE-SELECT.
+              06 LK-LISTE-CO8N PIC 9(8) OCCURS 60.
+      *    Cas particulier des codes sur 2 caractères
+           05 R3-LK-LISTE-SELECT REDEFINES LK-LISTE-SELECT.
+              06 LK-LISTE-CO2 PIC X(2) OCCURS 240.
+           05 R3-LK-LISTE-SELECT REDEFINES LK-LISTE-SELECT.
+              06 LK-LISTE-CO2N PIC 9(2) OCCURS 240.
+      *    Pour mzon-l, récupère la zone en fonction du transporteur
+      *     05 R6-LK-LISTE-SELECT REDEFINES LK-LISTE-SELECT.
+      *        06 LK-LISTE-ZON PIC X(3) OCCURS 80.
+      *        06 FILLER PIC X(3).
+      *    Variables contenant les paramètres selon besoin programmes
+           05 LK-LISTE-PARAM.
+      *       Pour mfcm-l : Si renseigné -> liste des Catégories
+              06 LK-LISTE-FAM  PIC X(10).
+      *       Pour mgfa-l: Si Lk-LISTE-GRA renseigné --> Liste des Sous-familles article
+      *                    Sinon liste des Grandes Familles Articles
+              06 R-LK-LISTE-FAM REDEFINES LK-LISTE-FAM.
+                 08 LK-LISTE-GRA  PIC 9(10).
+      *       Pour mpge-l : 
+           05 R-LK-LISTE-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-DIS PIC 9(1).
+              06 LK-LISTE-REP PIC 9(1).
+              06 LK-LISTE-LOC PIC 9(1).
+              | Si LK-LISTE-MO = SPACE, on prend toutes les prestations sélectionnées
+              | si = E : on prend toutes les prestations sauf celles de la MO
+              | si = S : on prend seulement les prestations de la MO
+              | Pour Modele Etiquette :
+              | Si LK-LISTE-MO = SPACE, on prend tous les modeles
+              | si = A : on prend seulement les modeles Articles
+              | si = C : on prend seulement les modeles Clients
+              | si = F : on prend seulement les modeles Fournisseurs
+              06 LK-LISTE-MO  PIC X(1).
+              | Titre fenêtre : W pour exclusions workflow
+              06 LK-LISTE-TIT PIC X(1).
+              06 FILLER       PIC X(5).
+      *       Pour mtse-l :
+      *       Pour mgtt-l : mettre 1 si on veut les zones d'une grille + n° grille
+           05 R1-LK-LISTE-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-ORI PIC 9(1).
+              06 LK-LISTE-GRI PIC X(2).
+              06 FILLER       PIC X(7).
+      *       Pour mdep-l et mfdo-l : 
+           05 R2-LK-LISTE-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-AGE PIC X(3).
+              06 LK-LISTE-PDA PIC 9.
+              06 FILLER       PIC X(6).
+      *       Pour mcan-l , tde-l et msect-l (pays)
+           05 R3-LK-LISTE-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-PAY PIC X(3).
+              06 LK-LISTE-DEP PIC XX.
+      *       LK-LISTE-TER = Spaces : Territoires sinon Secteurs
+              06 LK-LISTE-TER PIC X(2).
+              06 FILLER       PIC X(3).
+      *       Pour mfmc-l : Si renseigné -> liste des sous-familles client
+           05 R4-LK-LISTE-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-FMC PIC 9(1).
+              06 FILLER       PIC X(9).
+      *       Pour mttr-l : Renseigner le n° du transporteur
+           05 R5-LK-LISTE-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-TRP PIC 9(6).
+              06 FILLER       PIC X(4).
+      *       Pour magc-l : Si renseigné -> test droit accès agences
+      *                     Si 2 -> pas de contrôle des droits d'accès agences
+           05 LK-LISTE-MAGC-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-MAGC-PALM PIC 9(1).
+              06 LK-LISTE-MAGC-SOC  PIC 9(4).
+              06 FILLER             PIC X(4).
+              06 LK-LISTE-MAGC-SEL  PIC X.    | Pour magc-l : blanc=Sélection standard  I=A inclure (dans choix inclusion exclusion)  X=A exclure (dans choix inclusion exclusion)
+      *       Pour mtlr-l : filtre types
+           05 LK-LISTE-MTLE-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-MTLE-TYP  PIC 9(1).
+              06 LK-LISTE-MTLE-INP  PIC 9(1).
+              06 FILLER             PIC X(8).
+      *       Pour mate-l : filtre types
+           05 LK-LISTE-MATE-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-MATE-AGE  PIC X(3).
+              06 LK-LISTE-MATE-TYP  PIC 9(1).
+              06 FILLER             PIC X(6).
+      *       Pour mtgm-l : filtre n° tableau de gestion
+      *       mettre 1 dans DET si on ne veut que les lignes détail (sauf calculs)
+           05 LK-LISTE-MTGM-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-MTGM-NUM  PIC 9(2).
+              06 LK-LISTE-MTGM-DET  PIC 9.
+      *       Pour mtcf-l : filtre n° fournisseur
+      *                     type de commande (optionnel)
+      *       ind = 1: sélection auto si un seul code trouvé
+           05 LK-LISTE-MTCF-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-MTCF-FOU  PIC 9(6).
+              06 LK-LISTE-MTCF-TYP  PIC 9(1).
+              06 LK-LISTE-MTCF-IND  PIC 9(1).
+              06 LK-LISTE-MTCF-TCC  PIC X(1).
+      * Pour staaff-l : 1= Avec les reprises Potentielles  2=Sans les Intentions d'achat
+           05 LK-LISTE-STAAFF-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-STAAFF-REPRISE PIC 9(1).
+              06 FILLER       PIC X(9).
+      *       Variables contenant les paramètres selon besoin programmes
+           05 LK-LISTE-CXJOU-PARAM REDEFINES LK-LISTE-PARAM.
+      *       Si renseigné -> JOurnal pour cette nature
+              06 LK-LISTE-CXJOUR-NAT  PIC X.
+      *       Si renseigné -> proposition du journal analytique O
+              06 LK-LISTE-CXJOUR-JAS  PIC X.
+      *       Uniquement renseigné pour nature trésorerie, compte général
+              06 LK-LISTE-CXJOUR-CPT  PIC 9(8).
+           05 LK-LISTE-CXPOST-PARAM REDEFINES LK-LISTE-PARAM.
+      *       Si renseigné -> poste de regroupement pour ce collectif
+              06 LK-LISTE-CXPOST-COL  PIC 9.
+      *       Choix des rubriques analytiques
+           05 LK-LISTE-CXRUBANA-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-CXRUBANA-MOD  PIC X.
+              06 LK-LISTE-CXRUBANA-RUB  PIC 999.
+      *       Choix des segments selectionnés
+           05 LK-LISTE-CXANASEG-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-CXANASEG-SEG  PIC 999.
+      *       Choix du lien dans CXCOLLEC
+           05 LK-LISTE-CXCOLLEC-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-LIE-CCOL  PIC X.
+      *       Choix du type de lettre et de la langue dans CXLETREL
+           05 LK-LISTE-CXLETREL-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-CLTR-TYP  PIC XXX.
+              06 LK-LISTE-CLTR-LAN  PIC 99.
+              06 LK-LISTE-CLTR-LOG  PIC 99.
+      *       Choix du code REPERTOIRE de PAIE dont on veut les lignes
+           05 LK-LISTE-PXREPTIT-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-REP-PREPL  PIC X(4). 
+              06 LK-LISTE-REP-FIL    PIC X(6).
+      *       Choix du code LIBELLE de PAIE dont on veut les valeurs
+           05 LK-LISTE-PXLIB-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-TYP-PLIB  PIC XX.
+              06 LK-LISTE-ATE-PLIB  PIC XX.
+      *       Choix du code REPERTOIRE de PAIE dont on veut les lignes
+           05 LK-LISTE-PXETS-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-PETS-SOC  PIC 9(4).
+      *       Choix du code REPERTOIRE DIVERS dont on veut le contenu
+           05 LK-LISTE-MXREPDIV-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-MXREPDIV  PIC 9.
+              06 FILLER             PIC X(9).
+      *       Pour mfou-l : nature fournisseur 1 -> NTF = 1 
+           05 R4-LK-LISTE-FOU REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-NTF PIC 9(1).
+              06 FILLER       PIC X(9).
+      *       Choix du code REPERTOIRE DIVERS dont on veut le contenu
+           05 LK-LISTE-PXPERSON-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-PPER-SOC  PIC 9(4).
+              06 LK-LISTE-PPER-ETS  PIC 9(4).|0=Tout établissements confondus
+              06 LK-LISTE-PPER-DEP  PIC 9.|1=Salarié partie uniquement, 0=salarié présent
+              06 FILLER             PIC X.
+      *       Si PAY-EXP = 1, ne contient que les pays étrangers, le pays nationnal est supprimé
+           05 LK-LISTE-PAY-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-PAY-EXP  PIC 9.
+              06 FILLER            PIC X(9).
+      *       Si TYP = "F", FOU contient le fournisseur, 
+      *       Si TYP = "M", MAR contient la marque
+           05 LK-LISTE-MMFO-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-MMFO-TYP PIC X.
+              06 LK-LISTE-MMFO-COD PIC X(9).
+              06 LK-LISTE-MMFO-COD-FOU REDEFINES LK-LISTE-MMFO-COD.
+                 07 LK-LISTE-MMFO-FOU PIC 9(6).
+                 07 FILLER            PIC X(3).
+              06 LK-LISTE-MMFO-COD-MAR REDEFINES LK-LISTE-MMFO-COD.
+                 07 LK-LISTE-MMFO-MAR PIC X(4).
+                 07 LK-LISTE-MMFO-FAM PIC X(2).
+                 07 FILLER            PIC X(3).
+      *       Pour pmusr-l
+           05 LK-LISTE-PMUSR-PARAM REDEFINES LK-LISTE-PARAM.
+      *       Filtre groupes / utilisateurs : spaces=tout; 'R'=regroupement;
+      *       'U'=utilisateurs; 'r'=utilisateurs du groupe CREG
+              06 LK-LISTE-PMUSR-REG   PIC X.
+              06 LK-LISTE-PMUSR-CREG  PIC X(4).
+              06 FILLER               PIC X(5).
+           05 LK-LISTE-MMOB-PARAM REDEFINES LK-LISTE-PARAM.
+      *       Filtre groupes type de Mobiles : M=MobiVip  L=MobiLoc S=MobivipSmart T=MobivipTab  t=MobiDis Tab
+              06 LK-LISTE-MMOB-ACT    PIC X.
+131113        06 LK-LISTE-MMOB-ACT2   PIC X.
+280819        06 LK-LISTE-MMOB-DINT   PIC 9.
+280819        06 LK-LISTE-MMOB-AGE    PIC X(3).
+              06 FILLER               PIC X(4).
+            05 LK-LISTE-CCRIA-PARAM REDEFINES LK-LISTE-PARAM.
+      *       CXCRIANA
+              06 LK-LISTE-CCRIA-IAS    PIC 9(1).
+              06 FILLER               PIC X(9).  
+           05 LK-LISTE-MRMLF-PARAM REDEFINES LK-LISTE-PARAM.
+      *       Pour mrlmf-l
+              06 LK-LISTE-MRMLF-SOC   PIC 9(4).
+              06 LK-LISTE-MRMLF-MOD   PIC 9(3).
+              06 FILLER               PIC XXX.
+           05 LK-LISTE-MPOF-PARAM REDEFINES LK-LISTE-PARAM.
+      *       Pour mpof-l : 
+              06 LK-LISTE-MPOF-ORI   PIC 9.
+      *       1 = Carburant ou lubrifiant
+              06 LK-LISTE-MPOF-CLU   PIC 9.
+           05 LK-LISTE-MSCL-PARAM REDEFINES LK-LISTE-PARAM.
+      *       Pour mscl-l - n° ordre client: 
+              06 LK-LISTE-MSCL-NCP   PIC 9(9).
+           05 LK-LISTE-PXBQUE-PARAM REDEFINES LK-LISTE-PARAM.
+      *       Pour pbque-l - Numéro de société de paie
+              06 lk-liste-pxbque-soc pic 9(4).
+           05 LK-LISTE-PISA-PARAM REDEFINES LK-LISTE-PARAM.
+      *       Pour pisa-l - Numéro de société de GTI, de paie 
+              06 lk-liste-pisa-soc pic 9(4).
+              06 lk-liste-pisa-sop pic 9(4).
+              06 lk-liste-pisa-pres pic 9.|uniquement les présents
+           05 LK-LISTE-MTSE-PARAM REDEFINES LK-LISTE-PARAM.
+              06 LK-LISTE-MTSE-ORI pic 9.
+      *       Pour mtse-l - Tarif en cours = 0 ou tous les tarifs = 1
+              06 LK-LISTE-MTSE-TOUS pic 9.
+           05 LK-LISTE-MEXF-PARAM REDEFINES LK-LISTE-PARAM.
+      *       Pour MEXF-L - Nature A = Article ou M = Matériel 
+              06 LK-LISTE-MEXF-NAT pic X.
+           05 LK-LISTE-MREG REDEFINES LK-LISTE-PARAM.
+      *       Pour MREG-L - Code de l'assistante pour les PNC Locarest
+              06 LK-LISTE-MREG-ASS pic X(4).
+           05 LK-LISTE-MMODACQ-M REDEFINES LK-LISTE-PARAM.
+      *       Pour MMODACQ-M - 0 MAQF 1 MAQC
+              06 LK-LISTE-MMODACQ-M-C pic 9.
+           05 LK-LISTE-MPZS-L REDEFINES LK-LISTE-PARAM.
+      *       Pour MPZS-L Fichier zone spé : C Client P Prospect...
+              06 LK-LISTE-MPZS-L-FIC pic X.
+           05 LK-LISTE-MTVGP-L REDEFINES LK-LISTE-PARAM.
+      *       Pour MTVGP-L TYP-MTVGP
+              06 LK-LISTE-MTVGP-L-TYP pic 9.
+           05 LK-LISTE-MREG REDEFINES LK-LISTE-PARAM.
+      *       Pour MARC-L - Code agence + Code de Techinicien itinérant
+              06 LK-LISTE-MARC-AGE pic X(3).
+              06 LK-LISTE-MARC-IDE pic X(4).
+           05 LK-LISTE-MDVS REDEFINES LK-LISTE-PARAM.
+      *       Pour MDVS-L - 1 : uniquement les divisions autorisées
+              06 LK-LISTE-MDVS-AUT pic 9.
+           05 LK-LISTE-MCTC REDEFINES LK-LISTE-PARAM.
+      *       Pour MCTC-L : TBA = 1 : uniquement les critères de recherche associés au taches nomenclaturées
+      *                           0 : liste des caractéristiques techniques sans les critères de recherche / taches
+              06 LK-LISTE-MCTC-TBA pic 9.
+           05 LK-LISTE-MTDIV REDEFINES LK-LISTE-PARAM.
+      *       Pour MTDIV-L : 1 = ajout chèque fidélité GAREM
+              06 LK-LISTE-MTDIV-FIDGR pic 9.
+           05 LK-LISTE-CXLFC REDEFINES LK-LISTE-PARAM.
+      *       Pour lfceta-c : 1 = choix des états, 0=Etat rattaché à un controle
+              06 LK-LISTE-CXLFC-INDIC pic 9.
+      *       Pour lfc-c : 1 = Ordonancement des contrôles, 0=liste des controles
+              06 LK-LISTE-CXLFC-RAN pic 9.
+           05 LK-LISTE-FICTRA REDEFINES LK-LISTE-PARAM.
+      *       Pour pfictra-l: liste d'un fichier de travail
+      *       TYP = 1: Liste des types du bloc S21.G00.51
+              06 LK-LISTE-FICTRA-TYP pic 9.
+           05 LK-LISTE-RLMF REDEFINES LK-LISTE-PARAM.
+      *       Pour mrlmf-l: liste des relations fournisseurs
+      *       MODVIR = 1: Ajoute les modules présents dans CSO absents de RLMF (ex : 30 27)
+              06 LK-LISTE-MRLMF-MODVIR pic 9.
+           05 LK-LISTE-PMLOG REDEFINES LK-LISTE-PARAM.
+      *       Pour pmlog-l: liste des applicatifs
+      *       MOD = 1: niveau module (code aammm aa code applicatif mmm code module)
+              06 LK-LISTE-PMLOG-MOD pic 9.
+      *    Renseigner LK-LISTE-PLUS à 1 pour une liste avec des codes 
+      *    de 8 caractères alpha (ex: mpvt-l) et à 2 si 8 caractères num.
+           05 LK-LISTE-PLUS   PIC 9.
+      *    LK-LISTE-MODULE doit être renseigné à "G" quand on est dans 
+      *    un pgm de la consolidation
+           05 LK-LISTE-MODULE   PIC X.
+      *    LK-LISTE-STC contient le n° de société comptable
+           05 LK-LISTE-STC   PIC 9(4).      
+      *    LK-LISTE-CDF = "I" on affiche une liste sans modif possible
+      *    uniquement géré dans mpci-l
+           05 LK-LISTE-CDF   PIC X.   
+      *    LK-LISTE-ART uniquement dans mdep-l pour afficher le stock 
+      *                 d'une article dans le dépôt dans SBD
+           05 LK-LISTE-ART   PIC X(20). 
+           05 R-LK-LISTE-ART REDEFINES LK-LISTE-ART.
+              07 LK-LISTE-CPV-AGE PIC  XXX.
+              07 LK-LISTE-CPV-CLI PIC  9(6).
+              07 LK-LISTE-CPV-MOD PIC  X.
+              07 LK-LISTE-CPV-TCC PIC  X.
+              07 FILLER           PIC  X(9).
+           05 LK-LISTE-CXJOU-ART REDEFINES LK-LISTE-ART.
+      *       Si renseigné -> Affichage journal annulé
+              07 LK-LISTE-CXJOUR-ANN  PIC X.
+              07 FILLER           PIC  X(19).
+      *       Choix du code REPERTOIRE de PAIE dont on veut les lignes
+           05 LK-LISTE-PXREPTIT-ART REDEFINES LK-LISTE-ART.
+              06 LK-LISTE-REP-ABR PIC X(12). 
+              06 FILLER           PIC X(8).
+      *    LK-LISTE-TSEL: blanc=Sélection standard  I=A inclure  X=A exclure (dans choix inclusion exclusion)
+051219     05 LK-LISTE-TSEL       PIC X.
+           05 FILLER PIC X(72). 
+
+      

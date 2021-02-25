@@ -1,0 +1,321 @@
+{
+  "MXART": {
+    "entity": "fr.mistral.dataserver.model.mx.Article",
+    "WEB-MART": {
+      "xfd_name": "webtop"
+    },
+    "COD-MART": {
+      "ignore": true
+    },
+    "DAT-MART": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DCR-MART": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DANN-MART": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DMOD-MART": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    }
+  },
+  "MXMARQUE": {
+    "entity": "fr.mistral.dataserver.model.mx.Marque"
+  },
+  "MXAGENCE": {
+    "entity": "fr.mistral.dataserver.model.mx.Agence",
+    "ZON1-MAGC": {
+      "ignore": true
+    },
+    "R-ZON1-MAGC": {
+      "ignore": true
+    },
+    "R-TAB-CLIB-DMP": {
+      "ignore": true
+    },
+    "OLD-CMP-MAGC": {
+      "ignore": true,
+      "comment": "Exploitation MOBISTAC-MAGC"
+    }
+  },
+  "MXARTSA": {
+    "handler": "fr.mistral.dataserver.handlers.ArticleStockHandler",
+    "entity": "fr.mistral.dataserver.model.mx.ArticleStock",
+    "aliases": [
+      "MXARTSA2"
+    ],
+    "fd": "mx/fd/MXARTSA.fd",
+    "sl": "mx/fd/MXARTSA.sl",
+    "DAM-MASA": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DEN-MASA": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DDI-MASA": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DME-MASA": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "IOE-MASA": {
+      "java_type": "Boolean"
+    }
+  },
+  "MXBDIS": {
+    "entity": "fr.mistral.dataserver.model.mx.Bdis",
+    "DAT-MBDI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DFA-MBDI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DLP-MBDI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DLO-MBDI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DCO-MBDI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DREL-MBDI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "EXC-MBDI": {
+      "xfd_name": "sortie_exceptionnelle"
+    }
+  },
+  "MXCATFOU": {
+    "entity": "fr.mistral.dataserver.model.mx.CatFou",
+    "DAT-MCTF": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    }
+  },
+  "MXDOCTEC": {
+    "entity": "fr.mistral.dataserver.model.mx.Doctec"
+  },
+  "ATTCLA": {
+    "entity": "fr.mistral.dataserver.model.mx.Classification"
+  },
+  "ATTREL": {
+    "entity": "fr.mistral.dataserver.model.mx.PieceJointeClassification"
+  },
+  "ATTACH": {
+    "entity": "fr.mistral.dataserver.model.mx.PieceJointe",
+    "DCRE-ATT": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DME-ATT": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    }
+  },
+  "MXCLID": {
+    "entity": "fr.mistral.dataserver.model.mx.Clid",
+    "RFAold-MCLD": {
+      "xfd_name": "old_CODE_REF_ARTICLE_D"
+    },
+    "DSH-MCLD": {
+      "xfd_name": "impression_nom_entete_bl"
+    }
+  },
+  "MXCLI": {
+    "entity": "fr.mistral.dataserver.model.mx.Cli",
+    "IDA-MCLI": {
+      "java_type": "Boolean",
+      "xfd_name": "impression_doc_attaches_sur_factures"
+    },
+    "DMAJ-MCLI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DME-MCLI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DANN-MCLI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DANNP-MCLI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "IEMAJD-MCLI": {
+      "java_type": "Boolean"
+    },
+    "IREVJD-MCLI": {
+      "java_type": "Boolean"
+    }
+  },
+  "MXCOMMENT": {
+    "entity": "fr.mistral.dataserver.model.mx.Comment",
+    "DFA-MCMO": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "CD2-MCMO": {
+      "xfd_name": "compteur2_depart_reservation_mobistac"
+    },
+    "NLC-MCMO": {
+      "xfd_name": "litres_depart_reservation_mobistac"
+    }
+  },
+  "MXHISVTE": {
+    "entity": "fr.mistral.dataserver.model.mx.Hisvte",
+    "DSP-MHIV": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DCO-MHIV": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DME-MHIV": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DAT-MHIV": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    }
+  },
+  "MXLDIS": {
+    "entity": "fr.mistral.dataserver.model.mx.Ldis",
+    "ART-MLDI": {
+      "ignore": true,
+      "comment": "on traite plutôt R-ART-MLDI"
+    },
+    "R1-ART-MLDI": {
+      "ignore": true,
+      "comment": "on traite plutôt R-ART-MLDI"
+    },
+    "DLP-MLDI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DSP-MLDI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DDG-MLDI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DCO-MLDI": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    }
+  },
+  "MXFOU": {
+    "entity": "fr.mistral.dataserver.model.mx.Fournisseur",
+    "IPRM-MFOU": {
+      "xfd_name": "indic_fournisseur_materiel"
+    },
+    "CSL-MFOU": {
+      "java_type": "Boolean"
+    },
+    "GRI-MFOU": {
+      "java_type": "Boolean"
+    },
+    "ETI-MFOU": {
+      "java_type": "Boolean"
+    },
+    "DANN-MFOU": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DCRE-MFOU": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DME-MFOU": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DVT-MFOU": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    }
+  },
+  "MXDESTAR": {
+    "entity": "fr.mistral.dataserver.model.mx.Destar",
+    "DAT-MDTA": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    }
+  },
+  "MXAGEDIS": {
+    "entity": "fr.mistral.dataserver.model.mx.Agedis",
+    "CLW-MAGD": {
+      "xfd_name": "no_client_webtop"
+    }
+  },
+  "MXCARTEC": {
+    "entity": "fr.mistral.dataserver.model.mx.Cartec"
+  },
+  "MXCARTECS": {
+    "entity": "fr.mistral.dataserver.model.mx.Cartecs"
+  },
+  "MXCHACLI": {
+    "entity": "fr.mistral.dataserver.model.mx.Chacli",
+    "CRE-MCHC": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "CLO-MCHC": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    },
+    "DME-MCHC": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    }
+  },
+  "MXDOCTECEXT": {
+    "entity": "fr.mistral.dataserver.model.mx.Doctecext",
+    "ORI-MDTEX": {
+      "ignore": true
+    }
+  },
+  "MXFAMART": {
+    "entity": "fr.mistral.dataserver.model.mx.Famart"
+  },
+  "MXGRAFAD": {
+    "entity": "fr.mistral.dataserver.model.mx.Grafad"
+  },
+  "MXGRAFAM": {
+    "entity": "fr.mistral.dataserver.model.mx.Grafam"
+  },
+  "MXPREGEN": {
+    "entity": "fr.mistral.dataserver.model.mx.Pregen",
+    "DANN-MPGE": {
+      "java_type": "Date",
+      "temporal": "TemporalType.DATE"
+    }
+  },
+  "MXPREGENV": {
+    "entity": "fr.mistral.dataserver.model.mx.Pregenv",
+    "GPA-MPGEV": {
+      "xfd_name": "gpa"
+    }
+  }
+}

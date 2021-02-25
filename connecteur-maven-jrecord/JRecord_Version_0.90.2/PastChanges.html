@@ -1,0 +1,140 @@
+<body>
+<h2>Changes</h2>
+<h3>Extended Occurs Depending support</h3>
+<p>There is now support for complex Occurs Depending:
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">4 </font></span><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font>        <font color="#ff0000">03</font>  size-1                <font color="#006699"><strong>pic</strong></font> s9(<font color="#ff0000">4</font>).
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">5 </font></span><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font>        <font color="#ff0000">03</font>  <font color="#006699"><strong>occurs</strong></font> <font color="#ff0000">1</font> <font color="#006699"><strong>to</strong></font> <font color="#ff0000">20</font> <font color="#006699"><strong>times</strong></font> <font color="#006699"><strong>depending</strong></font> <font color="#006699"><strong>on</strong></font> size-1.
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">6 </font></span><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font>            <font color="#ff0000">05</font>  size-11           <font color="#006699"><strong>pic</strong></font> s9(<font color="#ff0000">4</font>).
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">7 </font></span><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font>            <font color="#ff0000">05</font>  <font color="#006699"><strong>occurs</strong></font> <font color="#ff0000">1</font> <font color="#006699"><strong>to</strong></font> <font color="#ff0000">20</font> <font color="#006699"><strong>times</strong></font> <font color="#006699"><strong>depending</strong></font> <font color="#006699"><strong>on</strong></font> size-11.
+</font></pre> 
+
+<h3><a id="JRecOpts">JRecord changes for Xml schema's</a></h2>
+<p>There are a number of small changes to JRecord<uil>
+ <li>When loading Xml schema's the font (Character-set) is now a default value used
+if the font is not specified in the Xml-Schema.</li>
+ <li>For <b>ExternalRecord</b> class, the <b>setFontName</b> returns the ExternalRecord, this allows it to be used in
+ "fluid style" programming</li>
+ <li>A <b>asIOBuilder()</b> has been added to the <b>ExternalRecord</b> class.</li> 
+ <li>a new <b>setDefaultFont</b> has been added to the <b>SCHEMA_XML</b> iobuilder. This method sets a default font to be
+ used if a Font is not specified in the Xml-Schema.
+ <li>The setFont method of the <b>SCHEMA_XML</b> iobuilder will set the font <b>no matter what is specified in the Xml.</b></li>
+</uil>
+
+<p>Now when you specify a defaultfont, when loading a Xml-Schema, it becomes the default font (if none is specified in the Xml):
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">14 </font></span>        RecordEditorXmlLoader loader <font color="#000000"><strong>=</strong></font> <font color="#006699"><strong>new</strong></font> <font color="#9966ff">RecordEditorXmlLoader</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">15 </font></span>        ExternalRecord xrec <font color="#000000"><strong>=</strong></font> loader.<font color="#9966ff">loadCopyBook</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Schema</font><font color="#ff00cc">.</font><font color="#ff00cc">Xml</font><font color="#ff00cc">&quot;</font>, <font color="#ff0000">0</font>, <font color="#ff0000">0</font>, <font color="#ff00cc">&quot;</font><span style="background:yellow;"><b><font color="#ff00cc">CP037</font></b></span><font color="#ff00cc">&quot;</font>, <font color="#ff0000">0</font>, <font color="#ff0000">0</font>, <font color="#ff0000">0</font>, <font color="#cc00cc">null</font><font color="#000000"><strong>)</strong></font>;
+</font></pre>
+
+or using IOBuilders, you use the <b>setDefaultFont</b> method
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">16 </font></span>        AbstractLineReader reader  <font color="#000000"><strong>=</strong></font> JRecordInterface1.SCHEMA_XML
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">17 </font></span>                                        .<font color="#9966ff">newIOBuilder</font><font color="#000000"><strong>(</strong></font>copybookName<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">18 </font></span>                                            .<span style="background:yellow;"><b><font color="#9966ff">setDefaultFont</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">cp037</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font></b></span>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">19 </font></span>                                        .<font color="#9966ff">newReader</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">InputFile</font><font color="#ff00cc">.</font><font color="#ff00cc">txt</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>;
+</font></pre>
+
+<p>You can overide the font in the Xml with the <b>setFontName</b> method of ExternalRecord class:
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">18 </font></span>        RecordEditorXmlLoader loader <font color="#000000"><strong>=</strong></font> <font color="#006699"><strong>new</strong></font> <font color="#9966ff">RecordEditorXmlLoader</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">19 </font></span>        ExternalRecord xrec <font color="#000000"><strong>=</strong></font> loader.<font color="#9966ff">loadCopyBook</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Schema</font><font color="#ff00cc">.</font><font color="#ff00cc">Xml</font><font color="#ff00cc">&quot;</font>, <font color="#ff0000">0</font>, <font color="#ff0000">0</font>, <font color="#ff00cc">&quot;</font><font color="#ff00cc">&quot;</font>, <font color="#ff0000">0</font>, <font color="#ff0000">0</font>, <font color="#ff0000">0</font>, <font color="#cc00cc">null</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">20 </font></span>                                    .<span style="background:yellow;"><b><font color="#9966ff">setFontName</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">CP037</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font></b></span>;
+</font></pre>
+
+or using IOBuilders, you use the <b>setFont</b> method to overide the font in the Xml:
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">16 </font></span>        AbstractLineReader reader  <font color="#000000"><strong>=</strong></font> JRecordInterface1.SCHEMA_XML
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">17 </font></span>                                        .<font color="#9966ff">newIOBuilder</font><font color="#000000"><strong>(</strong></font>copybookName<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">18 </font></span>                                            .<span style="background:yellow;"><b><font color="#9966ff">setFont</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">cp037</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font></b></span>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">19 </font></span>                                        .<font color="#9966ff">newReader</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">InputFile</font><font color="#ff00cc">.</font><font color="#ff00cc">txt</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>;
+</font></pre>
+
+<p>You can combine this with the <b>asIOBuilder()</b> method:
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">30 </font></span>        RecordEditorXmlLoader loader <font color="#000000"><strong>=</strong></font> <font color="#006699"><strong>new</strong></font> <font color="#9966ff">RecordEditorXmlLoader</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">31 </font></span>        AbstractLineReader reader <font color="#000000"><strong>=</strong></font> loader.<font color="#9966ff">loadCopyBook</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Schema</font><font color="#ff00cc">.</font><font color="#ff00cc">Xml</font><font color="#ff00cc">&quot;</font>, <font color="#ff0000">0</font>, <font color="#ff0000">0</font>, <font color="#ff00cc">&quot;</font><font color="#ff00cc">&quot;</font>, <font color="#ff0000">0</font>, <font color="#ff0000">0</font>, <font color="#ff0000">0</font>, <font color="#cc00cc">null</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">32 </font></span>                    .<font color="#9966ff">setFontName</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">CP037</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">33 </font></span>                    .<font color="#9966ff">asIOBuilder</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">34 </font></span>                        .<font color="#9966ff">newReader</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">FileName</font><font color="#ff00cc">.</font><font color="#ff00cc">txt</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>;
+</font></pre>
+
+<p>or
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">23 </font></span>         AbstractLineReader reader <font color="#000000"><strong>=</strong></font> JRecordInterface1.SCHEMA_XML
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">24 </font></span>                .<font color="#9966ff">newIOBuilder</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Schema</font><font color="#ff00cc">.</font><font color="#ff00cc">Xml</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">25 </font></span>                .<font color="#9966ff">getExternalRecord</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">26 </font></span>                    .<font color="#9966ff">setFontName</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">cp1252</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">27 </font></span>                    .<font color="#9966ff">asIOBuilder</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">28 </font></span>                        .<font color="#9966ff">newReader</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">FileName</font><font color="#ff00cc">.</font><font color="#ff00cc">txt</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>;
+</font></pre>
+
+
+
+<h3>Setting Record Starting position</h3>
+<p>With the Multi-Copybook loader you can now set the <i>Records starting position</i> either by absolute position:</p>
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">20 </font></span>        ICobolMultiCopybookIOBuilder iob <font color="#000000"><strong>=</strong></font> JRecordInterface1.COBOL
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">21 </font></span>                .<font color="#9966ff">newMultiCopybookIOBuilder</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">MultiCopybook</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">22 </font></span>                    .<font color="#9966ff">setDialect</font><font color="#000000"><strong>(</strong></font>ICopybookDialects.FMT_MAINFRAME<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">23 </font></span>                    .<font color="#9966ff">addCopyBook</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">DTAR020</font><font color="#ff00cc">.</font><font color="#ff00cc">cbl</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">24 </font></span>                    .<font color="#9966ff">addCopyBook</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">SecondRecord</font><font color="#ff00cc">.</font><font color="#ff00cc">cbl</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">25 </font></span>                        .<span style="background:yellow"><b><font color="#9966ff">setStartingPosition</font><font color="#000000"><strong>(</strong></font>120<font color="#000000"><strong>)</strong></font>;</b></span>
+</font></pre>
+
+<p>Or by specifying a field:</p>
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">28 </font></span>        ICobolMultiCopybookIOBuilder iob <font color="#000000"><strong>=</strong></font> JRecordInterface1.COBOL
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">29 </font></span>                .<font color="#9966ff">newMultiCopybookIOBuilder</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">MultiCopybook</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">30 </font></span>                    .<font color="#9966ff">setDialect</font><font color="#000000"><strong>(</strong></font>ICopybookDialects.FMT_MAINFRAME<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">31 </font></span>                    .<font color="#9966ff">addCopyBook</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Master</font><font color="#ff00cc">.</font><font color="#ff00cc">cbl</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">32 </font></span>                    .<font color="#9966ff">addCopyBook</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Child1</font><font color="#ff00cc">.</font><font color="#ff00cc">cbl</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">33 </font></span>                        .<span style="background:yellow"><b><font color="#9966ff">setStartingPositionToField</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Master</font><font color="#ff00cc">.</font><font color="#ff00cc">cbl</font><font color="#ff00cc">&quot;</font>, <font color="#ff00cc">&quot;</font><font color="#ff00cc">Record</font><font color="#ff00cc">-</font><font color="#ff00cc">Detail</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font></b></span>
+</font></pre>
+<p>This is to handle the case where you have a <i>Master</i> copybook like:</p>
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">5 </font></span><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#ff0000">01</font>  Master.
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">6 </font></span><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font>    <font color="#ff0000">03</font> Header-Details .
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">7 </font></span><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font>       ...
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">8 </font></span><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font>    <font color="#ff0000">03</font> Record-Details                          <font color="#006699"><strong>Pic</strong></font> x(<font color="#ff0000">300</font>).
+</font></pre>
+<p>And you move a series of <i>Child</i> copybooks to the <b>Record-Details</b> field.
+<p>
+<h3><a id="insField">Insert Field in External Record</a></h3>
+<p>A new method <b>addFixedWidthField</b> has been added to the <b>ExternalRecord</b> class.
+This method has 2 parameters:<ol>
+ <li><b>field</b> Field to be inserted</li>
+ <li><b>Position-adjustment</b> - how following fields are to be adjusted. Possible values<ul>
+   <li><b>NO_ADJUSTMENT</b> - no adjustment to the position of other fields is made</li>
+   <li><b>ADJUST_BY_LENGTH</b> - Simply add length of the new field to the position of the following fields.</li>
+   <li><b>CALCULATE_ADJUSTMENT</b> - Calculate a Position adjustment adjustment
+ </ul></li>
+</ol>
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 8 </font></span>            ExternalRecord.FieldAdjustmentOptions adj 
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 9 </font></span>                    <font color="#000000"><strong>=</strong></font> ExternalRecord.FieldAdjustmentOptions.ADJUST_BY_LENGTH;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">10 </font></span>            ExternalField field <font color="#000000"><strong>=</strong></font> <font color="#006699"><strong>new</strong></font> <font color="#9966ff">ExternalField</font><font color="#000000"><strong>(</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">11 </font></span>                      POSITIONS[i] <font color="#000000"><strong>+</strong></font> adjAmount, <font color="#ff0000">5</font>, <font color="#ff00cc">&quot;</font><font color="#ff00cc">name</font><font color="#ff00cc">&quot;</font>, <font color="#ff00cc">&quot;</font><font color="#ff00cc">&quot;</font>, Type.ftChar,
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">12 </font></span>                      <font color="#ff0000">0</font>, <font color="#ff0000">0</font>, <font color="#ff00cc">&quot;</font><font color="#ff00cc">&quot;</font>, <font color="#ff00cc">&quot;</font><font color="#ff00cc">&quot;</font>, <font color="#ff00cc">&quot;</font><font color="#ff00cc">&quot;</font>, <font color="#ff0000">0</font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">13 </font></span>            <font color="#0099ff"><strong>int</strong></font> idx <font color="#000000"><strong>=</strong></font> externalRec.<font color="#9966ff">addFixedWidthField</font><font color="#000000"><strong>(</strong></font>field, adj<font color="#000000"><strong>)</strong></font>;
+</font></pre>
+<p>Which <i>adjustment</i> to use
+
+<pre>
+  If you have
+   
+      <b>&lt;field_1&gt;&lt;field_2&gt;</b>
+
+  and you want to use add a new field
+  
+     <b>&lt;field_1&gt;&lt;new_field&gt;&lt;field_2&gt;</b>
+  
+  you might as well use <b>ADJUST_BY_LENGTH</b> but <b>CALCULATE_ADJUSTMENT</b> will also work
+  
+  If field to be inserted partially overlaps a <b>filler</b> / <b>existing field</b>
+  
+     <b>&lt;filler ------&gt;&lt;field_1&gt;</b>
+     
+  and you want to change to
+  
+     <b>&lt;filler ----&lt;new_Field --&gt;&lt;field_1&gt;</b>
+     
+  use <b>CALCULATE_ADJUSTMENT</b>
+</pre>
+</body>

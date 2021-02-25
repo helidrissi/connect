@@ -1,0 +1,250 @@
+      *(( XFD FILE = MXART ))
+       FD  MXART3
+           LABEL RECORD IS STANDARD.
+       01 ENR-MART3.
+           02 CLE1-MART3.
+
+      *(( XFD COMMENT Code article ))
+               04 COD-MART3        PIC  X(20).
+               04 CODR-MART3 REDEFINES COD-MART3.
+
+      *(( XFD COMMENT Identifiant ))
+                   06 CO1-MART3        PIC  X(4).
+                   06 CLE5-MART3.
+
+      *(( XFD COMMENT Référence article (2ème partie du code ))
+                       08 CO2-MART3        PIC  X(16).
+           02 CLE2-MART3.
+
+      *(( XFD COMMENT Désignation ))
+               04 DES-MART3        PIC  X(40).
+
+      *(( XFD COMMENT Complément désignation ))
+           02 DE2-MART3        PIC  X(20).
+
+      *(( XFD COMMENT Désignation modifiable: 0=non 1=oui ))
+           02 MOD-MART3        PIC  9.
+           02 CLE3-MART3.
+
+      *(( XFD COMMENT Code fournisseur ))
+               04 FOU-MART3        PIC  9(6).
+               04 CLE8-MART3.
+
+      *(( XFD COMMENT Référence fournisseur ))
+                   06 REF-MART3        PIC  X(21).
+
+      *(( XFD COMMENT Code remise fournisseur ))
+           02 CRF-MART3        PIC  99.
+           02 CLE4-MART3.
+
+      *(( XFD COMMENT Code famille ))
+               04 GRA-MART3        PIC  99.
+
+      *(( XFD COMMENT Code sou-famille ))
+               04 FAM-MART3        PIC  99.
+           02 CLE6-MART3.
+
+      *(( XFD COMMENT Référence interne ))
+               04 RFI-MART3        PIC  X(8).
+               04 RFIN-MART3 REDEFINES RFI-MART3  PIC  9(8).
+           02 CLE7-MART3.
+
+      *(( XFD COMMENT Référence normalisée ))
+               04 RFN-MART3        PIC  X(16).
+           02 CLE9-MART3.
+
+      *(( XFD COMMENT Code Gencod (Code Barre ))
+               04 GCOD-MART3       PIC  9(13).
+
+      *(( XFD COMMENT Politique de prix: 1=Coef/PA 2=Coef/PTF 3=PV - remise 4=PA et PV 5=PR x TxM 6=PxTarif + PA ))
+           02 POL-MART3        PIC  9.
+
+      *(( XFD COMMENT Code devise ))
+           02 DEV-MART3        PIC  XXX.
+
+      *(( XFD COMMENT Prix tarif fournisseur en devise ))
+           02 PDE-MART3        PIC  9(8)V99.
+
+      *(( XFD COMMENT Prix tarif fournisseu ))
+           02 PTF-MART3        PIC  9(7)V99.
+
+      *(( XFD COMMENT Remise fournisseur ))
+           02 REM-MART3        PIC  S99V99.
+
+      *(( XFD COMMENT Prix d'achat net ))
+           02 PAC-MART3        PIC  9(7)V99.
+
+      *(( XFD COMMENT Prix de revient industriel (spécif FWK ))
+           02 PRI-MART3        PIC  9(7)V99.
+           02 PAT-MART3        PIC  9(7)V99.
+
+      *(( XFD COMMENT Coefficient multiplicateur ))
+           02 COE-MART3        PIC  99V999.
+
+      *(( XFD COMMENT Prix de vente HT ))
+           02 PVT-MART3        PIC  9(7)V99.
+           02 TTC-MART3        PIC  9(7)V99.
+
+      *(( XFD COMMENT Prix de vente TTC ))
+           02 IFA-MART3        PIC  9.
+
+      *(( XFD COMMENT Prx d'achat frais unitaires d'approche (FUA ))
+           02 PFA-MART3        PIC  99V99.
+
+      *(( XFD COMMENT Coeff sur frais unitaires d'approche (FUA ))
+           02 CFU-MART3        PIC  9V999.
+
+      *(( XFD COMMENT Montant frais unitaires d'approche (FUA ))
+           02 FUA-MART3        PIC  9(6)V99.
+
+      *(( XFD COMMENT Unité de prix ))
+           02 UPR-MART3        PIC  9(5).
+
+      *(( XFD COMMENT Coeff PR / PA (si pol = 5 ))
+           02 CPR-MART3        PIC  9V999.
+
+      *(( XFD COMMENT Taux de marque ))
+           02 TXM-MART3        PIC  99V99.
+
+      *(( XFD COMMENT Code remise client ))
+           02 CRC-MART3        PIC  999.
+
+      *(( XFD COMMENT Indicateur saisonnier: 0=non 1=oui ))
+           02 SAI-MART3        PIC  9.
+
+      *(( XFD COMMENT Conditionnement ))
+           02 UAC-MART3        PIC  9(5).
+
+      *(( XFD COMMENT Date mise à jour tarif ))
+           02 DAT-MART3        PIC  9(8).
+           02 R-DAT-MART3 REDEFINES DAT-MART3.
+               04 SDAT-MART3       PIC  99.
+               04 ADAT-MART3       PIC  99.
+               04 MDAT-MART3       PIC  99.
+               04 JDAT-MART3       PIC  99.
+
+      *(( XFD COMMENT Indicateur multi-appro: 0=non 1=oui ))
+           02 MUL-MART3        PIC  9.
+
+      *(( XFD COMMENT Poids unitaire ))
+           02 POI-MART3        PIC  9(5)V999.
+
+      *(( XFD COMMENT Indicateur concurrence: 0=non concerné 1=avec concurrence 9=sans concurrence ))
+           02 ICO-MART3        PIC  9.
+
+      *(( XFD COMMENT Indicateur documentation: 0=non 1oui ))
+           02 DOC-MART3        PIC  9.
+
+      *(( XFD COMMENT Indicateur tarif: 0=édité sur tarif 1=non édité 2=interdit à la vente ))
+           02 TAR-MART3        PIC  9.
+
+      *(( XFD COMMENT Indicateur tarif à colonnes: 0=non 1=remise sur tarif général 2=prix net ))
+           02 ITC-MART3        PIC  9.
+           02 TAR-COL-MART3
+                      OCCURS 6 TIMES.
+
+      *(( XFD COMMENT Borne supérieure TC ))
+               04 BSU-MART3        PIC  9(5).
+
+      *(( XFD COMMENT Remise TC ))
+               04 RTG-MART3        PIC  99V99.
+
+      *(( XFD COMMENT Prix de vente net TC ))
+               04 PVN-MART3        PIC  9(7)V99.
+
+      *(( XFD COMMENT Code unité d'achat ))
+           02 CUA-MART3        PIC  99.
+
+      *(( XFD COMMENT Code unité de vente ))
+           02 CUV-MART3        PIC  99.
+
+      *(( XFD COMMENT Nombre d'unités de vente par unité d'achat ))
+           02 NUU-MART3        PIC  9(4)V9(4).
+
+      *(( XFD COMMENT Indicateur composition: 0=non 1=ensemble fixe 2=ensemble variable 3=kit ))
+           02 INO-MART3        PIC  9.
+
+      *(( XFD COMMENT Code marque ))
+           02 MAR-MART3        PIC  XXXX.
+
+      *(( XFD COMMENT Type ))
+           02 TYP-MART3        PIC  X(16).
+
+      *(( XFD COMMENT Volume ))
+           02 VOL-MART3        PIC  9(4)V99.
+
+      *(( XFD COMMENT Indicateur existence moteur : 0=non 1=oui ))
+           02 IMO-MART3        PIC  9.
+
+      *(( XFD COMMENT Marque moteur ))
+           02 MARM-MART3       PIC  XXXX.
+
+      *(( XFD COMMENT Modèle moteur ))
+           02 MODM-MART3       PIC  X(14).
+
+      *(( XFD COMMENT Type moteur ))
+           02 TYPM-MART3       PIC  X(16).
+
+      *(( XFD COMMENT Indicateur édition composition sur BL: 1=oui 2=non ))
+           02 EDB-MART3        PIC  9.
+
+      *(( XFD COMMENT Indicateur édition composition sur facture: 1=oui 2=non ))
+           02 EDF-MART3        PIC  9.
+
+      *(( XFD COMMENT Destination: 0=vente 1=location 2=vente + location ))
+           02 ILV-MART3        PIC  9.
+
+      *(( XFD COMMENT Nature: 0=origine 1=adaptable ))
+           02 NAT-MART3        PIC  9.
+
+      *(( XFD COMMENT Date création ))
+           02 DCR-MART3        PIC  9(8).
+           02 R-DCR-MART3 REDEFINES DCR-MART3.
+               04 SDCR-MART3       PIC  99.
+               04 ADCR-MART3       PIC  99.
+               04 MDCR-MART3       PIC  99.
+               04 JDCR-MART3       PIC  99.
+
+      *(( XFD COMMENT Code annulation: 0=non 1oui ))
+           02 CANN-MART3       PIC  9.
+
+      *(( XFD COMMENT Auteur annulation (initiales ))
+           02 IANN-MART3       PIC  X(4).
+
+      *(( XFD COMMENT Date annulation ))
+           02 DANN-MART3       PIC  9(8).
+
+      *(( XFD COMMENT N° identification CEE ))
+           02 TVA-MART3        PIC  X(10).
+           02 MOP-MART3        PIC  9.
+           02 STGRA-MART3      PIC  9.
+           02 STITA-MART3      PIC  9.
+           02 STSOU-MART3      PIC  9.
+
+      *(( XFD COMMENT Auteur modification ))
+           02 IMOD-MART3       PIC  X(4).
+
+      *(( XFD COMMENT Date modification ))
+           02 DMOD-MART3       PIC  9(8).
+
+      *(( XFD COMMENT Heure modification ))
+           02 HMOD-MART3       PIC  99V99.
+           02 R-HMOD-MART3 REDEFINES HMOD-MART3.
+               05 HHMOD-MART3      PIC  99.
+               05 MMMOD-MART3      PIC  99.
+
+      *(( XFD COMMENT Auteur création ))
+           02 ICR-MART3        PIC  X(4).
+
+      *(( XFD COMMENT Achat Interdit: 0=Non 1=Oui ))
+           02 ACHI-MART3       PIC  9.
+
+      *(( XFD COMMENT Indicateur Prix de Vente saisi 0=Non 1=H.T 2=TTC ))
+           02 ISPV-MART3       PIC  9.
+      *(( XFD NAME = INDIC_PV_SAISI ))
+      *(( XFD COMMENT Code pays d'origine (/déclaration DEB) ))
+           02 PAY-MART3        PIC  XXX.
+
+      *(( XFD COMMENT Société d'appartenance de la pièce (ICA avec Réf) ))
+           02 SOC-MART3        PIC  9(4).
+           02 FILLER           PIC  X(10).

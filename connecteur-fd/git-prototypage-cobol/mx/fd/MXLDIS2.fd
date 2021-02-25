@@ -1,0 +1,159 @@
+      *(( XFD FILE = MXLDIS2 ))
+       FD  MXLDIS2
+           LABEL RECORD IS STANDARD.
+       01 ENR-MLDI2.
+           02 CLE1-MLDI2.
+               03 AGE-MLDI2        PIC  XXX.
+               03 BON-MLDI2        PIC  9(8).
+               03 LIG-MLDI2        PIC  9999.
+           02 CAS-MLDI2        PIC  X(7).
+           02 INP-MLDI2        PIC  X.
+           02 ART-MLDI2        PIC  X(20).
+           02 R-ART-MLDI2 REDEFINES ART-MLDI2.
+               03 PRE-MLDI2        PIC  X(4).
+               03 BID-MLDI2        PIC  X(16).
+           02 R1-ART-MLDI2 REDEFINES ART-MLDI2.
+               03 AR1-MLDI2        PIC  X(4).
+               03 AR2-MLDI2        PIC  X(16).
+           02 RAN-MLDI2        PIC  9999.
+           02 COM1-MLDI2.
+               03 DES-MLDI2        PIC  X(40).
+               03 DE2-MLDI2        PIC  X(20).
+           02 R2-COM1-MLDI2 REDEFINES COM1-MLDI2.
+               03 LPR-MLDI2        PIC  X(35).
+               03 FILLER           PIC  X(25).
+           02 QTE-MLDI2        PIC  S9(6)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+           02 QTC-MLDI2        PIC  S9(6)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+           02 ISQ-MLDI2        PIC  9.
+           02 PUB-MLDI2        PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+           02 REM-MLDI2        PIC  S99V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+           02 REC-MLDI2        PIC  99V99
+                      OCCURS 6 TIMES.
+           02 REMC-MLDI2       PIC  S99V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+           02 PUN-MLDI2        PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+           02 PRU-MLDI2        PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+           02 PAC-MLDI2        PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+           02 PZE-MLDI2        PIC  9.
+           02 GRA-MLDI2        PIC  99.
+           02 FAM-MLDI2        PIC  99.
+           02 EDI-MLDI2        PIC  9.
+           02 TLI-MLDI2        PIC  9.
+           02 TCC-MLDI2        PIC  X.
+           02 PRO-MLDI2        PIC  9.
+           02 ILC-MLDI2        PIC  9.
+           02 INO-MLDI2        PIC  9.
+           02 TCF-MLDI2        PIC  X.
+           02 LCF-MLDI2        PIC  9999.
+           02 LLF-MLDI2        PIC  9999.
+           02 EDB-MLDI2        PIC  9.
+           02 EDF-MLDI2        PIC  9.
+           02 CVM-MLDI2        PIC  9.
+           02 R-CVM-MLDI2 REDEFINES CVM-MLDI2.
+
+      *(( XFD COMMENT Indicateur impression étiquette d'emballage: 0=non édité  1=édité ))
+               04 ETI-MLDI2        PIC  9.
+           02 LPZ-MLDI2        PIC  X(10).
+           02 MAM-MLDI2        PIC  XXXX.
+           02 TYM-MLDI2        PIC  X(16).
+           02 DLP-MLDI2        PIC  9(8).
+           02 R-DLP-MLDI2 REDEFINES DLP-MLDI2.
+               03 SADLP-MLDI2      PIC  9999.
+               03 R-SADLP-MLDI2 REDEFINES SADLP-MLDI2.
+                   04 SDLP-MLDI2       PIC  99.
+                   04 ADLP-MLDI2       PIC  99.
+               03 MDLP-MLDI2       PIC  99.
+               03 JDLP-MLDI2       PIC  99.
+           02 DSP-MLDI2        PIC  9(8).
+           02 R-DSP-MLDI2 REDEFINES DSP-MLDI2.
+               03 SDSP-MLDI2       PIC  99.
+               03 ADSP-MLDI2       PIC  99.
+               03 MDSP-MLDI2       PIC  99.
+               03 JDSP-MLDI2       PIC  99.
+           02 IGA-MLDI2        PIC  9.
+           02 TGA-MLDI2        PIC  9.
+           02 INGP-MLDI2       PIC  9.
+           02 DUGP-MLDI2       PIC  999.
+           02 INGM-MLDI2       PIC  9.
+           02 DUGM-MLDI2       PIC  999.
+           02 INGD-MLDI2       PIC  9.
+           02 DUGD-MLDI2       PIC  999.
+           02 IDG-MLDI2        PIC  9.
+           02 DDG-MLDI2        PIC  9(8).
+           02 R-DDG-MLDI2 REDEFINES DDG-MLDI2.
+               04 SDDG-MLDI2       PIC  99.
+               04 ADDG-MLDI2       PIC  99.
+               04 MDDG-MLDI2       PIC  99.
+               04 JDDG-MLDI2       PIC  99.
+           02 DEP-MLDI2        PIC  999.
+           02 AGS-MLDI2        PIC  XXX.
+           02 MOT-MLDI2        PIC  X(15).
+           02 R-MOT-MLDI2 REDEFINES MOT-MLDI2.
+
+      *(( XFD COMMENT Prix TTC WEB pour Agrizone ))
+               05 PTTC-MLDI2       PIC  S9(12)V99.
+           02 R1-MOT-MLDI2 REDEFINES MOT-MLDI2.
+
+      *(( XFD COMMENT Délais (SRM) ))
+               05 DELD-MLDI2       PIC  9(3)
+                          OCCURS 5 TIMES.
+           02 FOU-MLDI2        PIC  9(6).
+           02 ICF-MLDI2        PIC  9.
+           02 EPG-MLDI2        PIC  9.
+           02 EXC-MLDI2        PIC  9.
+           02 HCD-MLDI2        PIC  9(8).
+           02 HDD-MLDI2        PIC  9(8).
+           02 REV-MLDI2        PIC  9(6).
+           02 VMQ-MLDI2        PIC  9(6).
+           02 DCO-MLDI2        PIC  9(8).
+
+      *(( XFD COMMENT Date de commande ))
+           02 R-DCO-MLDI2 REDEFINES DCO-MLDI2.
+               04 SDCO-MLDI2       PIC  99.
+               04 ADCO-MLDI2       PIC  99.
+               04 MDCO-MLDI2       PIC  99.
+               04 JDCO-MLDI2       PIC  99.
+           02 HIV-MLDI2        PIC  9(9).
+           02 HIA-MLDI2        PIC  9(9).
+           02 AGET-MLDI2       PIC  X(3).
+
+      *(( XFD COMMENT N° ligne bon de transfert (TSV) si nter-agence avec gestion stock relais ))
+           02 TAA-MLDI2        PIC  9(4).
+
+      *(( XFD COMMENT Indicateur ligne devis 1=abandonnée 2=gagnée ))
+           02 IAD-MLDI2        PIC  9.
+
+      *(( XFD COMMENT Indic reprise petit matériel ))
+           02 IRPM-MLDI2       PIC  9.
+
+      *(( XFD COMMENT Indic TVA sur la marge ))
+           02 ITM-MLDI2        PIC  9.
+
+      *(( XFD COMMENT Indic reprise HT ou TTC ))
+           02 IRE-MLDI2        PIC  9.
+
+      *(( XFD COMMENT Type livraison 1=sur stock 2=direct client 3=via stock central - M3 ))
+           02 TBP-MLDI2        PIC  9.
+
+      *(( XFD COMMENT N° BL inter-agence généré en efd-genbdi ))
+           02 BLI-MLDI2        PIC  9(8).
+      *(( XFD NAME = type_livraison ))
+      *(( XFD COMMENT Indicateur prix net modifié ))
+           02 IPNS-MLDI2       PIC  9.
+      *(( XFD NAME = quantite_cde ))
+      *(( XFD COMMENT Indicateur prix saisi article divers 0=PTF 1=PA Net ))
+           02 IPAC-MLDI2       PIC  9.
+      *(( XFD NAME = pa_ou_ptf ))
+      *(( XFD COMMENT Taux de TVA pour Agrizone ))
+           02 TTVA-MLDI2       PIC  9.
+      *(( XFD NAME = pa_ou_ptf ))
+      *(( XFD COMMENT N° Ligne transaction pour Agrizone ))
+           02 NTR-MLDI2        PIC  X(4).
+           02 FILLER           PIC  X(3).

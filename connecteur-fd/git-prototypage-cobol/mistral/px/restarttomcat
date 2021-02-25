@@ -1,0 +1,12 @@
+/usr/local/tomcat/bin/shutdown.sh
+
+TOMCAT=`ps -ef -o "%p  %c " | grep java |awk '{ print $1}'`
+if [ -z "$TOMCAT" ]
+then :
+else TACHE=`ps -ef -o "%p  %c " | grep java |awk '{ print $1}'`
+     kill -9 $TACHE
+     echo "Kill du process tomcat" 
+fi
+rm /heap* 2>>/dev/null
+echo "Redémarrage du tomcat"
+/usr/local/tomcat/bin/startup.sh

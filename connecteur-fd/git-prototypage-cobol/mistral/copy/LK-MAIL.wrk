@@ -1,0 +1,55 @@
+      * Linkage de Write-Mail
+       01 LK-MAIL.
+           05 LK-MAIL-TO PIC X(128).
+           05 LK-MAIL-SUBJECT PIC X(32).
+           05 LK-MAIL-BODY PIC X(512).
+           05 LK-MAIL-ZONE1.
+              06 LK-MAIL-ATTACHMENTS PIC X(512).
+              06 FILLER  PIC X.
+      *    4 Adresses supplémentaires et type d'adresse
+              06 LK-MAIL-TAB-TO.
+                 10 LK-MAIL-TAB-TO-ADR PIC X(100) OCCURS 4.
+           05 R-LK-MAIL-ZONE1 REDEFINES LK-MAIL-ZONE1.
+      *    Nom des variables pouvant être présentes dans le message
+              06 LK-MAIL-VAR    PIC X(20) OCCURS 12 TIMES.
+      *    Uniquement pour un seul destinataire : valeur des variables pouvant être présentes dans le message
+              06 LK-MAIL-VALUES-TAB.
+                 07 LK-MAIL-VALUES PIC X(50) OCCURS 12 TIMES.
+      *    Si variables: on peut avoir aussi un doc attaché (le BL)
+              06 LK-MAIL-ATTVAR PIC X(73).
+160419* pour mémoriser dans l'historique d'envois
+              06 R-LK-MAIL-ATTVAR REDEFINES LK-MAIL-ATTVAR.
+      * LK-MAIL-TYP: origine (ex: PXR)
+                 07 LK-MAIL-TYP PIC X(4).
+      * LK-MAIL-ORI: C=client blanc=autre
+                 07 LK-MAIL-ORI PIC X.
+      * LK-MAIL-COD: N° interne client
+                 07 LK-MAIL-COD PIC 9(9).
+      * LK-MAIL-ITC: code interlocuteur
+                 07 LK-MAIL-ITC PIC 9(9).
+      * LK-MAIL-CDV: code client divers
+                 07 LK-MAIL-CDV PIC 9(6).
+      * LK-MAIL-AGE: code agence
+                 07 LK-MAIL-AGE PIC X(3).
+      * LK-MAIL-BON: n° de bon
+                 07 LK-MAIL-BON PIC 9(8).
+                 07 FILLER      PIC X(33).
+160419
+      *    lk-mail-ivar 1=existence variables dans LK-MAIL-VAR
+      *                 2=existence variables dans LK-MAIL-VAR pour formatage du texte emailing ou sms
+      *                 3=existence variables dans LK-MAIL-VAR pour formatage du texte emailing ou sms en html
+      *                 4=envoi mail Webtop
+      *                 5=existence variables dans LK-MAIL-VAR + identité destinataires (personnel interne) dans LK-MAIL-TO séparés par ";"
+           05 LK-MAIL-IVAR PIC 9.
+      *    LK-MAIL-ANNUL = 1 si message non envoyé (Bouton Quitter)
+           05 LK-MAIL-ANNUL PIC 9.
+      *    Configuration du type d'envoi : vide=email, F=fax
+           05 LK-MAIL-CFG PIC X.
+      * Pour mail envoyé dans TAR (Gesmis) 
+           05 LK-MAIL-SUBJECT2 PIC X(68).
+           05 LK-MAIL-MGPDF    PIC 9.
+      * Clé du fichier MODSMS si mail graphique pour lire le fichier html
+           05 LK-MAIL-CLEMSMS  PIC X(8).
+      * N0° de la lettre par défaut
+           05 LK-MAIL-NUMLRL   PIC 9(2).
+           05 FILLER PIC X(30).

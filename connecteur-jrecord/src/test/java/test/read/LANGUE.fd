@@ -1,0 +1,13 @@
+      *(( XFD FILE = LANGUE ))
+       FD  LANGUE
+           LABEL RECORD IS STANDARD.
+       01 ENR-LAN.
+           02 CLE1-LAN.
+               04 COD-LAN          PIC  99.
+           02 NOM-LAN          PIC  X(20).
+           02 TRA-LAN          PIC  X(20).
+           02 CVI-LAN          PIC  X(3).
+           02 MIP2-LAN         PIC  99.
+           02 MIP3-LAN         PIC  99.
+           02 CISO-LAN         PIC  X(2).
+           02 FILLER           PIC  X(191).

@@ -1,0 +1,35 @@
+clear1
+echo "       PROCEDURE DE CREATION DES REPERTOIRES /REPRISE FICHIERS  "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= "
+echo "\n"
+echo "Avoir cr‚‚ le r‚pertoire (ex: CLI) sous /usr1 et ˆtre dans celui-ci"
+echo "-> pwd : "
+pwd
+echo "\n"
+if [ -d /cx0001 ]
+   then echo "\n"
+   echo "Proc‚dure non R‚alisable \c"
+   read ok
+   exit
+fi
+echo "Confirmez-vous (Taper 'OUI' Pour confirmer) \c"
+read OK
+if [ $OK != "OUI" ]
+    then
+    echo "\n"
+    echo " Proc‚dure Non R‚aliss‚e - Taper • \c "
+    read ok
+    exit
+fi
+echo "\n"
+echo " Cr‚ation en Cours "
+mkdir mx0001 mx0001/f mx0001/ft mx0001/fseq
+mkdir mxg mxg/f mxg/ft
+ln -s /acu/mx/fg mxg/fg
+mkdir cx0001 cx0001/f cx0001/ft
+mkdir cxg cxg/f cxg/ft
+ln -s /acu/cx/fg cxg/fg
+ln -s /acu/mistral   mistral
+ln -s /acu/palme     palme
+echo "\n"
+echo "Proc‚dure Termin‚e "

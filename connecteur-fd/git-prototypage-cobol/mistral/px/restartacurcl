@@ -1,0 +1,21 @@
+LIBPATH=/usr/acucobol70/lib
+export LIBPATH
+PATH=$PATH:/usr/acucobol70/bin
+cd /usr/acucobol70/bin
+./acushare -kill 
+
+ACURCL=`ps -ef -o "%p  %c " | grep acurcl |awk '{ print $1}'`
+if [ -z "$ACURCL" ]
+then :
+else TACHE=`ps -ef -o "%p  %c " | grep acurcl |awk '{ print $1}'`
+     kill -9 $TACHE
+     echo "Kill du process acurcl" 
+fi
+ps -ef -o "%p  %c " |grep runcbl|awk '{ print $1}' | while read TACHE
+    do 
+        kill -9 $TACHE
+        echo "Kill du process runcbl $TACHE" 
+
+    done
+echo "Redémarrage de l'acurcl"
+/usr/local/bin/sudo -u mistral /usr/acucobol70/bin/lance

@@ -1,0 +1,161 @@
+      *    XMLout-Format: blanc = portrait, P = paysage
+       01  XMLOut.
+           05  XMLOut-Id     PIC X(20).
+           05  XMLOut-Dir    PIC X(60).
+           05  XMLOut-Count  PIC 9(3) COMP-1.
+           05  XMLOut-Start  PIC 9(3) COMP-1.
+           05  XMLOut-End    PIC 9(3) COMP-1.
+           05  XMLOut-length PIC 9(3) COMP-1.
+           05  XMLOut-I      PIC 9(3) COMP-1.
+           05  XMLOut-ISPE   PIC 9(3) COMP-1.
+           05  XMLOut-Indice PIC 9(3).
+           05  XMLOut-CSPE   PIC X(8).
+           05  XMLOut-Char   PIC X(1).
+           05  XMLOut-Format PIC X. 
+      * Mettre 1 pour ne pas générer les couleurs de base
+           05  XMLOut-SsCoul PIC 9.   
+           05  XMLOut-Langue PIC X(3).   
+090418*     05  XMLOut-TagToAdd PIC X(32).
+090418     05  XMLOut-TagToAdd PIC X(50).
+      *     05  XMLOut-ItemToAdd PIC X(600).
+      *     05  XMLOut-DataToAdd PIC X(600).
+           05  XMLOut-ItemToAdd PIC X(990).
+      * ATTENTION! si changement longueur modifier xmlout.cbl (AppendAttribute)
+           05  XMLOut-DataToAdd PIC X(990).
+           05  XMLOut-DataToAdd-R REDEFINES XMLOut-DataToAdd.
+               10 XMLOut-NumberV0ToAdd PIC --------------9.
+               10 XMLOut-NumberV0BToAdd PIC -------------9
+                                   BLANK WHEN ZERO
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV0BPToAdd PIC --B---B---B--9
+                                   BLANK WHEN ZERO
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV1ToAdd PIC -B---B---B--9,9
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV1SBToAdd PIC ------------9,9
+                                   REDEFINES XMLOut-NumberV0ToAdd.                
+               10 XMLOut-NumberV1BToAdd PIC -B---B---B--9,9 
+                                   BLANK WHEN ZERO 
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV2ToAdd PIC ----B---B--9,99
+                                   REDEFINES XMLOut-NumberV0ToAdd. 
+190215         10 XMLOut-NumberV2POToAdd PIC ----.---.--9,99
+190215                             REDEFINES XMLOut-NumberV0ToAdd.  
+               10 XMLOut-NumberV2PlusToAdd PIC ++++B+++B++9,99
+                                   REDEFINES XMLOut-NumberV0ToAdd.  
+               10 XMLOut-NumberV2SBToAdd PIC -----------9,99
+                                   REDEFINES XMLOut-NumberV0ToAdd.                
+               10 XMLOut-NumberV2BToAdd PIC ----B---B--9,99 
+                                   BLANK WHEN ZERO 
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV3SBToAdd PIC ----------9,999
+                                   REDEFINES XMLOut-NumberV0ToAdd.                
+               10 XMLOut-NumberV3BToAdd PIC ---B---B--9,999
+                                   BLANK WHEN ZERO 
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV4BToAdd PIC --B---B--9,9999
+                                   BLANK WHEN ZERO 
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV5BToAdd PIC -B---B--9,99999
+                                   BLANK WHEN ZERO 
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV9BToAdd PIC -B--9,999999999
+                                   BLANK WHEN ZERO 
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 R-XMLOut-NumberV2ToAdd 
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+                  15 FILLER            PIC X(12).
+                  15 XMLOut-HToAdd     PIC X.
+                  15 FILLER            PIC X(2).
+               10 XMLOut-NumberV2PToAdd PIC -----------9V.99
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV3ToAdd PIC ---B---B--9,999
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV4ToAdd PIC --B---B--9,9999
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV4FToAdd PIC ---------9V.9999
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV5ToAdd PIC -B---B--9,99999
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV6ToAdd PIC ----B--9,999999
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV7ToAdd PIC ---B--9,9999999
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV8ToAdd PIC --B--9,99999999
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+               10 XMLOut-NumberV9ToAdd PIC -B--9,999999999
+                                   REDEFINES XMLOut-NumberV0ToAdd.
+      *         10 FILLER PIC X(585).
+               10 FILLER PIC X(975).
+           05  XMLOut-Assign PIC X(128).
+           05  XMLOut-RecW  PIC X(256).
+           05  XMLOut-Dev   PIC X(3).
+           05  MAS-IND      PIC 9.
+           05  MAS-AGE      PIC XXX.
+           05  MAS-ETS REDEFINES MAS-AGE PIC 9(3).
+           05  MAS-SOC      PIC 9(4).
+           05  MAS-MOD      PIC 9.
+           05  WCLOSE-XMLOut-File PIC 9.
+           05  XMLOut-PiedListe.
+               10 XMLOut-Dat PIC 99/99/9999.
+               10 FILLER     PIC XX.
+               10 XMLOut-Heu PIC 99.
+               10 XMLOut-H   PIC X VALUE ":".
+               10 XMLOut-Min PIC 99.
+               10 FILLER     PIC XXX.
+               10 XMLOut-Ide PIC XXXX.
+               10 FILLER     PIC XXX.
+               10 XMLOut-Rai PIC X(30).
+           05  XMLOut-PiedListeF.
+               10 XMLOut-Proc PIC X(4).
+               10 XMLOut-Log  PIC X(5).
+               10 XMLOut-Nomsel PIC X(60).
+           05  XMLOut-EnteteListe.
+               10 XMLOut-NOMSOC PIC X(30).
+               10 XMLOut-NUMSOC PIC 9999.
+               10 XMLOut-CODAGC PIC XXX.
+               10 XMLOut-NOMAGC PIC X(30).
+               10 XMLOut-CODREG PIC XX.
+               10 XMLOut-NOMREG PIC X(30).
+               10 XMLOut-CODETS PIC XXX.
+               10 XMLOut-NOMETS PIC X(30).
+               10 XMLOut-TITRE  PIC X(80).
+               10 XMLOut-PERIODE PIC X(80).  
+           05  XMLOut-ZonesTitres.
+      * titre de la colonne (ex: Quantité, Montant)
+               10 XMLOut-ZonTit  PIC X(40) OCCURS 150.
+      * nom de la colonne dans la feuille de style (ex: qte, mont)
+      * on aura ainsi un tag: 
+      *        <zontitqte>Quantité</zontitqte>
+      *        <zontitmont>Montant</zontitmont>
+               10 XMLOut-NomTit PIC X(5)  OCCURS 150.
+           78 CUCARON VALUE X"C8".
+           78 CLCARON VALUE X"E8".
+           78 DUCARON VALUE X"CF".
+           78 DLCARON VALUE X"EF".
+           78 EUCARON VALUE X"CC".
+           78 ELCARON VALUE X"EC".
+           78 NUCARON VALUE X"D2".
+           78 NLCARON VALUE X"F2".
+           78 RUCARON VALUE X"D8".
+           78 RLCARON VALUE X"F8".
+           78 SUCARON VALUE X"8A".
+           78 SLCARON VALUE X"9A".
+           78 TUCARON VALUE X"8D".
+           78 TLCARON VALUE X"9D".
+           78 ZUCARON VALUE X"8E".
+           78 ZLCARON VALUE X"9E".
+
+           05 XMLOut-Attributs.
+      *       Attributs CODE NOM et LAN (langue) ajoutés au tag avec XMLOut-Append-TaggedData
+              10 XMLOUT-CodeAttr PIC X(40).
+              10 XMLOUT-NomAttr  PIC X(40).
+              10 XMLOUT-LanAttr  PIC X(2).
+      *    Type d'encodage: si à blanc --> ISO-8859-15   sinon encodage indiqué
+           05  XMLOut-encoding   PIC X(30).
+      *    Si 1, les < et > ne sont pas transformés
+           05  XMLOut-NoScript   PIC 9.
+
+
+
+

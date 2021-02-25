@@ -1,0 +1,26 @@
+       77  ScreenBarre-Handle
+                  USAGE IS HANDLE OF WINDOW.
+       77  W-PBThread-Trait-Thread
+                  USAGE IS HANDLE OF THREAD.
+      * 77  W-PBThread-AfficheBarre-Thread
+      *            USAGE IS HANDLE OF THREAD.
+       77  W-PBThread-Accept-Thread
+                  USAGE IS HANDLE OF THREAD.
+       77  W-PBThread-End     PIC  9.
+      * 77  Wbarre           PIC  9(4).
+       77  Wbarre           PIC  9(3).
+       77  W-PBThread-Annul PIC 9 VALUE 0.
+       77  W-PBThread-Msg PIC X(50) VALUE 
+           "Traitement arrêté - Sélection incomplète".
+       77  W-PBThread-Title PIC X(50) 
+           VALUE "Ce traitement ne peut être interrompu".
+       77  WNumBarre        PIC 99.
+       77  WPCBarre         PIC 999.
+       77  W-PBColorB       PIC 9(6)  VALUE 515.
+       77  W-PBColorF       PIC 9(6)  VALUE 6.
+       77  W-PBColorTxt     PIC 9(6)  VALUE 2.
+       77 PROGBAR24-JPG    PIC  S9(6) USAGE IS COMP-4   VALUE IS 0.
+       77 WARNING32-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+

@@ -1,0 +1,52 @@
+       01 DSCLIENT-COMMON-CMD.
+           02 PROCESS-ID-CMD        PIC  9(8).
+           02 FILENAME-CMD          PIC  X(30).
+      * C$REDIRECT; identification fichier à la place du filename
+           02 HANDLE-CMD            PIC X(8).
+           02 COMMAND-CMD           PIC  X(12).
+       01 DSCLIENT-OPEN-CMD.
+           02 OPEN-MODE-CMD         PIC  X(12).
+       01 DSCLIENT-READ-CMD.
+           02 KEY-NAME-CMD          PIC  X(12).
+      * C$REDIRECT; seul le numéro de clé est disponible
+           02 KEY-NUMBER-CMD        PIC  S9(4)
+              SIGN IS TRAILING SEPARATE CHARACTER.
+           02 RECORD-SIZE-CMD         PIC  9(9).
+      *    Record number de l'élément; c'est un identifiant technique
+      *    qui n'est pas présent dans la ligne Cobol
+           02 RECORD-NUMBER-CMD     PIC  9(12).
+      * NEXT, PREVIOUS ou low-values
+           02 DIRECTION-CMD         PIC  X(12).
+      * 1 si l'enregistrement lu doit être locké
+           02 LOCK-CMD              PIC  9(1).
+      * Si NEXT ou PREVIOUS, indique la taille de préchargement souhaitée
+           02 CACHE-COUNT-CMD       PIC  9(3).
+       01 DSCLIENT-REWRITE-CMD.
+           02 RECORD-SIZE-CMD         PIC  9(9).
+       01 DSCLIENT-START-CMD.
+           02 KEY-NAME-CMD          PIC  X(12).
+      * C$REDIRECT; seul le numéro de clé est disponible
+           02 KEY-NUMBER-CMD        PIC  S9(4)
+              SIGN IS TRAILING SEPARATE CHARACTER.
+           02 RECORD-SIZE-CMD         PIC  9(9).
+           02 KEY-OPERATOR-CMD      PIC  X(12).
+       01 DSCLIENT-DELETE-CMD.
+           02 RECORD-SIZE-CMD         PIC  9(9).
+       01 DSCLIENT-IMPORT-CMD.
+           02 IMPORT-FILENAME-CMD   PIC  X(255).
+      * Utilisé uniquement côté Java pour écrire les recordNumber
+       01 DSCLIENT-RESPONSE-RECORD-NUMBER.
+            02 DSC-RECORD-NUMBER    PIC  9(12).
+       01 DSCLIENT-INTERNAL-STATUS.
+      * 0  - OK, no result
+      * 1  - ERROR, no result
+      * 2  - OK, result available
+      * 3  - ERROR, result available
+           02 DSC-COMMAND-STATUS    PIC  9(2).
+           02 DSC-RECORD-COUNT      PIC  9(12).
+       01 DSCLIENT-INTERNAL-ERROR.
+      * Voir dsc-remote-errno pour les valeurs
+           02 DSC-ERROR-CODE        PIC  9(2).
+      * PID du propriétaire du lock (64 bits -> 4194304 max)
+           02 DSC-ERROR-LOCK-PID    PIC  9(8).
+           02 DSC-ERROR-MESSAGE     PIC  X(100).

@@ -1,0 +1,14 @@
+      *    DECOUPAGE COMMENTAIRE POUR EDITION
+       01 ZONE-EDCO.
+           02 EDCO-I PIC 9999.           
+           02 EDCO-J PIC 9999.           
+           02 EDCO-K PIC 9999.           
+           02 EDCO-Z PIC 9999.
+      *    = 0 génère l'édition = 1 compte les lignes = 3 découpe pour traitement autre que édition (pas ajout &#160;)
+           02 EDCO-COMPTE PIC 9.           
+      *    Nombre de lignes 
+           02 EDCO-NB PIC 9999.
+      *    Arrête le traitement si positionné à 1 par la procédure d'écriture
+           02 EDCO-FIN PIC 9.
+      *    Mettre à 1 pour ne pas générer les sauts de ligne (export word)
+           02 EDCO-CTRLM PIC 9.

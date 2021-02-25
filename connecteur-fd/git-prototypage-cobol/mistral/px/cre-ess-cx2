@@ -1,0 +1,53 @@
+ENV=$1  # Environnement (ex: /acuf)
+SOC=$2  # No de societe (ex: 0002)
+export ENV SOC
+DIR2=$ENV
+export DIR2
+
+echo "\n"
+echo "       RAJOUT D'1 STE COMPTABLE EN JEU D' ESSAI "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- "
+echo "ENVIRONNEMENT : $DIR2"
+if [ ! -d $DIR2 ]
+   then echo "\n"
+   echo "Proc‚dure non R‚alisable \c"
+   read ok
+   exit
+fi
+echo "SOCIETE COPIEE : $SOC"
+if [ ! -d $DIR2/cx$SOC ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ -d $DIR2/E ]
+   then :
+   else echo "\n"
+   echo "Jeu d'Essai Inexistant : Non Réalisable \c"
+   read ok
+   exit
+fi
+if [ -d $DIR2/E/cx$SOC ]
+   then echo "\n"
+   echo "Procédure Déjà Réalisée : Non Réalisable \c"
+   read ok
+   exit
+fi
+echo " Traitement en Cours - Veuillez Patienter "
+cd $DIR2
+cd E
+mkdir cx$SOC cx$SOC/f cx$SOC/ft
+if [ -d $DIR2/cx$SOC/fseq ]
+   then ln -s $DIR2/cx$SOC/fseq cx$SOC/fseq
+fi
+echo "     .Copie des Fichiers COMPTA"
+cp $DIR2/cx$SOC/f/[A-Q]* cx$SOC/f
+cp $DIR2/cx$SOC/f/[S-Z]* cx$SOC/f
+cp $DIR2/cx$SOC/f/R[A-I]* cx$SOC/f
+if [ $? != 0 ] 
+         then echo "\n"
+              echo "    ATTENTION Problême: cp cx$SOC/f ---> E/cx$SOC/f "
+              echo "    Contacter MISTRAL Informatique \c"
+              read ok
+              # exit
+fi

@@ -1,0 +1,11 @@
+      * Linkage de HIV
+       01 LK-HIV-C.
+           05 LK-HIV-C-AGE           PIC  XXX.
+           05 LK-HIV-C-ART           PIC  X(20).
+           05 LK-HIV-C-CLI           PIC  9(6).
+      *    Région
+           05 LK-HIV-C-REG           PIC  XX.
+      *    Handle fenêtre appelante pour centrage fenetre
+           05 LK-HIV-C-handle        PIC 9(4).
+           05 FILLER PIC X(94).
+

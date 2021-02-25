@@ -1,0 +1,92 @@
+function TRANSFERT
+{
+ftp -v ftp2.mistral-datacenter.fr << !
+binary
+$cmdpassive
+get $1
+quit
+!
+}
+
+function MAJFTPMAJ
+{
+RESDATE=`date +"%d %B à %Hh%M "`
+RESULT=$RESULT$RESDATE
+echo $RESULT>>/acu/mistral/f/FTPMAJ
+}
+
+function TRAITEMENTERREUR
+{
+export JERETENTE="0"
+cat /tmp/FTPMAJ$$ >>/acu/mistral/f/RESFTPMAJ
+RESULTAT=`cat /tmp/FTPMAJ$$|cut -c1-4 |egrep "421 |425 |426 |430 |434 |450 |451 |452 |501 |502 |503 |504 |532 |534 |550 |551 |552 |553 "`
+\rm /tmp/FTPMAJ$$ 2>>/dev/null
+\rm /tmp/CTRLFTPMAJ* 2>>/dev/null
+if [ -n "$RESULTAT" ]
+then if [ "$RESULTAT" = "421 " -o "$RESULTAT" = "425 " -o "$RESULTAT" = "426 " ]
+     then export JERETENTE="1"
+     else if [ "$RESULTAT" = "500 " ]
+          then export JERETENTE="1"
+               export cmdpassive=""
+          else MAJFTPMAJ
+               echo "Erreur sur le fichier $fichier " >>/acu/mistral/f/FTPMAJ
+               exit
+          fi
+     fi
+fi
+}
+
+if [ -f /home/mistral/.netrc ]
+then :
+else if [ "$OSTYPE" = "linux-gnu" ]
+     then echo -e "machine ftp2.mistral-datacenter.fr login ftp_maj password F+p_M@1m13#\0134\0134" >>/home/mistral/.netrc 
+     else echo "machine ftp2.mistral-datacenter.fr login ftp_maj password F+p_M@1m13#\0134\0134" >>/home/mistral/.netrc 
+     fi
+     chmod 600 /home/mistral/.netrc
+fi
+cd /acuf/cdrom
+rm DATEPACK 2>>/dev/null
+rm /acu/mistral/f/RESFTPMAJ 2>>/dev/null
+RESDATE=`date +"%d %B à %Hh%M "`
+RESULT="Récupération MAJ Logiciel - Début le "$RESDATE" - Fin le "
+
+listedesgz[0]=aide.gz
+listedesgz[1]=cx.gz
+listedesgz[2]=empx.gz 
+listedesgz[3]=iex.gz 
+listedesgz[4]=mex.gz
+listedesgz[5]=miami.gz
+listedesgz[6]=mistral.gz
+listedesgz[7]=mx.gz 
+listedesgz[8]=palme.gz
+listedesgz[9]=pex.gz
+listedesgz[10]=rx.gz
+export cdmcommande="passive"
+for fichier in ${listedesgz[@]}
+do 
+   \rm /tmp/FTPMAJ* 2>>/dev/null
+   \rm /tmp/CTRLFTPMAJ* 2>>/dev/null
+   TRANSFERT $fichier >/tmp/FTPMAJ$$ 2>>/tmp/FTPMAJ$$
+   TRAITEMENTERREUR
+   if [ "$JERETENTE" = "1" ]
+   then sleep 10
+        \rm /tmp/FTPMAJ* 2>>/dev/null
+        \rm /tmp/CTRLFTPMAJ* 2>>/dev/null
+        TRANSFERT $fichier >/tmp/FTPMAJ$$ 2>>/tmp/FTPMAJ$$
+        TRAITEMENTERREUR
+   fi
+   sleep 2
+done
+
+RESULTAT=`gunzip -f *.gz `
+if [ -n "$RESULTAT" ]
+then MAJFTPMAJ
+     echo "Erreur sur le traitement unzip $RESULTAT " >>/acu/mistral/f/FTPMAJ
+          exit
+fi
+\rm /tmp/FTPMAJ* 2>>/dev/null
+\rm /tmp/CTRLFTPMAJ* 2>>/dev/null
+fichier="DATEPACK"
+TRANSFERT $fichier >/tmp/FTPMAJ$$ 2>>/tmp/FTPMAJ$$
+TRAITEMENTERREUR
+MAJFTPMAJ

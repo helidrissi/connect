@@ -1,0 +1,33 @@
+      * Zones utilisées par les EntryField de Téléphone.
+       01 Ef-Pos.
+           05 Ef-Pos-Pays PIC X(3) VALUE LOW-VALUE.
+           05 Ef-Pos-Pays-Old PIC X(3) VALUE SPACE.
+           05 Ef-Pos-Numeric PIC X(1).
+           05 Ef-Pos-FrmAff PIC X(8).
+           05 Ef-Pos-LgBrt PIC 9(2) COMP-1.
+           05 Ef-Pos-Deb PIC 9(2) COMP-1.
+           05 Ef-Pos-IdxF PIC 9(2) COMP-1.
+           05 Ef-Pos-IdxE PIC 9(2) COMP-1.
+           05 Ef-Pos-ValF-Tmp PIC X(8).
+           05 Ef-Pos-ValF PIC X(8).
+           05 Ef-Pos-ValE PIC X(8).
+           05 Ef-Pos-Nbr PIC 9(8).
+010716*     05 Ef-Pos-Vil PIC X(25).
+010716     05 Ef-Pos-Vil PIC X(30).
+           05 Ef-Pos-Sv-Fic PIC X(8).
+      * Ef-Pos-Ind = 1 pour ne pas recherche dans le fichier CODPOS
+           05 Ef-Pos-Ind PIC 9.
+           05 Ef-Pos-WOPEN-PAYS PIC 9.
+010716     
+           05 Ef-Pos-Vil2 PIC X(30).
+           05 Ef-Pos-adr1 PIC X(75).
+           05 Ef-Pos-adr2 PIC X(75).
+           05 Ef-Pos-indice1 PIC 9(3).
+           05 Ef-Pos-indice2 PIC 9(3).
+           05 Ef-Pos-LonAdr PIC 9(3).
+           05 Ef-Pos-LonVil PIC 9(3).
+           05 Ef-Pos-NbNL PIC 9(3).
+           05 Ef-Pos-NoNL PIC 9.    |mette 1 si pas de newline (ex: lie-mitc)
+           05 Commune-Adr PIC X(75).
+           05 Commune-Vil PIC X(30).
+010716

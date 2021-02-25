@@ -1,0 +1,20 @@
+       01 POSITIONS-BASE.
+      * hauteur standard entry-fields
+           02 H-EF            PIC 9(4)V9(2) VALUE 1,92.
+      * position boutons haut
+           02 L-BOUTONS-HAUT  PIC 9(4)V9(2) VALUE 1.
+      * position bandeau haut saisie bons
+           02 L-BANDBON-HAUT  PIC 9(4)V9(2) VALUE 4. 
+           02 H-BANDBON-HAUT  PIC 9(4)V9(2) VALUE 5. 
+           02 S-BANDBON-HAUT  PIC 9(4)V9(2) VALUE 208. 
+      * position des titres dans les cadres
+           02 L-TITCADRE      PIC 9(4)V9(2) VALUE 2,15. 
+           02 H-TITCADRE      PIC 9(4)V9(2) VALUE 2. 
+           02 C-TITCADRE      PIC 9(4)V9(2) VALUE 2,86. 
+      * position ds données dans le bandeau haut saisie bons
+           02 L-EFBANDBON-HAUT  PIC 9(4)V9(2) VALUE 5. 
+           02 H-EFBANDBON-HAUT  PIC 9(4)V9(2) VALUE 1,92.
+      * taille bandeau haut saisie bons
+      * taille écran grand (S / size = largeur H = hauteur)
+           02 S-GRAND         PIC 9(4)V9(2) VALUE 210.
+           02 H-GRAND         PIC 9(4)V9(2) VALUE 65.

@@ -1,0 +1,28 @@
+      * Linkage de G-MCLI-M
+       01 LK-MCLI-M.
+      *   Type du filtre : 0 = Clients, 2 = Prospects
+      *                    3 = Prospects uniquement (pas client)
+      *                    4 = Clients uniquement (pas prospect)
+           05 LK-MCLI-M-NumFiltre          PIC  9
+                      USAGE IS COMP-1.
+      *  NBSEL --> Nombre d'éléments sélectionnés
+           05 LK-MCLI-M-NBSEL   PIC 9(3).
+      *  Table des codes clients
+           05 LK-MCLI-M-TABLE.
+              06 LK-MCLI-M-FCO PIC 9(8) OCCURS 80.              
+           05 R-LK-MCLI-M-TABLE REDEFINES LK-MCLI-M-TABLE. 
+              06 LK-MCLI-M-COD  PIC 9(6) OCCURS 100.
+              06 FILLER         PIC X(40).
+      *  SITC --> 1 si sélection des interlocuteurs est autorisée  
+      *           0 sinon
+           05 LK-MCLI-M-SITC    PIC 9.
+      *  ITC --> N° Interlocuteur 
+           05 LK-MCLI-M-TABITC.
+              06 LK-MCLI-M-ITC  PIC 9(9)  OCCURS 100.
+ 
+      *    MAXSEL --> nombre maximun d'éléments dans LK-MCLI-M-TABLE
+      *    si LK-MCLI-M-MAXSEL non renseigné, on mouvemente à 80
+           05 LK-MCLI-M-MAXSEL     PIC 9(3).
+      *    1 = Avec filtre RGPD 
+           05 LK-MCLI-M-RGPD       PIC 9.
+           05 FILLER PIC X(96).

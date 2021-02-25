@@ -1,0 +1,243 @@
+      * mcli-l.prd
+      * mcli-l.prd is generated from W:\mx\spro\mcli-l.Psf
+      * This is a generated file. DO NOT modify this file directly.
+
+       Acu-Initial-Routine.
+      *    Before-Init
+      * get system information
+           ACCEPT System-Information FROM System-Info
+      * get terminal information
+           ACCEPT Terminal-Abilities FROM Terminal-Info
+      * set custom color
+           MOVE 3 TO Wpal-Color-Id
+           MOVE 69 TO Wpal-Red
+           MOVE 122 TO Wpal-Green
+           MOVE 211 TO Wpal-Blue
+           CALL "W$PALETTE" USING Wpalette-Set-Color, Wpalette-Data
+           MOVE 6 TO Wpal-Color-Id
+           MOVE 223 TO Wpal-Red
+           MOVE 223 TO Wpal-Green
+           MOVE 255 TO Wpal-Blue
+           CALL "W$PALETTE" USING Wpalette-Set-Color, Wpalette-Data
+           MOVE 15 TO Wpal-Color-Id
+           MOVE 255 TO Wpal-Red
+           MOVE 255 TO Wpal-Green
+           MOVE 128 TO Wpal-Blue
+           CALL "W$PALETTE" USING Wpalette-Set-Color, Wpalette-Data
+      * load bitmap
+           PERFORM Acu-Init-Bmp
+      * open file
+           PERFORM Acu-Open-Files
+      *    After-Init
+           .
+
+       Acu-Init-Bmp.
+      * bitmap loading
+           COPY RESOURCE "ENGRDOU24.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "ENGRDOU24.JPG", GIVING 
+              ENGRDOU24-JPG
+           COPY RESOURCE "VALIDER24.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "VALIDER24.JPG", GIVING 
+              VALIDER24-JPG
+           COPY RESOURCE "QUITTER24.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "QUITTER24.JPG", GIVING 
+              QUITTER24-JPG
+           COPY RESOURCE "CLIENTx16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "CLIENTx16.BMP", GIVING 
+              CLIENTx16-BMP
+           COPY RESOURCE "SIEGSOC16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "SIEGSOC16.BMP", GIVING 
+              SIEGSOC16-BMP
+           COPY RESOURCE "WARNINX16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "WARNINX16.BMP", GIVING 
+              WARNINX16-BMP
+           COPY RESOURCE "STOPxxx16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "STOPxxx16.BMP", GIVING 
+              STOPxxx16-BMP
+           COPY RESOURCE "INTERDI16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "INTERDI16.BMP", GIVING 
+              INTERDI16-BMP
+           COPY RESOURCE "ADDxxxx16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "ADDxxxx16.BMP", GIVING 
+              ADDxxxx16-BMP
+           .
+
+       Acu-Exit-Rtn.
+      * destroy font
+           PERFORM Acu-Exit-Font
+      * destroy bitmap
+           PERFORM Acu-Exit-Bmp
+           PERFORM Acu-Close-Files
+      *    After-Program
+           EXIT PROGRAM
+           STOP RUN
+           .
+       Acu-Exit-Font.
+      * font destroy
+           .
+
+       Acu-Exit-Bmp.
+      * bitmap destroy
+           IF ENGRDOU24-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY ENGRDOU24-JPG
+              MOVE 0 TO ENGRDOU24-JPG
+           END-IF
+           IF VALIDER24-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY VALIDER24-JPG
+              MOVE 0 TO VALIDER24-JPG
+           END-IF
+           IF QUITTER24-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY QUITTER24-JPG
+              MOVE 0 TO QUITTER24-JPG
+           END-IF
+           IF CLIENTx16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY CLIENTx16-BMP
+              MOVE 0 TO CLIENTx16-BMP
+           END-IF
+           IF SIEGSOC16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY SIEGSOC16-BMP
+              MOVE 0 TO SIEGSOC16-BMP
+           END-IF
+           IF WARNINX16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY WARNINX16-BMP
+              MOVE 0 TO WARNINX16-BMP
+           END-IF
+           IF STOPxxx16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY STOPxxx16-BMP
+              MOVE 0 TO STOPxxx16-BMP
+           END-IF
+           IF INTERDI16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY INTERDI16-BMP
+              MOVE 0 TO INTERDI16-BMP
+           END-IF
+           IF ADDxxxx16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY ADDxxxx16-BMP
+              MOVE 0 TO ADDxxxx16-BMP
+           END-IF
+           .
+
+       Acu-Open-Files.
+      *    Before-Open
+      *    After-Open
+           .
+
+       Acu-Screen1-Routine.
+      *    Before-Routine
+           PERFORM Acu-Screen1-Scrn
+           PERFORM Acu-Screen1-Proc
+           PERFORM Screen1-Aft-Routine
+           .
+
+       Acu-Screen1-Scrn.
+           PERFORM Acu-Screen1-Create-Win
+           PERFORM Acu-Screen1-Init-Data
+           .
+
+       Acu-Screen1-Create-Win.
+           PERFORM Screen1-Bef-Create
+      * display screen
+              DISPLAY Floating GRAPHICAL WINDOW
+                 LINES 46,00, SIZE 135,00, CELL HEIGHT 13, 
+                 CELL WIDTH 7, COLOR IS 65793, LABEL-OFFSET 0, 
+                 LINK TO THREAD, NO SCROLL, TITLE W-TITLE, TITLE-BAR, 
+                 USER-GRAY, USER-WHITE, VISIBLE Screen1-Visible, 
+                 NO WRAP, ATW-CSS-ID "modal_screen_mcli_l", 
+                 EVENT PROCEDURE Screen1-Event-Proc, 
+                 HANDLE IS Screen1-Handle
+      * toolbar
+           DISPLAY Screen1 UPON Screen1-Handle
+           PERFORM Screen1-Aft-Create
+           .
+
+       Acu-Screen1-Init-Data.
+      *    Before-Initdata
+           PERFORM Acu-Screen1-Gd-1-Content
+           PERFORM Screen1-AfterInitData
+           .
+      * Screen1
+       Acu-Screen1-Proc.
+           PERFORM UNTIL Exit-Pushed
+              ACCEPT Screen1  
+                 ON EXCEPTION PERFORM Acu-Screen1-Evaluate-Func
+              END-ACCEPT
+              EVALUATE TRUE
+      * Screen1-Pb-Lancer Link To
+              WHEN Key-Status = 9859
+                 PERFORM Screen1-Pb-Lancer-LinkTo
+              END-EVALUATE
+           END-PERFORM
+           DESTROY Screen1-Handle
+           INITIALIZE Key-Status
+           .
+
+      * Screen1-Gd-1
+       Acu-Screen1-Gd-1-Content.
+      * Cells Settings
+           MODIFY Screen1-Gd-1, X = 1, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, CELL-DATA = "Raison Sociale", 
+           MODIFY Screen1-Gd-1, X = 2, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, CELL-DATA = "Ville", 
+           MODIFY Screen1-Gd-1, X = 3, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, CELL-DATA = "Code", 
+           MODIFY Screen1-Gd-1, X = 4, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, 
+           MODIFY Screen1-Gd-1, X = 5, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, CELL-DATA = "Téléphone", 
+           MODIFY Screen1-Gd-1, X = 6, Y = 1, CELL-COLOR = 112, 
+              CELL-DATA = "Ag", BITMAP = ADDxxxx16-BMP, 
+              BITMAP-TRAILING = 1, BITMAP-NUMBER = 1, 
+              BITMAP-WIDTH = 16, 
+           MODIFY Screen1-Gd-1, X = 7, Y = 1, CELL-COLOR = 112, 
+           MODIFY Screen1-Gd-1, X = 8, Y = 1, CELL-COLOR = 112, 
+              CELL-DATA = "Adresse", 
+           MODIFY Screen1-Gd-1, X = 9, Y = 1, CELL-COLOR = 112, 
+      * Columns' Setting
+           MODIFY Screen1-Gd-1, X = 1, COLUMN-COLOR = 2, 
+           MODIFY Screen1-Gd-1, X = 2, COLUMN-COLOR = 2, 
+           MODIFY Screen1-Gd-1, X = 3, COLUMN-COLOR = 2, 
+           MODIFY Screen1-Gd-1, X = 4, COLUMN-COLOR = 2, 
+           MODIFY Screen1-Gd-1, X = 5, COLUMN-COLOR = 2, 
+           MODIFY Screen1-Gd-1, X = 6, COLUMN-COLOR = 2, 
+           MODIFY Screen1-Gd-1, X = 9, COLUMN-COLOR = 2, 
+           .
+
+      * Screen1
+       Acu-Screen1-Evaluate-Func.
+           EVALUATE TRUE
+              WHEN Exit-Pushed
+                 PERFORM Acu-Screen1-Exit
+              WHEN Event-Occurred
+                 IF Event-Type = Cmd-Close
+                    PERFORM Acu-Screen1-Exit
+                 END-IF
+      * Screen1-Pb-Accept Link To
+              WHEN Key-Status = 9858
+                 PERFORM Screen1-Pb-Accept-Ex-Cmd-Clicked
+      * Screen1-Pb-Cancel Link To
+              WHEN Key-Status = 9841
+                 PERFORM Screen1-Pb-Cancel-Ex-Cmd-Clicked
+           END-EVALUATE
+           MOVE 1 TO Accept-Control
+           .
+
+       Acu-Close-Files.
+      *    Before-Close
+      *    After-Close
+           .
+
+      * COBCAP
+
+      * MXPARAM
+
+      * MXCLI
+
+      * RECH
+
+      * MXAGENCE
+
+      * RECHCMD
+
+       Acu-Screen1-Exit.
+           SET Exit-Pushed TO TRUE
+           .
+

@@ -1,0 +1,3 @@
+      *(( XFD FILE = RECHCMD ))
+       FD  RECHCMD.
+       01 ENR-RECHCMD      PIC  X(4096).

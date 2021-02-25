@@ -1,0 +1,42 @@
+<h2>IOBuilders</h2>
+<p>IOBuilders are easiest way to use JRecord, but they are new and there could be changes, so please report any <font color="blue">problems !!!</font>.
+The code has had basic testing.
+<p>There are examples of using <a href="Source/JRecord_IO_Builder_Examples/src/net/sf/JRecord/zExamples/iob/cobol">IOBuilders</a>
+<p>Accessing JRecord via IOBuilders (using the <font color="blue">JRecordInterface1</font> class:</p>
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   2 </font></span>    ICobolIOBuilder ioBldr 
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   3 </font></span>                <font color="#000000"><strong>=</strong></font> JRecordInterface1.COBOL
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   4 </font></span>                    .<font color="#9966ff">newIOBuilder</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">CobolCopybook</font><font color="#ff00cc">.</font><font color="#ff00cc">cbl</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">   5 </font></span>                        .<font color="#9966ff">setSplitCopybook</font><font color="#000000"><strong>(</strong></font>CopybookLoader.SPLIT_01_LEVEL<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   6 </font></span>                        .<font color="#9966ff">setDialect</font><font color="#000000"><strong>(</strong></font>ICopybookDialects.FMT_FUJITSU<font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   7 </font></span>    AbstractLineReader reader <font color="#000000"><strong>=</strong></font> ioBldr.<font color="#9966ff">newReader</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">input</font><font color="#ff00cc"> </font><font color="#ff00cc">File</font><font color="#ff00cc"> </font><font color="#ff00cc">Name</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   8 </font></span>    AbstractLine l;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   9 </font></span>        
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">  10 </font></span>    <font color="#006699"><strong>while</strong></font> <font color="#000000"><strong>(</strong></font><font color="#000000"><strong>(</strong></font>l <font color="#000000"><strong>=</strong></font> reader.<font color="#9966ff">read</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font> <font color="#000000"><strong>!</strong></font><font color="#000000"><strong>=</strong></font> <font color="#cc00cc">null</font><font color="#000000"><strong>)</strong></font> <font color="#000000"><strong>{</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  11 </font></span>        ...
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  12 </font></span>    <font color="#000000"><strong>}</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  13 </font></span>    reader.<font color="#9966ff">close</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>;
+</font></pre>
+
+<p>IOBuilders have several advantages over the previous interface.<ul>
+ <li>Easier to use</li>
+ <li>There is a single starting point <font color="#9966ff"><b>JRecordInterface1</b></font> for the common
+ JRecord functions.</li>
+ <li>You only need to specify the options you want rather than all the options.</li>
+ <li>Code is more readable - self documenting.</li>
+ <li>For the <b>set*</b> Methods there are javadocs listing the options.</li>
+</ul>
+
+<h3>setDialect method in Eclipse</h4>
+<p>Here is the JavaDoc for setDialect listing the various Cobol Compiler options:</p>
+<img src="Diagram/JR_IOBuilder01-or8.png"/>
+<p>&nbsp; </p>
+<h3>setSplitCopybook method in Eclipse</h4>
+<p>Here is the JavaDoc for setSplitCopybook listing the options to "split" a Cobol copybook
+into sub-records:</p>
+<img src="Diagram/JR_IOBuilder02-or8.png"/>
+<p>&nbsp;</p>
+<h3>newReader method in Eclipse</h4>
+<p>Here is the JavaDoc for newReader giving the code to read a Cobol data file:</p>
+<img src="Diagram/JR_IOBuilder03-fs8.png"/>
+

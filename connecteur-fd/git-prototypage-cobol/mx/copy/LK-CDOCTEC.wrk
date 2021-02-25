@@ -1,0 +1,45 @@
+      * Linkage de CDOCTEC
+       01 LK-CDOCTEC.
+      * ORI =   BA = Article (MXART)
+      *         BM = Catalogue matériel (MXMATCAT)
+      *         BP = Description complémentaire prestation      
+      *         V = Matériel / Vente
+      *         AC = commande fournisseur              
+      *         D = bon de distribution                           
+      *         MC = commande matériel client          
+      *         MD = devis matériel client             
+      *         ML = livraison mat‚riel client         
+      *         MH = marché matériel client            
+      *         F = contrat location longue durée
+      *         PT = Bordereau transfert matériel
+      *                    
+           05 LK-CDOCTEC-ORI.
+              10 LK-CDOCTEC-ACT PIC X(1).
+              10 LK-CDOCTEC-NIT PIC X(1).
+              10 LK-CDOCTEC-INO PIC X(1).
+           05 LK-CDOCTEC-CLE PIC X(30).
+           05 FILLER REDEFINES LK-CDOCTEC-CLE.
+               10 LK-CDOCTEC-MAT PIC 9(10).
+               10 FILLER PIC X(20).
+      *    lk-cdoctec-art utilisé seulement pour les call dans les
+      *    saisies de bon
+           05 LK-CDOCTEC-ART PIC X(20).
+           05 FILLER REDEFINES LK-CDOCTEC-ART.
+               10 LK-CDOCTEC-MAT1 PIC 9(10).
+               10 LK-CDOCTEC-FAM  PIC XX.
+               10 LK-CDOCTEC-CAT  PIC 99.
+               10 FILLER PIC X(6).
+           05 R1-LK-CDOCTEC-ART REDEFINES LK-CDOCTEC-ART.
+              07 LK-CDOCTEC-AR1 PIC X(4).
+              07 LK-CDOCTEC-AR2 PIC X(16).
+      *    lk-cdoctec-cdf: "I" = interro seule (modif interdite)  , "C" = Création , Sinon blanc 
+           05 LK-CDOCTEC-CDF PIC X.
+      *    lk-cdoctec-inp utilisé seulement pour les call dans les
+      *    saisies de bon: M=matériel A=article
+           05 LK-CDOCTEC-INP PIC X(1).
+      *    lk-cdoctec-imc utilisé seulement pour les call dans les
+      *    saisies de bon: C=catalogue H=hors catalogue S=Stock P=Parc
+           05 LK-CDOCTEC-IMC PIC X(1).  
+      * Code programme appelant (ex: MIT)
+           05 LK-CDOCTEC-PRG PIC X(3).  
+           05 FILLER         PIC X(74).

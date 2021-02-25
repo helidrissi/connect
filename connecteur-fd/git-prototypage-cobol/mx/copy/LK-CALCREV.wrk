@@ -1,0 +1,21 @@
+       01  LK-CALCREV.
+           02 LK-CALCREV-AGE        PIC XXX.
+           02 LK-CALCREV-ART        PIC X(20).
+           02 LK-CALCREV-QCC        PIC S9(7)V99.
+           |indicateur calcul sur dépôt ou stock central
+           02 LK-CALCREV-IDEP       PIC 9.
+           |n° dépôt ou 0 so stock central
+           02 LK-CALCREV-DEP        PIC 9(3).
+           |en commande client "sur stock"
+           02 LK-CALCREV-QCCS       PIC S9(7)V99.
+           |en commande client "avec contremarque (commandé au frn)"
+           02 LK-CALCREV-QCCM       PIC S9(7)V99.
+           |en commande client sans contremarque mais à commander au frn et non au stock central
+           02 LK-CALCREV-QCCF       PIC S9(7)V99.
+           |en commande fournisseur
+           02 LK-CALCREV-QCF        PIC S9(7)V99.
+           |en commande fournisseur
+           02 LK-CALCREV-QCFS       PIC S9(7)V99.
+           |calcul uniquement stock HC 1=oui
+           02 LK-CALCREV-CAL        PIC 9.
+           02 FILLER                PIC X(12).

@@ -1,0 +1,7 @@
+      * Zones utilisées par le calcul de la marge
+       01 CAL-MARGE.
+           05 CAL-MARGE-PUB  PIC S9(9)V99.
+           05 CAL-MARGE-PUN  PIC S9(9)V99.
+           05 CAL-MARGE-PAC  PIC S9(9)V99.
+           05 CAL-MARGE-MBU  PIC S9(9)V99.
+           05 CAL-MARGE-FUA  PIC S9(9)V99.

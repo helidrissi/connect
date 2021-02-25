@@ -1,0 +1,73 @@
+      *(( XFD FILE = CATFOU ))
+       FD  MXCATFOU
+           LABEL RECORD IS STANDARD.
+       01 ENR-MCTF.
+           02 CLE1-MCTF.
+      *(( XFD NAME = CODE_FOURNISSEUR ))
+      *(( XFD COMMENT COde Fournisseur ))
+               04 FOU-MCTF         PIC  9(6).
+      *(( XFD NAME = REF_FOURNISSEUR ))
+      *(( XFD COMMENT Référence ))
+               04 REF-MCTF         PIC  X(21).
+      *(( XFD NAME = DESIGNATION ))
+      *(( XFD COMMENT Désignation ))
+           02 DES-MCTF.
+      *(( XFD NAME = DESIGNATION1 ))
+               04 DE1-MCTF         PIC  X(20).
+      *(( XFD NAME = DESIGNATION2 ))
+               04 DE2-MCTF         PIC  X(20).
+      *(( XFD NAME = PRIX_TARIF ))
+      *(( XFD COMMENT Prix Tarif ))
+           02 PRI-MCTF         PIC  S9(8)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = INDIC_DEVISE ))
+      *(( XFD COMMENT Code devise:  0=Non concerné  1=En devise ))
+           02 DEV-MCTF         PIC  9.
+      *(( XFD NAME = CODE_REMISE ))
+      *(( XFD COMMENT Code remise du Frn ))
+           02 REM-MCTF         PIC  X(7).
+      *(( XFD NAME = OBSERVATIONS ))
+      *(( XFD COMMENT Observation ))
+           02 OBS-MCTF         PIC  X(20).
+      *(( XFD NAME = PRIX_MODIFIE ))
+      *(( XFD COMMENT Prix modifié:  0=Non  1=Oui ))
+           02 MOD-MCTF         PIC  9.
+      *(( XFD NAME = CONDT_ACHAT ))
+      *(( XFD COMMENT Conditionnement d'achat ))
+           02 UAC-MCTF         PIC  9(4).
+      *(( XFD NAME = POIDS ))
+      *(( XFD COMMENT Poids (en gramme) ))
+           02 POI-MCTF         PIC  9(7).
+      *(( XFD NAME = FAMILLE_SS_FAMILLE ))
+           02 GFA-MCTF.
+      *(( XFD NAME = FAMILLE ))
+      *(( XFD COMMENT Code Famille ))
+               04 GRA-MCTF         PIC  99.
+      *(( XFD NAME = SOUS_FAMILLE ))
+      *(( XFD COMMENT Code Sous-famille ))
+               04 FAM-MCTF         PIC  99.
+      *(( XFD NAME = PRIX_VENTE ))
+      *(( XFD COMMENT Prix de vente (si existant dans le fichier tarif d'origine) ))
+           02 PVT-MCTF         PIC  9(8)V99.
+
+      *(( XFD COMMENT N  identification CEE (Ajoutée le 08/04/2015) ))
+           02 TVA-MCTF         PIC  X(10).
+           02 FILLER           PIC  X.
+      *(( XFD NAME = PA_TARIF ))
+      *(( XFD COMMENT Prix tarif d'achat (ou Prix de revient industriel si Fenwick) ))
+           02 PAT-MCTF         PIC  9(7)V99.
+      *(( XFD NAME = OBSERVATION2 ))
+      *(( XFD COMMENT Observation (destinée à renseigner la zone spécifique (frn) 2 des articles) ))
+           02 SPE2-MCTF        PIC  X(8).
+      *(( XFD NAME = DATE_MAJ ))
+      *(( XFD COMMENT Date de mise à jour ))
+           02 DAT-MCTF         PIC  9(8).
+           02 R-DAT-MCTF REDEFINES DAT-MCTF.
+               04 SDAT-MCTF        PIC  99.
+               04 ADAT-MCTF        PIC  99.
+               04 MDAT-MCTF        PIC  99.
+               04 JDAT-MCTF        PIC  99.
+
+      *(( XFD COMMENT Code pays d'origine (/déclaration DEB  ajouté le 08/03/2015) ))
+           02 PAY-MCTF         PIC  XXX.
+           02 FILLER           PIC  X(5).

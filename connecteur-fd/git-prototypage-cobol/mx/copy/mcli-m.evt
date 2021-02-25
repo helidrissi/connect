@@ -1,0 +1,672 @@
+      * mcli-m.evt
+      * mcli-m.evt is generated from W:\mx\spro\mcli-m.Psf
+      * This is a generated file. DO NOT modify this file directly.
+
+
+       Screen1-Event-Proc.
+           .
+
+       Screen1-Gd-1-Event-Proc.
+      * 
+           EVALUATE Event-Type
+           WHEN Msg-Begin-Entry
+              PERFORM Screen1-Gd-1-Ev-Msg-Begin-Entry
+           WHEN Msg-End-Drag
+              PERFORM Screen1-Gd-1-Ev-Msg-Goto-Cell
+           WHEN Msg-Goto-Cell
+              PERFORM Screen1-Gd-1-Ev-Msg-Goto-Cell
+           WHEN Msg-Goto-Cell-Drag
+              PERFORM Screen1-Gd-1-Ev-Msg-Goto-Cell
+           WHEN Msg-Goto-Cell-Mouse
+              PERFORM Screen1-Gd-1-Ev-Msg-Goto-Cell
+           END-EVALUATE
+           .
+
+       Screen1-Gd-2-Event-Proc.
+      * 
+           EVALUATE Event-Type
+           WHEN Msg-Begin-Entry
+              PERFORM Screen1-Gd-2-Ev-Msg-Begin-Entry
+           WHEN Msg-Bitmap-Clicked
+              PERFORM Screen1-Gd-2-Ev-Msg-Bitmap-Clicked
+           WHEN Msg-End-Drag
+              PERFORM Screen1-Gd-2-Ev-Msg-Goto-Cell
+           WHEN Msg-Goto-Cell
+              PERFORM Screen1-Gd-2-Ev-Msg-Goto-Cell
+           WHEN Msg-Goto-Cell-Drag
+              PERFORM Screen1-Gd-2-Ev-Msg-Goto-Cell
+           WHEN Msg-Goto-Cell-Mouse
+              PERFORM Screen1-Gd-2-Ev-Msg-Goto-Cell
+           END-EVALUATE
+           .
+      ***   start event editor code   ***
+           COPY "../../mistral/copy/envmis.cbl".
+      *
+       Screen1-Bef-Create.
+           PERFORM CONTROLE-CALL
+           PERFORM OPEN-FILE-RTN
+           PERFORM INIT-BMP
+           MOVE ALL "z" to SV-COD-DEB SV-COD-FIN
+
+      *    RR 12/02/09 ajout variable LK-MCLI-M-MAXSEL
+           IF LK-MCLI-M-MAXSEL = 0 MOVE 80 TO LK-MCLI-M-MAXSEL
+           END-IF
+051018
+           IF LK-MCLI-M-RGPD = 1 THEN
+              MOVE 30,7 TO W-Screen1-Gd-1-Lines
+                           W-Screen1-Gd-2-Lines
+           END-IF
+051018
+050819     
+           IF HANDLE-PALM <> 0 THEN  
+      ***       Pour éviter le clignotement de l'écran repositionné
+      **        MOVE 0 TO Screen1-Visible
+      **     ELSE
+              MOVE 1 TO Screen1-Visible
+      **     END-IF
+050819
+           .
+       Screen1-Aft-Routine.
+           PERFORM CLOSE-FILE-RTN
+           .
+      * OUVERTURE DES FICHIERS =========================================
+       OPEN-FILE-RTN.
+           OPEN INPUT MXCLI  PERFORM STAT
+           .
+      * FERMETURE DES FICHIERS =========================================
+       CLOSE-FILE-RTN.
+           CLOSE MXCLI
+           .
+      * INITIALISATION DES BITMAP ======================================
+       INIT-BMP.
+           .
+      * DEBUT DU PROGRAMME =============================================
+       Screen1-Aft-Initdata.
+      * Modification du titre
+           IF LK-MCLI-M-NumFiltre = 2 OR 3
+             MODIFY Screen1-Handle, TITLE "SELECTION DES PROSPECTS"
+             MODIFY Screen1-La-4, TITLE "LISTE DES PROSPECTS"
+             MODIFY Screen1-Fr-2, TITLE "Sélection par le code prospect"
+           END-IF
+      * Initialisation du nombre de clients sélectionnés.
+           PERFORM AFF-NBCLI-LIB
+           Perform AFF-GD-2
+           .
+      * INITIALISATION DE LA GRILLE 1 =======================================
+       AFF-GD-1.
+           MODIFY Screen1-Gd-1, RESET-GRID = 1
+           PERFORM Acu-Screen1-Gd-1-Content
+           INITIALIZE ENR-MCLI
+           MOVE 0 TO W-EOF
+           MOVE W-COD-DEB TO RAI-MCLI
+           START MXCLI KEY >= CLE2-MCLI INVALID MOVE 1 TO W-EOF
+           END-START
+           IF W-EOF = 0
+              READ MXCLI NEXT END MOVE 1 TO W-EOF
+              END-READ
+              PERFORM STAT
+           END-IF
+           PERFORM CHGT-GD-1
+           MODIFY Screen1-Gd-1, MASS-UPDATE 0
+           MOVE 1 TO Event-Data-1 Gd-1-WCursor-X Gd-1-Old-WCursor-X
+           MOVE 2 TO Event-Data-2 Gd-1-WCursor-Y Gd-1-Old-WCursor-Y
+           MODIFY Screen1-Gd-1, Y = Event-Data-2,
+                  ROW-COLOR = W-Row-Hight-Color
+           .
+      * CHARGEMENT DE LA GRILLE 1 ======================================
+       CHGT-GD-1.
+           MOVE 1 TO Gd-1-Index
+           IF W-COD-FIN = SPACE MOVE HIGH-VALUE TO W-COD-FIN.
+           PERFORM UNTIL W-EOF = 1 OR Gd-1-Index = 100
+           OR RAI-MCLI > W-COD-FIN
+
+           IF ((COD-MCLI NOT = 0 AND CANN-MCLI = 0 
+               AND LK-MCLI-M-NumFiltre < 2)
+           OR (FCO-MCLI NOT = 0 AND NOT = SPACE AND CANNP-MCLI = 0
+               AND LK-MCLI-M-NumFiltre = 2)
+           OR (FCO-MCLI NOT = 0 AND NOT = SPACE AND CANNP-MCLI = 0
+               AND (COD-MCLI = 0 OR CANN-MCLI = 1)
+               AND LK-MCLI-M-NumFiltre = 3)
+           OR ((FCO-MCLI = 0 OR SPACE) AND COD-MCLI NOT = 0 
+               AND CANN-MCLI = 0
+               AND LK-MCLI-M-NumFiltre = 4))
+051018     AND (    LK-MCLI-M-RGPD = 0
+051018           OR (     LK-MCLI-M-RGPD = 1
+051018                AND (    RGPD-MCLI = 0
+051018                      OR (     W-RGPD = 0
+051018                           AND RGPD-MCLI = 1 ))))
+                   MOVE SPACES   TO Gd-1-Record
+                   IF LK-MCLI-M-NumFiltre = 2 OR 3 
+                        MOVE FCO-MCLI TO Gd-1-Col-1
+                   ELSE MOVE COD-MCLI TO Gd-1-Col-1
+                   END-IF
+                   MOVE RAI-MCLI TO Gd-1-Col-2
+                   PERFORM MEP-CP
+                   STRING Af-POS " " VIL-MCLI
+                            DELIMITED BY "  " INTO Gd-1-Col-3
+                   MODIFY Screen1-Gd-1, RECORD-TO-ADD Gd-1-Record
+                   ADD 1 TO Gd-1-Index
+
+              END-IF
+              READ MXCLI NEXT END MOVE 1 TO W-EOF
+              END-READ
+
+      *        ADD 1 TO Gd-1-Index
+           END-PERFORM
+           INQUIRE Screen1-Gd-1, LAST-ROW Gd-1-Max
+           .
+
+       Mep-CP.
+           COPY "W:/mistral/copy/Ef-Pos-Fic2Ecr.cbl"
+           REPLACING  ==CPYPOS-PAYS== BY ==PAY-MCLI==
+                      ==CPYPOS-FIC==  BY ==POS-MCLI==
+                      ==CPYPOS-ECR==  BY ==Af-POS==.
+           .
+
+      * GESTION DE LA GRILLE 1 =========================================
+       Screen1-Gd-1-Ev-Msg-Begin-Entry.
+           MOVE Event-Action-Fail TO Event-Action
+      *    JMD 4/11/2003
+      *    Copie le client
+           PERFORM Screen1-Pb-2-Link
+           .
+       Screen1-Gd-1-Ev-Msg-Goto-Cell.
+
+           IF Event-Data-2 < 2
+              MOVE 2 TO Event-Data-2
+           END-IF
+           IF Event-Data-2 = Gd-1-Old-WCursor-Y
+              MOVE Event-Data-1 TO Gd-1-Old-WCursor-X
+           ELSE
+              MODIFY Screen1-Gd-1, Y = Gd-1-Old-WCursor-Y, ROW-COLOR = 0
+              MODIFY Screen1-Gd-1, Y = Event-Data-2,
+                     ROW-COLOR = W-Row-Hight-Color
+              MOVE Event-Data-1 TO Gd-1-WCursor-X Gd-1-Old-WCursor-X
+              MOVE Event-Data-2 TO Gd-1-WCursor-Y Gd-1-Old-WCursor-Y
+           END-IF
+           .
+      * INITIALISATION DE LA GRILLE 2 ==================================
+       AFF-GD-2.
+           PERFORM VARYING Gd-2-Index FROM 1 BY 1
+           UNTIL Gd-2-Index > LK-MCLI-M-NBSEL
+      *     OR ((LK-MCLI-M-NumFiltre = 2 OR 3)
+      *          AND LK-MCLI-M-FCO(Gd-2-Index) = SPACE OR ZERO)
+      *     OR ((LK-MCLI-M-NumFiltre NOT = 2 AND NOT = 4)
+      *          AND LK-MCLI-M-COD(Gd-2-Index) = ZERO)
+              MOVE LK-MCLI-M-COD(Gd-2-Index) TO COD-MCLI
+              MOVE LK-MCLI-M-FCO(Gd-2-Index) TO FCO-MCLI
+
+              IF LK-MCLI-M-NumFiltre = 2 OR 3
+                   READ MXCLI KEY CLE7-MCLI
+                   END-READ
+              ELSE READ MXCLI KEY CLE6-MCLI
+                   END-READ
+              END-IF
+              PERFORM STAT
+              INITIALIZE Gd-2-Record
+              IF LK-MCLI-M-NumFiltre = 2 OR 3
+                   MOVE FCO-MCLI TO Gd-2-Col-1
+              ELSE MOVE COD-MCLI TO Gd-2-Col-1
+              END-IF
+              MOVE RAI-MCLI TO Gd-2-Col-2
+              MODIFY Screen1-Gd-2, RECORD-TO-ADD Gd-2-Record
+           END-PERFORM
+           .
+      * GESTION DE LA GRILLE 2 =========================================
+       Screen1-Gd-2-Ev-Msg-Begin-Entry.
+           MOVE Event-Action-Fail TO Event-Action
+           If Event-Data-1 = 3 Exit Paragraph End-If
+      *    JMD 4/11/2003
+      *    Enlève le client
+           PERFORM Screen1-Pb-3-Link           
+           Move 0 To Gd-2-WCursor-X Gd-2-Old-WCursor-X
+           Move 0 To Gd-2-WCursor-Y Gd-2-Old-WCursor-Y
+           .
+       Screen1-Gd-2-Ev-Msg-Goto-Cell.
+           IF Event-Data-2 < 2
+              MOVE 2 TO Event-Data-2
+           END-IF
+           IF Event-Data-2 = Gd-2-Old-WCursor-Y
+              MOVE Event-Data-1 TO Gd-2-Old-WCursor-X
+           ELSE
+              MODIFY Screen1-Gd-2, Y = Gd-2-Old-WCursor-Y, ROW-COLOR = 0
+              MODIFY Screen1-Gd-2, Y = Event-Data-2,
+                     ROW-COLOR = W-Row-Hight-Color
+              MOVE Event-Data-1 TO Gd-2-WCursor-X Gd-2-Old-WCursor-X
+              MOVE Event-Data-2 TO Gd-2-WCursor-Y Gd-2-Old-WCursor-Y
+           END-IF
+           .
+      * AFFICHAGE DE LA GRILLE =========================================
+       Screen1-Pb-Afficher-Link.
+           IF W-COD-DEB = SV-COD-DEB
+      *     AND W-COD-FIN = SV-COD-FIN
+051018     AND W-RGPD = SV-RGPD
+              EXIT PARAGRAPH
+           END-IF
+      * Initialisation du code client  début.   
+           IF W-COD-DEB = SPACE MOVE LOW-VALUE  TO W-COD-DEB.
+      * Affichage de la grille 1.
+           IF W-COD-DEB(1:1) = "/" THEN 
+              PERFORM Recherche-RAICLI
+              PERFORM AFFICHE-RECH
+           ELSE
+              PERFORM AFF-GD-1
+           END-IF
+
+      * Test si grille 1 vide .
+           IF Gd-1-Max = 1
+              MOVE "Aucun enregistrement." TO Acu-Msg-1
+              PERFORM MSG-INFO
+              EXIT PARAGRAPH.
+           MOVE W-COD-DEB TO SV-COD-DEB
+           MOVE W-COD-FIN TO SV-COD-FIN
+           IF SV-COD-FIN = SPACE MOVE HIGH-VALUE TO SV-COD-FIN.
+051018     MOVE W-RGPD TO SV-RGPD
+           .
+      * CHARGEMENT DE LA GRILLE ========================================     
+       Screen1-Pb-Chargement-Link.
+           PERFORM CHGT-Gd-1
+           .
+      * AJOUT DE TOUS LES CLIENTS ====================================== 
+       Screen1-Pb-1-Link.
+      * Test si extraction > 80 clients .
+           IF Gd-1-Max > LK-MCLI-M-MAXSEL
+              MOVE "Limite de sélection atteinte !" TO Acu-Msg-1
+              PERFORM MSG-ERREUR
+              EXIT PARAGRAPH.
+
+           Initialize LK-MCLI-M-NBSEL
+      * Initialisation de la grille 2.    
+           MODIFY Screen1-Gd-2, RESET-GRID = 1
+           PERFORM Acu-Screen1-Gd-2-Content
+      * Chargement de la grille 2.
+           PERFORM VARYING Gd-1-Index FROM 2 BY 1
+           UNTIL Gd-1-Index > Gd-1-Max
+              INQUIRE Screen1-Gd-1(Gd-1-Index), RECORD-DATA Gd-1-Record
+      *        MOVE Gd-1-Record TO Gd-2-Record
+              MOVE Gd-1-Col-1 To Gd-2-Col-1
+              MOVE Gd-1-Col-2 To Gd-2-Col-2
+
+              MODIFY Screen1-Gd-2, RECORD-TO-ADD Gd-2-Record
+              
+              ADD 1 TO LK-MCLI-M-NBSEL
+
+           END-PERFORM
+      * Affichage entête grille 2.
+           PERFORM AFF-NBCLI-LIB
+           .
+      * AJOUT D'UN CLIENT  =============================================
+       Screen1-Pb-2-Link.
+      * Test si extraction > 80 clients .
+           IF LK-MCLI-M-NBSEL = LK-MCLI-M-MAXSEL
+              MOVE "Limite de sélection atteinte !" TO Acu-Msg-1
+              PERFORM MSG-ERREUR
+              EXIT PARAGRAPH.
+      * Recherche si client  déjà sélectionné dans la grille 2.
+           INQUIRE Screen1-Gd-1(Gd-1-WCursor-Y, 1), CELL-DATA Gd-1-COD
+           IF Gd-1-COD = SPACE
+              EXIT PARAGRAPH.
+           MOVE 0 TO Gd-2-Erreur
+           INQUIRE Screen1-Gd-2, LAST-ROW Gd-2-Max
+           PERFORM VARYING Gd-2-Index FROM 2 BY 1
+           UNTIL Gd-2-Index > Gd-2-Max
+           OR Gd-2-Erreur = 1
+              INQUIRE Screen1-Gd-2(Gd-2-Index, 1), CELL-DATA Gd-2-COD
+              IF Gd-1-COD = Gd-2-COD
+                 MOVE 1 TO Gd-2-Erreur
+              END-IF
+           END-PERFORM
+      * Test si erreur.
+           IF Gd-2-Erreur = 1
+              MOVE "Déjà sélectionné !" TO Acu-Msg-1
+              PERFORM MSG-ERREUR
+              EXIT PARAGRAPH
+           END-IF
+      * Chargement de la grille 2.
+      *    JMD 4/11/2003 : bug : nom tronqué
+      *     INQUIRE Screen1-Gd-1(Gd-1-WCursor-Y), RECORD-DATA Gd-1-Data
+      *     MOVE Gd-1-Data TO Gd-2-Data
+      *     MODIFY Screen1-Gd-2, RECORD-TO-ADD Gd-2-Data
+           INQUIRE Screen1-Gd-1(Gd-1-WCursor-Y), RECORD-DATA Gd-1-Record
+           Initialize Gd-2-Record
+           MOVE Gd-1-Col-1 TO Gd-2-Col-1
+           MOVE Gd-1-Col-2 TO Gd-2-Col-2
+           MODIFY Screen1-Gd-2, RECORD-TO-ADD Gd-2-Record
+           ADD 1 TO LK-MCLI-M-NBSEL
+
+
+      * Affichage entête grille 2.
+           PERFORM AFF-NBCLI-LIB
+           .
+      * SUPPRESSION D'UN CLIENT  =======================================
+       Screen1-Pb-3-Link.
+           MODIFY Screen1-Gd-2(Gd-2-WCursor-Y),
+                  RECORD-TO-DELETE Gd-2-WCursor-Y
+           IF LK-MCLI-M-NBSEL NOT = 0 SUBTRACT 1 FROM LK-MCLI-M-NBSEL.
+           PERFORM AFF-NBCLI-LIB
+           .
+      * SUPPRESSION DES CLIENTS  =======================================
+       Screen1-Pb-4-Link.
+      * Initialisation de la grille 2.
+           MODIFY Screen1-Gd-2, RESET-GRID = 1
+           PERFORM Acu-Screen1-Gd-2-Content
+           MOVE 0 TO LK-MCLI-M-NBSEL
+      * Affichage entête grille 2.
+           PERFORM AFF-NBCLI-LIB
+           .
+      * ANNULATION DE LA SELECTION =====================================
+       Screen1-Pb-Annuler-Link.
+           PERFORM Screen1-Pb-4-Link
+           .
+      * SORTIE DE L'APPLICATION ========================================
+       Screen1-Pb-Quitter-Link.
+           PERFORM Acu-Screen1-Exit
+           .
+      * VALIDATION DE LA SELECTION =====================================
+       Screen1-Pb-Valider-Link.
+           INITIALIZE LK-MCLI-M-TABLE
+             MOVE ZERO TO LK-MCLI-M-NBSEL 
+             INQUIRE Screen1-Gd-2, LAST-ROW Gd-2-Max
+             PERFORM VARYING Gd-2-Index FROM 2 BY 1
+              UNTIL Gd-2-Index > Gd-2-Max
+
+              IF LK-MCLI-M-NumFiltre = 2 OR 3
+                INQUIRE Screen1-Gd-2(Gd-2-Index, 1), CELL-DATA Gd-2-FCO
+                MOVE Gd-2-FCO TO LK-MCLI-M-FCO(Gd-2-Index - 1)
+              ELSE
+                INQUIRE Screen1-Gd-2(Gd-2-Index, 1), CELL-DATA Gd-2-COD
+                MOVE Gd-2-COD TO LK-MCLI-M-COD(Gd-2-Index - 1)
+              END-IF
+              ADD 1 TO LK-MCLI-M-NBSEL
+             END-PERFORM
+ 
+           PERFORM Acu-Screen1-Exit
+           .
+      * AFFICHAGE DU NOMBRE DE CLIENTS =================================
+       AFF-NBCLI-LIB.
+           MOVE SPACES TO W-NBART-LIB
+           MOVE LK-MCLI-M-NBSEL TO W-NBART
+           IF LK-MCLI-M-NBSEL = 0
+              IF LK-MCLI-M-NumFiltre = 2 OR 3
+              MOVE "AUCUN PROSPECT SELECTIONNE" TO W-NBART-LIB
+              ELSE
+              MOVE "AUCUN CLIENT SELECTIONNE" TO W-NBART-LIB.
+           IF LK-MCLI-M-NBSEL = 1
+              IF LK-MCLI-M-NumFiltre = 2 OR 3
+              STRING W-NBART DELIMITED BY SIZE
+                     "  PROSPECT SELECTIONNE" DELIMITED BY SIZE
+                     INTO W-NBART-LIB
+              ELSE
+              STRING W-NBART DELIMITED BY SIZE
+                     "  CLIENT SELECTIONNE" DELIMITED BY SIZE
+                     INTO W-NBART-LIB.
+           IF LK-MCLI-M-NBSEL > 1
+              IF LK-MCLI-M-NumFiltre = 2 OR 3
+              STRING W-NBART DELIMITED BY SIZE
+                     "  PROSPECTS SELECTIONNES" DELIMITED BY SIZE
+                     INTO W-NBART-LIB
+              ELSE
+              STRING W-NBART DELIMITED BY SIZE
+                     "  CLIENTS SELECTIONNES" DELIMITED BY SIZE
+                     INTO W-NBART-LIB.
+           MODIFY Screen1-La-NBART-LIB, TITLE W-NBART-LIB
+           .
+      * GUIDE GRILLE 1 =================================================
+       Screen1-Gd-1-Bef-Procedure.
+           MODIFY Screen1-Pb-1, ENABLED 1
+           MODIFY Screen1-Pb-2, ENABLED 1
+           MODIFY Screen1-Pb-3, ENABLED 0
+           MODIFY Screen1-Pb-4, ENABLED 0
+           IF LK-MCLI-M-NumFiltre = 2 OR 3
+           MODIFY Screen1-St-1-Handle,
+                  TITLE "AJOUT DE TOUS LES PROSPECTS :   >>
+      -                 "AJOUT D'UN PROSPECT :   >" 
+           ELSE
+           MODIFY Screen1-St-1-Handle,
+                  TITLE "AJOUT DE TOUS LES CLIENTS :   >>
+      -                 "AJOUT D'UN CLIENT :   >" 
+           .
+      * GUIDE GRILLE 2 =================================================
+       Screen1-Gd-2-Bef-Procedure.
+           MODIFY Screen1-Pb-1, ENABLED 0
+           MODIFY Screen1-Pb-2, ENABLED 0
+           MODIFY Screen1-Pb-3, ENABLED 1
+           MODIFY Screen1-Pb-4, ENABLED 1
+           IF LK-MCLI-M-NumFiltre = 2 OR 3
+           MODIFY Screen1-St-1-Handle,
+                  TITLE "SUPPRESSION DE TOUS LES PROSPECTS :   <<
+      -                 "SUPPRESSION D'UN PROSPECT :   <"
+           ELSE
+            MODIFY Screen1-St-1-Handle,
+                  TITLE "SUPPRESSION DE TOUS LES CLIENTS :   <<
+      -                 "SUPPRESSION D'UN CLIENT :   <"
+           .
+      *
+       Screen1-Ev-Cmd-Close.
+           PERFORM Mistral-WindowClosing
+           .
+
+       Screen1-Gd-2-Ev-Msg-Bitmap-Clicked.
+           .
+
+       Recherche-RAICLI.
+           COPY "../../mx/copy/Assign-FICTMP.cbl" REPLACING 
+              ==FICTMP==   BY ==RECH==
+              =='FICTMP'== BY ==RECH==.
+           CLOSE RECH.
+      
+           MOVE "CLI" TO CMD-RECH-FIC
+           MOVE MX-DIR TO CMD-RECH-DIR
+           MOVE ASSIGN-RECH TO CMD-RECH-RESULT
+           MOVE 1 TO CMD-RECH-DEBSOR
+           MOVE 79 TO CMD-RECH-FINSOR
+      
+           MOVE RECORD-POSITION OF RAI-MCLI TO CMD-RECH-POSR(1)
+           MOVE LENGTH OF RAI-MCLI TO CMD-RECH-LONR(1)
+           MOVE W-COD-DEB(2:24) TO CMD-RECH-VAL(1)
+           MOVE "s2" TO CMD-RECH-OPE(1)
+      
+           MOVE "T" TO CMD-RECH-T(1)
+           MOVE 42 TO CMD-RECH-POSDT(1)
+           MOVE 72 TO CMD-RECH-POSFT(1)
+      
+           COPY "W:/mistral/copy/rech.cbl".
+           .
+
+       AFFICHE-RECH.
+      * Remise à zéro de la grille...
+           MODIFY Screen1-Gd-1, RESET-GRID = 1
+           PERFORM Acu-Screen1-Gd-1-Content
+
+      * Remplissage de la grille...
+           OPEN INPUT RECH
+           PERFORM STAT
+           INITIALIZE ENR-MCLI
+
+           MOVE 0 TO W-EOF           
+           PERFORM UNTIL W-EOF = 1
+              MOVE SPACE TO ENR-RECH 
+              READ RECH NEXT END MOVE 1 TO W-EOF
+              END-READ
+              PERFORM STAT
+              IF W-EOF NOT = 1 THEN
+                 MOVE ENR-RECH(1:9) TO ORD-MCLI
+                 READ MXCLI NOT INVALID
+                            PERFORM AFFRECH-GD-1
+                 END-READ
+                 PERFORM STAT
+              END-IF
+           END-PERFORM
+
+           CLOSE RECH
+           DELETE FILE RECH
+                  
+           MOVE 1 TO Event-Data-1 Gd-1-WCursor-X Gd-1-Old-WCursor-X
+           MOVE 2 TO Event-Data-2 Gd-1-WCursor-Y Gd-1-Old-WCursor-Y
+           MODIFY Screen1-Gd-1, Y = Event-Data-2,
+                  ROW-COLOR = W-Row-Hight-Color
+
+           INQUIRE Screen1-Gd-1, LAST-ROW Gd-1-Max
+           .
+
+      * CHARGEMENT DE LA GRILLE 1 ======================================
+       AFFRECH-GD-1.
+           IF (COD-MCLI NOT = 0 AND CANN-MCLI = 0 
+               AND LK-MCLI-M-NumFiltre < 2)
+           OR (FCO-MCLI NOT = 0 AND NOT = SPACE AND CANNP-MCLI = 0
+               AND LK-MCLI-M-NumFiltre = 2)
+           OR (FCO-MCLI NOT = 0 AND NOT = SPACE AND CANNP-MCLI = 0
+               AND (COD-MCLI = 0 OR CANN-MCLI = 1)
+               AND LK-MCLI-M-NumFiltre = 3)
+           OR ((FCO-MCLI = 0 OR SPACE) AND COD-MCLI NOT = 0 
+               AND CANN-MCLI = 0
+               AND LK-MCLI-M-NumFiltre = 4)
+                   MOVE SPACES   TO Gd-1-Record
+                   IF LK-MCLI-M-NumFiltre = 2 OR 3 
+                        MOVE FCO-MCLI TO Gd-1-Col-1
+                   ELSE MOVE COD-MCLI TO Gd-1-Col-1
+                   END-IF
+                   MOVE RAI-MCLI TO Gd-1-Col-2
+                   PERFORM MEP-CP
+                   STRING Af-POS " " VIL-MCLI
+                            DELIMITED BY "  " INTO Gd-1-Col-3
+                   MODIFY Screen1-Gd-1, RECORD-TO-ADD Gd-1-Record
+              END-IF
+           .
+
+
+      *
+       Screen1-Ef-Cli-Ev-Msg-Validate.
+           IF LK-MCLI-M-NumFiltre = 2 OR 3
+              INQUIRE Screen1-Ef-Cli, VALUE IN FCO-MCLI2
+              IF FCO-MCLI2 = 0 EXIT PARAGRAPH
+              END-IF
+              Open I-O MXCLI2
+              PERFORM STAT
+              READ MXCLI2 KEY CLE7-MCLI2 INVALID MOVE SPACE TO ENR-MCLI2
+              END-READ
+              PERFORM STAT
+              CLOSE MXCLI2
+              MODIFY Screen1-Ef-Cli, VALUE FCO-MCLI2
+              MODIFY Screen1-Ef-Rai, VALUE RAI-MCLI2
+              MODIFY Screen1-Ef-Vil, VALUE VIL-MCLI2
+              PERFORM ValidUnCli
+           ELSE
+              INQUIRE Screen1-Ef-Cli, VALUE IN COD-MCLI2
+              IF COD-MCLI2 = 0 EXIT PARAGRAPH
+              END-IF
+              Open I-O MXCLI2
+              PERFORM STAT
+              READ MXCLI2 KEY CLE6-MCLI2 INVALID MOVE SPACE TO ENR-MCLI2
+              END-READ
+              PERFORM STAT
+              CLOSE MXCLI2
+              MODIFY Screen1-Ef-Cli, VALUE COD-MCLI2
+              MODIFY Screen1-Ef-Rai, VALUE RAI-MCLI2
+              MODIFY Screen1-Ef-Vil, VALUE VIL-MCLI2
+              PERFORM ValidUnCli
+           END-IF
+           .
+      *
+       Screen1-Pb-ValidUnCli-Link.
+           PERFORM Screen1-Ef-Cli-Ev-Msg-Validate
+           IF LK-MCLI-M-NumFiltre = 2 OR 3
+              IF FCO-MCLI2 = 0 EXIT PARAGRAPH
+              END-IF
+              PERFORM ValidUnCli
+           ELSE
+              IF COD-MCLI2 = 0 EXIT PARAGRAPH
+              END-IF
+              PERFORM ValidUnCli
+           END-IF
+           .
+
+       ValidUnCli.
+051018
+           IF  LK-MCLI-M-RGPD = 1   
+           AND (    RGPD-MCLI2 = 2
+                              OR 3
+                 OR (     RGPD-MCLI2 = 1
+                      AND W-RGPD = 1 ) ) THEN
+              MOVE "Client de statut RGPD non accessible" TO ACU-Msg-1
+              PERFORM Msg-Info
+              EXIT PARAGRAPH
+           END-IF
+051018
+      * Test si extraction > 80 clients .
+           IF LK-MCLI-M-NBSEL = LK-MCLI-M-MAXSEL
+              MOVE "Limite de sélection atteinte !" TO Acu-Msg-1
+              PERFORM MSG-ERREUR
+              EXIT PARAGRAPH.
+      * Recherche si client  déjà sélectionné dans la grille 2.
+           IF LK-MCLI-M-NumFiltre = 2 OR 3
+              MOVE FCO-MCLI2 TO Gd-1-COD
+              MOVE 0 TO Gd-2-Erreur
+              INQUIRE Screen1-Gd-2, LAST-ROW Gd-2-Max
+              PERFORM VARYING Gd-2-Index FROM 2 BY 1
+              UNTIL Gd-2-Index > Gd-2-Max
+              OR Gd-2-Erreur = 1
+                 INQUIRE Screen1-Gd-2(Gd-2-Index, 1), CELL-DATA Gd-2-FCO
+                 IF Gd-1-COD = Gd-2-FCO
+                    MOVE 1 TO Gd-2-Erreur
+                 END-IF
+              END-PERFORM
+           ELSE
+              MOVE COD-MCLI2 TO Gd-1-COD
+              MOVE 0 TO Gd-2-Erreur
+              INQUIRE Screen1-Gd-2, LAST-ROW Gd-2-Max
+              PERFORM VARYING Gd-2-Index FROM 2 BY 1
+              UNTIL Gd-2-Index > Gd-2-Max
+              OR Gd-2-Erreur = 1
+                 INQUIRE Screen1-Gd-2(Gd-2-Index, 1), CELL-DATA Gd-2-COD
+                 IF Gd-1-COD = Gd-2-COD
+                    MOVE 1 TO Gd-2-Erreur
+                 END-IF
+              END-PERFORM
+           END-IF
+
+      * Test si erreur.
+           IF Gd-2-Erreur = 1
+              MOVE "Déjà sélectionné !" TO Acu-Msg-1
+              PERFORM MSG-ERREUR
+              MODIFY Screen1-Ef-Cli, VALUE SPACE
+              MODIFY Screen1-Ef-Rai, VALUE SPACE
+              MODIFY Screen1-Ef-Vil, VALUE SPACE
+              MOVE 4 TO ACCEPT-CONTROL
+              MOVE 22 TO CONTROL-ID
+              EXIT PARAGRAPH
+           END-IF
+      * Chargement de la grille 2.
+           Initialize Gd-2-Record
+           IF LK-MCLI-M-NumFiltre = 2 OR 3
+              MOVE FCO-MCLI2 TO Gd-2-Col-1
+           ELSE
+              MOVE COD-MCLI2 TO Gd-2-Col-1
+           END-IF
+           MOVE RAI-MCLI2 TO Gd-2-Col-2
+           MODIFY Screen1-Gd-2, RECORD-TO-ADD Gd-2-Record
+           ADD 1 TO LK-MCLI-M-NBSEL
+      * Affichage entête grille 2.
+           PERFORM AFF-NBCLI-LIB
+           MODIFY Screen1-Ef-Cli, VALUE SPACE
+           MODIFY Screen1-Ef-Rai, VALUE SPACE
+           MODIFY Screen1-Ef-Vil, VALUE SPACE
+           MOVE 4 TO ACCEPT-CONTROL
+           MOVE 22 TO CONTROL-ID
+           .
+      *
+       Screen1-Ef-COD-DEB-Aft-Procedure.
+           IF W-COD-DEB <> SPACE AND <> SV-COD-DEB
+              PERFORM Screen1-Pb-Afficher-Link
+           END-IF.
+      *
+       Screen1-Ef-COD-FIN-Aft-Procedure.
+           IF W-COD-FIN <> SPACE AND <> SV-COD-FIN
+              PERFORM Screen1-Pb-Afficher-Link
+           END-IF.
+           .
+
+
+
+
+       

@@ -1,0 +1,582 @@
+      *(( XFD FILE = PARAM ))
+      *PARAMETRES GENERAUX DLRIX
+      *
+      *
+      *
+      *em61\Temporary-File\File10\
+      *     *em61\Temporary-File\F
+      *File\F
+       FD  MXPARAM
+           LABEL RECORD IS STANDARD.
+       01 ENR-MPAR.
+
+      *(( XFD COMMENT N° de société ))
+           02 STE-MPAR         PIC  9(4).
+
+      *(( XFD COMMENT N° société propriétaire du parc interne ))
+           02 STP-MPAR         PIC  9999.
+
+      *(( XFD COMMENT Raison sociale ))
+           02 RAI-MPAR         PIC  X(25).
+
+      *(( XFD COMMENT Abrégé raison sociale ))
+           02 RSA-MPAR         PIC  X(6).
+
+      *(( XFD COMMENT Code pays ))
+           02 PAY-MPAR         PIC  XXX.
+
+      *(( XFD COMMENT Identité juridique ))
+           02 IDE-MPAR         PIC  X(35).
+
+      *(( XFD COMMENT Adresse 1 ))
+           02 RUE-MPAR         PIC  X(25).
+
+      *(( XFD COMMENT Adresse 2 ))
+           02 LIE-MPAR         PIC  X(25).
+
+      *(( XFD COMMENT Code postal ))
+           02 POS-MPAR         PIC  X(8).
+
+      *(( XFD COMMENT Ville ))
+           02 VIL-MPAR         PIC  X(25).
+
+      *(( XFD COMMENT CNUD ))
+           02 CNUD-MPAR        PIC  9(9).
+      *(( XFD DATE=YYYYMM ))
+      *(( XFD COMMENT Période en cours ))
+           02 PCOURS-MPAR      PIC  9(6).
+           02 R-PCOURS-MPAR REDEFINES PCOURS-MPAR.
+               04 SIE-MPAR         PIC  99.
+               04 ANN-MPAR         PIC  99.
+
+      *(( XFD COMMENT Mois en cours ))
+               04 MOI-MPAR         PIC  99.
+           02 R1-PCOURS-MPAR REDEFINES PCOURS-MPAR.
+               04 SIEANN-MPAR      PIC  9999.
+
+      *(( XFD COMMENT Mois en cours ))
+               04 FILLER           PIC  99.
+      *(( XFD DATE=YYYYMMDD ))
+      *(( XFD COMMENT Date début exercice ))
+           02 DDE-MPAR         PIC  9(8).
+           02 DDE-MPAR-R REDEFINES DDE-MPAR.
+               03 SDDE-MPAR        PIC  99.
+               03 ADDE-MPAR        PIC  99.
+               03 MDDE-MPAR        PIC  99.
+               03 JDDE-MPAR        PIC  99.
+      *(( XFD DATE=YYYYMMDD ))
+      *(( XFD COMMENT Date fin exercice ))
+           02 DCE-MPAR         PIC  9(8).
+           02 DCE-MPAR-R REDEFINES DCE-MPAR.
+               03 SDCE-MPAR        PIC  99.
+               03 ADCE-MPAR        PIC  99.
+               03 MDCE-MPAR        PIC  99.
+               03 JDCE-MPAR        PIC  99.
+      *(( XFD DATE=YYYYMMDD ))
+      *(( XFD COMMENT Date début exercce Précédent ))
+           02 DD1-MPAR         PIC  9(8).
+
+      *(( XFD COMMENT Saisie du taux de TVA à la facturation ))
+           02 STT-MPAR         PIC  9.
+
+      *(( XFD COMMENT Taux de TVA ))
+           02 TABTVA-MPAR.
+               03 TVA-MPAR         PIC  99V99
+                          OCCURS 8 TIMES.
+
+      *(( XFD COMMENT Régime TVA (0=normal ))
+           02 RCT-MPAR         PIC  9
+                      OCCURS 8 TIMES.
+
+      *(( XFD COMMENT Libellé TVA 2 ))
+           02 GTV1-MPAR        PIC  X(12).
+
+      *(( XFD COMMENT Libellé TVA 3 ))
+           02 GTV2-MPAR        PIC  X(12).
+
+      *(( XFD COMMENT Devise ))
+           02 DEV-MPAR         PIC  XXX.
+
+      *(( XFD COMMENT Abrégé devise ))
+           02 ABRD-MPAR        PIC  XX.
+
+      *(( XFD COMMENT Devise interne (non utilisé ))
+           02 DEVI-MPAR        PIC  XXX.
+
+      *(( XFD COMMENT Devise pivot (non utilisé ))
+           02 DEVP-MPAR        PIC  XXX.
+
+      *(( XFD COMMENT Nombre décimales taux de conversion devise interne/pivot (non utilisé ))
+           02 NBDI-MPAR        PIC  9.
+
+      *(( XFD COMMENT Taux de conversion devise interne/pivot (non utilisé ))
+           02 TXI-MPAR         PIC  9(6).
+
+      *(( XFD COMMENT Minimum marge prestations ))
+           02 MIP-MPAR         PIC  99V99.
+
+      *(( XFD COMMENT Maximum marge prestations ))
+           02 MXP-MPAR         PIC  99V99.
+
+      *(( XFD COMMENT Plancher marge prestations ))
+           02 MPP-MPAR         PIC  99V99.
+
+      *(( XFD COMMENT Calcul risque client (0=temps réel ))
+           02 RIC-MPAR         PIC  9.
+
+      *(( XFD COMMENT Prise en compte Compta liés (0=Non ))
+           02 RIL-MPAR         PIC  9.
+
+      *(( XFD COMMENT Numérotaion Clients: 1=Manuelle   2=Automatique ))
+           02 NUC-MPAR         PIC  9.
+
+      *(( XFD COMMENT Numérotaion Fournisseur: 1=Manuelle   2=Automatique ))
+           02 NUF-MPAR         PIC  9.
+
+      *(( XFD COMMENT Indicateur gestion matériels / IMAM ))
+           02 IMO-MPAR         PIC  9.
+
+      *(( XFD COMMENT Génération OD analytiques (0=compte achat ))
+           02 ODA-MPAR         PIC  9.
+
+      *(( XFD COMMENT Coefficient de rétrocession entre service pièces et autres (OD Ana. ))
+           02 CAD-MPAR         PIC  9V999.
+
+      *(( XFD COMMENT Débit achat SAV inter-agences ))
+           02 AIA-MPAR         PIC  9.
+
+      *(( XFD COMMENT Seuil HT relevé/allongement conditionsde paiement ))
+           02 SER-MPAR         PIC  9(6).
+
+      *(( XFD COMMENT Nombre de jours/allongement conditions de paiement relevé ))
+           02 NJR-MPAR         PIC  99.
+
+      *(( XFD COMMENT Calcul échéance relevés (0=fiche client ))
+           02 PREL-MPAR        PIC  9.
+
+      *(( XFD COMMENT Date prise en compte pour calcul échéance ))
+           02 NBR-MPAR         PIC  9.
+
+      *(( XFD COMMENT Numérotation articles (0=Manuelle  1=automatique ))
+           02 COA-MPAR         PIC  9.
+
+      *(( XFD COMMENT Saisie code article (1=avec IDF   2 = Sans IDF ))
+           02 SCA-MPAR         PIC  9.
+
+      *(( XFD COMMENT Affichage liste articles (0=3ème désignation ))
+           02 AFA-MPAR         PIC  9.
+
+      *(( XFD COMMENT Gestion code interne ))
+           02 RIA-MPAR         PIC  9.
+
+      *(( XFD COMMENT Stock négatif: 0=autorisé   1=interdit ))
+           02 STN-MPAR         PIC  9.
+
+      *(( XFD COMMENT 1=Controle stock négatif sur stock dispo ))
+           02 CST-MPAR         PIC  9.
+
+      *(( XFD COMMENT Mode calcul marge: 0=PV -(PAMP+FUA)   1=PV - PAMP   2=PV - (PA Net + FUA)   3=PV - PRMP ))
+           02 MCM-MPAR         PIC  9.
+
+      *(( XFD COMMENT Edition désignation article (0=avec espace ))
+           02 IDA-MPAR         PIC  9.
+
+      *(( XFD COMMENT Intégration comptable  par agence ))
+           02 LCO-MPAR         PIC  9.
+
+      *(( XFD COMMENT Génération écritures achats sur BL inter-agences ))
+           02 GAG-MPAR         PIC  9.
+
+      *(( XFD COMMENT Seuil durée crédit client en jours ))
+           02 NCC-MPAR         PIC  999.
+
+      *(( XFD COMMENT Taux crédit clients ))
+           02 TCC-MPAR         PIC  99V99.
+
+      *(( XFD COMMENT Limite profit règlements en jours ))
+           02 NPA-MPAR         PIC  99.
+
+      *(( XFD COMMENT Taux profit règlements ))
+           02 TPA-MPAR         PIC  99V99.
+
+      *(( XFD COMMENT Stade versement commissions vendeurs ))
+           02 SVC-MPAR         PIC  9.
+
+      *(( XFD COMMENT Gestion groupes clients  0=Non  1=Oui ))
+           02 RGC-MPAR         PIC  9.
+
+      *(( XFD COMMENT Libellé groupes clients ))
+           02 LGC-MPAR         PIC  X(8).
+
+      *(( XFD COMMENT Gestion port usine ))
+           02 PUS-MPAR         PIC  9.
+
+      *(( XFD COMMENT % port usine ))
+           02 PPU-MPAR         PIC  9.
+
+      *(( XFD COMMENT Indicateur mois précédent cloturé ))
+           02 CMP-MPAR         PIC  9.
+      *--- Donn‚e sp‚cifique au DEB
+      *
+           02 ICEE-MPAR        PIC  X(13).
+           02 R-ICEE-MPAR REDEFINES ICEE-MPAR.
+               03 PTC-MPAR         PIC  XX.
+               03 CTC-MPAR         PIC  XX.
+               03 STC-MPAR         PIC  X(9).
+
+      *(( XFD COMMENT Niveau déclaration DEB (Introduction ))
+           02 NII-MPAR         PIC  9.
+
+      *(( XFD COMMENT Site déclaration DEB (0=société ))
+           02 SID-MPAR         PIC  9.
+      * Regime Introduction & Exp‚dition
+      *
+           02 REI-MPAR         PIC  99.
+
+      *(( XFD COMMENT Régime DEB expédition ))
+           02 REE-MPAR         PIC  99.
+      * Nature Transaction Introduction & Exp‚dition
+           02 NAI-MPAR         PIC  99.
+
+      *(( XFD COMMENT Nature transaction DEB expédition ))
+           02 NAE-MPAR         PIC  99.
+      * Condition Livraison Introduction & Exp‚dition
+           02 COI-MPAR         PIC  XXX.
+
+      *(( XFD COMMENT Condition de livraison DEB expédition ))
+           02 COE-MPAR         PIC  XXX.
+      * Lieu Livraison Introduction & Exp‚dition
+           02 LLI-MPAR         PIC  9.
+
+      *(( XFD COMMENT Lieu de provenance DEB expédition ))
+           02 LLE-MPAR         PIC  9.
+      * Mode de Transport Introduction & Exp‚dition
+           02 MTI-MPAR         PIC  9.
+
+      *(( XFD COMMENT Mode de transport DEB expédition ))
+           02 MTE-MPAR         PIC  9.
+      * Donn‚e ‚dit‚e sur grille affect. PR/marque et type
+           02 DEG-MPAR         PIC  9.
+
+      *(( XFD COMMENT Longueur donnée affichée / grille affectation par marque et type ))
+           02 LEG-MPAR         PIC  99.
+
+      *(( XFD COMMENT Donnée affichée / grille affectation par marque et type ))
+           02 AEG-MPAR         PIC  9.
+
+      *(( XFD COMMENT Gestion des éléments/GAP (1=avec conso et périodicité ))
+           02 GPE-MPAR         PIC  9.
+
+      *(( XFD COMMENT Coef articles divers (0=famille article ))
+           02 CCO-MPAR         PIC  9.
+      * Niveau Relations Comptables
+      *
+           02 NCP-MPAR         PIC  9.
+
+      *(( XFD COMMENT Niveau relations comptables prestations ))
+           02 NCS-MPAR         PIC  9.
+
+      *(( XFD COMMENT Niveau relations comptables matériels ))
+           02 NCM-MPAR         PIC  9.
+
+      *(( XFD COMMENT Niveau relations comptables achats pièces ))
+           02 NCA-MPAR         PIC  9.
+
+      *(( XFD COMMENT Compensation PR: 0= Par Famille article    1=Par Code Remise Client ))
+           02 CPR-MPAR         PIC  9.
+
+      *(( XFD COMMENT Calcul compensation PR (0=fixe ))
+           02 CCP-MPAR         PIC  9.
+
+      *(( XFD COMMENT Assurance crédit (0=normal ))
+           02 ASCR-MPAR        PIC  9.
+
+      *(( XFD COMMENT Libellé assurance crédit ))
+           02 LASCR-MPAR       PIC  X(12).
+
+      *(( XFD COMMENT Libellé gratuit ))
+           02 LPZ-MPAR         PIC  X(10).
+
+      *(( XFD COMMENT Code prestation DAOM ))
+           02 PDAOM-MPAR       PIC  XXXX.
+
+      *(( XFD COMMENT Base DAOM ))
+           02 BDAOM-MPAR       PIC  999.
+      * Code Frn FENWICK (Pour Conces. FWK)
+      *
+           02 FFWK-MPAR        PIC  9(6).
+           02 R-FFWK-MPAR REDEFINES FFWK-MPAR.
+
+      *(( XFD COMMENT Indicateur nouvelle gestion Topaz (pour tests) ))
+               05 NEWTOP-MPAR      PIC  9.
+               05 FILLER           PIC  9(5).
+
+      *(( XFD COMMENT def-mpa ))
+           02 DEF-MPAR         PIC  9(6).
+
+      *(( XFD COMMENT Dernier n° d'ordre interne client ))
+           02 DEC-MPAR         PIC  9(6).
+
+      *(( XFD COMMENT Dernier n° interlocuteur fournisseur ))
+           02 DIF-MPAR         PIC  9(6).
+
+      *(( XFD COMMENT Dernier n° interlocuteur client ))
+           02 ITC-MPAR         PIC  9(6).
+
+      *(( XFD COMMENT Dernier n° interne article ou GENCOD ))
+           02 NUMD-MPAR        PIC  9(6).
+
+      *(( XFD COMMENT Dernier n° de client ))
+           02 DCL-MPAR         PIC  9(6).
+
+      *(( XFD COMMENT Dernier n° de client divers ))
+           02 DCD-MPAR         PIC  9(6).
+
+      *(( XFD COMMENT Dernier n° ancienne référence ))
+           02 ANR-MPAR         PIC  9(6).
+
+      *(( XFD COMMENT Code de l'agence siège ))
+           02 AGS-MPAR         PIC  X(3).
+
+      *(( XFD COMMENT Code des Titres Sociaux qui entraine la création automatiquement d'un interlocuteur (cf Table des titres sociaux ))
+           02 TSI-MPAR         PIC  99
+                      OCCURS 4 TIMES.
+
+      *(( XFD COMMENT Fonction externe des interlocuteurs créés automatiquement ))
+           02 FCI-MPAR         PIC  XX
+                      OCCURS 4 TIMES.
+
+      *(( XFD COMMENT Dernier N° d'ordre de renseignement commerciaux (Réservé MobiVip ))
+           02 DRNC-MPAR        PIC  9(6).
+           02 WEB-MPAR         PIC  X(49).
+
+      *(( XFD COMMENT Exonération transaction si client autre pays ))
+           02 EXOAP-MPAR       PIC  9.
+
+      *(( XFD COMMENT ERP: envoi au mail de l'interlocuteur du bon ))
+           02 MERP-MPAR        PIC  9.
+
+      *(( XFD COMMENT Envoi documents attachés aux factures par mail ))
+           02 EMAD-MPAR        PIC  9.
+
+      *(( XFD COMMENT Envoi un mail par facture ))
+           02 EMAF-MPAR        PIC  9.
+
+      *(( XFD COMMENT Envoi BL associés aux factures par mail ))
+           02 EMAB-MPAR        PIC  9.
+
+      *(( XFD COMMENT Envoi traites associées aux factures par mail ))
+           02 EMAT-MPAR        PIC  9.
+
+      *(( XFD COMMENT N° automatique des affaires ))
+           02 NAFA-MPAR        PIC  9.
+
+      *(( XFD COMMENT Gestion poids articles: 0/1=au conditionnement 2=unité ))
+           02 UPO-MPAR         PIC  9.
+
+      *(( XFD COMMENT Mise en attente factures sans référence ))
+           02 MAFR-MPAR        PIC  9.
+
+      *(( XFD COMMENT SBD/PXR: affichage type commande fournisseur uniquement ))
+           02 TCCF-MPAR        PIC  9.
+
+      *(( XFD COMMENT Recherche code article dans catalogue fournisseur ))
+           02 RACF-MPAR        PIC  9.
+           02 EMAIL-MPAR       PIC  X(60).
+           02 LTV-MPAR         PIC  X(40)
+                      OCCURS 2 TIMES.
+
+      *(( XFD COMMENT Date de mise en place Logiciel R3 ))
+           02 MR3-MPAR         PIC  9(8).
+           02 R-MR3-MPAR REDEFINES MR3-MPAR.
+               04 SMR3-MPAR        PIC  99.
+               04 AMR3-MPAR        PIC  99.
+               04 MMR3-MPAR        PIC  99.
+               04 JMR3-MPAR        PIC  99.
+           02 PDAOM2-MPAR      PIC  X(4).
+
+      *(( XFD COMMENT Niveau édition relevé de factures: 1=agence 2=société (ou sté comptable si ICA ))
+           02 NER-MPAR         PIC  9.
+           02 APRM-MPAR        PIC  9.
+           02 NBMHA-MPAR       PIC  99.
+           02 NBMHV-MPAR       PIC  99.
+
+      *(( XFD COMMENT Gestion des heurs à l'anglo-saxonne (8:00 PM ))
+           02 ANGLO-MPAR       PIC  9.
+
+      *(( XFD COMMENT Symbole séparateur heures (h ou : ))
+           02 SIMH-MPAR        PIC  X.
+
+      *(( XFD COMMENT Analytique chantier 0 sur n° ordre chantier 1 sur client + analytique chantier ))
+           02 ANACH-MPAR       PIC  9.
+
+      *(( XFD COMMENT Numérotation automatique de la Référence Interne / Article: 0=Non    1=Oui ))
+           02 RFIA-MPAR        PIC  9.
+
+      *(( XFD COMMENT Dernier N° de Référence Interne Article ))
+           02 DRFI-MPAR        PIC  9(8).
+
+      *(( XFD COMMENT Taxe (%)  sur paiements en espèces ))
+           02 TXPE-MPAR        PIC  99V99.
+
+      *(( XFD COMMENT Montant maximum taxe sur paiements en espèces ))
+           02 MXPE-MPAR        PIC  9(5).
+
+      *(( XFD COMMENT Classement liste articles par défaut: 1=code 2=code sans IDF 3=désignation 4=n° série 5=fournisseur ))
+           02 CLA-MPAR         PIC  9.
+
+      *(( XFD COMMENT Affichage TG par défaut en détaillé ))
+           02 TGD-MPAR         PIC  9.
+
+      *(( XFD COMMENT Ecriture d'acompte: 0=sur compte client 1=sur compte chèques à encaisser ))
+           02 EAC-MPAR         PIC  9.
+
+      *(( XFD COMMENT Stade matériel par défaut dans MAT: 1=stock 2=vendu 3=parc location 4=petits matériels ))
+           02 STAM-MPAR        PIC  9
+                      OCCURS 4 TIMES.
+
+      *(( XFD COMMENT Niveau déclaration DEB (Expédition ))
+           02 NIE-MPAR         PIC  9.
+           02 LTV0-MPAR        PIC  X(40).
+
+      *(( XFD COMMENT Contrôle cohérence date factures: 0=oui 1=non ))
+           02 CDF-MPAR         PIC  9.
+
+      *(( XFD COMMENT Edition montant en lettres sur les factures ))
+           02 MLET-MPAR        PIC  9.
+
+      *(( XFD COMMENT Libellé "Régul." ))
+           02 LPR-MPAR         PIC  X(10).
+
+      *(( XFD COMMENT Visualisation stock par défaut (Région - Autres Sociétés - Sociétés Comptables):  0=Non   1=Oui ))
+           02 VSTO-MPAR        PIC  9
+                      OCCURS 3 TIMES.
+
+      *(( XFD COMMENT Relevé sur vente matériel par défaut: 0=non 1=oui ))
+           02 RELM-MPAR        PIC  9.
+
+      *(( XFD COMMENT Affichage sur liste article: 0=Référence  1= Prix de vente  2= Stock   3=Prix de vente + Stock ))
+           02 AFLA-MPAR        PIC  9.
+
+      *(( XFD COMMENT Stock sur liste article:  0=Stock Théorique  1=Stock Dispo  2=Stock Prévisionnel ))
+           02 STLA-MPAR        PIC  9.
+
+      *(( XFD COMMENT Répertoire d'archivage des factures pour mise sous pli (non utilisé) ))
+           02 DMSP-MPAR        PIC  X(9).
+
+      *(( XFD COMMENT Maj consos dans les ventes inter-agences ))
+           02 MCIA-MPAR        PIC  9.
+
+      *(( XFD COMMENT N° groupe clients Fenwick Linde ))
+           02 RFWK-MPAR        PIC  XX.
+
+      *(( XFD COMMENT Gestion stock relais dans les ventes inter-agences ))
+           02 SRI-MPAR         PIC  9.
+
+      *(( XFD COMMENT Libellé TVA Non perçue ))
+           02 LTVNP-MPAR       PIC  X(40).
+
+      *(( XFD COMMENT Edition année derrière le n° de facture ))
+           02 ANF-MPAR         PIC  9.
+
+      *(( XFD COMMENT Gestion des affaires: 1=affaires globales (pas par client ))
+           02 GAF-MPAR         PIC  9.
+
+      *(( XFD COMMENT Dernière période de re-calcul retroactif du PRMP / PAMP (SSAAMM ))
+           02 DRRP-MPAR        PIC  9(6).
+
+      *(( XFD COMMENT Gestion marge répartie: 0=standard 1=avec complément remise (Pagot) ))
+           02 GMR-MPAR         PIC  9.
+
+      *(( XFD COMMENT Coefficient multiplicateur sur articles: 0=Selon famille article   1=Selon tranches de prix tarif ))
+           02 COEA-MPAR        PIC  9.
+
+      *(( XFD COMMENT Intégration, comptable/agence: indic si clients parfois non linkés ))
+           02 ICL-MPAR         PIC  9.
+
+      *(( XFD COMMENT Calcul TVA avec 3 décimales sur pied de facture (SOMTP TUNISIE) ))
+           02 PIE3-MPAR        PIC  9.
+
+      *(( XFD COMMENT Génération écriture d'en-cours à la cloture de la facturation ))
+           02 EEC-MPAR         PIC  9.
+
+      *(( XFD COMMENT Jour édition 1er relevé de factures ))
+           02 JR1-MPAR         PIC  99.
+
+      *(( XFD COMMENT Jour édition 2ème relevé de factures ))
+           02 JR2-MPAR         PIC  99.
+
+      *(( XFD COMMENT Indicateur mois précédent cloturé en vente matériel 0/1=oui 2=non ))
+           02 CMPM-MPAR        PIC  9.
+
+      *(( XFD COMMENT Dernier N° de chantier ))
+           02 DCHC-MPAR        PIC  9(6).
+
+      *(( XFD COMMENT 1 = Recherche équivallence dans liste homonymes référence article (SCODART-L) ))
+           02 REQU-MPAR        PIC  9.
+
+      *(( XFD COMMENT Indicateur gestion du Workflow pour les avoirs: 0=Non  1=Oui - Seuils dans PARAMEXT ))
+           02 WFAV-MPAR        PIC  9.
+
+      *(( XFD COMMENT Suffixe occasion ))
+           02 SUO-MPAR         PIC  X.
+
+      *(( XFD COMMENT Gestion petits matériels occasion ))
+           02 GPMO-MPAR        PIC  9.
+
+      *(( XFD COMMENT Pas d'impression des factures dématérialisées ))
+           02 PIFD-MPAR        PIC  9.
+
+      *(( XFD COMMENT Affichage ASA sans les agences où l'article n'ets pas créé ))
+           02 AGNC-MPAR        PIC  9.
+
+      *(( XFD COMMENT Affichage ASA avec arborescence/société comptable ))
+           02 ARBC-MPAR        PIC  9.
+
+      *(( XFD COMMENT Appartenance article/société comptable ))
+           02 AAS-MPAR         PIC  9.
+
+      *(( XFD COMMENT Affichage stock société en saisie de BL ))
+           02 AST-MPAR         PIC  9.
+
+      *(( XFD COMMENT Génération OD analytique sur matériels ))
+           02 ODAM-MPAR        PIC  9.
+
+      *(( XFD COMMENT Génération OD analytique sur articles ))
+           02 ODAA-MPAR        PIC  9.
+
+      *(( XFD COMMENT Génération OD analytique sur prestations ))
+           02 ODAP-MPAR        PIC  9.
+
+      *(( XFD COMMENT Génération OD analytique sur MO ))
+           02 ODAT-MPAR        PIC  9.
+
+      *(( XFD COMMENT Prise en compte des commandes dans le risque client ))
+           02 CRIC-MPAR        PIC  9.
+
+      *(( XFD COMMENT Génération OD analytique sur provision ))
+           02 ODP-MPAR         PIC  9.
+
+      *(( XFD COMMENT Signaler les stocks morts dans ASA ))
+           02 SSTM-MPAR        PIC  9.
+
+      *(( XFD COMMENT Signaler les stocks morts dans ASA : Nb de mois ancienneté dernier mvt pour bitmap orange ))
+           02 SSTMO-MPAR       PIC  99.
+
+      *(( XFD COMMENT Signaler les stocks morts dans ASA : Nb de mois ancienneté dernier mvt pour bitmap rouge ))
+           02 SSTMR-MPAR       PIC  99.
+
+      *(( XFD COMMENT Génération provisions sur vente matériel ))
+           02 ODM-MPAR         PIC  9.
+
+      *(( XFD COMMENT Génération provisions sur reprises ))
+           02 ODR-MPAR         PIC  9.
+
+      *(( XFD COMMENT Blocage sur risque client en cours de saisie ))
+           02 BRIC-MPAR        PIC  9.
+
+      *(( XFD COMMENT Fournisseurs non liés si ICA ))
+           02 IFO-MPAR         PIC  9.
+
+      *(( XFD COMMENT Indicateur Saisie DEB dans RAC (1)  ou uniquement dans FFA (0) ))
+           02 RAC-MPAR         PIC  9.

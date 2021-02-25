@@ -1,0 +1,4 @@
+      *(( XFD FILE = TEST-SEQ2 ))
+       FD  TEST-SEQ2.
+       01 ENR-TS2.
+           05 FIELD1-TS2       PIC  X(10).

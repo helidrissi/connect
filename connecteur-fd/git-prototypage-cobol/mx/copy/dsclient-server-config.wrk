@@ -1,0 +1,7 @@
+      * Informations de connexion : host, port, handle en cours et
+      * information de statut de la dernière opération c$socket
+       01 DSCLIENT-SERVER-CONFIG.
+           05 DSC-SERVER-NAME PIC X(20).
+           05 DSC-SERVER-PORT PIC 9(6).
+           05 DSC-HANDLE USAGE HANDLE.
+           05 DSC-RETURN-CODE PIC 9(6).

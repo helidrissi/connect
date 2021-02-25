@@ -1,0 +1,101 @@
+      *(( XFD FILE = SVINT ))
+       FD  SVINT.
+       01 ENR-SVINT.
+           05 CLE1-SVINT.
+
+      *(( XFD COMMENT Code logiciel ))
+               10 LOG-SVINT        PIC  9(3).
+
+      *(( XFD COMMENT Procédure: ))
+               10 PRO-SVINT        PIC  X(4).
+               10 NSEL-SVINT       PIC  9(7).
+               10 R-NSEL-SVINT REDEFINES NSEL-SVINT.
+
+      *(( XFD COMMENT N° d'ordre sélection ))
+                   12 ORD-SVINT        PIC  9(4).
+
+      *(( XFD COMMENT N° ligne - 0000 = ligne titre et commentaire ))
+                   12 LIG-SVINT        PIC  9(3).
+               10 R2-NSEL-SVINT REDEFINES NSEL-SVINT.
+
+      *(( XFD COMMENT Code Sélection= STOJDA pour Transf. Stock Auto JD ))
+                   12 CSEL-SVINT       PIC  X(6).
+                   12 R-CSEL-SVINT REDEFINES CSEL-SVINT.
+                       14 CSEL1-SVINT      PIC  X(4).
+                       14 CSEL2-SVINT      PIC  99.
+
+      *(( XFD COMMENT N° de ligne de sélection si plusieurs ))
+                   12 CLIG-SVINT       PIC  9.
+
+      *(( XFD COMMENT N° de ligne de sélection si plusieurs ))
+                   12 CLIGA-SVINT REDEFINES CLIG-SVINT  PIC  X.
+               10 R3-NSEL-SVINT REDEFINES NSEL-SVINT.
+
+      *(( XFD COMMENT Identité personnel pour sauvegarde sélection écran comme PXL ))
+                   12 EIDE-SVINT       PIC  X(4).
+
+      *(( XFD COMMENT N° interne du modèle d'affichage (cf MAT ))
+                   12 ESEL-SVINT       PIC  9(3).
+                   12 R-ESEL-SVINT REDEFINES ESEL-SVINT.
+
+      *(( XFD COMMENT N° sélection pour sauvegarde sélection écran comme PXL ))
+                       14 ESEL1-SVINT      PIC  9.
+                       14 ESELA-SVINT REDEFINES ESEL1-SVINT  PIC  X.
+
+      *(( XFD COMMENT N° sélection pour sauvegarde sélection écran comme PXL ))
+                       14 ESEL2-SVINT      PIC  9.
+
+      *(( XFD COMMENT N° sélection pour sauvegarde sélection écran comme PXL ))
+                       14 ESEL3-SVINT      PIC  9.
+
+      *(( XFD COMMENT Identité utilisateur ))
+           05 IDE-SVINT        PIC  X(4).
+
+      *(( XFD COMMENT Date création ))
+           05 DAT-SVINT        PIC  9(8).
+
+      *(( XFD COMMENT Zone de sélection ))
+           05 ZSEL-SVINT       PIC  X(938).
+           05 R-ZSEL-SVINT REDEFINES ZSEL-SVINT.
+
+      *(( XFD COMMENT Nom de la sélection ou du modèle d'affichage ))
+               10 NOM-SVINT        PIC  X(60).
+
+      *(( XFD COMMENT Commentaires sélection ou Paramètres d'affichage ))
+               10 COM-SVINT        PIC  X(400).
+               10 FILLER           PIC  X(478).
+
+      *(( XFD COMMENT Spécifique pour EPC et EMA ))
+           05 NETA-SVINT       PIC  9(6).
+
+      *(( XFD COMMENT Identité utilisateur qui a modifié ))
+           05 IMOD-SVINT       PIC  X(4).
+
+      *(( XFD COMMENT Date modification ))
+           05 DMOD-SVINT       PIC  9(8).
+           05 R-DMOD-SVINT REDEFINES DMOD-SVINT.
+               07 SDMOD-SVINT      PIC  99.
+               07 ADMOD-SVINT      PIC  99.
+               07 MDMOD-SVINT      PIC  99.
+               07 JDMOD-SVINT      PIC  99.
+           05 SOC-SVINT        PIC  9(4).
+
+      *(( XFD COMMENT Date dernier Traitement automatique (GSA: Stock AGCO- JD) ))
+           05 DTRA-SVINT       PIC  9(8).
+           05 R-DTRA-SVINT REDEFINES DTRA-SVINT.
+               07 SDTRA-SVINT      PIC  99.
+               07 ADTRA-SVINT      PIC  99.
+               07 MDTRA-SVINT      PIC  99.
+               07 JDTRA-SVINT      PIC  99.
+
+      *(( XFD COMMENT Traitement automatique (ex: EPM) ))
+           05 AUTO-SVINT       PIC  9.
+
+      *(( XFD COMMENT Heure dernier traitement (MAGENTO) ))
+           05 HTRA-SVINT       PIC  9(8).
+           05 HTRAR-SVINT REDEFINES HTRA-SVINT.
+               06 HEUTRA-SVINT     PIC  99.
+               06 MINTRA-SVINT     PIC  99.
+               06 SECTRA-SVINT     PIC  99.
+               06 CENTRA-SVINT     PIC  99.
+           05 FILLER           PIC  X(97).

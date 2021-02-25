@@ -1,0 +1,228 @@
+      * mcli-m.prd
+      * mcli-m.prd is generated from W:\mx\spro\mcli-m.Psf
+      * This is a generated file. DO NOT modify this file directly.
+
+       Acu-Initial-Routine.
+      *    Before-Init
+      * get system information
+           ACCEPT System-Information FROM System-Info
+      * get terminal information
+           ACCEPT Terminal-Abilities FROM Terminal-Info
+      * load bitmap
+           PERFORM Acu-Init-Bmp
+      * open file
+           PERFORM Acu-Open-Files
+      *    After-Init
+           .
+
+       Acu-Init-Bmp.
+      * bitmap loading
+           COPY RESOURCE "ENGRENAGE32.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "ENGRENAGE32.BMP", GIVING 
+              ENGRENAGE32-BMP
+           COPY RESOURCE "AJOUTLG16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "AJOUTLG16.BMP", GIVING 
+              AJOUTLG16-BMP
+           COPY RESOURCE "VALIDER32.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "VALIDER32.BMP", GIVING 
+              VALIDER32-BMP
+           COPY RESOURCE "SUPPRIMER32.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "SUPPRIMER32.BMP", GIVING 
+              SUPPRIMER32-BMP
+           COPY RESOURCE "PLUSxxx16.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "PLUSxxx16.BMP", GIVING 
+              PLUSxxx16-BMP
+           .
+
+       Acu-Exit-Rtn.
+      * destroy font
+           PERFORM Acu-Exit-Font
+      * destroy bitmap
+           PERFORM Acu-Exit-Bmp
+           PERFORM Acu-Close-Files
+      *    After-Program
+           EXIT PROGRAM
+           STOP RUN
+           .
+       Acu-Exit-Font.
+      * font destroy
+           .
+
+       Acu-Exit-Bmp.
+      * bitmap destroy
+           IF ENGRENAGE32-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY ENGRENAGE32-BMP
+              MOVE 0 TO ENGRENAGE32-BMP
+           END-IF
+           IF AJOUTLG16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY AJOUTLG16-BMP
+              MOVE 0 TO AJOUTLG16-BMP
+           END-IF
+           IF VALIDER32-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY VALIDER32-BMP
+              MOVE 0 TO VALIDER32-BMP
+           END-IF
+           IF SUPPRIMER32-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY SUPPRIMER32-BMP
+              MOVE 0 TO SUPPRIMER32-BMP
+           END-IF
+           IF PLUSxxx16-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY PLUSxxx16-BMP
+              MOVE 0 TO PLUSxxx16-BMP
+           END-IF
+           .
+
+       Acu-Open-Files.
+      *    Before-Open
+      *    After-Open
+           .
+
+       Acu-Screen1-Routine.
+      *    Before-Routine
+           PERFORM Acu-Screen1-Scrn
+           PERFORM Acu-Screen1-Proc
+           PERFORM Screen1-Aft-Routine
+           .
+
+       Acu-Screen1-Scrn.
+           PERFORM Acu-Screen1-Create-Win
+           PERFORM Acu-Screen1-Init-Data
+           .
+
+       Acu-Screen1-Create-Win.
+           PERFORM Screen1-Bef-Create
+      * display screen
+              DISPLAY Floating GRAPHICAL WINDOW
+                 LINES 54,46, SIZE 158,57, CELL HEIGHT 13, 
+                 CELL WIDTH 7, COLOR IS 65793, LABEL-OFFSET 0, 
+                 LINK TO THREAD, MODELESS, NO SCROLL, WITH SYSTEM MENU, 
+                 TITLE "SELECTION DES CLIENTS", TITLE-BAR, USER-GRAY, 
+                 USER-WHITE, VISIBLE Screen1-Visible, NO WRAP, 
+                 ATW-CSS-ID "modal_screen_mcli_m", 
+                 EVENT PROCEDURE Screen1-Event-Proc, 
+                 HANDLE IS Screen1-Handle
+      * toolbar
+      * status-bar
+           DISPLAY STATUS-BAR
+              PANEL-WIDTHS 512, 
+              PANEL-STYLE 1, 
+              PANEL-TEXT SPACE, 
+              FONT IS Small-Font, 
+              HANDLE IS Screen1-St-1-Handle
+           DISPLAY Screen1 UPON Screen1-Handle
+      *    After-Create
+           .
+
+       Acu-Screen1-Init-Data.
+      *    Before-Initdata
+           PERFORM Acu-Screen1-Gd-1-Content
+           PERFORM Acu-Screen1-Gd-2-Content
+           PERFORM Screen1-Aft-Initdata
+           .
+      * Screen1
+       Acu-Screen1-Proc.
+           PERFORM UNTIL Exit-Pushed
+              ACCEPT Screen1  
+                 ON EXCEPTION PERFORM Acu-Screen1-Evaluate-Func
+              END-ACCEPT
+              EVALUATE TRUE
+      * Screen1-Pb-Afficher Link To
+              WHEN Key-Status = 9859
+                 PERFORM Screen1-Pb-Afficher-Link
+      * Screen1-Pb-ValidUnCli Link To
+              WHEN Key-Status = 9857
+                 PERFORM Screen1-Pb-ValidUnCli-Link
+              END-EVALUATE
+           END-PERFORM
+           DESTROY Screen1-Handle
+           INITIALIZE Key-Status
+           .
+
+      * Screen1-Gd-1
+       Acu-Screen1-Gd-1-Content.
+      * Cells Settings
+           MODIFY Screen1-Gd-1, X = 1, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-DATA = "Code", 
+           MODIFY Screen1-Gd-1, X = 2, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-DATA = 
+              "Raison sociale", 
+           MODIFY Screen1-Gd-1, X = 3, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-DATA = "Adresse", 
+           .
+
+      * Screen1-Gd-2
+       Acu-Screen1-Gd-2-Content.
+      * Cells Settings
+           MODIFY Screen1-Gd-2, X = 1, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-FONT = Default-Font, 
+              CELL-DATA = "Code", 
+           MODIFY Screen1-Gd-2, X = 2, Y = 1, 
+              CELL-COLOR = W-Heading-Color, CELL-DATA = 
+              "Raison sociale", 
+           .
+
+      * Screen1
+       Acu-Screen1-Evaluate-Func.
+           EVALUATE TRUE
+              WHEN Exit-Pushed
+                 PERFORM Acu-Screen1-Exit
+              WHEN Event-Occurred
+                 IF Event-Type = Cmd-Close
+                    PERFORM Acu-Screen1-Exit
+                 END-IF
+      * Screen1-Pb-1 Link To
+              WHEN Key-Status = 1004
+                 PERFORM Screen1-Pb-1-Link
+      * Screen1-Pb-2 Link To
+              WHEN Key-Status = 1005
+                 PERFORM Screen1-Pb-2-Link
+      * Screen1-Pb-3 Link To
+              WHEN Key-Status = 1006
+                 PERFORM Screen1-Pb-3-Link
+      * Screen1-Pb-4 Link To
+              WHEN Key-Status = 1007
+                 PERFORM Screen1-Pb-4-Link
+      * Screen1-Pb-Valider Link To
+              WHEN Key-Status = 9858
+                 PERFORM Screen1-Pb-Valider-Link
+      * Screen1-Pb-Annuler Link To
+              WHEN Key-Status = 9860
+                 PERFORM Screen1-Pb-Annuler-Link
+      * Screen1-Pb-Chargement Link To
+              WHEN Key-Status = 1009
+                 PERFORM Screen1-Pb-Chargement-Link
+           END-EVALUATE
+           MOVE 1 TO Accept-Control
+           .
+
+       Acu-Screen1-Display-Status-Msg.
+           MODIFY Screen1-St-1-Handle
+              PANEL-WIDTHS 512, 
+              PANEL-STYLE 1, 
+              PANEL-TEXT SPACE, 
+              FONT IS Small-Font, 
+           .
+
+       Acu-Screen1-Clear-Status-Msg.
+           PERFORM Acu-Screen1-Display-Status-Msg
+           .
+
+       Acu-Close-Files.
+      *    Before-Close
+      *    After-Close
+           .
+
+      * COBCAP
+
+      * MXCLI
+
+      * MXCLI2
+
+      * RECH
+
+      * RECHCMD
+
+       Acu-Screen1-Exit.
+           SET Exit-Pushed TO TRUE
+           .
+

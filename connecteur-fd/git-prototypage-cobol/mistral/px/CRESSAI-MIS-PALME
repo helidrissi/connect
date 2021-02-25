@@ -1,0 +1,105 @@
+clear
+ENV="/acuf"
+export ENV
+echo "       PROCEDURE DE CREATION DU JEU D' ESSAI MIS+PALME "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= "
+echo "\n"
+echo "Environnement ($ENV): \c"
+read DIR2
+nbrc=`expr "$DIR2" : '.*'`
+case $nbrc in
+     0) DIR2=$ENV ;;
+esac
+echo $DIR2
+if [ ! -d $DIR2/palme ]
+   then echo "\n      Environnement INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ ! -d $DIR2 ]
+   then echo "\n"
+   echo "Procédure non Réalisable \c"
+   read ok
+   exit
+fi
+echo "Confirmez-vous (Taper 'OUI' Pour confirmer) \c"
+read OK
+if [ $OK != "OUI" ]
+    then
+    echo "\n"
+    echo " Procédure Non Réalisée - Taper Entrée \c "
+    read ok
+    exit
+fi
+NUMSOC=0001
+SOC=$NUMSOC
+   echo "\n"
+   echo "No de Société à créer dans le jeu d'essai ($NUMSOC): \c"
+   SOC=`/acu/mistral/px/ACCNUMERO`
+if [ ! -d $DIR2/mx$SOC ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ -d $DIR2/E ]
+   then echo "\n"
+   echo "Procédure Déjà Réalisée : Non Réalisable \c"
+   read ok
+   exit
+fi
+echo "\n"
+echo " Traitement en Cours - Veuillez Patienter "
+echo "     .Création de l'environnement"
+cd $DIR2
+mkdir E
+cd E
+
+# ln -s /acu/mistral   mistral
+mkdir mistral mistral/f mistral/ft mistral/ferr mistral/fjbu
+ln -s /acu/mistral/COBCAP mistral/COBCAP
+ln -s /acu/mistral/fpmx mistral/fpmx
+ln -s /acu/mistral/fg   mistral/fg
+ln -s /acu/mistral/java mistral/java
+
+# ln -s /acuf/palme    palme
+mkdir palme palme/f palme/ft
+
+echo "\n"
+echo "     .Copie des Fichiers Mistral"
+cp $DIR2/mistral/f/* mistral/f
+# FHOSTE et FECRAN doivent être linkés sinon on perd l'environnement
+rm mistral/f/FHOSTE
+rm mistral/f/FHOSTE.vix
+rm mistral/f/FECRAN
+rm mistral/f/FECRAN.vix
+rm mistral/f/NUMPORTC 2>>/dev/null
+ln -s $DIR2/mistral/f/FHOSTE     mistral/f/FHOSTE
+ln -s $DIR2/mistral/f/FHOSTE.vix mistral/f/FHOSTE.vix
+ln -s $DIR2/mistral/f/FECRAN     mistral/f/FECRAN
+ln -s $DIR2/mistral/f/FECRAN.vix mistral/f/FECRAN.vix
+ln -s $DIR2/mistral/f/NUMPORTC   mistral/f/NUMPORTC
+#--- Le fichier USERS est linké avec le réel afin d'avoir le même mot de passe
+#    entre le réel et le jeu d'essai (notamment si gestion dynamique des mots de passe)
+rm mistral/f/USERS
+rm mistral/f/USERS.vix
+ln -s $DIR2/mistral/f/USERS      mistral/f/USERS
+ln -s $DIR2/mistral/f/USERS.vix  mistral/f/USERS.vix
+#
+cp -r $DIR2/mistral/fmenu mistral/fmenu
+if [ $? != 0 ] 
+   then echo "\n"
+        echo "    ATTENTION Problème: cp mistral/f ---> E/mistral/f "
+        echo "    Contacter MISTRAL Informatique \c"
+        read ok
+        exit
+fi
+echo "     .Copie des Fichiers PALME"
+cp $DIR2/palme/f/* palme/f
+if [ $? != 0 ] 
+   then echo "\n"
+        echo "    ATTENTION Problème: cp palme/f ---> E/palme/f "
+        echo "    Contacter MISTRAL Informatique \c"
+        read ok
+        exit
+fi
+echo "Procédure Terminée "

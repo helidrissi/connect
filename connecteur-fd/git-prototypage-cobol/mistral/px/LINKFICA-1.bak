@@ -1,0 +1,55 @@
+echo "\n"
+echo "       PROCEDURE POUR LINKER UN FICHIER D'1 STE COMPTA "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= "
+echo "\n"
+echo "Environement (exemples : /acuf /acuf/S2): \c"
+read DIR2
+if [ ! -d $DIR2/palme ]
+   then echo "\n      Environement INVALIDE !!! \c"
+        read ok
+        exit
+fi
+cd $DIR2
+echo "\n"
+echo "No Soci‚t‚ Comptable Principale ($NUMSOC): \c"
+SOC=`/acu/mistral/px/ACCNUMERO`
+SOC1=$SOC
+if [ ! -d cx$SOC1 ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+echo "\n"
+echo "No Soci‚t‚ Comptable … linker : \c"
+SOC=`/acu/mistral/px/ACCNUMERO`
+SOC2=$SOC
+if [ ! -d cx$SOC2 ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+echo "\n"
+echo "Fichier a linker : \c"
+read FIC2
+echo "\n Confirmez-vous - Taper 'OUI' Pour confirmer \c"
+read OK
+if [ $OK = "OUI" ] 2>>/dev/null
+    then :
+    else echo "\n"
+         echo " Proc‚dure Non R‚aliss‚e - Taper • \c"
+         read ok
+         exit
+fi
+echo "\n"
+echo " Traitement en Cours - Patienter "
+if [ ! -d cx$SOC2/flnk ]
+   then mkdir cx$SOC2/flnk
+fi
+####### fichier $FIC2 ##############################
+if [ -f cx$SOC2/f/$FIC2 ]
+   then mv cx$SOC2/f/$FIC2 cx$SOC2/flnk/$FIC2
+        mv cx$SOC2/f/$FIC2.vix cx$SOC2/flnk/$FIC2.vix
+fi
+ln -s $DIR2/cx$SOC1/f/$FIC2 cx$SOC2/f/$FIC2
+ln -s $DIR2/cx$SOC1/f/$FIC2.vix cx$SOC2/f/$FIC2.vix
+echo "\n Proc‚dure Termin‚e ! "

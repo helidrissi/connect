@@ -1,0 +1,56 @@
+       77 IND-GENCOD       PIC  9.
+       77 IND-REF-GENCOD   PIC  9.
+       01 T-COD            PIC  9.
+       01 W-CONTROL        PIC  999.
+       01 W-TESTE          PIC  999.
+       01 R-W-TESTE REDEFINES W-TESTE.
+           02 W-DIX            PIC  99.
+           02 W-UNIT           PIC  9.
+       01 W-NUMD           PIC  9(6).
+       01 W-NUMD6 REDEFINES W-NUMD  PIC  X(6).
+       01 R1-W-NUMD REDEFINES W-NUMD.
+           02 FILLER           PIC  X.
+           02 W-NUMD5          PIC  X(5).
+       01 R2-W-NUMD REDEFINES W-NUMD.
+           02 FILLER           PIC  XX.
+           02 W-NUMD4          PIC  X(4).
+       01 R3-W-NUMD REDEFINES W-NUMD.
+           02 FILLER           PIC  X(3).
+           02 W-NUMD3          PIC  X(3).
+       01 R4-W-NUMD REDEFINES W-NUMD.
+           02 FILLER           PIC  X(4).
+           02 W-NUMD2          PIC  X(2).
+       01 R5-W-NUMD REDEFINES W-NUMD.
+           02 FILLER           PIC  X(5).
+           02 W-NUMD1          PIC  X.
+       01 G-GENCOD.
+           02 G-GENCOD6.
+               04 G-CNUD6          PIC  9(6).
+               04 R-G-CNUD6 REDEFINES G-CNUD6.
+                   06 G-PAY            PIC  9.
+                   06 G-CNUF6          PIC  9(5).
+               04 G-CIP6           PIC  9(6).
+           02 G-GENCOD7 REDEFINES G-GENCOD6.
+               04 G-CNUD7          PIC  9(7).
+               04 R-G-CNUD7 REDEFINES G-CNUD7.
+                   06 FILLER           PIC  9.
+                   06 G-CNUF7          PIC  9(6).
+               04 G-CIP7           PIC  9(5).
+           02 G-GENCOD8 REDEFINES G-GENCOD6.
+               04 G-CNUD8          PIC  9(8).
+               04 R-G-CNUD8 REDEFINES G-CNUD8.
+                   06 FILLER           PIC  9.
+                   06 G-CNUF8          PIC  9(7).
+               04 G-CIP8           PIC  9(4).
+           02 G-GENCOD9 REDEFINES G-GENCOD6.
+               04 G-CNUD9          PIC  9(9).
+               04 R-G-CNUD9 REDEFINES G-CNUD9.
+                   06 FILLER           PIC  9.
+                   06 G-CNUF9          PIC  9(8).
+               04 G-CIP9           PIC  9(3).
+           02 G-COD            PIC  9.
+       01 R-G-GENCOD REDEFINES G-GENCOD.
+           02 CHIF PIC  9
+                      OCCURS 13 TIMES.
+      *    1  = n'affiche pas les messages
+120914 77 GENCOD-PASECR PIC 9.

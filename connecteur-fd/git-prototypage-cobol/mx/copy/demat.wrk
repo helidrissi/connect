@@ -1,0 +1,43 @@
+081018* 78  WLIB-DEMAT-Num VALUE IS 16. 
+081018 78  WLIB-DEMAT-Num VALUE IS 17. 
+       01  WLIB-DEMAT-Item.
+               05  WLIB-DEMAT-Mail     PIC  X(31)
+                          VALUE IS "Envoi mail                    6".
+               05  WLIB-DEMAT-Chorus   PIC  X(31)
+                          VALUE IS "Chorus                        C".
+               05  WLIB-DEMAT-EuroviaPdf  PIC  X(31)
+                          VALUE IS "Eurovia                       1".
+               05  WLIB-DEMAT-EuroviaEDI  PIC  X(31)
+                          VALUE IS "Eurovia                       2".
+               05  WLIB-DEMAT-Colas  PIC  X(31)
+                          VALUE IS "Colas                         4".
+               05  WLIB-DEMAT-BouyguesPdf  PIC  X(31)
+                          VALUE IS "Bouygues                      7".
+               05  WLIB-DEMAT-BouyguesEDI  PIC  X(31)
+                          VALUE IS "Bouygues                      5".
+               05  WLIB-DEMAT-BPFWK  PIC  X(31)
+                          VALUE IS "BProcess                      3".
+               05  WLIB-DEMAT-SanofiFWK  PIC  X(31)
+                          VALUE IS "Sanofi                        T".
+               05  WLIB-DEMAT-Voxel  PIC  X(31)
+                          VALUE IS "Voxel                         8".
+               05  WLIB-DEMAT-CSV  PIC  X(31)
+                          VALUE IS "CSV                           9".
+               05  WLIB-DEMAT-OB10 PIC  X(31)
+                          VALUE IS "OB10                          A".
+               05  WLIB-DEMAT-PDFFiscal  PIC  X(31)
+                          VALUE IS "PDF Fiscal                    S".
+               05  WLIB-DEMAT-PDFSimple  PIC  X(31)
+                          VALUE IS "PDF Simple                    P".
+               05  WLIB-DEMAT-EIFFAGE  PIC  X(31)
+                          VALUE IS "Eiffage                       H".
+               05  WLIB-DEMAT-COURRIER  PIC  X(31)
+                          VALUE IS "Courrier                      X".
+081018         05  WLIB-DEMAT-LactalisFWK  PIC  X(31)
+081018                    VALUE IS "Lactalis                      L".
+       01 WLIB-DEMAT REDEFINES 
+           WLIB-DEMAT-Item  PIC  X(31)
+                      OCCURS WLIB-DEMAT-NUM TIMES
+                      INDEXED  WLIB-DEMAT-Idx.
+       77 WLIB-FGM-INT      PIC X(40).
+

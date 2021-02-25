@@ -1,0 +1,11 @@
+      * Zones utilisées par la ComboBox des Politiques de Prix.
+       01 Cm-MART-POL.
+           05 Cm-MART-POL-Handle HANDLE OF COMBO-BOX.
+           78 Cm-MART-POL-NbMaxItems VALUE IS 10.
+           05 Cm-MART-POL-9-3 PIC 9(3) COMP-1.
+           05 Cm-MART-POL-Items OCCURS Cm-MART-POL-NbMaxItems TIMES.
+               10 Cm-MART-POL-LIB PIC X(15).
+               10 FILLER          PIC X(30).
+               10 Cm-MART-POL-COD PIC 9(1).
+           05 Cm-MART-POL-SelectedItem PIC 9(1).
+           05 Cm-MART-POL-LoadedItems PIC 9(3) COMP-1 VALUE IS 0.

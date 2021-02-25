@@ -1,0 +1,35 @@
+      *(( XFD FILE = MXCOMMENT2 ))
+       FD  MXCOMMENT2.
+       01 ENR-MCMO2.
+           02 CLE1-MCMO2.
+               04 ORI-MCMO2        PIC  XXX.
+               04 R-ORI-MCMO2 REDEFINES ORI-MCMO2.
+
+      *(( XFD COMMENT Module: A=achats D=distribution J=LSD M=vente matériel R=réparation  L=location F=LLD E=Contrat entretien ))
+                   05 ACT-MCMO2        PIC  X.
+
+      *(( XFD COMMENT Stade: D=devis, C=commande, L=livraison (ou rien) ))
+                   05 NIT-MCMO2        PIC  X.
+
+      *(( XFD COMMENT Indicateur composition:  E=si entête, C=si sous-ligne composition sinon rien ))
+                   05 INO-MCMO2        PIC  X.
+               04 CLE-MCMO2        PIC  X(24).
+               04 R-CLE-MCMO2 REDEFINES CLE-MCMO2.
+                   05 NUM-MCMO2        PIC  9(6).
+                   05 FNUM-MMCO2       PIC  X(18).
+           02 LIB-MCMO2        PIC  X(320).
+           02 EAR-MCMO2        PIC  9.
+           02 EBL-MCMO2        PIC  9.
+           02 EFAC-MCMO2       PIC  9.
+           02 EBP-MCMO2        PIC  9.
+           02 NBRL-MCMO2       PIC  9(3).
+
+      *(( XFD COMMENT Spécifique acomptes: date facturation ))
+           02 DFA-MCMO2        PIC  9(8).
+
+      *(( XFD COMMENT Indicateur sous-total ))
+           02 STO-MCMO2        PIC  9.
+      *(( XFD NAME = Motif_refus ))
+      *(( XFD COMMENT Motif refus devis ))
+           02 MOT-MCMO2        PIC  X.
+           02 FILLER           PIC  X(16).

@@ -1,0 +1,4 @@
+           SELECT LISTE-SORT ASSIGN TO ASSIGN-LISTE-SORT
+                             FILE STATUS IS FILE-STATUS.
+           SELECT LISTE-TRIS ASSIGN TO ASSIGN-LISTE-TRIS
+                             FILE STATUS IS FILE-STATUS.

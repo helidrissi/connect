@@ -1,0 +1,1 @@
+       01  custom-field pic x(10).

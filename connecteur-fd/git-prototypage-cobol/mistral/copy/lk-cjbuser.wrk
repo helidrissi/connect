@@ -1,0 +1,12 @@
+       01  LK-CJBUSER.
+           02 LK-CJBUSER-ERR-PROCESS     PIC  9.
+           02 LK-CJBUSER-LIBERR-PROCESS  PIC X(80).
+           02 LK-CJBUSER-PROCESS         PIC 9(6).
+           02 LK-CJBUSER-DATE-PROCESS    PIC 9(8).
+           02 LK-CJBUSER-DATE-PROCESS-R 
+              REDEFINES LK-CJBUSER-DATE-PROCESS.
+              05 LK-CJBUSER-SSAA         PIC 9(4).
+              05 LK-CJBUSER-FILLER7      PIC 9(4).
+           02 LK-CJBUSER-DEBUT-PROCESS   PIC 9(8).
+           02 LK-CJBUSER-EXEC-PROCESS    PIC X(20).
+           02 FILLER                     PIC X(100).

@@ -1,0 +1,5 @@
+if [ "$OSTYPE" = "linux-gnu" ];
+then /acu/mistral/px/INSTALL-LINUX
+else /acu/mistral/px/INSTALL-AIX
+fi
+

@@ -1,0 +1,112 @@
+clear1
+echo "\n"
+echo "       PROCEDURE POUR LINKER LES FICHIERS D'1 STE COMPTA "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= "
+echo "\n"
+echo "Environement (exemples : /acuf /acuf/S2): \c"
+read DIR2
+if [ ! -d $DIR2/palme ]
+   then echo "\n      Environement INVALIDE !!! \c"
+        read ok
+        exit
+fi
+cd $DIR2
+echo "\n"
+echo "No Soci‚t‚ Comptable Principale ($NUMSOC): \c"
+SOC=`/acu/mistral/px/ACCNUMERO`
+SOC1=$SOC
+if [ ! -d cx$SOC1 ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+echo "\n"
+echo "No Soci‚t‚ Comptable … linker : \c"
+SOC=`/acu/mistral/px/ACCNUMERO`
+SOC2=$SOC
+if [ ! -d cx$SOC2 ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ -f cx$SOC2/f/SOCCLILIES ]
+   then echo "\n      Liens d‚j… faits : SOCCLILIES !! \c"
+        read ok
+        exit
+fi
+if [ -f cx$SOC2/f/SOCFOULIES ]
+   then echo "\n      Liens d‚j… faits : SOCFOULIES !! \c"
+        read ok
+        exit
+fi
+echo "\n Confirmez-vous - Taper 'OUI' Pour confirmer \c"
+read OK
+if [ $OK = "OUI" ] 2>>/dev/null
+    then :
+    else echo "\n"
+         echo " Proc‚dure Non R‚aliss‚e - Taper • \c"
+         read ok
+         exit
+fi
+echo "\n"
+echo " Traitement en Cours - Patienter "
+if [ ! -f cx$SOC1/f/SOCCLILIES ]
+   then echo $SOC1 > cx$SOC1/f/SOCCLILIES
+fi
+if [ ! -f cx$SOC1/f/SOCFOULIES ]
+   then echo $SOC1 > cx$SOC1/f/SOCFOULIES
+fi
+if [ ! -d cx$SOC2/flink ]
+   then mkdir cx$SOC2/flink
+fi
+####### fichier CLI ##############################
+if [ -f cx$SOC2/f/CLI ]
+   then mv cx$SOC2/f/CLI cx$SOC2/flink/CLI
+        mv cx$SOC2/f/CLI.vix cx$SOC2/flink/CLI.vix
+fi
+ln -s $DIR2/cx$SOC1/f/CLI cx$SOC2/f/CLI
+ln -s $DIR2/cx$SOC1/f/CLI.vix cx$SOC2/f/CLI.vix
+####### fichier FOU ##############################
+if [ -f cx$SOC2/f/FOU ]
+   then mv cx$SOC2/f/FOU cx$SOC2/flink/FOU
+        mv cx$SOC2/f/FOU.vix cx$SOC2/flink/FOU.vix
+fi
+ln -s $DIR2/cx$SOC1/f/FOU cx$SOC2/f/FOU
+ln -s $DIR2/cx$SOC1/f/FOU.vix cx$SOC2/f/FOU.vix
+####### fichier AUXIL ##############################
+if [ -f cx$SOC2/f/AUXIL ]
+   then mv cx$SOC2/f/AUXIL cx$SOC2/flink/AUXIL
+        mv cx$SOC2/f/AUXIL.vix cx$SOC2/flink/AUXIL.vix
+fi
+ln -s $DIR2/cx$SOC1/f/AUXIL cx$SOC2/f/AUXIL
+ln -s $DIR2/cx$SOC1/f/AUXIL.vix cx$SOC2/f/AUXIL.vix
+####### fichier RENCO ##############################
+if [ -f cx$SOC2/f/RENCO ]
+   then mv cx$SOC2/f/RENCO cx$SOC2/flink/RENCO
+        mv cx$SOC2/f/RENCO.vix cx$SOC2/flink/RENCO.vix
+fi
+ln -s $DIR2/cx$SOC1/f/RENCO cx$SOC2/f/RENCO
+ln -s $DIR2/cx$SOC1/f/RENCO.vix cx$SOC2/f/RENCO.vix
+####### fichier EMAIL ##############################
+if [ -f cx$SOC2/f/EMAIL ]
+   then mv cx$SOC2/f/EMAIL cx$SOC2/flink/EMAIL
+        mv cx$SOC2/f/EMAIL.vix cx$SOC2/flink/EMAIL.vix
+fi
+ln -s $DIR2/cx$SOC1/f/EMAIL cx$SOC2/f/EMAIL
+ln -s $DIR2/cx$SOC1/f/EMAIL.vix cx$SOC2/f/EMAIL.vix
+####### fichier DOMTIERS ##############################
+if [ -f cx$SOC2/f/DOMTIERS ]
+   then mv cx$SOC2/f/DOMTIERS cx$SOC2/flink/DOMTIERS
+        mv cx$SOC2/f/DOMTIERS.vix cx$SOC2/flink/DOMTIERS.vix
+fi
+ln -s $DIR2/cx$SOC1/f/DOMTIERS cx$SOC2/f/DOMTIERS
+ln -s $DIR2/cx$SOC1/f/DOMTIERS.vix cx$SOC2/f/DOMTIERS.vix
+####### fichier SOCCLILIES ##############################
+echo $SOC2 >> cx$SOC1/f/SOCCLILIES
+/acu/mistral/px/mvcar 10 45 cx$SOC1/f/SOCCLILIES cx$SOC1/f/SOCCLILIES
+ln -s $DIR2/cx$SOC1/f/SOCCLILIES cx$SOC2/f/SOCCLILIES
+####### fichier SOCFOULIES ##############################
+echo $SOC2 >> cx$SOC1/f/SOCFOULIES
+/acu/mistral/px/mvcar 10 45 cx$SOC1/f/SOCFOULIES cx$SOC1/f/SOCFOULIES
+ln -s $DIR2/cx$SOC1/f/SOCFOULIES cx$SOC2/f/SOCFOULIES
+echo "\n Proc‚dure Termin‚e ! "

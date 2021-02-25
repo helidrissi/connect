@@ -1,0 +1,112 @@
+      *(( XFD FILE = FAMART ))
+       FD  MXFAMART
+           LABEL RECORD IS STANDARD.
+       01 ENR-MFAM.
+           02 CLE1-MFAM.
+      *(( XFD NAME = CODE_FAMILLE_ART ))
+      *(( XFD COMMENT Code famille ))
+               04 GRA-MFAM         PIC  99.
+      *(( XFD NAME = CODE_SOUS_FAM_ART ))
+      *(( XFD COMMENT Code sous-famille ))
+               04 FAM-MFAM         PIC  99.
+      *(( XFD NAME = COEFFICIENT-FAMART ))
+      *(( XFD COMMENT Coefficient ))
+           02 COE-MFAM         PIC  99V999.
+      *(( XFD NAME = TAUX_MARQUE ))
+      *(( XFD COMMENT Taux de marque ))
+           02 TXM-MFAM         PIC  99V99.
+      *(( XFD NAME = INDIC_TAUX_MARQUE ))
+      *(( XFD COMMENT Indicateur taux de marque (0=non 1=oui ))
+           02 CTM-MFAM         PIC  9.
+      *(( XFD NAME = CODE_TVA_FAMART ))
+      *(( XFD COMMENT Code TVA ))
+           02 TVA-MFAM         PIC  9.
+      *(( XFD NAME = CODE_TVA2_FAMART ))
+           02 TVA2-MFAM        PIC  9.
+      *(( XFD NAME = CODE_TVA3_FAMART ))
+           02 TVA3-MFAM        PIC  9.
+      *(( XFD NAME = INDIC_POIDS ))
+      *(( XFD COMMENT Indicateur poids:  0=non   1=kg    2=tonnes ))
+           02 IPO-MFAM         PIC  9.
+      *(( XFD NAME = INDIC_VOLUME ))
+      *(( XFD COMMENT Indicateur volume:  0=non   1=Litre   2=M3 ))
+           02 VOL-MFAM         PIC  9.
+      *(( XFD NAME = INDIC_FUA ))
+      *(( XFD COMMENT Indicateur FUA (0=non 1=montant 2=% ))
+           02 FUA-MFAM         PIC  9.
+      *(( XFD NAME = VALEUR_FUA ))
+      *(( XFD COMMENT Valeur FUA ))
+           02 VAL-MFAM         PIC  9(4)V99.
+      *(( XFD NAME = INDIC_TARIF_COLS ))
+      *(( XFD COMMENT Tarif à colonnes (0=non 1=remise 2=prix net ))
+           02 ITC-MFAM         PIC  9.
+      *(( XFD NAME = COEFFICIENT_FUA ))
+      *(( XFD COMMENT Coef FUA (0=standard 1=coef de l'article ))
+           02 TCF-MFAM         PIC  9.
+      *(( XFD NAME = COEFF_STANDARD_FUA ))
+      *(( XFD COMMENT Coef standard FUA ))
+           02 CFU-MFAM         PIC  9V999.
+      *(( XFD NAME = REFERENCT_FAMART ))
+      *(( XFD COMMENT Référencement (0=libre  1=GENCOD ))
+           02 REF-MFAM         PIC  9.
+      *(( XFD NAME = INDIC_GEST_STOCK ))
+      *(( XFD COMMENT Gestion de stock  (1=oui   2=non ))
+           02 STO-MFAM         PIC  9.
+      *(( XFD NAME = INDIC_POST_USINE ))
+      *(( XFD COMMENT Post usine (0=oui 1=non ))
+           02 PUS-MFAM         PIC  9.
+      *(( XFD NAME = CODE_ETIQUETTE ))
+      *(( XFD COMMENT Code étiquette ))
+           02 ETI-MFAM         PIC  99.
+
+      *(( XFD COMMENT Code remise clients ))
+           02 FILLER           PIC  XX.
+      *(( XFD NAME = INDIC_REMISE_COMPL ))
+      *(( XFD COMMENT Calcul remise complémentaire (0=oui 1=non ))
+           02 IRE-MFAM         PIC  9.
+      *(( XFD NAME = INDIC_SOUMIS_AGENT ))
+      *(( XFD COMMENT Indicateur soumis calcul agents (SIREFI ))
+           02 TAG-MFAM         PIC  9.
+      *(( XFD NAME = INDIC_PRIX ))
+      *(( XFD COMMENT Indicateur Prix: Indication Prix au Kg ou au Litre sur étiquette de marquage: 0=Non   1=Oui ))
+           02 IPX-MFAM         PIC  9.
+      *(( XFD NAME = TYPE_ETIQUETTE ))
+      *(( XFD COMMENT Type Etiquette: Blanc=Laser (Classique)   B=Code Barre ))
+           02 TETI-MFAM        PIC  X.
+      *(( XFD NAME = INDIC_GESTION_LOTS ))
+      *(( XFD COMMENT Gestion des lots - Spécial CIME DENTAIRE ))
+           02 LOT-MFAM         PIC  9.
+      *(( XFD NAME = NO_POSTE_GEST_VTE ))
+      *(( XFD COMMENT N° poste de gestion (module location ))
+           02 PGV-MFAM         PIC  9.
+      *(( XFD NAME = TOTAL_SUR_FACTURE ))
+      *(( XFD COMMENT Indic totalisation sur facture ))
+           02 TOT-MFAM         PIC  9.
+      *(( XFD NAME = TAXE_SPECIF ))
+      *(( XFD COMMENT Indicateur Taxe spécifique: 0 = Non concerné 1=eco-taxe ))
+           02 ITS-MFAM         PIC  9.
+      *(( XFD NAME = CODE_REMISE_CLIENT ))
+      *(( XFD COMMENT Code remise clients ))
+           02 CRC-MFAM         PIC  999.
+      *(( XFD NAME = PCT_MARGE_MINI ))
+      *(( XFD COMMENT % marge mini ))
+           02 MMI-MFAM         PIC  99V99.
+      *(( XFD NAME = PCT_MARGE_MAXI ))
+      *(( XFD COMMENT % marge maxi ))
+           02 MMX-MFAM         PIC  99V99.
+      *(( XFD NAME = PCT_MARGE_PLANCHER ))
+      *(( XFD COMMENT % marge plancher ))
+           02 MMP-MFAM         PIC  99V99.
+      *(( XFD NAME = MINORATION_AV_CONC ))
+      *(( XFD COMMENT Minoration marge articles avec concurrence ))
+           02 MIB-MFAM         PIC  9V99.
+      *(( XFD NAME = MAJORATION_SS_CONC ))
+      *(( XFD COMMENT Majoration marge articles sans concurrence ))
+           02 MAB-MFAM         PIC  9V99.
+      *(( XFD NAME = INDIC_WEB ))
+      *(( XFD COMMENT Masqué webtop ))
+           02 WEB-MFAM         PIC  9.
+
+      *(( XFD COMMENT Coefficient de vente TOPAZ ))
+           02 COET-MFAM        PIC  99V999.
+           02 FILLER           PIC  X(22).

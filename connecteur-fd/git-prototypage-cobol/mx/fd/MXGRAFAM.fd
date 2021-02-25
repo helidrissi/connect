@@ -1,0 +1,142 @@
+      *(( XFD FILE = GRAFAM ))
+       FD  MXGRAFAM
+           LABEL RECORD IS STANDARD.
+       01 ENR-MGFA.
+           02 CLE1-MGFA.
+      *(( XFD NAME = CODE_FAMILLE_ART, NUMERIC ))
+      *(( XFD COMMENT Code famille ))
+               04 GRA-MGFA         PIC  99.
+      *(( XFD NAME = CODE_SOUS_FAM_ART, NUMERIC ))
+      *(( XFD COMMENT Code sous-famille ))
+               04 FAM-MGFA         PIC  99.
+      *(( XFD NAME = LIBELLE_FAM_ART ))
+      *(( XFD COMMENT Libellé ))
+           02 LIB-MGFA         PIC  X(25).
+      *(( XFD NAME = ABREGE_FAM_ART ))
+      *(( XFD COMMENT Abrégé ))
+           02 ABR-MGFA         PIC  X(8).
+      *(( XFD NAME = NATURE_ARTICLE ))
+      *(( XFD COMMENT Nature sous famille : 0 = Fournitures 1 = Pièces détachées 2 = Accessoires/Matériel 3 = Outillage 4 = Pneumatiques 5 = Lubrifiants 6 = Carburants 7 = Travaux Sous-Traités 9 = Petit Matériel ))
+           02 NAT-MGFA         PIC  9.
+      *(( XFD NAME = EXISTENCE_GARANTIE ))
+      *(( XFD COMMENT Existence garantie ))
+           02 EXG-MGFA         PIC  9.
+      *(( XFD NAME = TYPE_GARANTIE ))
+      *(( XFD COMMENT Type garantie ))
+           02 TYG-MGFA         PIC  9.
+      *(( XFD NAME = TYPE_GTIE_PIECES ))
+      *(( XFD COMMENT Garantie pièces ))
+           02 GAP-MGFA         PIC  9.
+      *(( XFD NAME = DUREE_GTIE_PIECES ))
+      *(( XFD COMMENT Durée garantie pièces ))
+           02 DUP-MGFA         PIC  99.
+      *(( XFD NAME = TYPE_GARANTIE_MO ))
+      *(( XFD COMMENT Garantie MO ))
+           02 GAM-MGFA         PIC  9.
+      *(( XFD NAME = DUREE_GARANTIE_MO ))
+      *(( XFD COMMENT Durée garantie MO ))
+           02 DUM-MGFA         PIC  99.
+      *(( XFD NAME = REGROUPEMENT_STATS ))
+      *(( XFD COMMENT Code regroupement statistiques vente ))
+           02 RGS-MGFA         PIC  XX.
+      *(( XFD NAME = POSTE_IMMOS ))
+      *(( XFD COMMENT Poste principal immos ))
+           02 PIM-MGFA         PIC  9(3).
+      *(( XFD NAME = NATURE_IMMOS ))
+      *(( XFD COMMENT Cde nature immos ))
+           02 NAM-MGFA         PIC  999.
+      *(( XFD NAME = MODE_AMORTISSEMENT ))
+      *(( XFD COMMENT Mode amortissement (1=linéaire 2=dégressif ))
+           02 MAM-MGFA         PIC  9.
+      *(( XFD NAME = DUREE_AMORTISSEMEN ))
+      *(( XFD COMMENT Durée amortissements ))
+           02 DAM-MGFA         PIC  999.
+      *(( XFD NAME = DIVISION ))
+      *(( XFD COMMENT N° division ))
+           02 DVS-MGFA         PIC  9.
+      *--- Saisie au niveau famille
+      *
+           02 ARR-MGFA         PIC  9.
+      *(( XFD NAME = LIBELLE_TVA_CEE ))
+      *(( XFD COMMENT Libellé TVA ))
+           02 TVA-MGFA         PIC  X(10).
+      *(( XFD NAME = POURCENT_DEPRECIAT ))
+      *(( XFD COMMENT % dépréciation ))
+           02 PDS-MGFA         PIC  9(3)V99
+                      OCCURS 5 TIMES.
+      *(( XFD NAME = NO_SEGMENT ))
+      *(( XFD COMMENT N° segment ))
+           02 SEG-MGFA         PIC  99.
+      *(( XFD NAME = INDICATEUR_IMMO ))
+      *(( XFD COMMENT Immobilisation (0=non 1=oui ))
+           02 IMO-MGFA         PIC  9.
+      *(( XFD NAME = CODE_ACHETEUR ))
+      *(( XFD COMMENT N° acheteur ))
+           02 ACH-MGFA         PIC  X(4).
+      *--- Saisie au niveau sous-famille
+      *--- indicateur mat‚riel avec envoi message/ouvert. OT
+      *
+           02 MEM-MGFA         PIC  9.
+      *(( XFD NAME = MODE_AMO_SPEC_FISC ))
+      *(( XFD COMMENT Mode Amortissement Spécifique Fiscal ))
+           02 ASP-MGFA         PIC  9(2).
+      *(( XFD NAME = MODE_AMO_ECO ))
+      *(( XFD COMMENT Mode Amortissement Economique ))
+           02 MAME-MGFA        PIC  9(1).
+      *(( XFD NAME = DUREE_AMO_ECO ))
+      *(( XFD COMMENT Durée Amortissement Economique ))
+           02 DAME-MGFA        PIC  9(3).
+      *(( XFD NAME = MODE_AMO_SPEC_ECO ))
+      *(( XFD COMMENT Mode Amortissement Spécifique Economique ))
+           02 ASPE-MGFA        PIC  9(2).
+      *(( XFD NAME = MODE_AMO_CPT ))
+      *(( XFD COMMENT Mode Amortissement Comptable ))
+           02 MAMC-MGFA        PIC  9(1).
+      *(( XFD NAME = DUREE_AMO_CPT ))
+      *(( XFD COMMENT Durée Amortissement Comptable ))
+           02 DAMC-MGFA        PIC  9(3).
+      *(( XFD NAME = MODE_AMO_SPEC_CPT ))
+      *(( XFD COMMENT Mode Amortissement Spécifique Comptable ))
+           02 ASPC-MGFA        PIC  9(2).
+      *(( XFD NAME = SAISIE_PVT ))
+      *(( XFD COMMENT 1 saisie prix de vente ))
+           02 SPVT-MGFA        PIC  9.
+      *(( XFD NAME = EXCLUS_WORKFLOW ))
+      *(( XFD COMMENT 1 = sous-famille exclue du workflow ))
+           02 WKFL-MGFA        PIC  9.
+      *(( XFD NAME = SAISONNALITE ))
+      *(( XFD COMMENT Saisonnalité: 0=Non  1=Oui ))
+           02 SAI-MGFA         PIC  9.
+      *(( XFD NAME = PERIODE_SAISON1 ))
+      *(( XFD COMMENT Période Saison 1 (en JJ/MM)  Indice 1= Début   Indice 2=Fin ))
+           02 PSAI1-MGFA       PIC  9(4)
+                      OCCURS 2 TIMES.
+      *(( XFD NAME = PERIODE_SAISON2 ))
+      *(( XFD COMMENT Période Saison 2 (en JJ/MM)  Indice 1= Début   Indice 2=Fin ))
+           02 PSAI2-MGFA       PIC  9(4)
+                      OCCURS 2 TIMES.
+      *(( XFD NAME = COEFF_SAISON1 ))
+      *(( XFD COMMENT Coefficient à appliquer au mini et au maxi pour la saison 1 ))
+           02 CSAI1-MGFA       PIC  99V9.
+      *(( XFD NAME = COEFF_SAISON2 ))
+      *(( XFD COMMENT Coefficient à appliquer au mini et au maxi pour la saison 2 ))
+           02 CSAI2-MGFA       PIC  99V9.
+      *(( XFD NAME = REGROUP_STAT_LOC ))
+      *(( XFD COMMENT Code regroupement statistiques location ))
+           02 RGL-MGFA         PIC  XX.
+
+      *(( XFD COMMENT Achats sans N° de série: 0=Non  1=Oui  (pour les petits matériels) ))
+           02 ASNS-MGFA        PIC  9.
+
+      *(( XFD COMMENT Gérer en stock par: 0=le Magasin pièce   1=le Service Vente Matériel (Si accessoires ou petits matériels ))
+           02 GSTO-MGFA        PIC  9.
+
+      *(( XFD COMMENT Exclue de la fidélité / Garem: 0=Non   1=Oui ))
+           02 FID-MGFA         PIC  9.
+
+      *(( XFD COMMENT Achats sous contrôle: 0=Non   1=Oui ))
+           02 ACHCTRL-MGFA     PIC  9.
+
+      *(( XFD COMMENT Exclue/ Bons d'achat : 0=Non   1=Oui ))
+           02 EBACH-MGFA       PIC  9.
+           02 FILLER           PIC  X(1).

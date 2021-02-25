@@ -1,0 +1,73 @@
+if [ "$OSTYPE" = "linux-gnu" ]
+then ECHO="echo -e "
+else ECHO="echo "
+fi
+
+if [ -f /tmp/RESSAU8 ]
+   then mv /tmp/RESSAU8 /tmp/RESSAU9 2>>/dev/null
+fi
+if [ -f /tmp/RESSAU7 ]
+   then mv /tmp/RESSAU7 /tmp/RESSAU8 2>>/dev/null
+fi
+if [ -f /tmp/RESSAU6 ]
+   then mv /tmp/RESSAU6 /tmp/RESSAU7 2>>/dev/null
+fi
+if [ -f /tmp/RESSAU5 ]
+   then mv /tmp/RESSAU5 /tmp/RESSAU6 2>>/dev/null
+fi
+if [ -f /tmp/RESSAU4 ]
+   then mv /tmp/RESSAU4 /tmp/RESSAU5 2>>/dev/null
+fi
+if [ -f /tmp/RESSAU3 ]
+   then mv /tmp/RESSAU3 /tmp/RESSAU4 2>>/dev/null
+fi
+if [ -f /tmp/RESSAU2 ]
+   then mv /tmp/RESSAU2 /tmp/RESSAU3 2>>/dev/null
+fi
+if [ -f /tmp/RESSAU1 ]
+   then mv /tmp/RESSAU1 /tmp/RESSAU2 2>>/dev/null
+fi
+if [ -f /tmp/RESSAU ]
+   then mv /tmp/RESSAU /tmp/RESSAU1 2>>/dev/null
+fi
+
+echo  "Sauvegarde Automatique " >/tmp/RESSAU
+$ECHO "Démarrée le \c" >>/tmp/RESSAU
+date >>/tmp/RESSAU
+REPMONTAGE=`cat /acu/mistral/f/SVGDATA |cut -c 151-200|cut -f 1 -d " "`
+ADRSERVSVG=`cat /acu/mistral/f/SVGDATA |cut -c 101-150|cut -f 1 -d " "`
+if [ "$OSTYPE" = "linux-gnu" ]
+then /bin/mount -t nfs $ADRSERVSVG:/$REPMONTAGE /$REPMONTAGE
+else 
+     /usr/sbin/mknfsmnt -f $REPMONTAGE -d $REPMONTAGE -h $ADRSERVSVG -M 'sys' '-N' '-a' -t 'rw' -w 'bg' '-Y' '-Z' '-X' '-H' '-j' '-q' '-g' 2>>/dev/null
+fi
+MONTAGEOK=`mount |grep $REPMONTAGE`
+if [ -z "$MONTAGEOK" ]
+then echo "Sauvegarde Impossible - Erreur de montage " >>/tmp/RESSAU
+     $ECHO "Fin de Sauvegarde le \c" >>/tmp/RESSAU
+     date >>/tmp/RESSAU
+     exit
+else :
+fi
+NOMFIC=`cat /acu/mistral/f/SVGDATA |cut -c 51-100 |cut -f 1 -d " "`
+LISREP=`cat /acu/mistral/f/SVGDATA |cut -c 1-50 |cut -f 1,2,3,4,5,6 -d " "`
+
+\rm /$REPMONTAGE/$NOMFIC* 2>>/dev/null
+
+if [ "$OSTYPE" = "linux-gnu" ]
+then /bin/tar cvfPz /$REPMONTAGE/$NOMFIC`date +"%w"`.tar $LISREP > /tmp/p-sauvmis 2>>/tmp/RESSAU
+else if [ `hostname` = "GESMIS" ] 
+     then rm $REPMONTAGE/$NOMFIC*.tar
+          /opt/freeware/bin/tar cvfPz $REPMONTAGE/$NOMFIC`date +"%Y%m%d"`.tar $LISREP >/tmp/p-sauvmis 2>>/tmp/RESSAU
+     else if [ -f /acu/mistral/f/EXCLUDESVG ]
+          then /opt/freeware/bin/tar -cvzPf $REPMONTAGE/$NOMFIC`date +"%w"`.tar -X /acu/mistral/f/EXCLUDESVG $LISREP >/tmp/p-sauvmis 2>>/tmp/RESSAU
+          else /opt/freeware/bin/tar cvzPf $REPMONTAGE/$NOMFIC`date +"%w"`.tar $LISREP >/tmp/p-sauvmis 2>>/tmp/RESSAU
+          fi
+     fi
+fi
+
+$ECHO "Fin de Sauvegarde le \c" >>/tmp/RESSAU
+date >>/tmp/RESSAU
+
+
+umount $REPMONTAGE

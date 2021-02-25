@@ -1,0 +1,89 @@
+export TERM=ansi
+DIRPRG=$1  # Repertoire des programme  (ex: /acu/mx/o)
+NOMPRG=$2  # nom du programme a lancer (ex: cra-td.acu)
+CODSOC=$3  # N° de societe             (ex: 0001)
+CODPRG=$4  # Mnemonique du programme   (ex: CRA)
+CODUSR=$5  # Code utilisateur          (ex: OD)
+DIRENV=$6  # environnement             (ex: /acuf)
+NUMSEL=$7  # n° sélection              (pour traitements comme EPM export terre-net)
+
+arg8=$8  # répertoire java             (facultatif - ex: java6_64)
+arg9=$9  # répertoire cobol            (facultatif mais seulement si répertoire java renseigné - ex: acucobol8)
+
+
+export DIRPRG NOMPRG CODSOC CODSOC CODPRG CODUSR DIRENV NUMSEL arg8 arg9
+
+################################
+#####     répertoire cobol
+################################
+if [ $# -gt 7 ] 
+then 
+   DIRCOBOL=/usr/$arg9
+else
+   if [ -d /usr/acucobol8/lib ]
+   then DIRCOBOL=/usr/acucobol8
+   else if [ -d /usr/acucobol72/lib ]
+        then DIRCOBOL=/usr/acucobol72
+        else if [ -d /usr/acucobol92/lib ]
+             then DIRCOBOL=/usr/acucobol92
+             else DIRCOBOL=/usr/acucobol70
+             fi
+        fi
+   fi
+fi
+export DIRCOBOL
+LIBPATH=/usr/lib:$DIRCOBOL/lib
+
+######################################################
+#####     répertoire java / uniquement pour AIX
+######################################################
+#
+# le transfert par EPM ne fonctionne pas avec java5... 
+#              (erreur java indéterminée -6)
+#
+
+if [ $# -gt 7 ] 
+then 
+   DIRJAVA=/usr/$arg8
+else
+   if [ -d /usr/java6_64 ]
+   then DIRJAVA=/usr/java6_64
+   else
+      if [ -d /usr/java5_64 -a "$CODPRG" != "EPM" ]
+      then DIRJAVA=/usr/java5_64
+      else
+           DIRJAVA=/usr/java14_64
+      fi
+   fi
+fi
+
+if [ "$OSTYPE" = "linux-gnu" ]
+then if [ -d /usr/java/jre1.6.0_29 ]
+     then LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/java/jre1.6.0_29/lib/i386/server:/usr/java/jre1.6.0_29/lib/i386/
+     else
+        if [ -d /usr/java/jre1.5.0_04 ]
+        then LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/java/jre1.5.0_04/lib/i386/server:/usr/java/jre1.5.0_04/lib/i386/
+        fi
+     fi 
+else
+     LIBPATH=$LIBPATH:$DIRJAVA/jre/bin/classic:$DIRJAVA/jre/bin:$DIRJAVA/jre/lib/ppc64
+     LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DIRJAVA/jre/bin/classic:$DIRJAVA/jre/bin:$DIRCOBOL/lib:$DIRJAVA/jre/lib/ppc64
+     PATH=$PATH:$DIRJAVA/jre/bin:$DIRJAVA/jre/bin/classic
+fi
+export LIBPATH LD_LIBRARY_PATH PATH
+
+#######################
+
+echo $CODSOC  $CODPRG  $CODUSR  $DIRENV  $NUMSEL > /acu/mistral/ft/ATD-$CODPRG
+
+
+if [ "$CODPRG" = "EFXD" ]
+then echo $CODSOC  $CODPRG  $CODUSR  $DIRENV  $NUMSEL > /acu/mistral/ft/ATD-EFX
+fi
+
+cd $DIRPRG
+$DIRCOBOL/bin/runcbl -c /acu/mistral/cfg/cblconfig $NOMPRG
+
+if [ "$NOMPRG" = "epm-td.acu" ]
+then rm $DIRENV/mx$CODSOC/fxweb/ENCOURS 2>/dev/null
+fi

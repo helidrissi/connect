@@ -1,0 +1,4 @@
+cd /acuf/mx0071/fseq
+mv basearticle.csv basearticle.csv.old
+/acu/mistral/px/ftp-ags2000-get basearticle.csv.zip basearticle.csv.zip
+unzip basearticle.csv

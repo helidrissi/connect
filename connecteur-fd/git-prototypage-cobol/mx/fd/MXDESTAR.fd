@@ -1,0 +1,260 @@
+      *(( XFD FILE = MXDESTAR ))
+       FD  MXDESTAR
+           LABEL RECORD IS STANDARD.
+       01 ENR-MDTA.
+           02 CLE1-MDTA.
+
+      *(( XFD COMMENT Code Loigiciel ))
+               04 LOG-MDTA         PIC  9(4).
+
+      *(( XFD COMMENT Code Module ))
+               04 MOD-MDTA         PIC  99.
+
+      *(( XFD COMMENT Nom Tarif ))
+           02 NOM-MDTA         PIC  X(20).
+
+      *(( XFD COMMENT Nom du Fichier Tarif ))
+           02 FIC-MDTA         PIC  X(20).
+
+      *(( XFD COMMENT Nombre de références par enregistrement ))
+           02 NBR-MDTA         PIC  9.
+
+      *(( XFD COMMENT Posirion 2ème Référence ))
+           02 P2R-MDTA         PIC  9(4).
+
+      *(( XFD COMMENT Date de mise à jour Tarif ))
+           02 DAT-MDTA         PIC  9(8).
+           02 R-DAT-MDTA REDEFINES DAT-MDTA.
+               04 SDAT-MDTA        PIC  99.
+               04 ADAT-MDTA        PIC  99.
+               04 MDAT-MDTA        PIC  99.
+               04 JDAT-MDTA        PIC  99.
+
+      *(( XFD COMMENT Type D'enregistrement  0=Champ de longueur Fixe   1=Champ Longueur Variable ))
+           02 TYP-MDTA         PIC  9.
+
+      *(( XFD COMMENT Séparateur (si longueur Variable)   TB=Tab ))
+           02 SEP-MDTA         PIC  XX.
+
+      *(( XFD COMMENT Délimiteur de zone (Exemple: zone alpha encadrée par des guillements) ))
+           02 DEL-MDTA         PIC  X.
+
+      *(( XFD COMMENT Référence ))
+           02 REF-MDTA.
+
+      *(( XFD COMMENT Position ou Colonne ))
+               04 P-REF-MDTA       PIC  999.
+
+      *(( XFD COMMENT Longueur ))
+               04 L-REF-MDTA       PIC  99.
+
+      *(( XFD COMMENT Délimiteur:  0=Sans  1=Avec ))
+               04 D-REF-MDTA       PIC  9.
+
+      *(( XFD COMMENT Spécifique Tarif ))
+               04 T-REF-MDTA       PIC  X.
+
+      *(( XFD COMMENT Spécifique Catalogue ))
+               04 C-REF-MDTA       PIC  X.
+
+      *(( XFD COMMENT Référence (Suite) ))
+           02 REF2-MDTA.
+               04 P-REF2-MDTA      PIC  999.
+               04 L-REF2-MDTA      PIC  99.
+               04 D-REF2-MDTA      PIC  9.
+               04 T-REF2-MDTA      PIC  X.
+               04 C-REF2-MDTA      PIC  X.
+
+      *(( XFD COMMENT Désignation ))
+           02 DES-MDTA.
+               04 P-DES-MDTA       PIC  999.
+               04 L-DES-MDTA       PIC  99.
+               04 D-DES-MDTA       PIC  9.
+               04 T-DES-MDTA       PIC  X.
+               04 C-DES-MDTA       PIC  X.
+
+      *(( XFD COMMENT Prix Tarif ))
+           02 PRI-MDTA.
+
+      *(( XFD COMMENT Position Partie entière ))
+               04 P-PRIE-MDTA      PIC  999.
+
+      *(( XFD COMMENT Longueur Partie entière ))
+               04 L-PRIE-MDTA      PIC  99.
+
+      *(( XFD COMMENT Délimiteur / Prix ))
+               04 D-PRI-MDTA       PIC  9.
+
+      *(( XFD COMMENT Position décimales sur prix ))
+               04 P-PRID-MDTA      PIC  999.
+
+      *(( XFD COMMENT Longueur décimale sur prix ))
+               04 L-PRID-MDTA      PIC  99.
+
+      *(( XFD COMMENT Spécifique tarif ))
+               04 T-PRI-MDTA       PIC  X.
+
+      *(( XFD COMMENT Spécifique Catalogue ))
+               04 C-PRI-MDTA       PIC  X.
+
+      *(( XFD COMMENT Prix Achat Tarif ))
+           02 PRI2-MDTA.
+               04 P-PRIE2-MDTA     PIC  999.
+               04 L-PRIE2-MDTA     PIC  99.
+               04 D-PRI2-MDTA      PIC  9.
+               04 P-PRID2-MDTA     PIC  999.
+               04 L-PRID2-MDTA     PIC  999.
+               04 T-PRI2-MDTA      PIC  X.
+               04 C-PRI2-MDTA      PIC  X.
+
+      *(( XFD COMMENT Prix 3 (Prix de vente) ))
+           02 PRI3-MDTA.
+               04 P-PRIE3-MDTA     PIC  999.
+               04 L-PRIE3-MDTA     PIC  99.
+               04 D-PRI3-MDTA      PIC  9.
+               04 P-PRID3-MDTA     PIC  999.
+               04 L-PRID3-MDTA     PIC  999.
+               04 T-PRI3-MDTA      PIC  X.
+               04 C-PRI3-MDTA      PIC  X.
+
+      *(( XFD COMMENT Code Remise ))
+           02 REM-MDTA.
+               04 P-REM-MDTA       PIC  999.
+               04 L-REM-MDTA       PIC  99.
+               04 D-REM-MDTA       PIC  9.
+
+      *(( XFD COMMENT S=Spécial (ex: Volvo voir MTF) ))
+               04 T-REM-MDTA       PIC  X.
+               04 C-REM-MDTA       PIC  X.
+
+      *(( XFD COMMENT Code remise suite ))
+           02 REM2-MDTA.
+               04 P-REM2-MDTA      PIC  999.
+               04 L-REM2-MDTA      PIC  99.
+               04 D-REM2-MDTA      PIC  9.
+               04 T-REM2-MDTA      PIC  X.
+               04 C-REM2-MDTA      PIC  X.
+
+      *(( XFD COMMENT Conditionnement d'achat ))
+           02 UAC-MDTA.
+               04 P-UAC-MDTA       PIC  999.
+               04 L-UAC-MDTA       PIC  99.
+               04 D-UAC-MDTA       PIC  9.
+               04 T-UAC-MDTA       PIC  X.
+               04 C-UAC-MDTA       PIC  X.
+
+      *(( XFD COMMENT Poids ))
+           02 POI-MDTA.
+               04 P-POIE-MDTA      PIC  999.
+               04 L-POIE-MDTA      PIC  99.
+               04 D-POI-MDTA       PIC  9.
+               04 P-POID-MDTA      PIC  999.
+               04 L-POID-MDTA      PIC  99.
+               04 T-POI-MDTA       PIC  X.
+               04 C-POI-MDTA       PIC  X.
+
+      *(( XFD COMMENT Référence de remplacement ))
+           02 RER-MDTA.
+               04 P-RER-MDTA       PIC  999.
+               04 L-RER-MDTA       PIC  99.
+               04 D-RER-MDTA       PIC  9.
+               04 T-RER-MDTA       PIC  X.
+               04 C-RER-MDTA       PIC  X.
+
+      *(( XFD COMMENT Famille Article ))
+           02 GRA-MDTA.
+               04 P-GRA-MDTA       PIC  999.
+               04 L-GRA-MDTA       PIC  99.
+               04 D-GRA-MDTA       PIC  9.
+               04 T-GRA-MDTA       PIC  X.
+               04 C-GRA-MDTA       PIC  X.
+
+      *(( XFD COMMENT Sous-famille article ))
+           02 FAM-MDTA.
+               04 P-FAM-MDTA       PIC  999.
+               04 L-FAM-MDTA       PIC  99.
+               04 D-FAM-MDTA       PIC  9.
+               04 T-FAM-MDTA       PIC  X.
+               04 C-FAM-MDTA       PIC  X.
+
+      *(( XFD COMMENT Code Marque ))
+           02 MAR-MDTA.
+               04 P-MAR-MDTA       PIC  999.
+               04 L-MAR-MDTA       PIC  99.
+               04 D-MAR-MDTA       PIC  9.
+               04 T-MAR-MDTA       PIC  X.
+               04 C-MAR-MDTA       PIC  X.
+
+      *(( XFD COMMENT Référence Neuve (Fenwick) ))
+           02 REN-MDTA.
+               04 P-REN-MDTA       PIC  999.
+               04 L-REN-MDTA       PIC  99.
+               04 D-REN-MDTA       PIC  9.
+               04 T-REN-MDTA       PIC  X.
+               04 C-REN-MDTA       PIC  X.
+
+      *(( XFD COMMENT Minoration (Fenwick) ))
+           02 MIN-MDTA.
+               04 P-MIN-MDTA       PIC  999.
+               04 L-MIN-MDTA       PIC  99.
+               04 D-MIN-MDTA       PIC  9.
+               04 T-MIN-MDTA       PIC  X.
+               04 C-MIN-MDTA       PIC  X.
+
+      *(( XFD COMMENT Champs Spécifique (5 maxi) ))
+           02 SPE-MDTA
+                      OCCURS 5 TIMES.
+               04 N-SPE-MDTA       PIC  X(20).
+               04 P-SPE-MDTA       PIC  999.
+               04 L-SPE-MDTA       PIC  99.
+               04 D-SPE-MDTA       PIC  9.
+               04 T-SPE-MDTA       PIC  X.
+               04 C-SPE-MDTA       PIC  X.
+
+      *(( XFD COMMENT Commentaire ))
+           02 COM-MDTA         PIC  X(400).
+           02 IDE-MDTA         PIC  X(4).
+
+      *(( XFD COMMENT Gencod ))
+           02 GCOD-MDTA.
+               04 P-GCOD-MDTA      PIC  999.
+               04 L-GCOD-MDTA      PIC  99.
+               04 D-GCOD-MDTA      PIC  9.
+               04 T-GCOD-MDTA      PIC  X.
+               04 C-GCOD-MDTA      PIC  X.
+
+      *(( XFD COMMENT Code Pays d'origine ))
+           02 PAY-MDTA.
+               04 P-PAY-MDTA       PIC  999.
+               04 L-PAY-MDTA       PIC  99.
+               04 D-PAY-MDTA       PIC  9.
+               04 T-PAY-MDTA       PIC  X.
+               04 C-PAY-MDTA       PIC  X.
+
+      *(( XFD COMMENT N° TVA CEE ))
+           02 TVA-MDTA.
+               04 P-TVA-MDTA       PIC  999.
+               04 L-TVA-MDTA       PIC  99.
+               04 D-TVA-MDTA       PIC  9.
+               04 T-TVA-MDTA       PIC  X.
+               04 C-TVA-MDTA       PIC  X.
+
+      *(( XFD COMMENT Référence Interne ))
+           02 RFI-MDTA.
+               04 P-RFI-MDTA       PIC  999.
+               04 L-RFI-MDTA       PIC  99.
+               04 D-RFI-MDTA       PIC  9.
+               04 T-RFI-MDTA       PIC  X.
+               04 C-RFI-MDTA       PIC  X.
+
+      *(( XFD COMMENT Coefficient Multiplicateur ))
+           02 COE-MDTA.
+               04 P-COEE-MDTA      PIC  999.
+               04 L-COEE-MDTA      PIC  99.
+               04 D-COE-MDTA       PIC  9.
+
+      *(( XFD COMMENT Position décimales sur prix ))
+               04 P-COED-MDTA      PIC  999.
+
+      *(( XFD COMMENT Longueur décimale sur prix ))
+               04 L-COED-MDTA      PIC  99.

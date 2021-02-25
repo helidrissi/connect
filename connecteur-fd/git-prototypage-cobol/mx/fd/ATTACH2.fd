@@ -1,0 +1,76 @@
+      *(( XFD FILE = ATTACH2 ))
+       FD  ATTACH2.
+       01 ENR-ATT2.
+           02 CLE1-ATT2.
+
+      *(( XFD COMMENT N° d'ordre  document ))
+               03 ORD-ATT2         PIC  9(10).
+               03 R-ORD-ATT2 REDEFINES ORD-ATT2.
+                   05 MOB-ATT2         PIC  9(3).
+                   05 ORD2-ATT2        PIC  9(7).
+
+      *(( XFD COMMENT N° société (0 si Matériel ou Type Matériel ))
+           02 SOC-ATT2         PIC  9(4).
+
+      *(( XFD COMMENT Type de l'élément auquel est rattaché le fichier ))
+           02 ORI-ATT2         PIC  X(4).
+
+      *(( XFD COMMENT Clé primaire de l'élément ))
+           02 CLE-ATT2         PIC  X(30).
+
+      *(( XFD COMMENT Clé primaire sous forme numérique de l'élément ))
+           02 CLE-R-ATT2 REDEFINES CLE-ATT2.
+               03 CLEN-ATT2        PIC  9(18).
+               03 FILLER           PIC  X(12).
+
+      *(( XFD COMMENT Rang d'affichage de ce fichier parmi tous ceux de l'élément auquel il est rattaché (permet notemment de repérer le fichier principal ))
+           02 RAN-ATT2         PIC  999.
+
+      *(( XFD COMMENT Titre du fichier ))
+           02 TIT-ATT2         PIC  X(40).
+
+      *(( XFD COMMENT Commentaires décrivant le fichier ))
+           02 COM-ATT2         PIC  X(255).
+
+      *(( XFD COMMENT Mime type de l'élément (exemple image/jpg pour un JPEG ))
+           02 MIM-ATT2         PIC  X(30).
+
+      *(( XFD COMMENT Nom du fichier sur le disque ))
+           02 FIC-ATT2         PIC  X(128).
+
+      *(( XFD COMMENT Initiales de la personne ayant attaché ce ficher à l'élément ))
+           02 ICRE-ATT2        PIC  X(4).
+
+      *(( XFD COMMENT Date d'ajout de ce fichier ))
+           02 DCRE-ATT2        PIC  9(8).
+
+      *(( XFD COMMENT Date de MAJ de l'enregistrement (Synchro MobiVip ))
+           02 DME-ATT2         PIC  9(8).
+      *(( XFD NAME = Origine_MobiTec_Mo ))
+      *(( XFD COMMENT Origine si synchro Mobitec ou Mobistac ))
+           02 ORIMBT-ATT2      PIC  XX.
+      *(( XFD NAME = Doc_non_transmis ))
+      *(( XFD COMMENT 1=Document à ne pas faire suivre (Mobistac-> Mobitrans) ))
+           02 NONS-ATT2        PIC  9.
+      *(( XFD NAME = Heure_signature ))
+      *(( XFD COMMENT Heure signature document (Mobisign) ))
+           02 HEU-ATT2         PIC  99V99.
+      *(( XFD NAME = Xml_signature ))
+      *(( XFD COMMENT Fichier pdf généré suite signature (Mobisign) ))
+           02 XMLS-ATT2        PIC  X(50).
+
+      *(( XFD COMMENT Client signature Mobisign ))
+           02 CLI-ATT2         PIC  9(6).
+
+      *(( XFD COMMENT Client divers signature Mobisign ))
+           02 CDV-ATT2         PIC  9(6).
+
+      *(( XFD COMMENT Interlocuteur signature Mobisign ))
+           02 ITC-ATT2         PIC  9(9).
+
+      *(( XFD COMMENT Indicateur signature intervenant pour Mobistac si 2 signatures, sinon indic rapport Praxedo ))
+           02 SIGI-ATT2        PIC  9.
+
+      *(( XFD COMMENT N° ligne bon de sortie si photo faite par Mobistac ou Mobitrans ))
+           02 LIGB-ATT2        PIC  9(4).
+           02 FILLER           PIC  X(77).

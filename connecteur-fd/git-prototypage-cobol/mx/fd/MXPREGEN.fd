@@ -1,0 +1,77 @@
+      *(( XFD FILE = PREGEN ))
+      *Prestations
+      *
+      *DB
+      *ART
+      *GT\sample\def\;
+      *     *ART
+      *      *GT\sample\
+       FD  MXPREGEN
+           LABEL RECORD IS STANDARD.
+       01 ENR-MPGE.
+           02 CLE1-MPGE.
+      *(( XFD NAME = CODE_PRESTATION ))
+      *(( XFD COMMENT Code ))
+               03 COD-MPGE         PIC  XXXX.
+           02 CLE2-MPGE.
+      *(( XFD NAME = LIBELLE_PRESTATION ))
+      *(( XFD COMMENT Libellé ))
+               03 LIB-MPGE         PIC  X(35).
+      *(( XFD NAME = INDIC_LIB_MODIF ))
+      *(( XFD COMMENT Indicateur libellé modifiable (0=non ))
+           02 INL-MPGE         PIC  9.
+      *(( XFD NAME = ABREGE_PRESTATION ))
+      *(( XFD COMMENT Abrégé ))
+           02 ABR-MPGE         PIC  X(8).
+      *(( XFD NAME = CODE_NATURE ))
+      *(( XFD COMMENT Nature (1=MO 2=transport 3=divers 4=sous-traitance 5=éléments supplétifs ))
+           02 NAT-MPGE         PIC  9.
+      *(( XFD NAME = TAUX_TVA ))
+      *(( XFD COMMENT Taux de TVA ))
+           02 TVA-MPGE         PIC  9.
+      *(( XFD NAME = TAUX_TVA2 ))
+      *(( XFD COMMENT Taux de TVA base 2 ))
+           02 TVA2-MPGE        PIC  9.
+      *(( XFD NAME = TAUX_TVA3 ))
+      *(( XFD COMMENT Taux de TVA base 3 ))
+           02 TVA3-MPGE        PIC  9.
+      *(( XFD NAME = CODE_SUPPRESSION ))
+      *(( XFD COMMENT Code annulation ))
+           02 CANN-MPGE        PIC  9.
+      *(( XFD NAME = DATE_SUPPRESSION ))
+      *(( XFD COMMENT Date annulation ))
+           02 DANN-MPGE        PIC  9(8).
+      *(( XFD NAME = AUTEUR_SUPPRESSION ))
+      *(( XFD COMMENT Utilisateur annulation ))
+           02 IANN-MPGE        PIC  XXXX.
+      *(( XFD NAME = DEPART_RETOUR_DOMI ))
+      *(( XFD COMMENT 1=Départ/Retour Domicile (SFA ))
+           02 DRD-MPGE         PIC  9.
+      *(( XFD NAME = CODE_REGRPT_STATS ))
+      *(( XFD COMMENT code regroupement statistiques ))
+           02 RGS-MPGE         PIC  XX.
+      *(( XFD NAME = IMPRIME_GRAS ))
+      *(( XFD COMMENT Style d'impression dans les docs office : gras 0=non 1=oui ))
+           02 STGRA-MPGE       PIC  9.
+      *(( XFD NAME = IMPRIME_ITALIQUE ))
+      *(( XFD COMMENT Style d'impression dans les docs office : itlaique 0=non 1=oui ))
+           02 STITA-MPGE       PIC  9.
+      *(( XFD NAME = IMPRIME_SOULIGNE ))
+      *(( XFD COMMENT Style d'impression dans les docs office : souligné 0=non 1=oui ))
+           02 STSOU-MPGE       PIC  9.
+      *(( XFD NAME = CODE_FOURNISSEUR ))
+      *(( XFD COMMENT Style d'impression dans les docs office : souligné 0=non 1=oui ))
+           02 FOU-MPGE         PIC  9(6).
+      *(( XFD NAME = EXCLUS_WORKFLOW ))
+      *(( XFD COMMENT 1 = prestation exclue du workflow ))
+           02 WKFL-MPGE        PIC  9.
+      *(( XFD NAME = PRESTA_RESERVEE ))
+      *(( XFD COMMENT 1 = prestation réservée ))
+           02 IRS-MPGE         PIC  9.
+      *(( XFD NAME = MOTIF_ACTIVITE ))
+      *(( XFD COMMENT Motif d'Activité GTI ))
+           02 MAB-MPGE         PIC  99.
+      *(( XFD NAME = AUTOLIQUIDATION ))
+      *(( XFD COMMENT 1 = soumise auto-liquidation ))
+           02 ALQ-MPGE         PIC  9.
+           02 FILLER           PIC  X(19).

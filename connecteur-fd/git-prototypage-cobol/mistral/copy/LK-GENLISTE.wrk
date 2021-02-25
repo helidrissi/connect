@@ -1,0 +1,70 @@
+      * Linkage de MAGC-L
+       01 LK-GENLISTE.
+      *    Nombre d'éléments sélectionnées retournées
+           05 LK-GENLISTE-NBSEL PIC 9(3).
+      *    Nom du fichier
+           05 LK-GENLISTE-FILENAME PIC X(128).
+      *    Titre de la grille
+           05 LK-GENLISTE-TITLE PIC X(30).
+      *    Nombre de sélections possibles
+      *    1 -> Liste Simple
+      *    2,3,4... -> Liste multiple
+           05 LK-GENLISTE-MAXSEL PIC 9(3).
+      *    Type de la clef du fichier
+      *          1->ALPHA     2-> Numérique    3->ALPHA sur 8 caractères
+      *          6-> numérique sur 2 caractères
+      *    Si numerique, convertir la clef du fichier en numerique
+      *    Dans CODN-LST
+           05 LK-GENLISTE-DATATYPE PIC 9.
+      *    TABLE des Codes du fichier Sélection
+      *    Si liste simple, code disponible dans LK-GENLISTE-COD(1)
+      *    Si liste multiple, LK-GENLISTE-COD(i)
+      *       avec i de 1 à LK-GENLISTE-NBSEL
+           05 LK-GENLISTE-SELECT.
+              06 LK-GENLISTE-COD PIC X(6) OCCURS 80.
+           05 R1-LK-GENLISTE-SELECT REDEFINES LK-GENLISTE-SELECT.
+              06 LK-GENLISTE-CODN PIC 9(6) OCCURS 80.
+           05 R2-LK-GENLISTE-SELECT REDEFINES LK-GENLISTE-SELECT.
+              06 FILLER       PIC X(6).
+              06 LK-GENLISTE-LIB PIC X(40).
+              06 LK-GENLISTE-LIB8 PIC X(40).
+              06 LK-GENLISTE-LIB2 PIC X(40).
+           05 R3-LK-GENLISTE-SELECT REDEFINES LK-GENLISTE-SELECT.
+              06 LK-GENLISTE-CO8 PIC X(8) OCCURS 60.
+           05 R3-LK-GENLISTE-SELECT REDEFINES LK-GENLISTE-SELECT.
+              06 LK-GENLISTE-CO8N PIC 9(8) OCCURS 60.
+           05 R4-LK-GENLISTE-SELECT REDEFINES LK-GENLISTE-SELECT.
+              06 LK-GENLISTE-CO2 PIC X(2) OCCURS 240.
+           05 R4-LK-GENLISTE-SELECT REDEFINES LK-GENLISTE-SELECT.
+              06 LK-GENLISTE-CO2N PIC 9(2) OCCURS 240.
+                                
+      *    Variables contenant les paramètres selon besoin programmes
+           05 LK-GENLISTE-PARAM.
+      *       Pour mfmc-l : Si renseigné -> liste des Catégories
+              06 LK-GENLISTE-FAM  PIC X(10).
+           05 R-LK-GENLISTE-PARAM REDEFINES LK-GENLISTE-PARAM.
+      *       Pour mpge-l : 
+              06 LK-GENLISTE-DIS PIC 9(1).
+              06 LK-GENLISTE-REP PIC 9(1).
+              06 LK-GENLISTE-LOC PIC 9(1).  
+      *    LK-GENLISTE-ABR : renseigner si la liste doit avoir une 2ème colonne
+      *    (ex: abrégé des prestations)
+           05 LK-GENLISTE-COL2   PIC X(10). 
+      *    1 = Le code 0 peut exister (dépôts) -> Test TAB-COD = SPACE pour vide au lieu de TAB-CODN = 0
+           05 LK-GENLISTE-ZERO   PIC 9.
+      *    LK-GENLISTE-CDF = "I" on affiche une liste sans modif possible
+           05 LK-GENLISTE-CDF   PIC X.      
+      *    LK-GENLISTE-LISTE-ANN 
+      *         au départ 1 choix pour voir les éléments supprimés
+      *         au retour 2 on voit ceux qui sont supprimés
+      *                   0 on sort de la liste
+           05 LK-GENLISTE-ANN   PIC 9. 
+      *    Cadrage colonne 2: pas défaut gauche, 1=center
+           05 LK-GENLISTE-CC2   PIC 9.
+      *    Tri possible sur la colonne 2: 1 = Oui, sinon Non
+           05 LK-GENLISTE-TRI2  PIC 9.
+      *    Avec choix "Inlcure" ou "Exclure" : 1 = Oui, sinon Non
+           05 LK-GENLISTE-TSEL  PIC 9.
+      * affichage si besoin di label contenant la phase DSN en paie(screen1-la-pex)
+           05 LK-GENLISTE-LABEL PIC 9.
+           05 FILLER PIC X(83). 

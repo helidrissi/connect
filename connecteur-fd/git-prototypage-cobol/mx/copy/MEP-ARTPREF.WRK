@@ -1,0 +1,5 @@
+       77  CO2-ARTPREF      PIC  X(3)    VALUE IS "LFR".
+       77  LON-ARTPREF      PIC  99      VALUE IS 3.
+       77  EXI-ARTPREF      PIC  9.
+       77  COD-ARTPREF      PIC X(20).
+

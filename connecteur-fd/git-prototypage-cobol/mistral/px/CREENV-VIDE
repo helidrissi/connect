@@ -1,0 +1,71 @@
+clear
+ENV="/acuf"
+export ENV
+echo "       PROCEDURE DE CREATION ENVIRONNEMENT (S2) VIDE "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= "
+echo "\n"
+echo "Environnement ($ENV): \c"
+read DIR2
+nbrc=`expr "$DIR2" : '.*'`
+case $nbrc in
+     0) DIR2=$ENV ;;
+esac
+echo $DIR2
+if [ ! -d $DIR2/palme ]
+   then echo "\n      Environnement INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ ! -d $DIR2 ]
+   then echo "\n"
+   echo "Procédure non Réalisable \c"
+   read ok
+   exit
+fi
+echo "Confirmez-vous (Taper 'OUI' Pour confirmer) \c"
+read OK
+if [ $OK != "OUI" ]
+    then
+    echo "\n"
+    echo " Procédure Non Réalisée - Taper Entrée \c "
+    read ok
+    exit
+fi
+NUMSOC=0001
+SOC=$NUMSOC
+   echo "\n"
+   echo "No de Société à créer dans l'environnement ($NUMSOC): \c"
+   SOC=`/acu/mistral/px/ACCNUMERO`
+#if [ ! -d $DIR2/mx$SOC ]
+#   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+#        read ok
+#        exit
+#fi
+if [ -d $DIR2/S2 ]
+   then echo "\n"
+   echo "Procédure Déjà Réalisée : Non Réalisable \c"
+   read ok
+   exit
+fi
+echo "\n"
+echo " Traitement en Cours - Veuillez Patienter "
+echo "     .Création de l'environnement"
+cd $DIR2
+mkdir S2
+cd S2
+mkdir mx$SOC mx$SOC/f mx$SOC/ft mx$SOC/fx
+mkdir cx$SOC cx$SOC/f cx$SOC/ft cx$SOC/fx
+mkdir mxg mxg/f mxg/ft
+mkdir cxg cxg/f cxg/ft
+ln -s /acu/cx/fg     cxg/fg
+if [ -d /acu/cx/fA ]
+   then ln -s /acu/cx/fA cxg/fA
+fi
+ln -s /acu/mx/fg     mxg/fg
+
+ln -s /acu/mistral   mistral
+
+ln -s /acuf/palme    palme
+
+echo "\n"
+echo "Procédure Terminée "

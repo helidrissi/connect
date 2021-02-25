@@ -1,0 +1,162 @@
+\rm /tmp/listerm 2>>/dev/null
+du /acuf/*/ft | cut -f 2 |while read repert
+    do 
+        if [ -h $repert ]
+       	then :
+        else  echo $repert >>/tmp/listerm
+        fi
+    done
+cat /tmp/listerm | while read source
+	do \rm -r $source 
+           mkdir $source
+           chown mistral:misinf $source
+           chmod 777 $source
+	done
+\rm /tmp/listerm 2>>/dev/null
+# Ajout le 02022016 pour traiter les sous-environnements et les jeux d'essais
+du /acuf/*/*/ft | cut -f 2 |while read repert
+    do 
+        if [ -h $repert ]
+       	then :
+        else  echo $repert >>/tmp/listerm
+        fi
+    done
+cat /tmp/listerm | while read source
+	do \rm -r $source 
+           mkdir $source
+           chown mistral:misinf $source
+           chmod 777 $source
+	done
+\rm /tmp/listerm 2>>/dev/null
+\rm /tmp/RECHUSER* 2>>/dev/null
+\rm /tmp/rembak* 2>>/dev/null
+\rm /tmp/xlogfile* 2>>/dev/null
+\rm -r /acu/mistral/ft
+
+find /tmp -mtime +5 |grep crout| while read fic
+   do
+      rm $fic
+   done
+
+mkdir /acu/mistral/ft
+chown mistral:misinf /acu/mistral/ft
+chmod 777 /acu/mistral/ft
+# Suppression des fichiers posterieurs à une année dans /acu/mistral/ferr
+/acu/mistral/px/PURGE-FERR
+# Ajout le 16/01/2014: car si TraceJava est créé sous "root" ==> Les 
+# fichiers visions sont vérolés par les appels java avec acucobol813
+touch /acu/mistral/ft/TraceJava
+chown mistral:misinf /acu/mistral/ft/TraceJava
+chmod 777 /acu/mistral/ft/TraceJava
+
+\rm /tmp/heapdump*  2>>/dev/null
+\rm /tmp/javacore*  2>>/dev/null
+\rm /tmp/Snap*  2>>/dev/null
+\rm /acu/*/o/core*  2>>/dev/null
+\rm /acu/*/o/heapdump*  2>>/dev/null
+\rm /acu/*/o/javacore*  2>>/dev/null
+\rm /acu/*/o/hs_err*  2>>/dev/null
+\rm /acu/*/o/Snap*  2>>/dev/null
+\rm /acu/*/o/*.adb  2>>/dev/null
+\rm /acu/*/o/dbgmalloc*  2>>/dev/null
+\rm /heapdump*  2>>/dev/null
+\rm /usr/local/tomcat/temp/fop* 2>>/dev/null
+\rm /usr/local/tomcat/bin/heap* 2>>/dev/null
+\rm /acu/mistral/f/NUMPORTC*  2>>/dev/null
+ls /acu/mistral/o | grep "runcbl."|while read sourceMIS
+        do
+             \rm /acu/mistral/o/$sourceMIS
+        done
+ls /acu/mx/o | grep "runcbl."|while read sourceMX
+        do
+             \rm /acu/mx/o/$sourceMX
+        done
+ls /acu/cx/o | grep "runcbl."|while read sourceCX
+        do
+             \rm /acu/cx/o/$sourceCX
+        done
+ls /acu/iex/o | grep "runcbl."|while read sourceIEX
+        do
+             \rm /acu/iex/o/$sourceIEX
+        done
+ls /acu/pex/o | grep "runcbl."|while read sourcePEX
+        do
+             \rm /acu/pex/o/$sourcePEX
+        done
+ls /acu/mex/o | grep "runcbl."|while read sourceMEX
+        do
+             \rm /acu/mex/o/$sourceMEX
+        done
+ls /acu/palme/o | grep "runcbl."|while read sourcePALME
+        do
+             \rm /acu/palme/o/$sourcePALME
+        done
+ls /acu/rx/o | grep "runcbl."|while read sourceRX
+        do
+             \rm /acu/rx/o/$sourceRX
+        done
+ls /acu/empx/o | grep "runcbl."|while read sourceEMPX
+        do
+             \rm /acu/empx/o/$sourceEMPX
+        done
+ls /acu/miami/o | grep "runcbl."|while read sourceMIAMI
+        do
+             \rm /acu/miami/o/$sourceMIAMI
+        done
+ls /acu/miami/o | grep "socks."|while read sourceSOCKS
+        do
+             \rm /acu/miami/o/$sourceSOCKS
+        done
+#
+# Pour le cas où il y a trop de fichiers
+#ls /acu/mx/o |grep runcbl >/tmp/lisruncbl 2>>/dev/null
+#sed "s/^/\\\rm \/acu\/mx\/o\//g" /tmp/lisruncbl > /tmp/lisruncbl1 2>>/dev/null
+#chmod 777 /tmp/lisruncbl1` 2>>/dev/null
+#/tmp/lisruncbl1 2>>/dev/null
+#
+#\rm /acu/mx/o/runcbl*0*log 2>>/dev/null
+#\rm /acu/mx/o/runcbl*1*log 2>>/dev/null
+#\rm /acu/mx/o/runcbl*2*log 2>>/dev/null
+#\rm /acu/mx/o/runcbl*3*log 2>>/dev/null
+#\rm /acu/mx/o/runcbl*4*log 2>>/dev/null
+#\rm /acu/mx/o/runcbl*5*log 2>>/dev/null
+#\rm /acu/mx/o/runcbl*6*log 2>>/dev/null
+#\rm /acu/mx/o/runcbl*7*log 2>>/dev/null
+#\rm /acu/mx/o/runcbl*8*log 2>>/dev/null
+#\rm /acu/mx/o/runcbl*9*log 2>>/dev/null
+#\rm /acu/cx/o/runcbl*log 2>>/dev/null
+#\rm /acu/iex/o/runcbl*log 2>>/dev/null
+#\rm /acu/pex/o/runcbl*log 2>>/dev/null
+#\rm /acu/mex/o/runcbl*log 2>>/dev/null
+#\rm /acu/palme/o/runcbl*log 2>>/dev/null
+#\rm /acu/miami/o/runcbl*log 2>>/dev/null
+#\rm /acu/mistral/o/runcbl*log 2>>/dev/null
+#\rm /acu/rx/o/runcbl*log 2>>/dev/null
+#\rm /acu/empx/o/runcbl*log 2>>/dev/null
+#\rm /acu/*/o/runcbl*log 2>>/dev/null
+#\rm /acu/miami/o/socks*.trc 2>>/dev/null
+\rm /acu/*/o/runcbl*log 2>>/dev/null
+\rm /tmpmis/heap* 2>>/dev/null
+\rm /tmpmis/java* 2>>/dev/null
+\rm /tmpmis/Snap* 2>>/dev/null
+\rm /acuf/tmpweb/*.finish 2>>/dev/null
+if [ -d /tmpmis/imgwebtop ]
+then \rm -r /tmpmis/imgwebtop
+     mkdir /tmpmis/imgwebtop
+     chmod 777 /tmpmis/imgwebtop
+fi
+if [ -d /acuf/soffice/tmp ]
+then \rm -r /acuf/soffice/tmp
+     mkdir /acuf/soffice/tmp
+     chmod 777 /acuf/soffice/tmp
+     mkdir /acuf/soffice/tmp/devis
+     chmod 777 /acuf/soffice/tmp/devis
+     mkdir /acuf/soffice/tmp/mailing
+     chmod 777 /acuf/soffice/tmp/mailing
+fi
+if [ "$OSTYPE" != "linux-gnu" ]
+then /usr/local/bin/sudo -u mistral /acu/mistral/px/ATD_SP /acu/mistral/o ctrlerrpt.acu 0001 ERRPT 2>/acu/mistral/ferr/CTRLERRPT $>/acu/mistral/ferr/ERRPT
+fi
+if [ "$OSTYPE" = "linux-gnu" ]
+then /acu/mistral/px/PURGE-VIRTUAL
+fi

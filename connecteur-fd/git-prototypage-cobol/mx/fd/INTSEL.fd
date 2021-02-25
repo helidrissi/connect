@@ -1,0 +1,21 @@
+      *(( XFD FILE = INT ))
+       FD  INTSEL.
+       01 ENR-INT.
+
+      *(( XFD COMMENT Date de Traitement ))
+           02 DAT-INT          PIC  9(8).
+           02 R-DAT-INT REDEFINES DAT-INT.
+               05 SDAT-INT         PIC  9(2).
+               05 ADAT-INT         PIC  9(2).
+               05 MDAT-INT         PIC  9(2).
+               05 JDAT-INT         PIC  9(2).
+
+      *(( XFD COMMENT Auteur de la sélection ))
+           02 IDE-INT          PIC  X(4).
+
+      *(( XFD COMMENT Nom de l'Imprimante ))
+           02 IMP-INT          PIC  X(20).
+           02 FILLER           PIC  X(30).
+
+      *(( XFD COMMENT Critères de sélection spécifique au programme ))
+           02 ZSEL-INT         PIC  X(938).

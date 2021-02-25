@@ -1,0 +1,210 @@
+      *(( XFD FILE = MXBDIS2 ))
+       FD  MXBDIS2
+           LABEL RECORD IS STANDARD.
+       01 ENR-MBDI2.
+           02 CLE1-MBDI2.
+               03 AGE-MBDI2        PIC  XXX.
+               03 BON-MBDI2        PIC  9(8).
+               03 R-BON-MBDI2 REDEFINES BON-MBDI2.
+                   05 MOB-MBDI2        PIC  99.
+                   05 BON2-MBDI2       PIC  9(6).
+               03 R2-BON-MBDI2 REDEFINES BON-MBDI2.
+                   05 MOB3-MBDI2       PIC  999.
+                   05 BON3-MBDI2       PIC  9(5).
+           02 TYP-MBDI2        PIC  9.
+      *** TYC: 0=classique 1=BL inter-agence 2=copropri‚taire
+      ***      5=r‚trocession 7=BL remise refactur‚e/fou 9=forfait
+      ***      8=facture comptoir
+           02 TYC-MBDI2        PIC  9.
+      *** TYC: 0=classique 1=BL inter-agence 2=copropri‚taire
+      ***      5=r‚trocession 7=BL remise refactur‚e/fou 9=forfait
+      ***      8=facture comptoir
+           02 IVR-MBDI2        PIC  9.
+      *** TYC: 0=classique 1=BL inter-agence 2=copropri‚taire
+      ***      5=r‚trocession 7=BL remise refactur‚e/fou 9=forfait
+      ***      8=facture comptoir
+           02 IFO-MBDI2        PIC  9.
+           02 CLI-MBDI2        PIC  9(6).
+           02 TFA-MBDI2        PIC  9.
+           02 CHC-MBDI2        PIC  9(9).
+           02 TIT-MBDI2        PIC  99.
+           02 IAF-MBDI2        PIC  9.
+           02 RAI-MBDI2        PIC  X(25).
+           02 ADR-MBDI2        PIC  X(75).
+           02 POS-MBDI2        PIC  X(8).
+           02 VIL-MBDI2        PIC  X(25).
+           02 DAT-MBDI2        PIC  9(8).
+           02 R-DAT-MBDI2 REDEFINES DAT-MBDI2.
+               03 SDAT-MBDI2       PIC  99.
+               03 ADAT-MBDI2       PIC  99.
+               03 MDAT-MBDI2       PIC  99.
+               03 JDAT-MBDI2       PIC  99.
+           02 PAI-MBDI2        PIC  99
+                      OCCURS 5 TIMES.
+           02 ECH-MBDI2        PIC  9
+                      OCCURS 5 TIMES.
+           02 TER-MBDI2        PIC  9
+                      OCCURS 5 TIMES.
+           02 NJE-MBDI2        PIC  999
+                      OCCURS 5 TIMES.
+           02 MON-MBDI2        PIC  S9(7)V99
+                      OCCURS 5 TIMES.
+           02 POU-MBDI2        PIC  999V99
+                      OCCURS 5 TIMES.
+           02 LPA-MBDI2        PIC  X(20).
+           02 REF-MBDI2        PIC  X(30)
+                      OCCURS 2 TIMES.
+           02 FAC-MBDI2        PIC  9(6).
+           02 TRA-MBDI2        PIC  9.
+           02 REP-MBDI2        PIC  X(4).
+           02 IPR-MBDI2        PIC  9.
+           02 IFA-MBDI2        PIC  9.
+           02 DFA-MBDI2        PIC  9(8).
+           02 R-DFA-MBDI2 REDEFINES DFA-MBDI2.
+               03 SDFA-MBDI2       PIC  99.
+               03 ADFA-MBDI2       PIC  99.
+               03 MDFA-MBDI2       PIC  99.
+               03 JDFA-MBDI2       PIC  99.
+           02 FFA-MBDI2        PIC  S999V99.
+           02 BCG-MBDI2        PIC  9(8).
+           02 TAT-MBDI2        PIC  S9(7)V99.
+           02 TAC-MBDI2        PIC  S9(7)V99.
+           02 NRF-MBDI2        PIC  X(20).
+           02 PER-MBDI2        PIC  9(4).
+           02 R-PER-MBDI2 REDEFINES PER-MBDI2.
+               04 PERM-MBDI2       PIC  99.
+               04 PERA-MBDI2       PIC  99.
+           02 DOM-MBDI2        PIC  X(24).
+           02 ADB-MBDI2        PIC  X(24).
+           02 ZRIB-MBDI2.
+               03 BQE-MBDI2        PIC  9(5).
+               03 GUI-MBDI2        PIC  9(5).
+               03 CPT-MBDI2        PIC  X(11).
+               03 RIB-MBDI2        PIC  99.
+           02 RIBISO-MBDI2     PIC  XX.
+           02 MPA-MBDI2        PIC  9.
+           02 TTR-MBDI2        PIC  9.
+           02 ESC-MBDI2        PIC  99V99.
+           02 AGS-MBDI2        PIC  X(3).
+           02 DEP-MBDI2        PIC  9(3).
+           02 TPR-MBDI2        PIC  S9(7)V99.
+           02 MBP-MBDI2        PIC  S9(7)V99.
+           02 MMI-MBDI2        PIC  S9(7)V99.
+           02 MMX-MBDI2        PIC  S9(7)V99.
+           02 AFC-MBDI2        PIC  9.
+           02 EDI-MBDI2        PIC  9.
+           02 SAL-MBDI2        PIC  X(4).
+           02 ORI-MBDI2        PIC  9.
+           02 CDV-MBDI2        PIC  9(6).
+           02 ACA-MBDI2        PIC  9.
+           02 CBLF-MBDI2.
+               03 ABLF-MBDI2       PIC  XXX.
+               03 LBLF-MBDI2       PIC  9(6).
+           02 ACO-MBDI2        PIC  S9(7)V99.
+           02 TCC-MBDI2        PIC  X.
+           02 CDL-MBDI2        PIC  9(6).
+           02 DLP-MBDI2        PIC  9(8).
+           02 R-DLP-MBDI2 REDEFINES DLP-MBDI2.
+               03 SADLP-MBDI2      PIC  9999.
+               03 R-SADLP-MBDI2 REDEFINES SADLP-MBDI2.
+                   04 SDLP-MBDI2       PIC  99.
+                   04 ADLP-MBDI2       PIC  99.
+               03 MDLP-MBDI2       PIC  99.
+               03 JDLP-MBDI2       PIC  99.
+           02 NPT-MBDI2        PIC  9(5).
+
+      *(( XFD COMMENT Message pour validation avoir envoyé ))
+           02 EMSG-MBDI2       PIC  9.
+           02 FILLER           PIC  X(2).
+           02 TYM-MBDI2        PIC  X(16).
+           02 MAT-MBDI2        PIC  9(10).
+           02 TBP-MBDI2        PIC  9.
+           02 DEL-MBDI2        PIC  99.
+           02 VAO-MBDI2        PIC  99.
+           02 FCO-MBDI2        PIC  9(8).
+           02 MFO-MBDI2        PIC  S9(7)V99.
+           02 DFO-MBDI2        PIC  9.
+           02 IFD-MBDI2        PIC  9.
+           02 CRS-MBDI2        PIC  9(3)V9(5).
+           02 IRE-MBDI2        PIC  9.
+           02 MRU-MBDI2        PIC  99V99.
+           02 PUS-MBDI2        PIC  9.
+           02 TTV-MBDI2        PIC  9.
+           02 TVA-MBDI2        PIC  99V99.
+           02 BCO-MBDI2        PIC  9(8).
+           02 DLO-MBDI2        PIC  9(8).
+           02 R-DLO-MBDI2 REDEFINES DLO-MBDI2.
+               03 SDLO-MBDI2       PIC  99.
+               03 ADLO-MBDI2       PIC  99.
+               03 MDLO-MBDI2       PIC  99.
+               03 JDLO-MBDI2       PIC  99.
+           02 DCO-MBDI2        PIC  9(8).
+           02 R-DCO-MBDI2 REDEFINES DCO-MBDI2.
+               03 SDCO-MBDI2       PIC  99.
+               03 ADCO-MBDI2       PIC  99.
+               03 MDCO-MBDI2       PIC  99.
+               03 JDCO-MBDI2       PIC  99.
+           02 MPF-MBDI2        PIC  S9(6)V99.
+           02 LET-MBDI2        PIC  9.
+           02 IMM-MBDI2        PIC  9.
+           02 CLL-MBDI2        PIC  9(6).
+           02 ITC-MBDI2        PIC  9(9).
+           02 NBC-MBDI2        PIC  99.
+           02 IES-MBDI2        PIC  9.
+           02 ADD-MBDI2        PIC  9.
+           02 FOU-MBDI2        PIC  9(6).
+           02 NAF-MBDI2        PIC  X(10).
+           02 STR-MBDI2        PIC  9.
+           02 CAT-MBDI2        PIC  9.
+           02 AUT-MBDI2        PIC  X(8).
+           02 TSP-MBDI2        PIC  X(4).
+           02 EDIB-MBDI2       PIC  9.
+           02 NOF-MBDI2        PIC  9(8).
+           02 PACO-MBDI2       PIC  99.
+           02 FACO-MBDI2       PIC  9(6).
+           02 GEN-MBDI2        PIC  9.
+           02 MAM-MBDI2        PIC  X(4).
+
+      *(( XFD COMMENT Indicateur bon reçu d'un mobile : 0 = Non  1=En partie  2= En totalité ))
+           02 IRM-MBDI2        PIC  9.
+
+      *(( XFD COMMENT N° ordre BLF pour B/L sociétés liées ))
+           02 OBLF-MBDI2       PIC  9(2).
+
+      *(( XFD COMMENT Stade devis: Blanc=En cours   1=1er Relance   2=2ème Relance   3=3ème Relance   G=Gagné   P=Perdu    R=Reporté   A=Abandonné ))
+           02 STA-MBDI2        PIC  X.
+
+      *(( XFD COMMENT Date relance du Devis ))
+           02 DREL-MBDI2       PIC  9(8).
+           02 R-DREL-MBDI2 REDEFINES DREL-MBDI2.
+               04 SDREL-MBDI2      PIC  99.
+               04 ADREL-MBDI2      PIC  99.
+               04 MDREL-MBDI2      PIC  99.
+               04 JDREL-MBDI2      PIC  99.
+
+      *(( XFD COMMENT N° bon de transfert (TSV) si nter-agence avec gestion stock relais ))
+           02 TAA-MBDI2        PIC  9(6).
+
+      *(( XFD COMMENT Intégré au programme fidélité ))
+           02 FID-MBDI2        PIC  9.
+
+      *(( XFD COMMENT Motif avoir ))
+           02 MOA-MBDI2        PIC  XX.
+
+      *(( XFD COMMENT N° agence livraison (M3) ))
+           02 AGL-MBDI2        PIC  X(3).
+      *(( XFD NAME = indic_fidelite ))
+      *(( XFD COMMENT Demande de retour de pièces si TYP = 0 ))
+           02 IRP-MBDI2        PIC  9.
+      *(( XFD NAME = indic_fidelite ))
+      *(( XFD COMMENT Indicateur génération fichier CONEX (Machdeal): 1=Généré ))
+           02 GCO-MBDI2        PIC  9.
+      *(( XFD NAME = code_service ))
+      *(( XFD COMMENT Code service notamment pour Chorus ))
+           02 SER-MBDI2        PIC  XX.
+      *(( XFD NAME = indic_conex ))
+      *(( XFD COMMENT Sortie exceptionnelle ))
+           02 EXC-MBDI2        PIC  9.
+
+      *(( XFD COMMENT Commandes WEB; n° de l'entête EDO à imprimer sur les documents ))
+           02 EDO-MBDI2        PIC  9(2).

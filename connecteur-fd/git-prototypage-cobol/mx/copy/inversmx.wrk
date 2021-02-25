@@ -1,0 +1,9 @@
+      *****************************************************************
+      *  Variables / Inversion Montants                               *
+      *  Monnaie Interne <-> Monnaie Pivot                            *
+      *****************************************************************
+       01  WCE-MAC            PIC S9(12)V99.
+       01  WCE-MCO            PIC S9(12)V99.
+       01  WCE-CRS            PIC 9(4)V9(5).
+       01  WCE-DEV            PIC X(3).
+

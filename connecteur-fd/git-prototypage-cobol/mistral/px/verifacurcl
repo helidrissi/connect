@@ -1,0 +1,15 @@
+egrep "Child runtime is started" /usr/acucobol72/etc/acurcl.err  | cut -f 3 -d "," > /tmp/TEST1$USER
+egrep "Child runtime is finished" /usr/acucobol72/etc/acurcl.err | cut -f 3 -d "," > /tmp/TEST2$USER 
+sort /tmp/TEST1$USER > /tmp/TEST1S$USER
+sort /tmp/TEST2$USER > /tmp/TEST2S$USER
+diff -c /tmp/TEST1S$USER /tmp/TEST2S$USER > /tmp/TEST3$USER
+egrep "\-  " /tmp/TEST3$USER |cut -f 2 -d "-" > /tmp/TEST4$USER
+  cat /tmp/TEST4$USER | while read LINE
+  do 
+    EXISTE=`ps -ef |grep $LINE |awk "/runcbl/" |awk '{ print $12}'`
+    if [ -n "$EXISTE" ]
+    then :
+    else echo $LINE " non trouvé"
+    fi
+  done
+

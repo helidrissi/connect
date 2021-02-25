@@ -1,0 +1,33 @@
+ACURCL=`ps -ef -o "%p  %c " | grep acurcl |awk '{ print $1}'`
+if [ -z "$ACURCL" ]
+then echo `date` "Relance necessaire" >>/tmp/RELANCEACUCTRL
+else exit 
+fi
+ACUSHARE=`ps -ef -o "%p  %c " | grep acushare |awk '{ print $1}'`
+if [ -z "$ACUSHARE" ]
+then :
+else TACHE=`ps -ef -o "%p  %c " | grep acushare |awk '{ print $1}'`
+     kill -9 $TACHE
+     echo "Kill du process acushare" >>/tmp/RELANCEACUCTRL
+fi
+ps -ef -o "%p  %c " |grep runcbl|awk '{ print $1}' | while read TACHE
+    do 
+        kill -9 $TACHE
+        echo "Kill du process runcbl $TACHE" >>/tmp/RELANCEACUCTRL
+
+    done
+
+IPCSQ=`ipcs |grep mistral |grep q |awk '{ print  $2 }'`
+if [ -z "$IPCSQ" ]
+then :
+else ipcrm -q $IPCSQ
+fi
+
+IPCSM=`ipcs |grep mistral |grep m |awk '{ print  $2 }'`
+if [ -z "$IPCSM" ]
+then :
+else ipcrm -m $IPCSM
+fi
+sleep 15
+echo `date` "Relance " >> /tmp/RELANCEACUCTRL
+/acu/mistral/cfg/lance_acurcl62 &

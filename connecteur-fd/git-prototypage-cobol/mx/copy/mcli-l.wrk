@@ -1,0 +1,160 @@
+      * mcli-l.wrk
+      * mcli-l.wrk is generated from W:\mx\spro\mcli-l.Psf
+      * This is a generated file. DO NOT modify this file directly.
+
+       77 Key-Status IS SPECIAL-NAMES CRT STATUS PIC 9(5) VALUE 0.
+           88 Exit-Pushed VALUE 27.
+           88 Message-Received VALUE 95.
+           88 Event-Occurred VALUE 96.
+      * property-defined variable
+
+      * user-defined variable
+       77 Screen1-Handle
+                  USAGE IS HANDLE OF WINDOW VALUE NULL.
+           COPY  "cobcap.wrk".
+       77 Default-Font
+                  USAGE IS HANDLE OF FONT DEFAULT-FONT.
+       77 Small-Font
+                  USAGE IS HANDLE OF FONT SMALL-FONT.
+       77 VALIDER24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 QUITTER24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ENGRSIM16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 Screen1-Gd-1-Cursor-Y-Old    PIC  9(5).
+       01 Old-Screen1-Gd-1-Record.
+           05 Old-Screen1-Gd-1-RAI         PIC  X(36).
+           05 Old-Screen1-Gd-1-FCO         PIC  X(8).
+           05 Old-R-Screen1-Gd-1-FCO REDEFINES Old-Screen1-Gd-1-FCO.
+               10 Old-Screen1-Gd-1-COD         PIC  9(6).
+               10 FILLER           PIC  XX.
+           05 Old-Screen1-Gd-1-Siege       PIC  X(08).
+           05 Old-Screen1-Gd-1-TEL         PIC  X(18).
+           05 Old-Screen1-Gd-1-SIREN       PIC  X(12).
+           05 Old-Screen1-Gd-1-TVA         PIC  X(20).
+           05 Old-Screen1-Gd-1-Age         PIC  X(2).
+           05 Old-Screen1-Gd-1-Bidon2      PIC  X(08).
+           05 Old-Screen1-Gd-1-VIL         PIC  X(35).
+           05 Old-Screen1-Gd-1-Interloc    PIC  X(52).
+       77 Tmp-9-3          PIC  9(6).
+       77 W-COD            PIC  9(6).
+       77 W-FCO            PIC  9(8).
+       77 W-TEL            PIC  X(15).
+       77 W-TEL2           PIC  X(15).
+       77 W-SIR            PIC  X(3)BX(3)BX(3).
+       77 W-SIREN          PIC  X(12).
+       77 W-TVA            PIC  X(20).
+       77 W-VILLE          PIC  X(25).
+       77 W-CP-ECR         PIC  X(8).
+       77 W-CP-FIC         PIC  X(8).
+       77 W-PAYS           PIC  X(3).
+       77 W-INTERLOC       PIC  X(25).
+       77 W-INTERLOCUTEUR  PIC  X(52).
+       77 W-Ef-TEL         PIC  X(15).
+       77 W-KEY-ORDER      PIC  X(1)
+                  VALUE IS "A".
+       77 W-KEY-NUM        PIC  9(1)
+                  VALUE IS 4.
+       77 W-ORD            PIC  S9(2)
+                  VALUE IS 0.
+       77 W-NBR            PIC  9(4)
+                  VALUE IS 0.
+       77 W-LOG-PALM       PIC  9(3).
+       77 W-NPR-PALM       PIC  9(3).
+       77 W-RAI            PIC  X(25).
+       77 Af-POS           PIC  X(10).
+       77 W-RAISOC         PIC  X(36).
+       77 W-CPT            PIC  9(3).
+       77 W-NDEP           PIC  9(3).
+       77 W-ORIPAYS        PIC  X(2).
+           COPY  "EF-TEL.WRK".
+           COPY  "EF-POS.WRK".
+           COPY  "rech.wrk".
+       77 W-MXPARAM        PIC  9(9).
+       77 PAYS-FILE-STATUS PIC  X(2).
+           88 Valid-PAYS-FILE-STATUS VALUE IS "00" THRU "09". 
+       77 FILE-STATUS      PIC  X(2).
+       77 PLUSxxx16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ASSIGN-RECH      PIC  X(60).
+       77 WASS-RECH        PIC  X(20)
+                  VALUE IS "MCLI-L-RECH".
+       77 W-NB-ELT         PIC  X(60).
+       77 Tmp-9-3-FIC      PIC  9(6).
+       77 Tmp-9-3-ECR      PIC  Z(5)9.
+       77 CXCLI-FILE-STATUS            PIC  X(2).
+           88 Valid-CXCLI VALUE IS "00" THRU "09". 
+       77 ZOOMxxx16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 W-TITSOC         PIC  9(9).
+       77 I-CLI            PIC  9(3).
+       77 W-EMAIL          PIC  X(60).
+       77 ENGRDOU24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ASSIGN-RECHCMD   PIC  X(60).
+       77 W-TITLE          PIC  X(30)
+                  VALUE IS "LISTE DES CLIENTS".
+       77 CLIENTx16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 Screen1-St-1-Handle
+                  USAGE IS HANDLE OF STATUS-BAR VALUE NULL.
+       77 SIEGSOC16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 PLUSxxx16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ADDxxxx16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 WARNING16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 INTERDI16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 STOPxxx16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 WARNINX16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 W-TABRLA         PIC  9(9).
+       77 W-DEB            PIC  9.
+       77 W-LGT            PIC  99.
+       77 W-TTL            PIC  X.
+       77 W-NBT            PIC  9(3).
+       77 W-POS            PIC  9(3).
+       77 W-IND-TEL        PIC  9.
+       77 W-MSG-TEL        PIC  9.
+       77 W-AF-TEL         PIC  X(18).
+       77 W-OK PIC  9.
+       77 W-NVIL           PIC  99.
+       77 W-RESTE          PIC  9(3).
+       77 W-RESULT         PIC  9(6).
+       77 I    PIC  9(3).
+       77 J    PIC  9(3).
+       77 W-SPTEL          PIC  9(3).
+       77 W-PAS-RAZ        PIC  9.
+       77 Screen1-Ef-1-Value           PIC  X(30).
+       77 Screen1-Ef-1-Valuea          PIC  X(30).
+       01 Screen1-Gd-1-Record.
+           05 Screen1-Gd-1-RAI PIC  X(36).
+           05 Screen1-Gd-1-ADR PIC  X(75).
+           05 Screen1-Gd-1-FCO PIC  X(8).
+           05 Screen1-Gd-1-Siege           PIC  X(08).
+           05 Screen1-Gd-1-TEL PIC  X(18).
+           05 Screen1-Gd-1-Age PIC  X(2).
+           05 Screen1-Gd-1-Bidon2          PIC  X(08).
+           05 Screen1-Gd-1-VIL PIC  X(75).
+           05 Screen1-Gd-1-Interloc        PIC  X(52).
+       77 Screen1-Visible  PIC  9
+                  VALUE IS 0.

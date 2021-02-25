@@ -1,0 +1,70 @@
+      * Linkage de MART-L
+       01 LK-MART-L.
+           05 LK-MART-L-COD  PIC X(20).
+           05 LK-MART-L-DES  PIC X(40).
+           05 LK-MART-L-DES2 PIC X(20).
+      * LK-MART-L-ACT : blanc ou V=vente
+      *                 L =location
+      *                 T =vente + location
+      *                 F =Articles Fabriqués (module Fabrication : présent dans NOMFABE)
+      *                 f =Article non fabriqué (non présent dans NOMFABE)
+           05 LK-MART-L-ACT  PIC X.
+      * LK-MART-L-INO POUR LA VENTE (mettre "V" dans LK-MART-L-ACT sinon pas de test)
+      *                 0=article simple (INO=0)
+      *                 1=composition    (INO not = 0)
+      *                 3=kit            (INO=3)
+      *                 9=tous
+      * LK-MART-L-INO POUR LA LOCATION
+      *                 1=article composé (INO not = 0)
+      *                 2=simple + compo fixe
+      *                 3=composé fixe + variable 
+           05 LK-MART-L-INO  PIC 9.
+      * LK-MART-L-NAT POUR LA VENTE: 1 par nature d'article
+      *                 0=affiché
+      *                 1=non affiché 
+      *    Attention ! rang décalé d'un par rapport à NAT-MGFA ( Afficher les petits matériels = LK-MART-L-NAT(10) = 1 )
+           05 LK-MART-L-NAT  PIC 9  OCCURS 10.
+      * LK-MART-L-AGE: Agence stock si affichage colonne stock (AFLA-MPAR = 2 ou 3) Doit être renseigné pour remplacer la colonne référence selon AFLA-MPAR STLA-MPAR
+           05 LK-MART-L-AGE  PIC XXX.
+      * LK-MART-L-KEY: Blanc = Liste (classique) par code ou désignation
+      *                F     = Liste des articles d'un fournisseur (y compris lecture ARTMA)
+      *                G     = Liste des articles d'une famille
+      *                W     = A partir du Webtop (pas d'accès fournisseur ni N/S)
+           05 LK-MART-L-KEY  PIC X.
+      * LK-MART-L-FOU: N° Fournisseur (si LK-LART-L-KEY = "F")
+           05 LK-MART-L-FOU  PIC 9(6).
+      * LK-MART-L-SER: N° Série (si LK-LART-L-SER = 1 => oui)
+           05 LK-MART-L-SER  PIC 9.
+      * LK-MART-L-GRA et LK-MART-L-FAM (si LK-LART-L-KEY = "G)         
+           05 LK-MART-L-GRA  PIC 99.
+           05 LK-MART-L-FAM  PIC 99.
+      * LK-MART-L-NSER: N° Série sélectionné (si LK-LART-L-SER = 1 => oui)
+           05 LK-MART-L-NSER PIC X(20). 
+      * LK-MART-L-CLI pour calculer le prix de l'article pour le client
+           05 LK-MART-L-CLI   PIC 9(6). 
+      * LK-MART-L-MOD non utilisé
+           05 LK-MART-L-MOD   PIC X.
+      * LK-MART-L-TCC type cde client pour calculer prix vente 
+           05 LK-MART-L-TCC   PIC X. 
+      * LK-MART-L-AFF non utilisé
+           05 LK-MART-L-AFF   PIC 9. 
+      * LK-MART-L-IVT = 1 avec les interdits à la vente
+           05 LK-MART-L-IVT   PIC 9. 
+      * LK-MART-L-PREF = 1 avec sélection article préférentiel (Fenwick)
+           05 LK-MART-L-PREF  PIC 9. 
+      *     05 FILLER         PIC X(57).
+      * LK-MAT-L-SEL Sélection conservée entre chaque appel ARTSA
+           05 LK-MART-L-SEL.
+      *       Type de recherche 
+250719*        10 LK-MART-L-ORD   PIC 9.    | pour garder la sélection ne pas effacer LK-MART-L avant d'appeler MART-L (en particulier LK-MART-L-ORD LK-MART-L-LIB LK-MART-L-FOU LK-MART-L-GRA LK-MART-L-FAM)
+              10 LK-MART-L-ORD   PIC 99.    | pour garder la sélection ne pas effacer LK-MART-L avant d'appeler MART-L (en particulier LK-MART-L-ORD LK-MART-L-LIB LK-MART-L-FOU LK-MART-L-GRA LK-MART-L-FAM)
+      *       Complément de recherche
+              10 LK-MART-L-LIB   PIC X(20).
+      *       Fournisseur d'origine ou secondaire
+              10 LK-MART-L-MULTI PIC 9.
+      *       Sélection fournisseur
+              10 LK-MART-L-SELFOU PIC 9.
+      *       Sélection famille
+              10 LK-MART-L-SELFAM PIC 9.
+
+           05 FILLER         PIC X(32).

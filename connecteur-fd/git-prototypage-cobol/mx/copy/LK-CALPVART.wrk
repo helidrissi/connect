@@ -1,0 +1,43 @@
+      * Linkage de calpvart
+      *    ********************************************************
+      *    * Calcul du prix de vente d'un article pour 1 client   *
+      *    * et ou une agence                                     *
+      *    ********************************************************
+       01 LK-CALPVART.
+           02 LK-CALPVART-ART PIC  X(20).
+           02 LK-CALPVART-AGE PIC  XXX.
+           02 LK-CALPVART-CLI PIC  9(6).
+           02 LK-CALPVART-MOD PIC  X.
+           02 LK-CALPVART-TCC PIC  X.
+      * prix public
+           02 LK-CALPVART-PRI    PIC  9(8)V99.
+      * prix brut client
+           02 LK-CALPVART-PRICLI PIC  9(8)V99.
+      * ^prix net client
+           02 LK-CALPVART-PVNCLI PIC  9(8)V99.
+      * remise
+           02 LK-CALPVART-REMCLI PIC  S99V99.
+      * indic promo
+           02 LK-CALPVART-PRO    PIC  9.
+      * stock société
+           02 LK-CALPVART-STS    PIC  S9(8)V99.
+      * stock agence
+           02 LK-CALPVART-STG    PIC  S9(8)V99.
+      * stock central agence
+           02 LK-CALPVART-STC    PIC  S9(8)V99.
+      * indic spécial Foraloc
+           02 LK-CALPVART-SPEC   PIC  9.
+           02 LK-CALPVART-FOU    PIC  9(6).
+           02 LK-CALPVART-DEV    PIC  X(3).
+           02 LK-CALPVART-SOC    PIC  9(4).
+      * poste CI si ligne en cession interne
+           02 LK-CALPVART-PCI    PIC  999.
+      * date pour ATV (prise en compte OLDTAR)     ATTENION! ne pas renseigner si pas ATV
+           02 LK-CALPVART-DSP    PIC  9(8).
+      * OLDTAR Trouvé
+           02 LK-CALPVART-CHT    PIC  9.
+      * Pour les prestations, mettre "P"
+           02 LK-CALPVART-INP    PIC  X.
+      * indic tarif spécial
+           02 LK-CALPVART-TSC    PIC  9.
+           02 FILLER             PIC  X(36).

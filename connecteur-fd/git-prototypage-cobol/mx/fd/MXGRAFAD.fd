@@ -1,0 +1,51 @@
+      *(( XFD FILE = MXGRAFAD ))
+       FD  MXGRAFAD
+           LABEL RECORD IS STANDARD.
+       01 ENR-MGFD.
+           02 CLE1-MGFD.
+
+      *(( XFD COMMENT Code famille ))
+               04 GRA-MGFD         PIC  99.
+
+      *(( XFD COMMENT % marge mini ))
+           02 MMI-MGFD         PIC  99V99.
+
+      *(( XFD COMMENT % marge maxi ))
+           02 MMX-MGFD         PIC  99V99.
+
+      *(( XFD COMMENT % marge plancher ))
+           02 MMP-MGFD         PIC  99V99.
+
+      *(( XFD COMMENT Minoration marge articles avec concurrence ))
+           02 MIB-MGFD         PIC  9V99.
+
+      *(( XFD COMMENT Majoration marge articles sans concurrence ))
+           02 MAB-MGFD         PIC  9V99.
+
+      *(( XFD COMMENT Indice rotation norme mini ))
+           02 IMI-MGFD         PIC  9(3)V9.
+
+      *(( XFD COMMENT Indice rotation norme maxi ))
+           02 IMX-MGFD         PIC  9(3)V9.
+
+      *(( XFD COMMENT % variation mini-maxi hors normes ))
+           02 VHN-MGFD         PIC  9(3).
+
+      *(( XFD COMMENT Coef couverture stock mini ))
+           02 CMI-MGFD         PIC  9V999.
+
+      *(( XFD COMMENT Coef couverture stock maxi ))
+           02 CMX-MGFD         PIC  9V999.
+
+      *(( XFD COMMENT Duére de vie minimum ))
+           02 DVM-MGFD         PIC  9(3).
+
+      *(( XFD COMMENT I.R. somnolent ))
+           02 IRS-MGFD         PIC  99V9.
+
+      *(( XFD COMMENT I.R. dormant ))
+           02 IRD-MGFD         PIC  99V9.
+
+      *(( XFD COMMENT Nombre années stock mort ))
+           02 ASM-MGFD         PIC  9.
+           02 FILLER           PIC  X(101).

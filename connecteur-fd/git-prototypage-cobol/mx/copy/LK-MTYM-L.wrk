@@ -1,0 +1,18 @@
+      * Linkage de MTYM-L
+       01 LK-MTYM-L.
+      *    Nombre d'éléments sélectionnées
+           05 LK-MTYM-L-NBSEL PIC 9(3).
+      *    Nombre de sélections possibles
+      *    1 -> Liste Simple
+      *    2,3,4... -> Liste multiple
+           05 LK-MTYM-L-MAXSEL PIC 9(3).
+      *    TABLE des Codes du fichier Sélection
+      *    Si liste simple, code disponible dans LK-GENLISTE-COD(1)
+      *    Si liste multiple, LK-GENLISTE-COD(i)
+      *       avec i de 1 à LK-GENLISTE-NBSEL
+           05 LK-MTYM-L-SELECT.
+              06 LK-MTYM-L-TYP PIC X(16) OCCURS 40.
+           05 LK-MTYM-L-MAR   PIC X(4).
+      * Famille matériel (facultatif)
+           05 LK-MTYM-L-FAM   PIC X(2).
+           05 FILLER PIC X(43).

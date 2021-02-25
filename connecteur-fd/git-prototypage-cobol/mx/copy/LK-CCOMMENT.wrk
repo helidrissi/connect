@@ -1,0 +1,44 @@
+      * Linkage de CCOMMENT
+       01 LK-CCOMMENT.
+      * Activité: A = achat
+      *           D = distribution                           
+      *           M = vente matériel 
+      *           L = location
+      *           R = réparation
+      *           F = contrat location longue durée / contrat d'entretien
+      *                    
+      * Niveau : D = Devis
+      *          C = Commande
+      *          L = bon de livraison 
+      *          S = Bon de sortie
+      *          R = Bon de retour
+      *          A = Avoir (location)
+      * 
+      * INO   : " " = Ligne normale
+      *         C = Ligne composition
+      *         E = texte saisi en entête de bon (format 4 x 80)
+      *         P = Clauses particulières ou note planning technicien
+      *         I = Instructions internes
+      *           
+      * Lib : 40 premiers caracères du commentaire pour mise à jour
+      *       ligne du bon
+           05 LK-CCOMMENT-ORI PIC X(3).
+           05 R-LK-CCOMMENT-ORI REDEFINES LK-CCOMMENT-ORI.
+               06 LK-CCOMMENT-ACT PIC X.
+               06 LK-CCOMMENT-NIT PIC X.
+               06 LK-CCOMMENT-INO PIC X.
+           05 LK-CCOMMENT-CLE PIC X(24).
+           05 R-LK-CCOMMENT-CLE REDEFINES LK-CCOMMENT-CLE.
+               06 LK-CCOMMENT-IDE PIC X(4).
+               06 LK-CCOMMENT-DAT PIC 9(8).
+               06 LK-CCOMMENT-HEU PIC 99V99.
+               06 LK-CCOMMENT-NOP PIC X(8).
+           05 LK-CCOMMENT-CDF PIC X.
+           05 LK-CCOMMENT-STA PIC X.
+           05 LK-CCOMMENT-LIB PIC X(40).
+           05 LK-CCOMMENT-INP PIC X.
+      * 1 pour avoir le choix bon de prépaartion si stade <> "C"
+           05 LK-CCOMMENT-EBP PIC 9.
+      *    Handle fenêtre appelante pour centrage fenetre multi écran
+           05 LK-CCOMMENT-handle PIC 9(4).
+           05 FILLER          PIC X(25).

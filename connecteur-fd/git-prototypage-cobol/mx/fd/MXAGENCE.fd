@@ -1,0 +1,297 @@
+      *(( XFD FILE = AGENCE ))
+       FD  MXAGENCE
+           LABEL RECORD IS STANDARD.
+       01 ENR-MAGC.
+           02 CLE1-MAGC.
+      *(( XFD NAME = CODE_AGENCE ))
+      *(( XFD COMMENT Code agence ))
+               04 COD-MAGC         PIC  XXX.
+           02 CLE2-MAGC.
+      *(( XFD NAME = NOM_AGENCE ))
+      *(( XFD COMMENT Nom ))
+               04 NOM-MAGC         PIC  X(30).
+      *(( XFD NAME = ADRESSE1_AGENCE ))
+      *(( XFD COMMENT Adresse 1 ))
+           02 RUE-MAGC         PIC  X(30).
+      *(( XFD NAME = ADRESSE2_AGENCE ))
+      *(( XFD COMMENT Adresse 2 ))
+           02 LIE-MAGC         PIC  X(30).
+      *(( XFD NAME = CODE_POSTAL_AGENCE ))
+      *(( XFD COMMENT Code postal ))
+           02 POS-MAGC         PIC  X(8).
+      *(( XFD NAME = VILLE_AGENCE ))
+      *(( XFD COMMENT Ville ))
+           02 VIL-MAGC         PIC  X(30).
+      *(( XFD NAME = ABREGE_AGENCE ))
+      *(( XFD COMMENT Abrégé ))
+           02 ABR-MAGC         PIC  XX.
+      *(( XFD NAME = NO_TEL_AGENCE ))
+      *(( XFD COMMENT N° téléphone ))
+           02 TEL-MAGC         PIC  X(12).
+      *(( XFD NAME = NO_TEL2_AGENCE ))
+      *(( XFD COMMENT N° téléphone ))
+           02 TE2-MAGC         PIC  X(12).
+      *(( XFD NAME = NO_FAX_AGENCE ))
+      *(( XFD COMMENT N° fax ))
+           02 TEC-MAGC         PIC  X(12).
+      *(( XFD NAME = NO_TEL_NUIT_AGENCE ))
+      *(( XFD COMMENT N° téléphone nuit (FWK ))
+           02 TEN-MAGC         PIC  X(12).
+      *(( XFD NAME = CODE_REGION ))
+      *(( XFD COMMENT N° région ))
+           02 REG-MAGC         PIC  XX.
+      *(( XFD NAME = INDIC_NOMENCLA_DEB ))
+      *(( XFD COMMENT Ligne nomenclature DEB: 0=globalisée 1=détaillée/article 2=détaillée/facture ))
+           02 DEB-MAGC         PIC  9.
+      *(( XFD NAME = CODE_CONTACT_DEB ))
+      *(( XFD COMMENT Contact/ DEB ))
+           02 PED-MAGC         PIC  X(4).
+      *(( XFD NAME = NO_ETS_DEB ))
+      *(( XFD COMMENT N° établissement DEB ))
+           02 NIC-MAGC         PIC  9(4).
+      *(( XFD NAME = NO_TVA_CEE ))
+      *(( XFD COMMENT N° TVA CEE ))
+           02 TVA-MAGC         PIC  X(20).
+      *(( XFD NAME = NO_SOC_COMPTABLE ))
+      *(( XFD COMMENT N°  société comptable ))
+           02 STC-MAGC         PIC  9(4).
+      *(( XFD NAME = CODE_CLIENT ))
+      *(( XFD COMMENT N° client/agence ))
+           02 CLI-MAGC         PIC  9(6).
+      *(( XFD NAME = CODE_FOURNISSEUR ))
+      *(( XFD COMMENT N° fournisseur/agence ))
+           02 FOU-MAGC         PIC  9(6).
+      *(( XFD NAME = ABREGE_AGENCE_FWK ))
+      *(( XFD COMMENT Abrégé agence FWK ))
+           02 AFWK-MAGC        PIC  X(2).
+      *(( XFD NAME = CODE_CLIENT2 ))
+      *(( XFD COMMENT N° client/agence 2 ))
+           02 CLI2-MAGC        PIC  9(6).
+      *(( XFD NAME = ABREGE_PROMODIS ))
+      *(( XFD COMMENT (Suffixe COFOR pour démat factures Fenwick ?) Code Magasin Garem ))
+           02 CPRO-MAGC        PIC  9(6).
+      *(( XFD NAME = CODE_AGENCE_SIEGE ))
+      *(( XFD COMMENT N° agence siège ))
+           02 AGS-MAGC         PIC  XXX.
+      *(( XFD NAME = DER_NO_RELEVE ))
+      *(( XFD COMMENT Dernier n° relévé ))
+           02 REL-MAGC         PIC  9(6).
+      *(( XFD NAME = DER_NO_TRAITE ))
+      *(( XFD COMMENT Dernier n° traite ))
+           02 TRT-MAGC         PIC  9(6).
+      *(( XFD NAME = DER_NO_DEB ))
+      *(( XFD COMMENT Dernier n° DEB ))
+           02 DND-MAGC         PIC  9(6).
+      *(( XFD NAME = CODE_RESPONSABLE ))
+      *(( XFD COMMENT Responsable agence ))
+           02 REP-MAGC         PIC  X(4).
+      *(( XFD NAME = DAT_DER_INVENTAIRE ))
+      *(( XFD COMMENT Date dernier contrôle inventaire ))
+           02 DCI-MAGC         PIC  9(8).
+           02 R-DCI-MAGC REDEFINES DCI-MAGC.
+               04 SDCI-MAGC        PIC  99.
+               04 ADCI-MAGC        PIC  99.
+               04 MDCI-MAGC        PIC  99.
+               04 JDCI-MAGC        PIC  99.
+      *(( XFD NAME = DER_NO_INVENTAIRE ))
+      *(( XFD COMMENT Dernier n° bordereau contrôle inventaire ))
+           02 BCI-MAGC         PIC  9(6).
+      *(( XFD NAME = DER_NO_BVR ))
+      *(( XFD COMMENT Dernier n° BVR ))
+           02 BVR-MAGC         PIC  9(6).
+      *(( XFD NAME = DER_NO_ETIQUETTE ))
+      *(( XFD COMMENT Dernier n° étiquette ))
+           02 ETI-MAGC         PIC  9(6).
+      *(( XFD NAME = CODE_GPE_TARIF ))
+      *(( XFD COMMENT N° groupe tarifaire ))
+           02 GTL-MAGC         PIC  XX.
+      *(( XFD NAME = DER_NO_TRANSF_PARC ))
+      *(( XFD COMMENT Dernier n° bordereau transfert parc ))
+           02 DBT-MAGC         PIC  9(6).
+      *(( XFD NAME = DER_NO_INTERV_EXT ))
+      *(( XFD COMMENT Dernier n° intervention extérieure ))
+           02 DBI-MAGC         PIC  9(6).
+      *(( XFD NAME = DER_NO_TRANSF_ART ))
+      *(( XFD COMMENT Dernier n° transfert article ))
+           02 DTM-MAGC         PIC  9(6).
+      *(( XFD NAME = DER_NO_ETI_CHGT_PX ))
+      *(( XFD COMMENT Dernier n° transfert article ))
+           02 DNE-MAGC         PIC  9(6).
+      *(( XFD NAME = INDIC_SAI_FIC_TRAV ))
+      *(( XFD COMMENT Saisie fiche de travail: 0=horaire 1=durée ))
+           02 FTS-MAGC         PIC  9.
+      *(( XFD NAME = IND_PER_FIC_TRAV ))
+      *(( XFD COMMENT Périodicité saisie fiches travail salarié: 0=indifférent 1=quotidien 2=hebdomadaire 3=mensuel ))
+           02 PSF-MAGC         PIC  9.
+           02 ZON1-MAGC.
+      *(( XFD NAME = HORAIRES_OUVERTURE ))
+      *(( XFD COMMENT Horaire ouverture x 7 ))
+               03 HOU-MAGC         PIC  99V99
+                          OCCURS 7 TIMES.
+      *(( XFD NAME = HORAIRES_FERMETURE ))
+      *(( XFD COMMENT Horaire fermeture x 7 ))
+               03 HFE-MAGC         PIC  99V99
+                          OCCURS 7 TIMES.
+           02 R-ZON1-MAGC REDEFINES ZON1-MAGC.
+               03 TAB-CLIB-DMP.
+
+      *(( XFD COMMENT N° client lié à l'agence x 8 ))
+                   04 CLIB-MAGC        PIC  9(6)
+                              OCCURS 8 TIMES.
+               03 R-TAB-CLIB-DMP REDEFINES TAB-CLIB-DMP.
+                   04 MAXP-MAGC        PIC  9(8).
+                   04 FILBID-MAGC      PIC  X(40).
+
+      *(( XFD COMMENT Mobitec: Modifs pièces saisies sur système central / OR Atelier ))
+               03 MPSC-MAGC        PIC  9.
+
+      *(( XFD COMMENT Mobitec: Sortie pièces stock agence / OR Atelier ))
+               03 SPSA-MAGC        PIC  9.
+
+      *(( XFD COMMENT N° lettre accompagnement factures par mail ))
+               03 LRLF-MAGC        PIC  99.
+
+      *(( XFD COMMENT Mobitec: Nombre de jours de tolérance retard feuille activité ))
+               03 NJFA-MAGC        PIC  9.
+
+      *(( XFD COMMENT Contrôle cloture OR: 1=non concerné ))
+               03 CCOR-MAGC        PIC  9.
+               03 FILLER           PIC  X(2).
+      *(( XFD NAME = CODE_SIRET_AGENCE ))
+      *(( XFD COMMENT Horaire fermeture x 7 ))
+           02 SIR-MAGC.
+      *(( XFD NAME = SIRET1_AGENCE ))
+               03 SIR1-MAGC        PIC  X(9).
+               03 SIR1N-MAGC REDEFINES SIR1-MAGC  PIC  9(9).
+      *(( XFD NAME = SIRET2_AGENCE ))
+               03 SIR2-MAGC        PIC  X(5).
+               03 SIR2N-MAGC REDEFINES SIR2-MAGC  PIC  9(5).
+      *(( XFD NAME = CODE_PAYS ))
+           02 PAY-MAGC         PIC  X(3).
+      *(( XFD NAME = GPE_TVA_IMPOSEE ))
+      *(( XFD COMMENT Groupe TVA Imposée ))
+           02 AFC-MAGC         PIC  9.
+      *(( XFD NAME = ARR-TPS-DEBUT ))
+      *(( XFD COMMENT Arrondi heure début pointeurse atelier: 0=non 1=5mn 2=10mn 3=15mn ))
+           02 ARRD-MAGC        PIC  99.
+      *(( XFD NAME = TYP_ARR_TPSD ))
+      *(( XFD COMMENT Type Arrondi heure début pointeurse atelier: 1=avant 2=après ))
+           02 TARRD-MAGC       PIC  9.
+      *(( XFD NAME = ARR-TPS-FIN ))
+      *(( XFD COMMENT Arrondi heure fin pointeurse atelier: 0=non 1=5mn 2=10mn 3=15mn ))
+           02 ARRF-MAGC        PIC  99.
+      *(( XFD NAME = TYP_ARR_TPSF ))
+      *(( XFD COMMENT Type Arrondi heure fin pointeurse atelier: 1=avant 2=après ))
+           02 TARRF-MAGC       PIC  9.
+      *(( XFD NAME = CPT_TAXE_ESPECES ))
+      *(( XFD COMMENT N° compte pour taxe / paiements en espèces ))
+           02 CTPE-MAGC        PIC  9(8).
+      *(( XFD NAME = NON_UTILISE ))
+      *(( XFD COMMENT Gestion des enseignes (entête modifiable en édition ))
+           02 ENS-MAGC         PIC  9.
+      *(( XFD NAME = CPT_FACTURES_EM_SA ))
+      *(( XFD COMMENT N° compte Factures à emettre (SAV car plus de filler dans ageate) ))
+           02 FAE-MAGC         PIC  9(8).
+      *(( XFD NAME = CPT_AVOIRS_EM_SAV ))
+      *(( XFD COMMENT N° compte Avoirs à emettre  (SAV car plus de filler dans ageate) ))
+           02 AAE-MAGC         PIC  9(8).
+      *(( XFD NAME = non_utilise ))
+           02 OLD-CMP-MAGC.
+      *(( XFD NAME = NO_JOU_ENCOURS ))
+      *(( XFD COMMENT N° journal pièce en cours générée ))
+               03 JPEC-MAGC        PIC  X(4).
+      *(( XFD NAME = DATE_PIECE_ENCOURS ))
+      *(( XFD COMMENT Date pièce en cours générée ))
+               03 DPEC-MAGC        PIC  9(8).
+      *(( XFD NAME = NO_PIECE_ENCOURS ))
+      *(( XFD COMMENT N° pièce en cours générée ))
+               03 NPEC-MAGC        PIC  9(6).
+           02 MOBISTAC-MAGC REDEFINES OLD-CMP-MAGC.
+      *(( XFD NAME = modele_sortie_mbs ))
+      *(( XFD COMMENT Modèle général de formulaire de réception matériel (Mobistac) ))
+               03 MBTAE-MAGC       PIC  XXX.
+      *(( XFD NAME = modele_retour_mbs ))
+      *(( XFD COMMENT Modèle général de formulaire de retour matériel (Mobistac) ))
+               03 MBTAS-MAGC       PIC  XXX.
+      *(( XFD NAME = pci_sortie_mbs ))
+      *(( XFD COMMENT Poste CI OR sortie (Mobistac) ))
+               03 PCIS-MAGC        PIC  999.
+      *(( XFD NAME = pci_entree_mbs ))
+      *(( XFD COMMENT Poste CI OR entrée (Mobistac) ))
+               03 PCIE-MAGC        PIC  999.
+      *(( XFD NAME = formulaire_pp ))
+      *(( XFD COMMENT Modèle général de formulaire de plan de prévention ))
+               03 MPP-MAGC         PIC  XXX.
+      *(( XFD NAME = jours_mbs ))
+      *(( XFD COMMENT Nombre de jours récup OR / Mobistac ))
+               03 NJS-MAGC         PIC  99.
+      *(( XFD NAME = NO_JOU_ENCOURS ))
+      *(( XFD COMMENT Envoi message demandeur transport 0=non 1=miami 2=mail 3=les 2 ))
+               03 MDT-MAGC         PIC  9.
+      *(( XFD NAME = agence_stc ))
+      *(( XFD COMMENT N° agence stock central ))
+           02 AGSC-MAGC        PIC  X(3).
+      *(( XFD NAME = caisse_lsd ))
+      *(( XFD COMMENT N° caisse libre-service paiements immédiats ))
+           02 CLSDR-MAGC       PIC  99.
+      *(( XFD NAME = COEFFICIENT_PIECES ))
+      *(( XFD COMMENT Coefficient pondérateur CI pièces autres sociétés ))
+           02 CPCS-MAGC        PIC  9V9(3).
+      *(( XFD NAME = MODELE_CL ))
+      *(( XFD COMMENT Modèle général de check-list de contrôle / matériel (Module SAV) ))
+           02 MCL-MAGC         PIC  XXX.
+      *(( XFD NAME = PRIM ))
+      *(( XFD COMMENT Agence traitée par CNH PRIM ))
+           02 PRIM-MAGC        PIC  9.
+      *(( XFD NAME = MDI ))
+      *(( XFD COMMENT Agence traitée par AGCO MDI ou bien par TEREX MDI (0=Non  1=Oui) ))
+           02 MDI-MAGC         PIC  9.
+      *(( XFD NAME = trs_travaux_mobite ))
+      *(( XFD COMMENT Indicateur transfert travaux effectués dans travaux pris en charge (MOBITEC) ))
+           02 TTPC-MAGC        PIC  9.
+      *(( XFD NAME = journal_provis ))
+      *(( XFD COMMENT N° journal pour les provisions de fin de mois ))
+           02 JOPR-MAGC        PIC  X(4).
+      *(( XFD NAME = pieces_mobitec ))
+      *(( XFD COMMENT Indicateur saisie pièces sur MOBITEC atelier ))
+           02 SPMA-MAGC        PIC  9.
+      *(( XFD NAME = mail_mobitec ))
+      *(( XFD COMMENT Indicateur mail fiche client SAV prioritaire (MOBITEC) ))
+           02 MCSP-MAGC        PIC  9.
+      *(( XFD NAME = SELECTION_OR_MOBIT ))
+      *(( XFD COMMENT Indicateur sélection OR sur système central (MOBITEC Atelier) ))
+           02 SISC-MAGC        PIC  9.
+      *(( XFD NAME = Reappro_MOBITEC ))
+      *(( XFD COMMENT MobiTec: Gestion des reappro des véhicules:  0=oui  1=non ))
+           02 MBTREA-MAGC      PIC  9.
+      *(( XFD NAME = ECART_H_POINTAGE ))
+      *(( XFD COMMENT Ecart horaire standard/horaire pointage atelier ))
+           02 ECHO-MAGC        PIC  99.
+      *(( XFD NAME = CREATION_OI_MOBIST ))
+      *(( XFD COMMENT Mobistac: création OI sur tablette ))
+           02 MBSOI-MAGC       PIC  9.
+      *(( XFD NAME = AGE_FERMEE ))
+      *(( XFD COMMENT Agence fermée (non visible en ASA) ))
+           02 FERM-MAGC        PIC  9.
+      *(( XFD NAME = OPP ))
+      *(( XFD COMMENT Agence traitée par OPP Promodis (0=Non  1=Oui) | ))
+           02 OPP-MAGC         PIC  9.
+           02 R-OPP-MAGC REDEFINES OPP-MAGC.
+
+      *(( XFD COMMENT Agence concernée par interface Expansio = 2 (Spécif. Casa --> Agence +99) ))
+               04 EXPANSIO-MAGC    PIC  9.
+      *(( XFD NAME = JDPRISM ))
+      *(( XFD COMMENT Agence traitée par JD PRISM: 0=Non  1=Oui ))
+           02 JDPRISM-MAGC     PIC  9.
+
+      *(( XFD COMMENT Agence traitée dans  Projet CNH BDM: 0=Non  2=Oui ))
+           02 CNHBDM-MAGC REDEFINES JDPRISM-MAGC  PIC  9.
+      *(( XFD NAME = REAPPRO_AGENCE ))
+      *(( XFD COMMENT Mobitec: gestion réappro / agence sortie stock AGE ))
+           02 MBTGAGS-MAGC     PIC  9.
+      *(( XFD NAME = CLOTURE_AUTO_VGP ))
+      *(( XFD COMMENT Mobitec: cloture auto des OR VGP ))
+           02 MBTCVGP-MAGC     PIC  9.
+      *(( XFD NAME = MISE_SOUS_PLI ))
+      *(( XFD COMMENT Agence traitée en mise sous pli 0=Oui 1=non, si module mise sous pli Corus ou Maileva ))
+           02 MSP-MAGC         PIC  9.

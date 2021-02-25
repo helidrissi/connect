@@ -1,0 +1,167 @@
+      *(( XFD FILE = HISVTE2 ))
+      *** (si modif modifier aussi fd/HISVSQ --> sequentiel purge )
+      *** ORI-MHIV : Origine
+      *** ORI-MHIV = D --> distribution
+      ***           J --> libre-service
+      ***           M --> vente matériel
+      ***           R,r --> réparation (r=retour de piŠce)
+      ***           S,L,A --> location (sortie,retour,avoir)
+      ***           I --> location (bon intervention v4.3 - plus utilis‚)
+      ***           T --> transfert entre agences
+      ***           t --> transfert entre agences/gestion des besoins
+      ***           K --> mouvement de stock
+      ***           k --> assemblage kit (ADK)
+      ***           i --> ajustement d'inventaire
+      ***           H --> habillage (HDM)
+      ***           P --> Fabrication/Cde Interne (Sortie des composants).
+      ***           p --> Fabrication/Cde Client  (Sortie des composants).
+      ***           C --> Affectation Achat/Mat‚riel (en FFA / FFM)
+      *iel (en FFA / FFM)
+      *      *iel (en FFA / FFM)
+      *      *      *iel (en FFA / F
+       FD  MXHISVTE2
+           LABEL RECORD IS STANDARD.
+       01 ENR-MHIV2.
+           02 CLE1-MHIV2.
+               03 NUM-MHIV2        PIC  9(9).
+           02 CLE9-MHIV2.
+
+      *(( XFD COMMENT N° agence ))
+               03 AGE-MHIV2        PIC  XXX.
+
+      *(( XFD COMMENT Origine ))
+               03 ORI-MHIV2        PIC  X.
+
+      *(( XFD COMMENT N° bon ))
+               03 BLO-MHIV2        PIC  X(8).
+               03 R-BLO-MHIV2 REDEFINES BLO-MHIV2.
+                   04 BON-MHIV2        PIC  9(8).
+
+      *(( XFD COMMENT N° ligne ))
+               03 LIG-MHIV2        PIC  9(4).
+
+      *(( XFD COMMENT N° sous-ligne ))
+               03 LIN-MHIV2        PIC  9(4).
+
+      *(( XFD COMMENT Date sortie pièce ))
+           02 DSP-MHIV2        PIC  9(8).
+           02 R-DSP-MHIV2 REDEFINES DSP-MHIV2.
+               04 SDSP-MHIV2       PIC  99.
+               04 ADSP-MHIV2       PIC  99.
+               04 MDSP-MHIV2       PIC  99.
+               04 JDSP-MHIV2       PIC  99.
+
+      *(( XFD COMMENT Date facturation ))
+           02 DAT-MHIV2        PIC  9(8).
+           02 R-DAT-MHIV2 REDEFINES DAT-MHIV2.
+               03 SDAT-MHIV2       PIC  99.
+               03 ADAT-MHIV2       PIC  99.
+               03 MDAT-MHIV2       PIC  99.
+               03 JDAT-MHIV2       PIC  99.
+
+      *(( XFD COMMENT N° dépôt ))
+           02 DEP-MHIV2        PIC  999.
+
+      *(( XFD COMMENT N° client ou n° poste cession interne ))
+           02 CLI-MHIV2        PIC  9(6).
+           02 R-CLI-MHIV2 REDEFINES CLI-MHIV2.
+
+      *(( XFD COMMENT N° agence si transfert ))
+               03 ATR-MHIV2        PIC  XXX.
+               03 FILLER           PIC  XXX.
+
+      *(( XFD COMMENT N° client divers ))
+           02 CDV-MHIV2        PIC  9(6).
+
+      *(( XFD COMMENT Indicateur client ou cession ))
+           02 ICC-MHIV2        PIC  9.
+
+      *(( XFD COMMENT Code article ))
+           02 ART-MHIV2        PIC  X(20).
+
+      *(( XFD COMMENT Vendeur ))
+           02 REP-MHIV2        PIC  X(4).
+
+      *(( XFD COMMENT Quantité ))
+           02 QTE-MHIV2        PIC  S9(6)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+
+      *(( XFD COMMENT PU Net ))
+           02 PUB-MHIV2        PIC  S9(7)V999
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+
+      *(( XFD COMMENT % remise ))
+           02 REM-MHIV2        PIC  S99V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+
+      *(( XFD COMMENT Indcateur marge ou remise ))
+           02 IMB-MHIV2        PIC  9.
+
+      *(( XFD COMMENT Indicateur changment de référence ))
+           02 ICR-MHIV2        PIC  9.
+
+      *(( XFD COMMENT Marge unitaire ))
+           02 MCU-MHIV2        PIC  S9(7)V999
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+
+      *(( XFD COMMENT Indicateur garantie ))
+           02 IGA-MHIV2        PIC  X.
+
+      *(( XFD COMMENT N°poste CI ))
+           02 PCI-MHIV2        PIC  9(3).
+
+      *(( XFD COMMENT N° ordre matériel ))
+           02 MAT-MHIV2        PIC  9(10).
+           02 R-MAT-MHIV2 REDEFINES MAT-MHIV2.
+               04 FILLER           PIC  XX.
+               04 MAT11-MHIV2      PIC  XX.
+               04 FOU-MHIV2        PIC  9(6).
+
+      *(( XFD COMMENT Indic rétrocession ))
+           02 IVR-MHIV2        PIC  9.
+           02 LIBSTO-MHIV2     PIC  X(20).
+           02 R-LIBSTO-MHIV2 REDEFINES LIBSTO-MHIV2.
+
+      *(( XFD COMMENT Marque matériel ))
+               04 MAM-MHIV2        PIC  X(4).
+
+      *(( XFD COMMENT TYpe matériel ))
+               04 TYM-MHIV2        PIC  X(16).
+           02 IRD-MHIV2        PIC  9.
+           02 PRO-MHIV2        PIC  9.
+           02 INO-MHIV2        PIC  9.
+           02 AGT-MHIV2        PIC  9(4).
+           02 PUS-MHIV2        PIC  9.
+           02 FAC-MHIV2        PIC  9(6).
+           02 ILC-MHIV2        PIC  9.
+           02 ISQ-MHIV2        PIC  9.
+           02 EXC-MHIV2        PIC  9.
+           02 ACA-MHIV2        PIC  9.
+           02 AGS-MHIV2        PIC  XXX.
+           02 TRA-MHIV2        PIC  9.
+           02 TEC-MHIV2        PIC  X(4).
+           02 PZE-MHIV2        PIC  X.
+           02 ISA-MHIV2        PIC  X(4).
+           02 TCO-MHIV2        PIC  9.
+           02 CHC-MHIV2        PIC  9(9).
+           02 CLL-MHIV2        PIC  9(6).
+           02 ITC-MHIV2        PIC  9(9).
+           02 NAF-MHIV2        PIC  X(10).
+           02 DES-MHIV2        PIC  X(40).
+           02 UPR-MHIV2        PIC  9(5).
+
+      *(( XFD COMMENT Date de commande de la Pièce ))
+           02 DCO-MHIV2        PIC  9(8).
+           02 R-DCO-MHIV2 REDEFINES DCO-MHIV2.
+               04 SDCO-MHIV2       PIC  99.
+               04 ADCO-MHIV2       PIC  99.
+               04 MDCO-MHIV2       PIC  99.
+               04 JDCO-MHIV2       PIC  99.
+      *(( XFD NAME = NO_LOT ))
+      *(( XFD COMMENT N° lot (selon paramètre sous-famille ))
+           02 LOT-MHIV2        PIC  X(10).
+           02 ATI-MHIV2        PIC  99.
+
+      *(( XFD COMMENT Date MAJ ))
+           02 DME-MHIV2        PIC  9(8).
+           02 FILLER           PIC  X(12).

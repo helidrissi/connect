@@ -1,0 +1,8 @@
+      * Linkage de MCDV-L
+       01 LK-MCDV-L.
+           05 LK-MCDV-L-CLI  PIC 9(6).
+           05 LK-MCDV-L-COD  PIC 9(6).
+           05 LK-MCDV-L-RAI  PIC X(30).
+           05 LK-MCDV-L-HANDLE PIC 9(4).
+           05 FILLER         PIC X(96).
+

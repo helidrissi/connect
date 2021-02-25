@@ -1,0 +1,36 @@
+clear
+echo "           SUPPRESSION DU JEU D' ESSAI "
+echo "           =-=-=-=-=-=-=-=-=-=-=-=-=-= "
+echo "\n"
+echo "Environnement (exemples : /acuf /acuf/S2): \c"
+read DIR2
+if [ ! -d $DIR2/E ]
+   then echo "\n"
+   echo "Jeu d'essai inexistant \c"
+   read ok
+   exit
+fi
+echo "S'assurer que personne ne travaille dans le jeu d'essai "
+echo "\n"
+echo "Confirmez-vous la suppression (Taper 'OUI' Pour confirmer) \c"
+read OK
+if [ $OK != "OUI" ]
+    then
+    echo "\n"
+    echo " Proc‚dure Non R‚aliss‚e - Taper • \c "
+    read ok
+    exit
+fi
+echo "\n"
+echo " Traitement en Cours - Veuillez Patienter "
+cd $DIR2
+rm -r E
+if [ $? != 0 ] 
+         then echo "\n"
+              echo "    ATTENTION ProblŠme: rm -r E "
+              echo "    Contacter MISTRAL Informatique \c"
+              read ok
+              exit
+fi
+echo "\n"
+echo "Proc‚dure Termin‚e "

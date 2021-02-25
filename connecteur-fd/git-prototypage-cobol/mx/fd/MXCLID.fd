@@ -1,0 +1,128 @@
+      *(( XFD FILE = CLID ))
+      *FICHIER CLIENTS - ACTIVITE DISTRIBUTION
+      *IER CLIENTS - ACTIVITE D
+       FD  MXCLID
+           LABEL RECORD IS STANDARD.
+       01 ENR-MCLD.
+           02 CLE1-MCLD.
+      *(( XFD NAME = CODE_CLIENT ))
+      *(( XFD COMMENT Code client ))
+               03 COD-MCLD         PIC  9(6).
+      *(( XFD NAME = CODE_GPE_TARIF_DIS ))
+      *(( XFD COMMENT N° groupe tarifaire: blanc si fiche de base ))
+               03 GTL-MCLD         PIC  XX.
+      *(( XFD NAME = INDIC_FRAIS_FACT_D ))
+      *(( XFD COMMENT Indicateur frais de facturation: 0=non 1=oui ))
+           02 IFF-MCLD         PIC  9.
+      *(( XFD NAME = INDIC_CDE_AR_DIS ))
+      *(( XFD COMMENT Indicateur envoi AR commande: 0=non 1=oui ))
+           02 ARC-MCLD         PIC  9.
+      *(( XFD NAME = INDIC_FACTURE_DIS ))
+      *(( XFD COMMENT Type de facturation: 1=un bon par fact 2=bons regroupés 3=fact/lieu 4=fact/réf 5=BR + sous-total ))
+           02 TFA-MCLD         PIC  9.
+      *(( XFD NAME = INDIC_REMIS_FACT_D ))
+      *(( XFD COMMENT Indicateur remise apparente sur facture: 0=non 1=oui ))
+           02 RAP-MCLD         PIC  9.
+      *(( XFD NAME = INDIC_BL_CHIFFRE_D ))
+      *(( XFD COMMENT Indicateur BL chiffré: 0=non 1=prix net 2=prix brut 3=sans prix avec total HT ))
+           02 CHF-MCLD         PIC  9.
+      *(( XFD NAME = NB_DUPLICATA_BON_D ))
+      *(( XFD COMMENT Nombre duplicatas bons ))
+           02 DUB-MCLD         PIC  9.
+      *(( XFD NAME = NB_DUPLICATA_FAC_D ))
+      *(( XFD COMMENT Nombre duplicatas factures ))
+           02 DUF-MCLD         PIC  9.
+      *(( XFD NAME = CODE_CIAL_DIS ))
+      *(( XFD COMMENT Commercial habituel ))
+           02 REP-MCLD         PIC  X(4).
+      *(( XFD NAME = NO_MSG_SAISI_CDE_D ))
+      *(( XFD COMMENT N° message affiché en saisie de commande ))
+           02 MSC-MCLD         PIC  XX.
+      *(( XFD NAME = NO_MSG_SAISIE_BL_D ))
+      *(( XFD COMMENT N° message affiché en saisie de BL ))
+           02 MSL-MCLD         PIC  XX.
+      *(( XFD NAME = INDIC_BASE_FACT_D ))
+      *(( XFD COMMENT Base facturation: 0=PV 1=PV-R 2=PA+Mg 3=PTF 4=PAMP 5=PA+FUA 6=Mg Pond 7=PRMP 8=Mg Rép ))
+           02 BFC-MCLD         PIC  9.
+      *(( XFD NAME = REMISE_DIS ))
+      *(( XFD COMMENT % remise ou marge ou coefficient ))
+           02 REM-MCLD         PIC  S99V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = COEFFICIENT_DIS ))
+           02 COE-MCLD         PIC  99V999.
+      *(( XFD NAME = CODE_PAIEMENT_DIS ))
+      *(( XFD COMMENT Mode paiement habituel ))
+           02 PAI-MCLD         PIC  99.
+      *(( XFD NAME = CODE_ECHEANCE_DIS ))
+      *(( XFD COMMENT Code échéance ))
+           02 ECH-MCLD         PIC  9.
+      *(( XFD NAME = CODE_TERME_DIS ))
+      *(( XFD COMMENT Code terme ))
+           02 TER-MCLD         PIC  9.
+      *(( XFD NAME = AFFECT_FISCALE_DIS ))
+      *(( XFD COMMENT Affectation fiscale : comptes 1 à 4 ))
+           02 AFC-MCLD         PIC  9.
+      *(( XFD NAME = CODE_GRILLE_REM_D ))
+      *(( XFD COMMENT No grille de remise habituelle ))
+           02 GRI-MCLD         PIC  XXX.
+      *(( XFD NAME = INDIC_PORT_USINE_D ))
+      *(( XFD COMMENT Indicateur soumis à port usine: 0=oui 1=non ))
+           02 PUS-MCLD         PIC  9.
+      *(( XFD NAME = INDIC_EDI_CODART_D ))
+      *(( XFD COMMENT Edition code article sur documents: 0=oui 1=sauf sur factures 2=oui+ code si double réf. 3=non ))
+           02 ECA-MCLD         PIC  9.
+      *(( XFD NAME = ESCOMPTE_DIS ))
+      *(( XFD COMMENT Escompte habituel ))
+           02 ESC-MCLD         PIC  99V99.
+      *(( XFD NAME = CODE_REF_ARTICLE_D ))
+      *(( XFD COMMENT Ancien Code référencement articles : 0=non ou de 1 à 9 ))
+           02 RFAold-MCLD      PIC  9.
+      *(( XFD NAME = CODE_LIB_EDI_FAC_D ))
+      *(( XFD COMMENT Code libellé à éditer sur factures ))
+           02 LFA-MCLD         PIC  XX.
+      *(( XFD NAME = INDIC_MODIF_3E_DES ))
+      *(( XFD COMMENT Modif systématique 3ème désignation en saisie BL: 0=non 1=oui ))
+           02 S3D-MCLD         PIC  9.
+      *(( XFD NAME = INDIC_EDI_ART_CDES ))
+      *(( XFD COMMENT Edition articles commandés sur BL: 0=oui 1=non ))
+           02 EAC-MCLD         PIC  9.
+      *(( XFD NAME = INDIC_DEMAT ))
+      *(( XFD COMMENT Indicateur démat factures ))
+           02 DMF-MCLD         PIC  9.
+      *(( XFD NAME = CODE_FACT_LSD ))
+      *(( XFD COMMENT Type facturation LSD: 0=una facture par ticket 1=tickets regroupés ))
+           02 TFL-MCLD         PIC  9.
+      *(( XFD NAME = NO_TARIF_SPEC1_DIS ))
+      *(( XFD COMMENT N° tarif spécial 1 ))
+           02 TSP-MCLD         PIC  X(4).
+      *(( XFD NAME = NO_TARIF_SPEC2_DIS ))
+      *(( XFD COMMENT N° tarif spécial 2 ))
+           02 TS2-MCLD         PIC  X(4).
+      *(( XFD NAME = INDIC_1_FAC_MOIS_D ))
+      *(( XFD COMMENT Facture mensuelle unique: 0=non 1=oui ))
+           02 RFM-MCLD         PIC  9.
+      *(( XFD NAME = INDIC_PORT ))
+      *(( XFD COMMENT Indicateur soumis port: 0=oui 1=non ))
+           02 SPO-MCLD         PIC  9.
+      *(( XFD NAME = NO_TARIF_SPE_MO_D ))
+      *(( XFD COMMENT N° tarif spécial main d'oeuvre ))
+           02 TMO-MCLD         PIC  X(4).
+      *(( XFD NAME = MONT_FRANCO_PORT ))
+      *(( XFD COMMENT Montant franco de port ))
+           02 FRP-MCLD         PIC  9(6).
+      *(( XFD NAME = soumis_mini_webtop ))
+      *(( XFD COMMENT Soumis au minimum de commande Webtop: 1=non ))
+           02 SMW-MCLD         PIC  9.
+      *(( XFD NAME = Mise_att_bl ))
+      *(( XFD COMMENT Mise en attente B/L: 1=oui ))
+           02 MAB-MCLD         PIC  9.
+      *(( XFD NAME = fac_obligatoire ))
+      *(( XFD COMMENT Facture obligatoire ))
+           02 FAO-MCLD         PIC  9.
+      *(( XFD NAME = CODE_REF_ARTICLE_D ))
+      *(( XFD COMMENT Code référencement articles : 0=non ou de 1 à 99 (rajouté en 08/2017) ))
+           02 RFA-MCLD         PIC  99.
+      *(( XFD NAME = fac_obligatoire ))
+      *(( XFD COMMENT Drop shipping = Impression nom en entête de BL ))
+           02 DSH-MCLD         PIC  9.
+           02 FILLER           PIC  X(25).

@@ -1,0 +1,2 @@
+#----  Conversion des caractŠres accentu‚s ISO au format Non ISO (Unix)
+tr  "éèçàäëüïöâêûîôÂÉº" "\202\212\207\205\204\211\201\213\224\203\210\226\214\223\101\105\370"

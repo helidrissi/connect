@@ -1,0 +1,72 @@
+clear1
+echo "\n"
+echo "       PROCEDURE POUR LINKER LES TABLEAUX DE BORD (PTC) D'1 STE COMPTA "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= "
+echo "\n"
+echo "Environement (exemples : /acuf /acuf/S2): \c"
+read DIR2
+if [ ! -d $DIR2/palme ]
+   then echo "\n      Environement INVALIDE !!! \c"
+        read ok
+        exit
+fi
+cd $DIR2
+echo "\n"
+echo "No Soci‚t‚ Comptable Principale ($NUMSOC): \c"
+SOC=`/acu/mistral/px/ACCNUMERO`
+SOC1=$SOC
+if [ ! -d cx$SOC1 ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+echo "\n"
+echo "No Soci‚t‚ Comptable … linker : \c"
+SOC=`/acu/mistral/px/ACCNUMERO`
+SOC2=$SOC
+if [ ! -d cx$SOC2 ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ -d cx$SOC2/flnkptc ]
+   then echo "\n      Liens d‚j… faits : flnkptc !! \c"
+        read ok
+        exit
+fi
+echo "\n Confirmez-vous - Taper 'OUI' Pour confirmer \c"
+read OK
+if [ $OK = "OUI" ] 2>>/dev/null
+    then :
+    else echo "\n"
+         echo " Proc‚dure Non R‚aliss‚e - Taper • \c"
+         read ok
+         exit
+fi
+echo "\n"
+echo " Traitement en Cours - Patienter "
+if [ ! -d cx$SOC2/flnkptc ]
+   then mkdir cx$SOC2/flnkptc
+fi
+####### fichier PETBCGE ##############################
+if [ -f cx$SOC2/f/PETBCGE ]
+   then mv cx$SOC2/f/PETBCGE cx$SOC2/flnkptc/PETBCGE
+        mv cx$SOC2/f/PETBCGE.vix cx$SOC2/flnkptc/PETBCGE.vix
+fi
+ln -s $DIR2/cx$SOC1/f/PETBCGE cx$SOC2/f/PETBCGE
+ln -s $DIR2/cx$SOC1/f/PETBCGE.vix cx$SOC2/f/PETBCGE.vix
+####### fichier PETBCGC ##############################
+if [ -f cx$SOC2/f/PETBCGC ]
+   then mv cx$SOC2/f/PETBCGC cx$SOC2/flnkptc/PETBCGC
+        mv cx$SOC2/f/PETBCGC.vix cx$SOC2/flnkptc/PETBCGC.vix
+fi
+ln -s $DIR2/cx$SOC1/f/PETBCGC cx$SOC2/f/PETBCGC
+ln -s $DIR2/cx$SOC1/f/PETBCGC.vix cx$SOC2/f/PETBCGC.vix
+####### fichier PETBCGL ##############################
+if [ -f cx$SOC2/f/PETBCGL ]
+   then mv cx$SOC2/f/PETBCGL cx$SOC2/flnkptc/PETBCGL
+        mv cx$SOC2/f/PETBCGL.vix cx$SOC2/flnkptc/PETBCGL.vix
+fi
+ln -s $DIR2/cx$SOC1/f/PETBCGL cx$SOC2/f/PETBCGL
+ln -s $DIR2/cx$SOC1/f/PETBCGL.vix cx$SOC2/f/PETBCGL.vix
+echo "\n Proc‚dure Termin‚e ! "

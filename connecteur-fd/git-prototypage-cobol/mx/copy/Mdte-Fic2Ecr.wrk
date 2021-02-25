@@ -1,0 +1,71 @@
+       01  WFT-ZONE.
+           02 WDT-AFF      PIC X(24).
+           02 R0-WDT-AFF REDEFINES WDT-AFF PIC ZZZBZZZBZZZBZZZBZZZBZZ9-
+                        BLANK WHEN ZERO.
+           02 R1-WDT-AFF REDEFINES WDT-AFF PIC ZZBZZZBZZZBZZZBZZZBZZ9,9
+                        BLANK WHEN ZERO.
+           02 R2-WDT-AFF REDEFINES WDT-AFF PIC ZBZZZBZZZBZZZBZZZBZZ9,99
+                        BLANK WHEN ZERO.
+           02 R3-WDT-AFF REDEFINES WDT-AFF PIC  ZZZBZZZBZZZBZZZBZZ9,999
+                        BLANK WHEN ZERO.
+           02 R4-WDT-AFF REDEFINES WDT-AFF PIC  ZZBZZZBZZZBZZZBZZ9,9999
+                        BLANK WHEN ZERO.
+           02 R5-WDT-AFF REDEFINES WDT-AFF PIC  ZBZZZBZZZBZZZBZZ9,99999
+                        BLANK WHEN ZERO.
+           02 WDT-REST      PIC X(40).
+           02 WDT-RESV      PIC X(40).
+           02 R-WDT-RESV REDEFINES WDT-RESV.
+              03 WDT-ELT2   PIC X OCCURS 40.
+           02 WDT-ZAFF      PIC X(40).
+           02 R-WDT-ZAFF REDEFINES WDT-ZAFF.
+              03 WDT-ELT3   PIC X OCCURS 40.
+           02 WDT-I         PIC 9(3).
+           02 WDT-J         PIC 9(3).
+           02 WDT-RES       PIC X(90).
+           02 WDT-OPEN      PIC 9.
+           02 WDT-OPEN-CTCS PIC 9.
+           02 WDT-OPEN-TEX  PIC 9.
+           02 WDT-DEC       PIC 9.
+           02 WDT-VIR       PIC 9.
+           02 WDT-CTE       PIC XXX.
+           02 WDT-VAL       PIC X(40).
+           02 R1-WDT-VAL REDEFINES WDT-VAL.
+              03 WDT-DAT    PIC 9(8).
+              03 WDT-AUT    PIC XXXX.
+              03 FILLER     PIC X(28).
+           02 R2-WDT-VAL REDEFINES WDT-VAL.
+              03 WDT-V18    PIC 9(18).
+              03 FILLER     PIC X(22).
+           02 R3-WDT-VAL REDEFINES WDT-VAL.
+              03 WDT-V17    PIC 9(17)V9.
+              03 FILLER     PIC X(22).
+           02 R4-WDT-VAL REDEFINES WDT-VAL.
+              03 WDT-V16    PIC 9(16)V99.
+              03 FILLER     PIC X(22).
+           02 R5-WDT-VAL REDEFINES WDT-VAL.
+              03 WDT-V15    PIC 9(15)V999.
+              03 FILLER     PIC X(22).
+           02 R6-WDT-VAL REDEFINES WDT-VAL.
+              03 WDT-V14    PIC 9(14)V9999.
+              03 FILLER     PIC X(22).
+           02 R7-WDT-VAL REDEFINES WDT-VAL.
+              03 WDT-V13    PIC 9(13)V9(5).
+              03 FILLER     PIC X(22).
+           02 WDT-USA       PIC X.
+      * ORI: blanc = doctec  V = docmat
+           02 WDT-ORI       PIC XXX.
+           02 WDT-CLE       PIC X(30).
+           02 FILLER REDEFINES WDT-CLE.
+               10 WDT-MAT   PIC 9(10).
+               10 FILLER    PIC X(20).
+           02 WDT-LIG       PIC 9(4).
+      * pour le commentaire étendu (facultatif)
+           02 WDT-IBASE     PIC 9(3).
+           02 WDT-JBASE     PIC 9(3).
+           02 WDT-VALX      PIC X(450).
+      * wdt-titre : si 0 = avec titre 1 = sans titre
+           02 WDT-TITRE     PIC 9.
+      * wdt-newline : mettre 1 si on veut remplacer les w-newline by ","
+           02 WDT-NEWLINE   PIC 9.
+      * wdt-unzon : mettre 1 si on veut une seule zone (pas de découpage)
+           02 WDT-UNZON     PIC 9.

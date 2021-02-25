@@ -1,0 +1,4 @@
+      * Linkage des listes standards (doublonne LK-LISTE pour 2 recherches)
+       
+       COPY "../../mistral/copy/LK-LISTE.wrk" REPLACING
+           ==01 LK-LISTE.== BY ==01 LK-LISTE7.==.

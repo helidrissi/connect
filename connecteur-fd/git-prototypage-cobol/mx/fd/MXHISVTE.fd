@@ -1,0 +1,206 @@
+      *(( XFD FILE = HISVTE ))
+      *Valeurs du code Origine:
+      *D =Distri
+      *M =Vente Mat.
+      *R =Réparation
+      *J =LSD
+      *A =Avoir loc
+      *L =Location BR
+      *S =Location B/S
+      *F =LLD
+      *K =Mvt Stock
+      *i  =ajustement d'inventaire
+      *T =Transfert entre Agence
+      *t  = transfert entre agences/gestion des besoins
+      *k =assemblage Kit
+      *H =habillage
+      *P = Fabrication/Cde Interne (Sortie des composants).
+      *p = Fabrication/Cde Client  (Sortie des composants).
+      *U= Mouvement de regularisation Automatique / Controle stock 
+      *C --> Affectation Achat/Matériel (en FFA / FFM)
+      *O --> Consommation
+       FD  MXHISVTE
+           LABEL RECORD IS STANDARD.
+       01 ENR-MHIV.
+           02 CLE1-MHIV.
+      *(( XFD NAME = NO_INTERNE_HISVTE ))
+               03 NUM-MHIV         PIC  9(9).
+           02 CLE9-MHIV.
+      *(( XFD NAME = CODE_AGENCE ))
+      *(( XFD COMMENT N° agence ))
+               03 AGE-MHIV         PIC  XXX.
+      *(( XFD NAME = ORIGINE_VENTE ))
+      *(( XFD COMMENT Origine: cf onglet définition ))
+               03 ORI-MHIV         PIC  X.
+      *(( XFD NAME = NO_BON_VTE ))
+      *(( XFD COMMENT N° bon ))
+               03 BLO-MHIV         PIC  X(8).
+               03 R-BLO-MHIV REDEFINES BLO-MHIV.
+                   04 BON-MHIV         PIC  9(8).
+      *(( XFD NAME = NO_LIGNE_VTE ))
+      *(( XFD COMMENT N° ligne ))
+               03 LIG-MHIV         PIC  9(4).
+      *(( XFD NAME = NO_SOUSLIGNE_VTE ))
+      *(( XFD COMMENT N° sous-ligne ))
+               03 LIN-MHIV         PIC  9(4).
+           02 CLE7-MHIV.
+      *(( XFD NAME = DATE_SORTIE_PIECE ))
+      *(( XFD COMMENT Date sortie pièce ))
+               03 DSP-MHIV         PIC  9(8).
+               03 R-DSP-MHIV REDEFINES DSP-MHIV.
+                   04 SDSP-MHIV        PIC  99.
+                   04 ADSP-MHIV        PIC  99.
+                   04 MDSP-MHIV        PIC  99.
+                   04 JDSP-MHIV        PIC  99.
+           02 CLE8-MHIV.
+      *(( XFD NAME = DATE_FACTURATION ))
+      *(( XFD COMMENT Date facturation ))
+               03 DAT-MHIV         PIC  9(8).
+               03 R-DAT-MHIV REDEFINES DAT-MHIV.
+                   04 SDAT-MHIV        PIC  99.
+                   04 ADAT-MHIV        PIC  99.
+                   04 MDAT-MHIV        PIC  99.
+                   04 JDAT-MHIV        PIC  99.
+      *(( XFD NAME = CODE_DEPOT, NUMERIC ))
+      *(( XFD COMMENT N° dépôt ))
+           02 DEP-MHIV         PIC  999.
+      *(( XFD NAME = CODE_CLIENT ))
+      *(( XFD COMMENT N° client ou n° poste cession interne ))
+           02 CLI-MHIV         PIC  9(6).
+           02 R-CLI-MHIV REDEFINES CLI-MHIV.
+
+      *(( XFD COMMENT N° agence si transfert ))
+               03 ATR-MHIV         PIC  XXX.
+               03 FILLER           PIC  XXX.
+      *(( XFD NAME = CODE_CLIENT_DIVERS ))
+      *(( XFD COMMENT N° client divers ))
+           02 CDV-MHIV         PIC  9(6).
+      *(( XFD NAME = INDIC_CLIENT_CI, NUMERIC ))
+      *(( XFD COMMENT Indicateur client ou cession ))
+           02 ICC-MHIV         PIC  9.
+      *(( XFD NAME = CODE_ARTICLE ))
+      *(( XFD COMMENT Code article ))
+           02 ART-MHIV         PIC  X(20).
+      *(( XFD NAME = CODE_VENDEUR ))
+      *(( XFD COMMENT Vendeur ))
+           02 REP-MHIV         PIC  X(4).
+      *(( XFD NAME = QUANTITE ))
+      *(( XFD COMMENT Quantité ))
+           02 QTE-MHIV         PIC  S9(6)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = PRIX_DE_VENTE_NET ))
+      *(( XFD COMMENT PU Net ))
+           02 PUB-MHIV         PIC  S9(7)V999
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = REMISE ))
+      *(( XFD COMMENT % remise ))
+           02 REM-MHIV         PIC  S99V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = INDIC_MARGE ))
+      *(( XFD COMMENT Indcateur marge ou remise ))
+           02 IMB-MHIV         PIC  9.
+      *(( XFD NAME = INDIC_CHG_REF ))
+      *(( XFD COMMENT Indicateur changment de référence ))
+           02 ICR-MHIV         PIC  9.
+      *(( XFD NAME = MARGE_UNITAIRE ))
+      *(( XFD COMMENT Marge unitaire ))
+           02 MCU-MHIV         PIC  S9(7)V999
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = INDIC_GARANTIE ))
+      *(( XFD COMMENT Indicateur garantie ))
+           02 IGA-MHIV         PIC  X.
+      *(( XFD NAME = CODE_POSTE_CI ))
+      *(( XFD COMMENT N°poste CI ))
+           02 PCI-MHIV         PIC  9(3).
+      *(( XFD NAME = NO_ORDRE_MATERIEL ))
+      *(( XFD COMMENT N° ordre matériel ))
+           02 MAT-MHIV         PIC  9(10).
+           02 R-MAT-MHIV REDEFINES MAT-MHIV.
+               04 MAT11-MHIV       PIC  XX.
+               04 FOU-MHIV         PIC  9(6).
+               04 FILLER           PIC  XX.
+           02 R1-MAT-MHIV REDEFINES MAT-MHIV.
+               04 MAT1-MHIV        PIC  X.
+               04 MAT2-MHIV        PIC  9(9).
+      *(( XFD NAME = INDIC_RETROCESSION ))
+      *(( XFD COMMENT Indic rétrocession ))
+           02 IVR-MHIV         PIC  9.
+      *(( XFD NAME = LIBELLE_MVT_STOCK ))
+      *(( XFD COMMENT Libelle mouvement stock ))
+           02 LIBSTO-MHIV      PIC  X(20).
+           02 R-LIBSTO-MHIV REDEFINES LIBSTO-MHIV.
+      *(( XFD NAME = MARQUE_MATERIEL ))
+      *(( XFD COMMENT Marque matériel ))
+               04 MAM-MHIV         PIC  X(4).
+      *(( XFD NAME = TYPE_MATERIEL ))
+      *(( XFD COMMENT TYpe matériel ))
+               04 TYM-MHIV         PIC  X(16).
+      *(( XFD NAME = INDIC_ART_REF ))
+      *(( XFD COMMENT indic article reference ))
+           02 IRD-MHIV         PIC  9.
+      *(( XFD NAME = INDICATEUR_PROMO ))
+      *(( XFD COMMENT Indicateur Promotion: 0=Non  2=Oui   1=Oui (pour LSD) ))
+           02 PRO-MHIV         PIC  9.
+      *(( XFD NAME = INDIC_COMPOSITION ))
+           02 INO-MHIV         PIC  9.
+      *(( XFD NAME = CODE_AGENT ))
+           02 AGT-MHIV         PIC  9(4).
+      *(( XFD NAME = INDIC_PORT_USINE ))
+           02 PUS-MHIV         PIC  9.
+      *(( XFD NAME = NO_FACTURE ))
+      *(( XFD COMMENT N° facture (N° de bordereau si besoin Agence ))
+           02 FAC-MHIV         PIC  9(6).
+
+      *(( XFD COMMENT Indicateur ligne d'abord passée en commande ))
+           02 ILC-MHIV         PIC  9.
+      *(( XFD NAME = INDIC_SANS_QTE ))
+      *(( XFD COMMENT Indicateur sans quantité ))
+           02 ISQ-MHIV         PIC  9.
+      *(( XFD NAME = INDIC_SORTIE_EXCEP ))
+      *(( XFD COMMENT Indicateur Sortie Exceptionnelle: 0=Non   1=Oui    2=Mvt sur article divers (article non encore créé ))
+           02 EXC-MHIV         PIC  9.
+      *(( XFD NAME = NIVEAU_COMMANDE ))
+           02 ACA-MHIV         PIC  9.
+      *(( XFD NAME = CODE_AGENCE_SORTIE ))
+           02 AGS-MHIV         PIC  XXX.
+      *(( XFD NAME = INDIC_TRAITEMENT ))
+      *(( XFD COMMENT Indicateeur Traitement: 9=Régularisation Automatique 8=suppression BL ))
+           02 TRA-MHIV         PIC  9.
+      *(( XFD NAME = CODE_TECHNICIEN ))
+           02 TEC-MHIV         PIC  X(4).
+      *(( XFD NAME = INDIC_GRATUIT ))
+           02 PZE-MHIV         PIC  X.
+      *(( XFD NAME = CODE_SALARIE_SAISI ))
+           02 ISA-MHIV         PIC  X(4).
+      *(( XFD NAME = TYPE_COMMANDE ))
+      *(( XFD COMMENT Type de commande client ))
+           02 TCO-MHIV         PIC  9.
+      *(( XFD NAME = CODE_LIEU_LIVR ))
+           02 CHC-MHIV         PIC  9(9).
+      *(( XFD NAME = CODE_CLIENT_LIVRE ))
+           02 CLL-MHIV         PIC  9(6).
+      *(( XFD NAME = CODE_INTERLOCUTEUR ))
+           02 ITC-MHIV         PIC  9(9).
+      *(( XFD NAME = NO_AFFAIRE ))
+           02 NAF-MHIV         PIC  X(10).
+      *(( XFD NAME = DESIGNATION ))
+           02 DES-MHIV         PIC  X(40).
+      *(( XFD NAME = PRIX_AU_XXX ))
+           02 UPR-MHIV         PIC  9(5).
+      *(( XFD NAME = DATE_COMMANDE ))
+      *(( XFD COMMENT Date de commande de la Pièce ))
+           02 DCO-MHIV         PIC  9(8).
+           02 R-DCO-MHIV REDEFINES DCO-MHIV.
+               04 SDCO-MHIV        PIC  99.
+               04 ADCO-MHIV        PIC  99.
+               04 MDCO-MHIV        PIC  99.
+               04 JDCO-MHIV        PIC  99.
+      *(( XFD NAME = NO_LOT ))
+      *(( XFD COMMENT N° lot (selon paramètre sous-famille ))
+           02 LOT-MHIV         PIC  X(10).
+      *(( XFD NAME = CODE_ATELIER_ORI ))
+           02 ATI-MHIV         PIC  99.
+      *(( XFD NAME = date_maj ))
+      *(( XFD COMMENT Date MAJ ))
+           02 DME-MHIV         PIC  9(8).
+           02 FILLER           PIC  X(12).

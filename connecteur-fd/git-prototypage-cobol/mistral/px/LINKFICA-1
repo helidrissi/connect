@@ -1,0 +1,16 @@
+# PROCEDURE POUR LINKER EN AUTOMATIQUE UN FICHIER D'1 STE COMPTA "
+DIR2=$1
+SOC1=$2
+SOC2=$3
+FIC2=$4
+cd $DIR2
+if [ ! -d cx$SOC2/flnka ]
+   then mkdir cx$SOC2/flnka
+fi
+####### fichier $FIC2 ##############################
+if [ -f cx$SOC2/f/$FIC2 ]
+   then mv cx$SOC2/f/$FIC2 cx$SOC2/flnka/$FIC2
+        mv cx$SOC2/f/$FIC2.vix cx$SOC2/flnka/$FIC2.vix
+fi
+ln -s $DIR2/cx$SOC1/f/$FIC2 cx$SOC2/f/$FIC2
+ln -s $DIR2/cx$SOC1/f/$FIC2.vix cx$SOC2/f/$FIC2.vix

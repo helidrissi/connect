@@ -1,0 +1,5 @@
+       SELECT XMLOut-File
+           ASSIGN       TO  XMLOut-Assign
+           ORGANIZATION IS BINARY SEQUENTIAL
+           ACCESS MODE  IS SEQUENTIAL
+           FILE STATUS  IS FILE-STATUS.

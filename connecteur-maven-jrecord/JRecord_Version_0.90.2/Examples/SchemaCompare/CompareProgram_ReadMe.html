@@ -1,0 +1,26 @@
+<body>
+<h2>JRecord Compare Programs</h2>
+<p>The programs in this directory provide
+a simple way to check a <b>new</b> version of <b>JRecord</b> against
+the previous version of JRecord. </p>
+<p>There are 2 basic programs:</p>
+
+<table border="1">
+ <tr><td><a href="WriteJRecordCompareFile.bat">WriteJRecordCompareFile.bat</a></td>
+     <td>This program reads through all the <b>Cobol</b>-Copybooks in a supplied directory
+     (cobol_copybooks) and writes  the copybooks <i>record</i> and <i>field</i> details (position, length, field-type and decimal etc)
+     to a gzipped text 'Layout' file (JRecordCompare.txt.gz).
+     <p>This 'Layout' file (JRecordCompare.txt.gz) provides a "<b>baseline</b>"
+     that can be used to compare with future version of JRecord.</td></tr>
+ <tr><td><a href="RunJRecordCompare.bat">RunJRecordCompare.bat</a></td>
+     <td>This program reads through all the <b>Cobol</b>-Copybooks in a supplied directory (cobol_copybooks) 
+     and compares the Record, Field details (position, length, field-type and decimal etc) 
+     against the "<b>baseline</b>" Record / Field details store in the 'Layout' file (JRecordCompare.txt.gz).
+ </td></tr>
+</table>
+
+
+<p>I suggest you create your own Cobol directories, bat/shell scripts and 'baseline' files to test
+future versions of JRecord. The more eyes the better.
+
+</body>

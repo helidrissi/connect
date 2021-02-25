@@ -1,0 +1,374 @@
+      *(( XFD FILE = FOU ))
+       FD  MXFOU
+           LABEL RECORD IS STANDARD.
+       01 ENR-MFOU.
+           02 CLE1-MFOU.
+      *(( XFD NAME = CODE_FOURNISSEUR ))
+      *(( XFD COMMENT Code fournisseur ))
+               03 COD-MFOU         PIC  9(6).
+      *(( XFD NAME = INDIC_TYPE_FOU ))
+      *(( XFD COMMENT Type: 0=national  1=export ))
+           02 TYP-MFOU         PIC  9(1).
+      *(( XFD NAME = TYPE_FOURNISSEUR ))
+      *(( XFD COMMENT Type client ))
+           02 IDV-MFOU         PIC  9(1).
+      *(( XFD NAME = CODE_PAYS ))
+      *(( XFD COMMENT code pays ))
+           02 PAY-MFOU         PIC  X(3).
+      *(( XFD NAME = CODE_DEVISE ))
+      *(( XFD COMMENT Code devise ))
+           02 DEV-MFOU         PIC  X(3).
+      *(( XFD NAME = CODE_LANGUE ))
+      *(( XFD COMMENT Code langue ))
+           02 LAN-MFOU         PIC  9(2).
+      *(( XFD NAME = TITRE_SOCIAL ))
+      *(( XFD COMMENT Titre social ))
+           02 TIT-MFOU         PIC  9(2).
+           02 CLE2-MFOU.
+      *(( XFD NAME = RAISON_SOCIALE_FOU ))
+      *(( XFD COMMENT Raison sociale ))
+               03 RAI-MFOU         PIC  X(30).
+      *(( XFD NAME = ADRESSE_FOU ))
+      *(( XFD COMMENT Nom ))
+           02 ADR-MFOU         PIC  X(75).
+      *(( XFD NAME = CODE_POSTAL_FOU ))
+      *(( XFD COMMENT Code postal ))
+           02 POS-MFOU         PIC  X(8).
+           02 POSR-MFOU REDEFINES POS-MFOU.
+               04 POS1-MFOU        PIC  X(3).
+               04 POS2-MFOU        PIC  9(5).
+               04 POS2-MFOUR REDEFINES POS2-MFOU.
+                   05 POS21-MFOU       PIC  9(2).
+                   05 POS22-MFOU       PIC  9(3).
+      *(( XFD NAME = VILLE_FOU ))
+      *(( XFD COMMENT Ville ))
+           02 VIL-MFOU         PIC  X(25).
+           02 CLE4-MFOU.
+      *(( XFD NAME = NO_TEL_FOU ))
+      *(( XFD COMMENT N° téléphone ))
+               04 TEL-MFOU         PIC  X(12).
+      *(( XFD NAME = NO_TEL2_FOU ))
+           02 TE2-MFOU         PIC  X(12).
+      *(( XFD NAME = NO_FAX_FOU ))
+      *(( XFD COMMENT N° fax ))
+           02 FAX-MFOU         PIC  X(12).
+      *(( XFD NAME = CODE_AGENCE ))
+      *(( XFD COMMENT Agence de relation ))
+           02 AGE-MFOU         PIC  X(3).
+      *(( XFD NAME = CODE_ACTIVITE ))
+      *(( XFD COMMENT Code activité ))
+           02 ACT-MFOU         PIC  X(2).
+           02 CLE5-MFOU.
+      *(( XFD NAME = NO_CPTE_COMPTABLE ))
+      *(( XFD COMMENT N° de compte comptable ))
+               04 CPT-MFOU         PIC  9(6).
+      *(( XFD NAME = NOTRE_NO_COMPTE ))
+      *(( XFD COMMENT Notre n° de compte ))
+           02 NNC-MFOU         PIC  X(15).
+           02 CLE3-MFOU.
+      *(( XFD NAME = IDENTIFIANT_ART ))
+      *(( XFD COMMENT Identifiant articles ))
+               03 IDE-MFOU         PIC  X(4).
+      *(( XFD NAME = CODE_NATURE_FOU ))
+      *(( XFD COMMENT Nature: 0=articles 1=matériels 2=articles et matériels 9=divers ))
+           02 NTF-MFOU         PIC  9(1).
+      *(( XFD NAME = NO_SOCIETE_LIEE ))
+      *(( XFD COMMENT N° société liée ))
+           02 STE-MFOU         PIC  9(4).
+      *(( XFD NAME = NO_CLIENT_LIE ))
+      *(( XFD COMMENT N° client lié ))
+           02 CLI-MFOU         PIC  9(6).
+      *(( XFD NAME = CNUF ))
+      *(( XFD COMMENT CNUF ))
+           02 CNUF-MFOU        PIC  9(9).
+      *(( XFD NAME = COURS_DE_REFERENCE ))
+      *(( XFD COMMENT Cours devise ))
+           02 CRS-MFOU         PIC  9(5)V99999.
+      *(( XFD NAME = INDIC_CONF_LOUEUR ))
+      *(( XFD COMMENT Si activité location: confrère loueur: 0=non 1=oui ))
+           02 CSL-MFOU         PIC  9.
+      *(( XFD NAME = DER_NO_MAT_SOUSLOC ))
+      *(( XFD COMMENT Dernier n° matériel de sous-location ))
+           02 MSL-MFOU         PIC  9(5).
+      *(( XFD NAME = CODE_CLI_FACTURE ))
+      *(( XFD COMMENT N° client facturé/refacturation remises  - ou bien Code client facturé/Ganrantie ))
+           02 CLF-MFOU         PIC  9(6).
+      *(( XFD NAME = POURCENT_FRAIS_DEB ))
+      *(( XFD COMMENT % frais/DEB (si module DEB ))
+           02 PFT-MFOU         PIC  S99V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = CODE_POLTQ_PX_ART ))
+      *(( XFD COMMENT Politique de prix: 1=PA x Coef 2=PTF x Coef 3=PV - R 4=PA et PV 5=PR / TxM 6=P Tarif+PA ))
+           02 POP-MFOU         PIC  9.
+      *(( XFD NAME = CODE_GRILLE_REMISE ))
+      *(( XFD COMMENT Indicateur grille de remise: 0=non 1=oui ))
+           02 GRI-MFOU         PIC  9.
+      *(( XFD NAME = CODE_TYPE_CDE_STAN ))
+      *(( XFD COMMENT Type de commande standard (fichier TYPCDF ))
+           02 TCR-MFOU         PIC  X.
+      *(( XFD NAME = CODE_PAIE_FOU_DIV ))
+      *(( XFD COMMENT Mode paiement / Frn Divers ))
+           02 PAD-MFOU         PIC  99.
+      *(( XFD NAME = CODE_ECH_FOU_DIV ))
+      *(( XFD COMMENT Code échéance / Frn Divers ))
+           02 ECD-MFOU         PIC  9.
+      *(( XFD NAME = CODE_TERME_FOU_DIV ))
+      *(( XFD COMMENT Code terme /Frn divers ))
+           02 TED-MFOU         PIC  9.
+      *(( XFD NAME = INDIC_ETIQUETAGE ))
+      *(( XFD COMMENT Etiquetage: 0=non 1=oui ))
+           02 ETI-MFOU         PIC  9.
+      *(( XFD NAME = OBJECT_ART_AN_N ))
+      *(( XFD COMMENT Objectif /Achat articles année N ))
+           02 OAA-MFOU         PIC  9(9).
+      *(( XFD NAME = OBJECT_ART_AN_N-1 ))
+      *(( XFD COMMENT Objectif /Achats Articles  année N-1 ))
+           02 OA1-MFOU         PIC  9(9).
+      *(( XFD NAME = PERIODICITE_CDE ))
+      *(( XFD COMMENT Périodicité de commande en jours ))
+           02 PCD-MFOU         PIC  999.
+      *(( XFD NAME = OBSERVATION1 ))
+      *(( XFD COMMENT Observation 1 ))
+           02 OBS-MFOU         PIC  X(60).
+      *(( XFD NAME = OBSERVATION2 ))
+      *(( XFD COMMENT Observation 2 ))
+           02 OB2-MFOU         PIC  X(60).
+      *(( XFD NAME = CODE_CONFIDENTIEL ))
+      *(( XFD COMMENT Code confidentiel fournisseur ))
+           02 ISP-MFOU         PIC  X(15).
+      *(( XFD NAME = CODE_POLTQ_PX_MAT ))
+      *(( XFD COMMENT Politique de prix matériels: 1=PA x Coef 2=PTF x Coef 3=PV - R 4=PA et PV 5=PR / TxM 6=P Tarif+PA ))
+           02 PPM-MFOU         PIC  9.
+      *(( XFD NAME = REM_STANDARD_MAT ))
+      *(( XFD COMMENT Remise standard matériels ))
+           02 RSM-MFOU         PIC  99V99.
+      *(( XFD NAME = DELAI_LIVR_MOYEN ))
+      *(( XFD COMMENT Délai livraison moyen matériels ))
+           02 DLM-MFOU         PIC  9(3).
+      *(( XFD NAME = CODE_BASE_FRANCO ))
+      *(( XFD COMMENT Base du franco: 1=en monnaie interne 2=en devise 3=en kg 4=en quantité ))
+           02 BFM-MFOU         PIC  9.
+      *(( XFD NAME = CDE_MINI_FRANCO ))
+      *(( XFD COMMENT Montant minimum commande pour franco ))
+           02 MFM-MFOU         PIC  9(6).
+      *(( XFD NAME = CODE_PORT ))
+      *(( XFD COMMENT Port: 0=franco 1=avancé 2=dû ))
+           02 CPM-MFOU         PIC  9.
+      *(( XFD NAME = POURCENT_PORT_FACT ))
+      *(( XFD COMMENT % port sur facture ))
+           02 PMA-MFOU         PIC  99V99.
+      *(( XFD NAME = MODE_PAIEMENT_MAT ))
+      *(( XFD COMMENT Mode paiement matériel ))
+           02 PAM-MFOU         PIC  99.
+      *(( XFD NAME = CODE_ECHEANCE_MAT ))
+      *(( XFD COMMENT Code échéance matériel ))
+           02 ECM-MFOU         PIC  9.
+      *(( XFD NAME = CODE_TERME_MAT ))
+      *(( XFD COMMENT Code terme matériel ))
+           02 TEM-MFOU         PIC  9.
+      *(( XFD NAME = OBSERVATION_MAT ))
+      *(( XFD COMMENT Observation matériel ))
+           02 OBM-MFOU         PIC  X(60)
+                      OCCURS 2 TIMES.
+      *(( XFD NAME = OBJECT_MAT_AN_N ))
+      *(( XFD COMMENT Objectif matériel année N ))
+           02 OMA-MFOU         PIC  9(9).
+      *(( XFD NAME = OBJECT_MAT_AN_N-1 ))
+      *(( XFD COMMENT Objectif matériel année N-1 ))
+           02 OM1-MFOU         PIC  9(9).
+      *(( XFD NAME = CODE_NUMERO_DG ))
+      *(( XFD COMMENT Garantie: 0=sans 1=numérotation manuelle 2=numérotation automatique ))
+           02 NDG-MFOU         PIC  9.
+      *(( XFD NAME = DELAI_STAND_ACCORD ))
+      *(( XFD COMMENT Délai standard accord garantie ))
+           02 DLA-MFOU         PIC  999.
+      *(( XFD NAME = CODE_MODEL_BORD_DG ))
+      *(( XFD COMMENT Model bordereau DG ))
+           02 MBG-MFOU         PIC  99.
+      *(( XFD NAME = CODE_BASE_PIECES ))
+      *(( XFD COMMENT Base remboursement pièces: 1=PTF 2=PA 3=PV 4=PR 5=PRI 6= ))
+           02 BRP-MFOU         PIC  9.
+      *(( XFD NAME = REMBOURSEMENT_MO ))
+      *(( XFD COMMENT Montant remboursement MO ))
+           02 BRM-MFOU         PIC  999V99.
+      *(( XFD NAME = COMMENTAIRE_DG ))
+      *(( XFD COMMENT Commentaire/DG ))
+           02 COM-MFOU         PIC  X(60).
+      *(( XFD NAME = CODE_TYPE_REMBOURS ))
+      *(( XFD COMMENT Type remboursement pièces: 0=échange ou avoir  1=avoir  2=échange  3=facture manuelle  4=Facture générée après l'accord ))
+           02 TRB-MFOU         PIC  9.
+      *(( XFD NAME = NO_CONCESSIONNAIRE ))
+      *(( XFD COMMENT N° concessionnaire / DG ))
+           02 CON-MFOU         PIC  X(10).
+      *(( XFD NAME = INDI_JUSTIF_NO_FAC ))
+      *(( XFD COMMENT Justification du n° facture sur DG: 1=oui 2=non ))
+           02 FDG-MFOU         PIC  9.
+      *(( XFD NAME = PA_SEUIL_FAC_OBLIG ))
+      *(( XFD COMMENT PA à partir duquel le n° de facture est obligatoire ))
+           02 MDG-MFOU         PIC  9(5).
+      *(( XFD NAME = POURCENT_DG ))
+      *(( XFD COMMENT Si Garantie MOXY(04): % DG ))
+           02 PDG-MFOU         PIC  99.
+      *(( XFD NAME = DER_NO_IMPRIME ))
+      *(( XFD COMMENT Dernier n° imprimé ))
+           02 NIG-MFOU         PIC  999999.
+           02 NIGR-MFOU REDEFINES NIG-MFOU.
+               03 SNH-MFOU         PIC  999.
+               03 MNH-MFOU         PIC  999.
+      *(( XFD NAME = COEFFICIENT_PIECES ))
+      *(( XFD COMMENT Coef appliqué sur les pièces ))
+           02 COE-MFOU         PIC  S9V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = CODE_REG_REM_PIECE ))
+      *(( XFD COMMENT Régime remise : 1=Aucun 2=Fixe 3=Type de commande (cf REG ))
+           02 IREG-MFOU        PIC  9(1).
+      *(( XFD NAME = CODE_TYPE_CDE_PIEC ))
+      *(( XFD COMMENT Code type de commande (TYPCDF) pièces ))
+           02 REG-MFOU         PIC  X.
+      *(( XFD NAME = POURCENT_REM_PIECE ))
+      *(( XFD COMMENT % remise si  REG=9 ))
+           02 REM-MFOU         PIC  S99V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = INDIC_INFOS_SPECIF ))
+      *(( XFD COMMENT Info spécifique DG ))
+           02 IDG-MFOU         PIC  9.
+      *(( XFD NAME = LIB_INFOS_SPECIF ))
+      *(( XFD COMMENT Libellé info spécifique ))
+           02 LDG-MFOU         PIC  X(11).
+      *(( XFD NAME = INDIC_ACCORD_GTIE ))
+      *(( XFD COMMENT Accord de garantie: 0=à saisir 1=direct ))
+           02 ACA-MFOU         PIC  9.
+      *(( XFD NAME = CODE_BASE_DIVERS ))
+      *(( XFD COMMENT Barème remboursement divers: 0=saisi 1=PV 2=PR ))
+           02 BRD-MFOU         PIC  9.
+      *(( XFD NAME = CODE_REG_REM_DIV ))
+      *(( XFD COMMENT Régime remise : 1=Aucun 2=Fixe 3=Type de commande (cf RGD ))
+           02 IRGD-MFOU        PIC  9(1).
+      *(( XFD NAME = CODE_TYPE_CDE_DIV ))
+      *(( XFD COMMENT Code type de commande (TYPCDF) divers ))
+           02 RGD-MFOU         PIC  X.
+      *(( XFD NAME = POURCENT_REM_DIV ))
+      *(( XFD COMMENT % remise si  RGD=9 ))
+           02 RMD-MFOU         PIC  S99V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = COEFFICIENT_DIVERS ))
+      *(( XFD COMMENT Coef appliqué sur le divers ))
+           02 CED-MFOU         PIC  S9V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = CODE_ACHETEUR ))
+      *(( XFD COMMENT Code prestation sous-traitance si confrère ))
+           02 PST-MFOU         PIC  X(4).
+      *(( XFD NAME = INDIC_FOURNISSEUR ))
+      *(( XFD COMMENT Indicateur Fournisseur: 0=non concerné 1=Promodis 2=Centradis 3=Socodicor ))
+           02 IPR-MFOU         PIC  9.
+      *(( XFD NAME = NO_FOU_ARTICLE ))
+      *(( XFD COMMENT N° de fournisseur articles chez Promodis/Centradis/Soco ))
+           02 FOP-MFOU         PIC  9(6).
+      *(( XFD NAME = NO_FOU_MATERIEL ))
+      *(( XFD COMMENT N° de fournisseur matériel chez Promodis/Centradis/Soco ))
+           02 FMP-MFOU         PIC  9(6).
+      *(( XFD NAME = NO_FOU_MATERIEL ))
+      *(( XFD COMMENT Coeff appliqué sur le spièces Agrizone pour calcul PA Gonnin ))
+           02 COEPA-MFOU REDEFINES FMP-MFOU  PIC  99V9999.
+      *(( XFD NAME = CODE_SUPPRESSION ))
+      *(( XFD COMMENT Indicateur fournisseur annulé ))
+           02 CANN-MFOU        PIC  9(1).
+      *(( XFD NAME = DATE_SUPPRESSION ))
+      *(( XFD COMMENT Date d'annulation ))
+           02 DANN-MFOU        PIC  9(8).
+      *(( XFD NAME = AUTEUR_SUPPRESSION ))
+      *(( XFD COMMENT Initiales de l'utilisateur qui a annulé ))
+           02 IANN-MFOU        PIC  X(4).
+      *(( XFD NAME = FORF_PORT_MATERIEL ))
+      *(( XFD COMMENT Forfait Port / Achat Matériel ))
+           02 FPO-MFOU         PIC  9(5).
+      *(( XFD NAME = CODE_APE_OLD ))
+      *(( XFD COMMENT Code APE ))
+           02 OLDAPE-MFOU      PIC  X(4).
+      *(( XFD NAME = CODE_APE_OLD ))
+      *(( XFD COMMENT Code APE ))
+           02 R-OLDAPE-MFOU REDEFINES OLDAPE-MFOU.
+               05 AGL-MFOU         PIC  X(3).
+               05 FIL-MFOU         PIC  X.
+      *(( XFD NAME = CODE_SIRET ))
+           02 SIR-MFOU         PIC  X(14).
+           02 SIRR-MFOU REDEFINES SIR-MFOU.
+      *(( XFD NAME = SIRET ))
+               03 SIR1-MFOU        PIC  X(9).
+               03 SIR1N-MFOU REDEFINES SIR1-MFOU  PIC  9(9).
+      *(( XFD NAME = NIC ))
+               03 SIR2-MFOU        PIC  X(5).
+               03 SIR2N-MFOU REDEFINES SIR2-MFOU  PIC  9(5).
+      *(( XFD NAME = CODE_RUBRIQ_SPECIF ))
+      *(( XFD COMMENT Préfixe code rubrique VOLVO ))
+           02 PRUB-MFOU        PIC  X(5).
+      *(( XFD NAME = CODE_APE ))
+      *(( XFD COMMENT Code APE ))
+           02 APE-MFOU         PIC  X(5).
+      *(( XFD NAME = AUTEUR_CREATION ))
+      *(( XFD COMMENT Identifiant Création Fournisseur ))
+           02 ICRE-MFOU        PIC  X(4).
+      *(( XFD NAME = DATE_CREATION ))
+      *(( XFD COMMENT Date Création Fournisseur ))
+           02 DCRE-MFOU        PIC  9(8).
+      *(( XFD NAME = AUTEUR_MODIF ))
+      *(( XFD COMMENT Identifiant Modification Fournisseur ))
+           02 IMOD-MFOU        PIC  X(4).
+      *(( XFD NAME = DATE_MODIF ))
+      *(( XFD COMMENT Date Modification Fournisseur ))
+           02 DME-MFOU         PIC  9(8).
+      *(( XFD NAME = CHIFFRAGE_BC_ART ))
+      *(( XFD COMMENT Bon de commande article chiffré  (1=Avec prix   2=Sans Prix  3=Avec Prix Brut) ))
+           02 CHF-MFOU         PIC  9.
+      *(( XFD NAME = CHIFFRAGE_BC_MAT ))
+      *(( XFD COMMENT Bon de commande matériel chiffré  (1=Avec prix   2=Sans Prix  3=Avec Prix Brut) ))
+           02 CHFM-MFOU        PIC  9.
+      *(( XFD NAME = AFFECT_FISCALE ))
+      *(( XFD COMMENT Affectation fiscale : comptes 1 à 4 (1 à 3 Soumis 1 à 3, 4 = Exonéré) ))
+           02 AFC-MFOU         PIC  9.
+
+      *(( XFD COMMENT Envoi commande article ))
+           02 ENV-MFOU         PIC  X.
+
+      *(( XFD COMMENT Transport commande article ))
+           02 EXP-MFOU         PIC  X.
+
+      *(( XFD COMMENT Envoi commande matériel ))
+           02 ENVM-MFOU        PIC  X.
+
+      *(( XFD COMMENT Transport commande matériel ))
+           02 EXPM-MFOU        PIC  X.
+
+      *(( XFD COMMENT Type de commande affecté au fournisseur : D ou N (PRIM CNH) ))
+           02 TYPCNH-MFOU      PIC  X.
+
+      *(( XFD COMMENT = M si Fournisseur affecté à MDI AGCO  / = V si Fournisseur affecté à MMI VOLVO  /  = m si Fournisseur affecté à MDI TEREX ))
+           02 TYPMDI-MFOU      PIC  X.
+      *(( XFD NAME = INDIC_FOURNISSEUR ))
+      *(( XFD COMMENT Indicateur Fournisseur Matériel: 0=non concerné 1=Promodis 2=Centradis 3=Socodicor ))
+           02 IPRM-MFOU        PIC  9.
+
+      *(( XFD COMMENT Classement articles édition commande par référence ))
+           02 CLR-MFOU         PIC  9.
+
+      *(( XFD COMMENT Commande client Web séparée (Agrizone) ))
+           02 CCW-MFOU         PIC  9.
+
+      *(( XFD COMMENT Poids mini pour commande client Web séparée (Agrizone) ))
+           02 POW-MFOU         PIC  9(3).
+
+      *(( XFD COMMENT Livraison obligatoire chez Agrizone ))
+           02 LIVW-MFOU        PIC  9.
+
+      *(( XFD COMMENT Numérotation automatique des articles (déconstruction) ))
+           02 NUMA-MFOU        PIC  9.
+
+      *(( XFD COMMENT Sans référencement produit ))
+           02 SRP-MFOU         PIC  9.
+
+      *(( XFD COMMENT Statut RGPD : 0 = Consentement, 1 = Droit à la portabilité, 2 = Retrait consentement, 3 = Droit à l'oubli ))
+           02 RGPD-MFOU        PIC  9.
+
+      *(( XFD COMMENT Date validité du tarif (suite MTF) ))
+           02 DVT-MFOU         PIC  9(8).
+           02 FILLER           PIC  X(4).

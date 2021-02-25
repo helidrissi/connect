@@ -1,0 +1,25 @@
+rm /tmp/.X11-unix/X* 2>>/dev/null
+/usr/local/bin/sudo -H -u root /usr/local/bin/vncserver :1  2>>/tmp/erreur 
+sleep 10
+if [ -f /usr/local/START6 ]
+  then
+   cd /tmpmis
+   /usr/local/START6 2>>/dev/null >/dev/null
+else if [ -f /usr/local/START ]
+     then
+          cd /tmpmis
+         /usr/local/START 2>>/dev/null >/dev/null
+     else rm /usr/local/tomcat/logs/* 2>/dev/null
+          /usr/local/tomcat/bin/startup.sh  2>>/dev/null >/dev/null
+     fi
+fi
+sleep 10
+if [ -f /usr/local/STARTW ]
+  then
+   /usr/local/STARTW 2>>/dev/null >>/dev/null
+fi
+sleep 10
+if [ -f /usr/local/STARTM ]
+  then
+   /usr/local/STARTM 2>>/dev/null >>/dev/null
+fi

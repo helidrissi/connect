@@ -1,0 +1,32 @@
+#	Script de purge des fichiers archive des interfaces EDI (B/L et factures Fournisseurs)
+# 
+#	Principe du script 
+#	Rechercher les répertoires ARCHIVE de fibff 
+#	ensuite dans chacun de ces répertoires rechercher
+#	les fichiers plus anciens de X jours X étant le nombre
+#	spécifié après le paramètre -mtime de la commande find
+
+find /acuf/*/fibff -name archive -print | while read repert
+do 
+   cd $repert
+   find . -mtime +360 |while read fic
+        do 
+            rm $fic 
+        done
+done
+find /acuf/*/fibff -name ARCHIVE -print | while read repert
+do 
+   cd $repert
+   find . -mtime +360 |while read fic
+        do 
+            rm $fic 
+        done
+done
+find /acuf/*/fibff -name flog -print | while read repert
+do 
+   cd $repert
+   find . -mtime +360 |while read fic
+        do 
+            rm $fic 
+        done
+done

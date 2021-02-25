@@ -1,0 +1,13 @@
+if [ -d /usr/lpp ]
+   then  cd /
+       TEMP='0'
+       echo "Combien de minutes avant l'arret du systeme ?  \c"
+       read TEMP
+       su root -c "shutdown +$TEMP"
+   else 
+       TEMP='0'
+       echo "Combien de secondes avant l'arret du systeme ?  \c"
+       read TEMP
+       cd /
+       su - root -e "/sbin/shutdown -h $TEMP"
+ fi

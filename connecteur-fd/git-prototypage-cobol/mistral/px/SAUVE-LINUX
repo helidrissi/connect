@@ -1,0 +1,4 @@
+/acu/mistral/px/p-sauvmis
+/acu/mistral/px/p-certmis
+eject -q /dev/st0
+/sbin/shutdown -r 0

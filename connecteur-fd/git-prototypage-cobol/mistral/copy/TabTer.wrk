@@ -1,0 +1,10 @@
+       01 TAB-TER.
+          02 FILLER          PIC X(12) VALUE "Date à Date".
+          02 FILLER          PIC X(12) VALUE "Fin de Mois".
+          02 FILLER          PIC X(12) VALUE "Le 05".
+          02 FILLER          PIC X(12) VALUE "Le 10".
+          02 FILLER          PIC X(12) VALUE "Le 15".
+          02 FILLER          PIC X(12) VALUE "Le 20".
+          02 FILLER          PIC X(12) VALUE "Le 25".
+       01 R-TAB-TER REDEFINES TAB-TER.
+          02 ELT-TER         PIC X(12) OCCURS 7.

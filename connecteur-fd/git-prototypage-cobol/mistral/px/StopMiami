@@ -1,0 +1,7 @@
+if [ -f /unix ]
+then 
+ /usr/java14_64/jre/bin/java -Djava.class.path=/acu/mistral/java/mistral.jar fr.mistral.dlrix.miami.MiamiServer stop 4250
+else
+ /usr/java/jre1.5.0_04/bin/java -Djava.class.path=/acu/mistral/java/mistral.jar fr.mistral.dlrix.miami.MiamiServer stop 4250
+fi
+

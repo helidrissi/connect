@@ -1,0 +1,15 @@
+      *(( XFD FILE = LISTE ))
+       FD  LISTE.
+       01 ENR-LST.
+           02 CLE1-LST.
+               03 ORD-LST          PIC  9(6).
+           02 COD-LST          PIC  X(6).
+           02 COD-R-LST REDEFINES COD-LST.
+               03 CODN-LST         PIC  9(6).
+           02 COB-LST          PIC  X(6).
+           02 CLE2-LST.
+               03 LIB-LST          PIC  X(50).
+           02 CO8-LST          PIC  X(8).
+           02 CO8N-LST REDEFINES CO8-LST  PIC  9(8).
+           02 LIB2-LST         PIC  X(15).
+           02 FILLER           PIC  X(27).

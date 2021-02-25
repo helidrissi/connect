@@ -1,0 +1,19 @@
+cat $1 |cut -f 2 -d = |cut -f 1 -d " " > TEST$1
+var2=0
+cat TEST$1 |while read var1
+  do 
+  [ $var1 -gt 0 ] 2>/dev/null
+  if [ $? = 0 ]
+   then 
+     if [ $var1 -eq `expr $var2 + 1` ]
+     then var2=`expr $var2 + 1`
+     else echo "problème $var1"
+          while [ $var1 -gt $var2 ] 
+           do 
+             var2=`expr $var2 + 1`
+           done
+     fi
+  fi
+  done
+
+rm TEST$1 2>/dev/null

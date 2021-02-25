@@ -1,0 +1,12 @@
+      * Linkage de MART-M
+       01 LK-MART-M.
+      *    Nombre d'éléments sélectionnés
+           05 LK-MART-M-NBSEL PIC 9(3).
+           05 LK-MART-M-MAXSEL PIC 9(3).
+      *    Table des codes articles
+           05 LK-MART-M-COD PIC X(20) OCCURS 80.
+      *    ACT = "L" pour location
+           05 LK-MART-M-ACT PIC X.
+      *    NAT = 2 pour occasion
+           05 LK-MART-M-NAT PIC 9.
+           05 FILLER PIC X(95).

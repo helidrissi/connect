@@ -1,0 +1,156 @@
+ENV=$1  # Environnement (ex: /acuf)
+SOC=$2  # No de societe (ex: 0001)
+export ENV SOC
+DIR2=$ENV
+export DIR2
+
+clear
+echo "       CREATION DU JEU D' ESSAI "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=- "
+echo "ENVIRONNEMENT : $DIR2"
+if [ ! -d $DIR2/palme ]
+   then echo "\n      Environnement INVALIDE !!! \c"
+        read ok
+        exit
+fi
+echo "SOCIETE COPIEE : $SOC"
+if [ ! -d $DIR2/mx$SOC ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ -d $DIR2/E ]
+   then echo "\n"
+   echo "Procédure Déjà Réalisée : Non Réalisable \c"
+   read ok
+   exit
+fi
+echo " Traitement en Cours - Veuillez Patienter "
+echo "     .Creation de l'environnement"
+cd $DIR2
+mkdir E
+cd E
+mkdir mx$SOC mx$SOC/f mx$SOC/ft
+mkdir cx$SOC cx$SOC/f cx$SOC/ft
+mkdir mxg mxg/f mxg/ft
+mkdir cxg cxg/f cxg/ft
+ln -s /acu/cx/fg     cxg/fg
+ln -s /acu/mx/fg     mxg/fg
+
+# ln -s /acu/mistral   mistral
+mkdir mistral mistral/f mistral/ft mistral/ferr mistral/fmenu mistral/fjbu
+ln -s /acu/mistral/COBCAP mistral/COBCAP
+ln -s /acu/mistral/fpmx mistral/fpmx
+ln -s /acu/mistral/fg   mistral/fg
+ln -s /acu/mistral/java mistral/java
+
+# ln -s /acuf/palme    palme
+mkdir palme palme/f palme/ft
+
+if [ -d $DIR2/mx$SOC/fseq ]
+   then ln -s $DIR2/mx$SOC/fseq mx$SOC/fseq
+fi
+if [ -d $DIR2/mx$SOC/fubi ]
+   then ln -s $DIR2/mx$SOC/fubi mx$SOC/fubi
+fi
+if [ -d $DIR2/mx$SOC/fta ]
+   then ln -s $DIR2/mx$SOC/fta mx$SOC/fta
+fi
+if [ -d $DIR2/cx$SOC/fseq ]
+   then ln -s $DIR2/cx$SOC/fseq cx$SOC/fseq
+fi
+echo "     .Copie des Fichiers Mistral"
+cp $DIR2/mistral/f/* mistral/f
+cp $DIR2/mistral/fmenu/* mistral/fmenu
+echo "     .Copie des Fichiers PALME"
+cp $DIR2/palme/f/* palme/f
+echo "     .Copie des Fichiers GESTION"
+cp $DIR2/mx$SOC/f/[A-E]* mx$SOC/f
+cp $DIR2/mx$SOC/f/F[A-Z]* mx$SOC/f
+cp $DIR2/mx$SOC/f/G* mx$SOC/f
+cp $DIR2/mx$SOC/f/HI* mx$SOC/f
+cp $DIR2/mx$SOC/f/[I-Z]* mx$SOC/f
+if [ $? != 0 ] 
+         then echo "    ATTENTION Problème: cp mx$SOC/f ---> E/mx$SOC/f "
+              echo "    Contacter MISTRAL Informatique \c"
+              read ok
+              # exit
+fi
+if [ -d $DIR2/mx$SOC/ftra ]
+   then mkdir mx$SOC/ftra
+        cp $DIR2/mx$SOC/ftra/* mx$SOC/ftra
+fi
+echo "     .Copie des Fichiers GESTION COMMUNS"
+cp $DIR2/mxg/f/* mxg/f
+if [ $? != 0 ] 
+         then echo "    ATTENTION Problème: cp mxg/f ---> E/mxg/f "
+              echo "    Contacter MISTRAL Informatique \c"
+              read ok
+              # exit
+fi
+echo "     .Copie des Fichiers COMPTA"
+cp $DIR2/cx$SOC/f/[A-Q]* cx$SOC/f
+cp $DIR2/cx$SOC/f/[S-Z]* cx$SOC/f
+cp $DIR2/cx$SOC/f/R[A-I]* cx$SOC/f
+if [ $? != 0 ] 
+         then echo "    ATTENTION Problème: cp cx$SOC/f ---> E/cx$SOC/f "
+              echo "    Contacter MISTRAL Informatique \c"
+              read ok
+              # exit
+fi
+echo "     .Copie des Fichiers COMPTA COMMUNS"
+cp $DIR2/cxg/f/* cxg/f
+if [ $? != 0 ] 
+         then echo "    ATTENTION Problème: cp cxg/f ---> E/cxg/f "
+              echo "    Contacter MISTRAL Informatique \c"
+              read ok
+              # exit
+fi
+if [ -d $DIR2/empx ]
+   then echo "     .Création de l'environnement / CLEO"
+        mkdir empx empx/f empx/ft
+        echo "     .Copie des Fichiers de CLEO"
+        cp $DIR2/empx/f/* empx/f
+        if [ $? != 0 ] 
+           then echo "    ATTENTION Problème: cp empx/f ---> E/empx/f "
+                echo "    Contacter MISTRAL Informatique \c"
+                read ok
+                # exit
+        fi
+fi
+if [ -d $DIR2/iex ]
+   then echo "     .Création de l'environnement / IMAM"
+        mkdir iex iex/f iex/ft
+        echo "     .Copie des Fichiers de IMAM"
+        cp $DIR2/iex/f/* iex/f
+        if [ $? != 0 ] 
+           then echo "    ATTENTION Problème: cp iex/f ---> E/iex/f "
+                echo "    Contacter MISTRAL Informatique \c"
+                read ok
+                # exit
+        fi
+fi
+if [ -d $DIR2/mex ]
+   then echo "     .Création de l'environnement / MOMIX"
+        mkdir mex mex/f mex/ft
+        echo "     .Copie des Fichiers de MOMIX"
+        cp $DIR2/mex/f/* mex/f
+        if [ $? != 0 ] 
+           then echo "    ATTENTION Problème: cp mex/f ---> E/mex/f "
+                echo "    Contacter MISTRAL Informatique \c"
+                read ok
+                # exit
+        fi
+fi
+if [ -d $DIR2/pex ]
+   then echo "     .Création de l'environnement / PAIE"
+        mkdir pex pex/f pex/ft
+        echo "     .Copie des Fichiers PAIE  "
+        cp $DIR2/pex/f/*  pex/f
+        if [ $? != 0 ] 
+           then echo "    ATTENTION Problême: cp pex/f ---> E/pex/f "
+                echo "    Contacter MISTRAL Informatique \c"
+                read ok
+                # exit
+        fi
+fi

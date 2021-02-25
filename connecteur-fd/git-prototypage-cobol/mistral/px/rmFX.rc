@@ -1,0 +1,15 @@
+\rm /tmp/lisFX 2>>/dev/null
+du /acuf/*/fx | cut -f 2 |while read repert
+    do 
+        if [ -h $repert ]
+       	then :
+        else  echo $repert >>/tmp/lisFX
+        fi
+    done
+cat /tmp/lisFX | while read source
+	do \rm -r $source 
+           mkdir $source
+           chown mistral:misinf $source
+           chmod 777 $source
+	done
+\rm /tmp/lisFX

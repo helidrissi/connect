@@ -1,0 +1,7 @@
+      * Linkage de MGFA-T
+       01 LK-MGFA-T.
+           05 LK-MGFA-T-GRA PIC 9(2).
+           05 LK-MGFA-T-FAM PIC 9(2).
+           05 LK-MGFA-T-GRALIB PIC X(25).
+           05 LK-MGFA-T-FAMLIB PIC X(25).
+           05 FILLER PIC X(50).

@@ -1,0 +1,22 @@
+      * Linkage de MFOU-L
+       01 LK-MFOU-L.
+      * Code du fournisseur pré-sélectionné.
+           05 LK-MFOU-L-Preselect PIC 9(6).
+      * Nombre d'enregistrements chargés par requètes.
+           05 LK-MFOU-L-TailleReq PIC 9(3) COMP-1.
+      * Code fournisseur.
+           05 LK-MFOU-L-COD       PIC 9(6).
+      * Raison Sociale.
+           05 LK-MFOU-L-RAI       PIC X(25).
+      * Indicateur garantie pour utilisation dans majgarot.cbl
+           05 LK-MFOU-L-IDG       PIC 9.
+      * Marque dont les fournisseurs assurent la garantie
+           05 LK-MFOU-L-MAR       PIC X(4).
+      * Indicateur confrère loueur pour mat. sous-location
+           05 LK-MFOU-L-MSL       PIC 9.
+      * Indicateur nature: 1=seulement les frns d'articles
+      *                    2=seulement les frns de matériels
+           05 LK-MFOU-L-NTF       PIC 9.
+      *    Handle fenêtre appelante pour centrage fenetre
+           05 LK-MFOU-L-handle    PIC 9(4).
+           05 FILLER PIC X(89).

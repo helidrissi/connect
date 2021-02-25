@@ -1,0 +1,9 @@
+           SELECT TRI ASSIGN TO ASSIGN-TRI
+              ORGANIZATION BINARY SEQUENTIAL
+              LOCK MODE    IS MANUAL
+              FILE STATUS FILE-STATUS.
+           SELECT XMLOut-File2
+              ASSIGN       TO  XMLOut-Assign2
+              ORGANIZATION IS BINARY SEQUENTIAL
+              ACCESS MODE  IS SEQUENTIAL
+              FILE STATUS  IS FILE-STATUS.

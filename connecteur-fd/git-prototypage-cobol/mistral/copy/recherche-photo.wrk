@@ -1,0 +1,77 @@
+       77 w-cntPhoto       PIC  9(4).
+       77 w-tmpPhoto       PIC  9(4).
+       77 w-path           PIC  X(128).
+       77 w-npath          PIC  X(128).
+       77 w-dirpho         PIC  X(128).
+       77 w-pattern        PIC  X(35).
+       01 Table-photos.
+           05 w-photos         PIC  X(128)
+                      OCCURS 20 TIMES.
+           05 w-photos-titre   PIC  X(40)
+                      OCCURS 20 TIMES.
+011018     05 w-photos-cle   PIC  X(10)
+                      OCCURS 20 TIMES.
+       77 w-basename       PIC  X(32). 
+       77 w-lbasename      PIC  99.
+       77 w-hFind
+                  USAGE IS HANDLE.
+       77 w-filename       PIC  X(256).
+       77 w-copyname       PIC  X(20). 
+       77 w-photo-base     PIC X(128).
+       77 w-photo-copy     PIC X(128).
+      *    Longueur nom fichier
+       77 w-photo-lon      PIC 9(2).
+       77 w-photo-dat      PIC 9(8).
+       77 w-photo-heu      PIC 99V99.
+      * pour recherche signature de l'intervenant (Mobistac)
+       77 RA-photo-sigi    PIC 9.
+
+      *    Pour Recherche-Attach
+       77 RA-SOC             PIC 9(4).
+       77 RA-ORI             PIC X(4).
+       77 RA-NORI            PIC X(4).
+       01 RA-CLE             PIC  X(30).
+       01 R-RA-CLE REDEFINES RA-CLE.
+           03 RA-CLEN        PIC  9(18).
+           03 FILLER         PIC  X(12).
+       01 RA-NCLE            PIC  X(30).
+       01 R-RA-NCLE REDEFINES RA-NCLE.
+           03 RA-NCLEN       PIC  9(18).
+           03 FILLER         PIC  X(12).
+       77 W-CntCAR           PIC  9(3).
+       77 W-CntORI           PIC  X(4).
+       77 w-cntAttach       PIC  9(4).
+
+       01 RA-Table-DOC.
+           05 RA-DOC         PIC  X(128)
+              OCCURS 20 TIMES.
+           05 RA-CLEDOC      PIC  X(12)
+              OCCURS 20 TIMES.
+
+       77 RA-OPEN            PIC 9.
+       77 RA-OPEN-ATTREL     PIC 9.
+       77 RA-OPEN-ATTCLA     PIC 9.
+       77 RA-EOF-ATTACH      PIC 9.
+       77 W-SYNC-ATT         PIC 9.
+       77 W-EOF-ATT          PIC 9.
+       77 W-NONS             PIC 9.
+       77 RA-enr-att         PIC  X(2048).
+       77 ROLD-ORD-ATT       PIC  9(10).
+       01 RA-ORD-ATT         PIC  9(10).
+       01 R-RA-ORD-ATT REDEFINES RA-ORD-ATT.
+           02 RA-ORD1-ATT     PIC  999.
+           02 RA-ORD2-ATT     PIC  9(7).
+170719 77 W-LIGB             PIC 9(4).
+130619
+           COPY "W:\mistral\copy\LK-ATT-AUTRES.WRK"
+            REPLACING ==LK-ATT-AUTRES== BY ==LK-ATT-AUTREB==
+261219                ==LK-ATT-AUTRES-TYP== BY ==LK-ATT-AUTREB-TYP==
+261219                ==LK-ATT-AUTRES-CLE1== BY ==LK-ATT-AUTREB-CLE1==
+261219                ==LK-ATT-AUTRES-SOC== BY ==LK-ATT-AUTREB-SOC==
+261219                ==LK-ATT-AUTRES-NBR== BY ==LK-ATT-AUTREB-NBR==
+261219                ==LK-ATT-AUTRES-CLEA== BY ==LK-ATT-AUTREB-CLEA==.
+130619*
+       77 Pas-Autres        PIC  9.
+       77 w-tmpPhoto2       PIC  9(4).
+
+

@@ -1,0 +1,70 @@
+clear1
+echo "\n"
+echo "       PROCEDURE POUR COPIER LES FICHIERS ANALYTIQUES D'1 STE COMPTA "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= "
+echo "\n"
+echo "Environement (exemples : /acuf /acuf/S2): \c"
+read DIR2
+if [ ! -d $DIR2/palme ]
+   then echo "\n      Environement INVALIDE !!! \c"
+        read ok
+        exit
+fi
+cd $DIR2
+echo "\n"
+echo "No Soci‚t‚ Comptable Source ($NUMSOC): \c"
+SOC=`/acu/mistral/px/ACCNUMERO`
+SOC1=$SOC
+if [ ! -d cx$SOC1 ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+echo "\n"
+echo "No Soci‚t‚ Comptable Destination : \c"
+SOC=`/acu/mistral/px/ACCNUMERO`
+SOC2=$SOC
+if [ ! -d cx$SOC2 ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+echo "\n Confirmez-vous - Taper 'OUI' Pour confirmer \c"
+read OK
+if [ $OK = "OUI" ] 2>>/dev/null
+    then :
+    else echo "\n"
+         echo " Proc‚dure Non R‚aliss‚e - Taper • \c"
+         read ok
+         exit
+fi
+echo "\n"
+echo " Traitement en Cours - Patienter "
+####### fichier ANASEG ##############################
+cp $DIR2/cx$SOC1/f/ANASEG cx$SOC2/f/ANASEG
+cp $DIR2/cx$SOC1/f/ANASEG.vix cx$SOC2/f/ANASEG.vix
+####### fichier GENANA ##############################
+cp $DIR2/cx$SOC1/f/GENANA cx$SOC2/f/GENANA
+cp $DIR2/cx$SOC1/f/GENANA.vix cx$SOC2/f/GENANA.vix
+####### fichier GRIREPS ##############################
+cp $DIR2/cx$SOC1/f/GRIREPS cx$SOC2/f/GRIREPS
+cp $DIR2/cx$SOC1/f/GRIREPS.vix cx$SOC2/f/GRIREPS.vix
+####### fichier POSGRS ##############################
+cp $DIR2/cx$SOC1/f/POSGRS cx$SOC2/f/POSGRS
+cp $DIR2/cx$SOC1/f/POSGRS.vix cx$SOC2/f/POSGRS.vix
+####### fichier SEGANA ##############################
+cp $DIR2/cx$SOC1/f/SEGANA cx$SOC2/f/SEGANA
+cp $DIR2/cx$SOC1/f/SEGANA.vix cx$SOC2/f/SEGANA.vix
+####### fichier VALSEG ##############################
+cp $DIR2/cx$SOC1/f/VALSEG cx$SOC2/f/VALSEG
+cp $DIR2/cx$SOC1/f/VALSEG.vix cx$SOC2/f/VALSEG.vix
+####### fichier PETBASE ##############################
+cp $DIR2/cx$SOC1/f/PETBASE cx$SOC2/f/PETBASE
+cp $DIR2/cx$SOC1/f/PETBASE.vix cx$SOC2/f/PETBASE.vix
+####### fichier PETBASC ##############################
+cp $DIR2/cx$SOC1/f/PETBASC cx$SOC2/f/PETBASC
+cp $DIR2/cx$SOC1/f/PETBASC.vix cx$SOC2/f/PETBASC.vix
+####### fichier PETBASL ##############################
+cp $DIR2/cx$SOC1/f/PETBASL cx$SOC2/f/PETBASL
+cp $DIR2/cx$SOC1/f/PETBASL.vix cx$SOC2/f/PETBASL.vix
+echo "\n Proc‚dure Termin‚e ! "

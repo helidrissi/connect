@@ -1,0 +1,10 @@
+cd cfg103
+tar xvf /tmp/RV
+cd ../cfg104
+tar xvf /tmp/RV
+cd ../cfg105
+tar xvf /tmp/RV
+cd ../cfg106
+tar xvf /tmp/RV
+cd ../cfg10MIAMI
+tar xvf /tmp/RV

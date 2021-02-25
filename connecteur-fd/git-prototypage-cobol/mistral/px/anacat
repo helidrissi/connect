@@ -1,0 +1,51 @@
+cd /acuf
+rm /acuf/catalina.res 2>>/dev/null
+egrep "Début|Fin" /usr/local/tomcat/logs/catalina.out > /acuf/catalina
+cp result catalina
+sed "s/Fin /Fin\-\-%/g" /acuf/catalina > /acuf/catalina.tmp
+mv /acuf/catalina.tmp /acuf/catalina
+sed "s/Début /Début%/g" /acuf/catalina > /acuf/catalina.tmp
+mv /acuf/catalina.tmp /acuf/catalina
+sed "s/\&out/£/g" /acuf/catalina > /acuf/catalina.tmp
+mv /acuf/catalina.tmp /acuf/catalina
+cut -f 1 -d £ /acuf/catalina > /acuf/catalina.tmp
+mv /acuf/catalina.tmp /acuf/catalina
+cut -f 1 -d %  /acuf/catalina > /acuf/catalina.tmp1
+cut -f 2 -d %  /acuf/catalina > /acuf/catalina.tmp2
+paste -d "%" /acuf/catalina.tmp2  /acuf/catalina.tmp1 >  /acuf/catalina.tmp
+mv /acuf/catalina.tmp /acuf/catalina
+rm /acuf/catalina.tmp1
+rm /acuf/catalina.tmp2
+sort /acuf/catalina > /acuf/catalina.tmp
+cp /acuf/catalina.tmp /acuf/catalina.sort
+mv /acuf/catalina.tmp /acuf/catalina
+UN=1
+A=0
+ZSAUVE=""
+cat /acuf/catalina | while read source
+     do  
+         A=`expr $A + 1`
+         echo "$A "
+         ZLUE=`echo $source | cut -f 2 -d "%" `
+         if [ -z "$ZSAUVE" ]
+         then ZSAUVE=$ZLUE
+              sourcesauve=$source
+         else 
+            Z1=`echo $source | cut -f 1 -d "%"`
+            Z2=`echo $sourcesauve | cut -f 1 -d "%"`
+            if [ $ZLUE = $ZSAUVE -a "$ZSAUVE" = "Début" -a "$Z1" != "$Z2" ]
+            then  ZONE3=""
+                  ZONE3=`echo $sourcesauve | egrep "facture|bonliv"`
+                  if [ -z "$ZONE3" ]
+                  then echo $sourcesauve | cut -f 1 -d "%" >> /acuf/catalina.res
+                  fi
+            fi
+            ZSAUVE=$ZLUE
+            sourcesauve=$source
+         fi
+     done
+clear
+if [ -s /acuf/catalina.res ]
+then pg /acuf/catalina.res
+else echo "Pas d'anomalie"
+fi

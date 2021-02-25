@@ -1,0 +1,1597 @@
+      * sbd-cm.wrk
+      * sbd-cm.wrk is generated from W:\mx\spro\sbd-cm.Psf
+      * This is a generated file. DO NOT modify this file directly.
+
+       77 Key-Status IS SPECIAL-NAMES CRT STATUS PIC 9(5) VALUE 0.
+           88 Exit-Pushed VALUE 27.
+           88 Message-Received VALUE 95.
+           88 Event-Occurred VALUE 96.
+      * property-defined variable
+
+      * user-defined variable
+           COPY  "cobcap.wrk".
+           COPY  "LK-INT.wrk".
+           COPY  "Cm-MTDI.wrk".
+           COPY  "demat.wrk".
+           COPY  "LK-SCODART-L.wrk".
+           COPY  "recherche-photo.wrk".
+           COPY  "calechea.wrk".
+       77 W-LOG-PALM       PIC  999
+                  VALUE IS 25.
+       77 W-NPR-PALM       PIC  9999
+                  VALUE IS 63.
+       77 Screen1-Handle
+                  USAGE IS HANDLE OF WINDOW VALUE NULL.
+       77 MODU-MOBISCOP    PIC  9.
+       77 Default-bmp      PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 Default-Font
+                  USAGE IS HANDLE OF FONT DEFAULT-FONT.
+       77 ScreenE-Handle
+                  USAGE IS HANDLE OF WINDOW VALUE NULL.
+       77 Small-Font
+                  USAGE IS HANDLE OF FONT SMALL-FONT.
+       77 W-MXPARAM        PIC  9(9).
+       77 W-MXPARDIS       PIC  9(9).
+       77 ZOOMxxx16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 RECHERC24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 CBCHECK13-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 CBUNCHK13-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 QUITTER16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 WARNING32-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 RAFRAIC24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 DUPLIQU16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 SUPPRIM24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 CREERxx24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 MODIFIE24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 SAUVEGA24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 IMPRIME24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 AIDExxx24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 VALIDER24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ANNULER24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 VALIDER16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 VALIDER12-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 EXPANDxx7-JPG    PIC  S9(9)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ANNULER12-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 AGENCEx30-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 COLLAPSE7-JPG    PIC  S9(9)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 QUITTER24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 USERxxx20-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ZOOMxxx12-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 AJOUTLG16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 SUPPRLG16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 VISPIEC32-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ZOOMxxx12-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ZOOMxxx16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 DATETRT16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ZOOMxxx10-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 NOSERIE12-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ANNULER16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 INTERLO16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 LIEUXxx16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 TBLPAI-FILE-STATUS           PIC  X(2).
+           88 Valid-TBLPAI-FILE-STATUS VALUE IS "00" THRU "09". 
+       77 WTITLE-RCV       PIC  X(40)
+                  VALUE IS " Voir les remises en cascade ".
+       77 FILE-STATUS      PIC  X(2).
+       77 PAYS-FILE-STATUS PIC  X(2).
+       77 CXCLI-FILE-STATUS            PIC  X(2).
+       77 PERSON-FILE-STATUS           PIC  X(2).
+       77 CXDOMTIERS-FILE-STATUS       PIC  X(2).
+       77 W-TITSOC         PIC  9(9).
+       77 TITSOC-FILE-STATUS           PIC  X(2).
+       77 CALREF-FILE-STATUS           PIC  X(2).
+       77 W-MXTABRMA       PIC  9(9).
+       77 DEVI-FILE-STATUS PIC  X(2).
+       77 HISDEV-FILE-STATUS           PIC  X(2).
+       77 DATETRT20-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 Screen2-Handle
+                  USAGE IS HANDLE OF WINDOW VALUE NULL.
+       77 Screen0-Handle
+                  USAGE IS HANDLE OF WINDOW VALUE NULL.
+       77 Screen3-Handle
+                  USAGE IS HANDLE OF WINDOW VALUE NULL.
+       77 Screen2-DaGd-1-Row-Highlight-Color       PIC  9(6)
+                  VALUE IS 257.
+       77 Screen2-DaGd-1-Cursor-X      PIC  9(5).
+       77 Screen2-DaGd-1-Cursor-Y      PIC  9(5).
+       77 Screen2-DaGd-1-Cursor-X-Old  PIC  9(5).
+       77 Screen2-DaGd-1-Cursor-Y-Old  PIC  9(5).
+       77 Screen3-DaGd-2-Row-Highlight-Color       PIC  9(6)
+                  VALUE IS 257.
+       77 Screen3-DaGd-2-Cursor-X      PIC  9(5).
+       77 Screen3-DaGd-2-Cursor-Y      PIC  9(5).
+       77 Screen3-DaGd-2-Cursor-X-Old  PIC  9(5).
+       77 Screen3-DaGd-2-Cursor-Y-Old  PIC  9(5).
+       01 TABLE-TYP.
+           05 FILLER           PIC  X(50)
+                      VALUE IS "Bon de Commande".
+           05 FILLER           PIC  9
+                      VALUE IS 0.
+           05 FILLER           PIC  X(50)
+                      VALUE IS "Bon de Livraison".
+           05 FILLER           PIC  9
+                      VALUE IS 1.
+           05 FILLER           PIC  X(50)
+                      VALUE IS "Avoir & Retour".
+           05 FILLER           PIC  9
+                      VALUE IS 3.
+           05 FILLER           PIC  X(50)
+                      VALUE IS "Devis".
+           05 FILLER           PIC  9
+                      VALUE IS 8.
+           05 FILLER           PIC  X(51).
+       01 R-TABLE-TYP REDEFINES TABLE-TYP.
+           05 ELT-TYPTYP
+                      OCCURS 5 TIMES.
+               06 ELT-TYP          PIC  X(50).
+               06 ELT-COD          PIC  9.
+       01 TABLE-CVM.
+           05 FILLER           PIC  X(20)
+                      VALUE IS "Rupture".
+           05 FILLER           PIC  X(20)
+                      VALUE IS "Prix".
+           05 FILLER           PIC  X(20)
+                      VALUE IS "Qualité".
+           05 FILLER           PIC  X(20)
+                      VALUE IS "Réf. non gérée".
+           05 FILLER           PIC  X(20)
+                      VALUE IS "Autre".
+       01 R-TABLE-CVM REDEFINES TABLE-CVM.
+           05 ELT-CVM          PIC  X(20)
+                      OCCURS 5 TIMES.
+       01 TABLE-TBP.
+           05 FILLER           PIC  X(20)
+                      VALUE IS "Sur stock".
+           05 FILLER           PIC  X(20)
+                      VALUE IS "Fou -> client".
+           05 FILLER           PIC  X(20)
+                      VALUE IS "Fou -> stk central".
+           05 FILLER           PIC  X(20)
+                      VALUE IS "Fou -> agence".
+       01 R-TABLE-TBP REDEFINES TABLE-TBP.
+           05 ELT-TBP          PIC  X(20)
+                      OCCURS 4 TIMES.
+       77 LK-CALL          PIC  9
+                  VALUE IS 0.
+       77 SV-TYP           PIC  9
+                  VALUE IS 0.
+       77 Cm-TFA-Handle
+                  USAGE IS HANDLE OF COMBO-BOX VALUE NULL.
+       78 Cm-TFA-NbMaxItems VALUE IS 6. 
+       77 Cm-TFA-9-3       PIC  9(3)
+                  USAGE IS COMP-1.
+       01 Cm-TFA-Items
+                  OCCURS CM-TFA-NBMAXITEMS TIMES.
+           05 Cm-TFA-LIB       PIC  X(25).
+           05 FILLER           PIC  X(30).
+           05 Cm-TFA-COD       PIC  9(1).
+       77 Cm-TFA-SelectedItem          PIC  9(1).
+       77 Cm-TFA-LoadedItems           PIC  9(3)
+                  USAGE IS COMP-1
+                  VALUE IS 0.
+       77 Large-Font
+                  USAGE IS HANDLE OF FONT LARGE-FONT.
+       77 WENABLE-QTE      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-PUB      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-REM      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-LPZ      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-PZE      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-ISQ      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-EXC      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-AR1      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-AR2      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-DES      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-INP      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-TLI      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-TCO      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-LISTE    PIC  9
+                  VALUE IS 1.
+       77 WENABLE-DLI      PIC  9
+                  VALUE IS 0.
+       77 WENABLE-AGS      PIC  9
+                  VALUE IS 0.
+       77 WENABLE-FOU      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-PZE4     PIC  9.
+       77 W-LDEVFOU        PIC  X(20).
+       77 WVISIBLE-LPZ     PIC  9
+                  VALUE IS 1.
+       77 WVISIBLE-MON     PIC  9
+                  VALUE IS 1.
+       77 Color112         PIC  9(6)
+                  VALUE IS 2.
+       77 Color194         PIC  9(6)
+                  VALUE IS 194.
+       77 WVISIBLE-REC     PIC  9
+                  VALUE IS 0.
+       77 WVISIBLE-PRO     PIC  9
+                  VALUE IS 0.
+       77 WVISIBLE-PZE     PIC  9
+                  VALUE IS 1.
+       77 Screen2-Bt-1-Handle          PIC  S9(9)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 WTITLE-RCM       PIC  X(40)
+                  VALUE IS " Masquer les remises en cascade ".
+       01 Screen1-BUF.
+           05 Screen1-RADIO-2-BUF          PIC  9
+                      VALUE IS ZERO.
+           05 Screen1-DaCb-IFO-BUF         PIC  9
+                      VALUE IS ZERO.
+           05 Screen1-DaCb-IVR-BUF         PIC  9
+                      VALUE IS ZERO.
+           05 Screen1-RADIO-1-BUF          PIC  9
+                      VALUE IS ZERO.
+           05 Screen1-RADIO-4-BUF          PIC  9
+                      VALUE IS ZERO.
+           05 Screen1-DaEf-Rep-BUF         PIC  X(4).
+           05 Screen1-DaEf-JDLI-BUF        PIC  99
+                      BLANK WHEN ZERO.
+           05 Screen1-DaEf-MDLI-BUF        PIC  99
+                      BLANK WHEN ZERO.
+           05 Screen1-DaEf-SADLI-BUF       PIC  9999
+                      BLANK WHEN ZERO.
+           05 Screen1-RADIO-5-BUF          PIC  9
+                      VALUE IS ZERO.
+           05 Screen1-DaCb-IFD-BUF         PIC  9
+                      VALUE IS ZERO.
+           05 Screen1-DaCb-PUS-BUF         PIC  9
+                      VALUE IS ZERO.
+       01 Screen2-BUF.
+           05 Screen2-DaGd-1-BUF.
+               06 Screen2-DaGd-1-BUF-1         PIC  X.
+               06 Screen2-DaGd-1-BUF-2         PIC  X(21).
+               06 Screen2-DaGd-1-BUF-3         PIC  X(40).
+               06 Screen2-DaGd-1-BUF-4         PIC  ZZZZZ9,99-.
+               06 Screen2-DaGd-1-BUF-5         PIC  ZZZZZZ9,99.
+               06 Screen2-DaGd-1-BUF-6         PIC  Z9,99-.
+               06 Screen2-DaGd-1-BUF-7         PIC  ZZZZZZ9,99.
+               06 Screen2-DaGd-1-BUF-8         PIC  ZZZZZZ9,99-.
+               06 Screen2-DaGd-1-BUF-9         PIC  X.
+               06 Screen2-DaGd-1-BUF-10        PIC  X.
+               06 Screen2-La-LMBL-Buf          PIC  X(4)
+                          VALUE IS "% MB".
+       01 Ligne-Af.
+           05 DaGd-1-Col-Inp   PIC  X(1).
+           05 DaGd-1-Col-Art   PIC  X(21).
+           05 DaGd-1-Col-Des   PIC  X(40).
+           05 DaGd-1-Col-Qte   PIC  ZZZZZ9,99-
+                      BLANK WHEN ZERO.
+           05 DaGd-1-Col-QteSD REDEFINES DaGd-1-Col-Qte  PIC  ZZZZZ9-
+                      BLANK WHEN ZERO.
+           05 DaGd-1-Col-Isq REDEFINES DaGd-1-Col-Qte  PIC  X(10).
+           05 DaGd-1-Col-Pub   PIC  ZZZZZZZ9,99-
+                      BLANK WHEN ZERO.
+           05 DaGd-1-Col-PubP REDEFINES DaGd-1-Col-Pub  PIC  
+           ZZZZZZZZ9,99
+                      BLANK WHEN ZERO.
+           05 DaGd-1-Col-PubL REDEFINES DaGd-1-Col-Pub  PIC  X(12).
+           05 DaGd-1-Col-Rem   PIC  Z9,99-
+                      BLANK WHEN ZERO.
+           05 DaGd-1-Col-Pun   PIC  ZZZZZZZ9,99-
+                      BLANK WHEN ZERO.
+           05 DaGd-1-Col-PunP REDEFINES DaGd-1-Col-Pun  PIC  
+           ZZZZZZZZ9,99
+                      BLANK WHEN ZERO.
+           05 DaGd-1-Col-Mon   PIC  ZZZZZZZZ9,99-
+                      BLANK WHEN ZERO.
+           05 DaGd-1-Col-Lpz REDEFINES DaGd-1-Col-Mon  PIC  X(13).
+           05 DaGd-1-Col-Tli   PIC  X.
+           05 DaGd-1-Col-Pro   PIC  X.
+           05 DaGd-1-Col-MB    PIC  ZZZZZ9,99-
+                      BLANK WHEN ZERO.
+           05 DaGd-1-Col-PMB   PIC  ZZ9,99-
+                      BLANK WHEN ZERO.
+           05 DaGd-1-Col-Msg   PIC  X(12).
+           05 DaGd-1-Col-Bon   PIC  9(8).
+           05 DaGd-1-Col-Lig   PIC  9(4).
+           05 DaGd-1-Col-CodTli            PIC  9(1).
+           05 DaGd-1-Col-DEL   PIC  X(15).
+           05 DaGd-1-Col-SV    PIC  X(15).
+      *
+      *
+       01 Ligne-Af-Pai.
+           05 DaGd-2-Col-PAI   PIC  99.
+           05 DaGd-2-Col-LIBPAI            PIC  X(20).
+           05 DaGd-2-Col-ECH   PIC  9.
+           05 DaGd-2-Col-LIBECH            PIC  X(10).
+           05 R-DaGd-2-Col-LIBECH REDEFINES DaGd-2-Col-LIBECH.
+               10 DaGd-2-Col-NJE   PIC  Z(3).
+               10 DaGd-2-Col-LNJE  PIC  X(7).
+           05 DaGd-2-Col-TER   PIC  9.
+           05 DaGd-2-Col-LIBTER            PIC  X(11).
+           05 DaGd-2-Col-DAE   PIC  99/99/9999.
+      *                BLANK WHEN ZERO.
+           05 DaGd-2-Col-POU   PIC  ZZ9,99-
+                      BLANK WHEN ZERO.
+           05 DaGd-2-Col-MON   PIC  ZZZZZZZZ9,99-
+                      BLANK WHEN ZERO.
+      *
+      *
+       77 W-CLI            PIC  9(6).
+       77 W-FCO            PIC  9(8).
+       77 W-ICP            PIC  9.
+       77 W-AGE            PIC  XXX.
+       77 W-BON            PIC  9(8).
+       77 W-TYC            PIC  S9(1)
+                  VALUE IS 0.
+       77 W-TYP            PIC  S9(1)
+                  VALUE IS -1.
+       77 W-OTE            PIC  S9(1)
+                  VALUE IS 0.
+       77 W-IND            PIC  S9(1)
+                  VALUE IS 0.
+       77 WENABLE          PIC  S9(1)
+                  VALUE IS 0.
+       77 WVISIBLE         PIC  S9(1)
+                  VALUE IS 0.
+       77 SV-DAT-BON       PIC  9(8).
+       01 W-DAT            PIC  9(8).
+       01 R-W-DAT REDEFINES W-DAT.
+           05 W-SS PIC  99.
+           05 W-AA PIC  99.
+           05 W-MM PIC  99.
+           05 W-JJ PIC  99.
+       77 W-CHC            PIC  9(9).
+       01 PER-C            PIC  9(4).
+       01 R-PER-C REDEFINES PER-C.
+           05 M-PER-C          PIC  99.
+           05 A-PER-C          PIC  99.
+       01 PER-1            PIC  9(4).
+       01 R-PER-1 REDEFINES PER-1.
+           05 M-PER-1          PIC  99.
+           05 A-PER-1          PIC  99.
+       77 I    PIC  S9(5)
+                  VALUE IS 0.
+       77 J    PIC  9(3).
+       77 W-MOI            PIC  S9(5)
+                  VALUE IS 0.
+       77 SV-QTE-MLDI      PIC  S9(9)V99.
+       77 SV-MON           PIC  S9(12)V99.
+       77 EF-MON           PIC  9(12)V99.
+       77 SV-ART-MLDI      PIC  X(20).
+       77 SV-TLI-MLDI      PIC  9.
+       77 SV-TBP-MLDI      PIC  9.
+       77 SV-PZE-MLDI      PIC  9.
+       77 SV-AGS-MLDI      PIC  XXX.
+       77 SV-DEP-MLDI      PIC  999.
+       77 W-STC            PIC  S9(9)V99.
+       77 W-STO            PIC  S9(9)V99.
+       77 SV-STO           PIC  S9(9)V99.
+       77 W-STG            PIC  S9(9)V99.
+       77 W-STD            PIC  S9(9)V99.
+       77 W-STOGR          PIC  S9(9)V99.
+       77 W-QCCGR          PIC  S9(9)V99.
+       77 W-QCFGR          PIC  S9(9)V99.
+       77 W-MON            PIC  S9(12)V99.
+       77 A-QTE            PIC  S9(9)V99.
+       77 I-QTE            PIC  S9(9)V99.
+       77 W-QTC            PIC  S9(6)V99.
+       01 W-QTE            PIC  S9(6)V99.
+       01 R-W-QTE REDEFINES W-QTE.
+           05 W-QTE1           PIC  9(6).
+           05 W-QTE2           PIC  9(2).
+       77 W-IND1           PIC  9.
+      *     05 W-QTES           PIC  X.
+       77 W-QTL            PIC  S9(6)V99.
+      *     05 W-QTES           PIC  X.
+       77 SST-QTL          PIC  S9(6)V99.
+      *     05 W-QTES           PIC  X.
+       77 SST-QTC          PIC  S9(6)V99.
+       77 W-MOB            PIC  S9(9)V99.
+       77 W-PUN            PIC  S9(9)V99.
+       77 W-PRB            PIC  S9(9)V99.
+       77 W-PUS            PIC  S9(9)V99.
+       77 W-PUB            PIC  S9(9)V99.
+       77 W-REM            PIC  S99V99.
+       77 W-REMC           PIC  S99V99.
+       77 W-REC            PIC  S99V99
+                  OCCURS 6 TIMES.
+       77 W-PZE            PIC  9
+                  VALUE IS 0.
+       77 TOT-HT           PIC  S9(12)V99.
+       77 TOT-HTS          PIC  9(12)V99.
+       77 TOT-RPM          PIC  S9(12)V99.
+       77 TOT-HTT          PIC  S9(12)V99.
+       77 TOT-HPI          PIC  S9(12)V99.
+       77 TOT-HPR          PIC  S9(12)V99.
+       77 TOT-MG           PIC  S9(12)V99.
+       77 TOT-PR           PIC  S9(12)V99.
+       77 TOT-TTC          PIC  S9(12)V99.
+       77 TOT-TVA          PIC  S9(12)V99.
+       77 TOT-FFA          PIC  S9(12)V99.
+       77 TOT-POR          PIC  S9(12)V99.
+       77 TOT-NET          PIC  S9(12)V99.
+       77 TOT-ESC          PIC  S9(12)V99.
+       77 W-TVA            PIC  S9(12)V99.
+       77 TOT-HTB          PIC  S9(12)V99.
+       77 TOT-POI          PIC  S9(9)V99.
+       77 TOT-VOL          PIC  S9(9)V99.
+       77 TOT-LIG          PIC  9(6).
+       77 W-POI            PIC  S9(9)V99.
+       77 W-VOL            PIC  S9(9)V99.
+       77 W-MARGE          PIC  S9(9)V99.
+       77 W-PAC            PIC  S9(9)V99.
+       77 TVA-FFA          PIC  S9(9)V99.
+       77 TVA-POR          PIC  S9(9)V99.
+       77 W-PM PIC  S9(4)V99.
+       77 W-MSG-PM         PIC  X(12).
+       77 W-CT PIC  9.
+       77 W-REP            PIC  X(4).
+       77 W-NOM            PIC  X(30).
+       77 W-STR            PIC  X(30).
+       77 W-MSG            PIC  X(80).
+       01 TABLE-C-MON.
+           05 C-MON            PIC  S9(12)V99
+                      OCCURS 8 TIMES.
+           05 C-MOS            PIC  S9(12)V99
+                      OCCURS 8 TIMES.
+           05 C-PQP            PIC  S9(12)V99
+                      OCCURS 8 TIMES.
+           05 C-ESC            PIC  S9(12)V99
+                      OCCURS 8 TIMES.
+           05 C-TVA            PIC  9
+                      OCCURS 8 TIMES.
+       77 INDICE           PIC  9(4).
+       77 SV-INDICE        PIC  9(4).
+       77 INDICE-PAI       PIC  99.
+       77 WCOL PIC  99.
+       77 WLIG PIC  99.
+       77 BITMAPLINE       PIC  99.
+       77 BITMAPCOL        PIC  99.
+       77 W-DES            PIC  X(62).
+       77 W-EXIT           PIC  X.
+       77 TYPM PIC  X.
+       77 W-INP            PIC  X.
+       77 CDF  PIC  X.
+       77 CDFL PIC  X.
+       77 SV-CDF2          PIC  X.
+       77 SV-CDF1          PIC  X.
+       77 SV-CDF           PIC  X.
+       77 D82  PIC  ZZZZZZZ9,99-
+                  BLANK WHEN ZERO.
+       77 D92  PIC  ZZZZZZZZ9,99-
+                  BLANK WHEN ZERO.
+       77 D6   PIC  ZZZZZZ-
+                  BLANK WHEN ZERO.
+       77 D62  PIC  ZZZBZZ9,99-
+                  BLANK WHEN ZERO.
+       77 D72  PIC  ZZZZBZZ9,99-
+                  BLANK WHEN ZERO.
+       77 D52  PIC  ZZZZ9,99-
+                  BLANK WHEN ZERO.
+       77 D7   PIC  ZZZZBZZ9-
+                  BLANK WHEN ZERO.
+       77 D22  PIC  ZZ9,99-
+                  BLANK WHEN ZERO.
+       77 W-ART-MAJ        PIC  X(20).
+       77 W-LIN-MAJ        PIC  9(4).
+       01 Ef-TRP.
+           05 EF-TRP1          PIC  ZZZ9,99.
+           05 EF-TRP2          PIC  BX.
+       01 W-ART            PIC  X(20).
+       01 R-W-ART REDEFINES W-ART.
+           05 W-AR1            PIC  X(4).
+           05 R-W-AR1 REDEFINES W-AR1.
+               10 W-GFA            PIC  99.
+               10 W-FSA            PIC  99.
+           05 W-AR2            PIC  X(16).
+       77 SV-ENR-MBDI      PIC  X(2000).
+       77 SV-ENR-MBDI2     PIC  X(2000).
+       77 SV-ENR-MLDI      PIC  X(2000).
+       77 SV-ENR-MLDI2     PIC  X(2000).
+       77 W-NPA            PIC  9.
+       77 W-RAI            PIC  X(30).
+       77 W-CV PIC  X(35).
+       77 Af-POS           PIC  X(8).
+       77 Af-TEL           PIC  X(15).
+       77 AF-W-DAT         PIC  X(10).
+       77 W-LBON           PIC  X(14).
+       77 D-LIG            PIC  9(4).
+       77 SV-D-LIG         PIC  9(4).
+       77 D-LIN            PIC  9(4).
+       77 D-RAN            PIC  9(4).
+       77 D-INDICE         PIC  9(4).
+       77 W-PRI            PIC  S9(12)V99.
+       77 Mon-Rem          PIC  S9(10)V99.
+       77 W-NOM-ITC        PIC  X(30).
+       77 Af-TIT           PIC  X(10).
+       77 DFA-INT          PIC  9(8).
+       01 W-HEU            PIC  S9(6)V99
+                  SIGN IS TRAILING SEPARATE CHARACTER.
+       01 R-W-HEU REDEFINES W-HEU.
+           05 W-HEU1           PIC  9(6).
+           05 W-HEU2           PIC  99.
+           05 FILLER           PIC  X.
+       77 W-NBGRT          PIC  9(3).
+       77 MAX-DEL          PIC  9(3).
+       77 W-GRT            PIC  9(2).
+       77 WG   PIC  9(3).
+       77 PR-MAT           PIC  9.
+       77 NOU-A            PIC  9.
+       77 D2   PIC  ZZ.
+       77 D-REV            PIC  9(6).
+       77 D-HIV            PIC  9(9).
+       77 SV-ENR-HIV       PIC  X(1000).
+       77 SV-ENR-ART       PIC  X(1000).
+       77 SV-ENR-ART2      PIC  X(1000).
+       77 WDAT-OK          PIC  9(1).
+       01 TABPRI.
+           05 ELT-PRI          PIC  9(9)V99
+                      OCCURS 200 TIMES.
+           05 ELT-QTE          PIC  9(3)
+                      OCCURS 200 TIMES.
+       77 INDICE-PRI       PIC  9(3).
+       77 W-NIV            PIC  9(1).
+       77 W-SST            PIC  9(3).
+       77 W-OK-ASA         PIC  9(1).
+       77 ASSIGN-TRITAM    PIC  X(60).
+       77 WASS-TRITAM      PIC  X(20)
+                  VALUE IS "SBD-TRITAM".
+       77 SSSIGN-TRISEL    PIC  X(60).
+       77 WASS-TRISEL      PIC  X(20)
+                  VALUE IS "SBD-TRIGCA".
+       77 ScreenRUP-Handle
+                  USAGE IS HANDLE OF WINDOW VALUE NULL.
+       77 Medium-Font
+                  USAGE IS HANDLE OF FONT MEDIUM-FONT.
+       77 W-AGS            PIC  X(3).
+       77 W-DPS            PIC  9(3)
+                  VALUE IS 0.
+       77 AUTO-3EC         PIC  9(1).
+       77 AUTO-MOP         PIC  9(1).
+       77 AUTO-GRATUIT     PIC  9(1).
+       77 AUTO-AVO         PIC  9(1).
+       77 AUTO-MAR         PIC  9(1).
+       77 AUTO-BLC         PIC  9(1).
+       77 AUTO-MG          PIC  9(1).
+       77 AUTO-BLI         PIC  9(1).
+       77 AUTO-BLR         PIC  9(1).
+       77 AUTO-BLF         PIC  9(1).
+       77 AUTO-FOU         PIC  9(1).
+       77 AUTO-CT          PIC  9(1).
+       77 AUTO-MODCD       PIC  9(1).
+       77 AUTO-CRECD       PIC  9(1).
+       77 AUTO-VISCD       PIC  9(1).
+       77 AUTO-MODBL       PIC  9(1).
+       77 AUTO-CREBL       PIC  9(1).
+       77 AUTO-VISBL       PIC  9(1).
+       77 AUTO-CAST        PIC  9(1).
+       77 AUTO-REMUNI      PIC  9(1).
+       77 AUTO-PASUV       PIC  9(1).
+       77 AUTO-DCD         PIC  9.
+       77 AUTO-MOTIF       PIC  9.
+       77 Screen2-Mn-2-Handle
+                  USAGE IS HANDLE OF MENU VALUE NULL.
+       77 PREVISU24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ZOOMxxx10-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 MBAFFICH10-JPG   PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 W-MXTABCOE       PIC  9(9).
+       77 W-RAP-INT        PIC  9
+                  VALUE IS 4.
+       77 W-CHF-INT        PIC  9
+                  VALUE IS 0.
+       77 W-TTC-INT        PIC  9
+                  VALUE IS 0.
+       77 W-ESC-INT        PIC  99V99.
+       77 W-PTC-INT        PIC  S9(1)
+                  VALUE IS 1.
+       77 W-THT-INT        PIC  9
+                  VALUE IS 0.
+       77 W-SUP-INT        PIC  9
+                  VALUE IS 0.
+       77 W-RIA-INT        PIC  9
+                  VALUE IS 4.
+       77 W-TTCD-INT       PIC  9
+                  VALUE IS 0.
+       77 W-RAPD-INT       PIC  9
+                  VALUE IS 0.
+       77 W-TTCA-INT       PIC  9
+                  VALUE IS 0.
+       77 W-SUPB-INT       PIC  9
+                  VALUE IS 0.
+       77 ScreenE-Cb-Bp-Value          PIC  9
+                  VALUE IS 0.
+       77 ScreenE-Cb-Dv-Value          PIC  9
+                  VALUE IS 0.
+       77 ScreenE-Cb-FACP-Value        PIC  9
+                  VALUE IS 0.
+       77 ScreenE-Cb-Ar-Value          PIC  9
+                  VALUE IS 0.
+       77 ScreenE-Pg-1-Visible         PIC  9
+                  VALUE IS 0.
+       77 ScreenE-Pg-2-Visible         PIC  9
+                  VALUE IS 0.
+       77 ScreenE-Pg-3-Visible         PIC  9
+                  VALUE IS 0.
+       77 WENABLE-PTC      PIC  9
+                  VALUE IS 1.
+       77 WVISIBLE-DV      PIC  9
+                  VALUE IS 1.
+       77 WVISIBLE-BP      PIC  9
+                  VALUE IS 0.
+       77 WVISIBLE-AR      PIC  9
+                  VALUE IS 0.
+       77 WVISIBLE-TYC8    PIC  9
+                  VALUE IS 0.
+       77 WVISIBLE-TCO     PIC  9
+                  VALUE IS 1.
+       77 WENABLE-DV       PIC  9
+                  VALUE IS 1.
+       77 WENABLE-FACP     PIC  9
+                  VALUE IS 1.
+       77 WENABLE-DVP      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-BP       PIC  9
+                  VALUE IS 1.
+       77 WENABLE-AR       PIC  9
+                  VALUE IS 1.
+       77 INDPRVW          PIC  9.
+       77 EXI-CD           PIC  9.
+       77 EXI-C3           PIC  9.
+       77 ScreenE-Cb-FACC-Value        PIC  9
+                  VALUE IS 0.
+       77 WENABLE-FACC     PIC  9
+                  VALUE IS 1.
+       77 ScreenE-Cb-PFAC-Value        PIC  9
+                  VALUE IS 0.
+       77 W-ICALL          PIC  9.
+       77 W-COE            PIC  S9(6)V9(9).
+       77 NB-DEVIS         PIC  9(3).
+       77 NB-BL            PIC  9(3).
+       77 NUM-BL           PIC  9(8).
+       77 NB-CDE           PIC  9(3).
+       77 ScreenLIV-Handle
+                  USAGE IS HANDLE OF WINDOW VALUE NULL.
+       01 ScreenLIV-Gd-1-Record.
+           05 Gd-Liv-Col-Inp   PIC  X.
+           05 Gd-Liv-Col-Art   PIC  X(21).
+           05 Gd-Liv-Col-Des   PIC  X(40).
+           05 Gd-Liv-Col-Qtd   PIC  X(10).
+           05 Gd-Liv-Col-Qtc   PIC  X(10).
+           05 Gd-Liv-Col-Qtl   PIC  X(10).
+           05 Gd-Liv-Col-Rel   PIC  X.
+           05 Gd-Liv-Col-Sto   PIC  X(10).
+           05 Gd-Liv-Col-LT    PIC  X(08).
+           05 Gd-Liv-Col-Ind   PIC  9(1).
+           05 Gd-Liv-Col-Lig   PIC  9(4).
+           05 Gd-Liv-Col-IndRel            PIC  9(1).
+           05 Gd-Liv-Col-Pm    PIC  9(1).
+       77 ScreenLIV-Tit    PIC  X(80).
+       77 WCol-Bitmap      PIC  9(2)
+                  VALUE IS 9.
+       77 WCol-Qtbase      PIC  9(2).
+       77 WCol-LigV        PIC  9(2)
+                  VALUE IS 11.
+       77 WCol-Ind         PIC  9(2)
+                  VALUE IS 10.
+       77 WCol-Rel         PIC  9(2)
+                  VALUE IS 7.
+       77 WCol-IndRel      PIC  9(2)
+                  VALUE IS 12.
+       77 WCol-IndPM       PIC  9(2)
+                  VALUE IS 13.
+       77 W-Affiche        PIC  9.
+       77 W-INDPM          PIC  9.
+       77 ScreenLIV-Msg    PIC  X(100)
+                  VALUE IS "pour changer le statut d'une ligne".
+       77 ScreenLIV-Pb-Livrer-Tit      PIC  X(15)
+                  VALUE IS "Tout livrer".
+       77 ScreenLIV-Pb-Annuler-Tit     PIC  X(20)
+                  VALUE IS "Annulation livraison".
+       77 W-LigneModifiee  PIC  9.
+       77 Wvisible-COP     PIC  9
+                  VALUE IS 0.
+       01 CM-COP-Record.
+           02 Cm-Cop-Rai       PIC  X(30).
+           02 FILLER           PIC  X.
+           02 Cm-Cop-CV        PIC  X(35).
+           02 FILLER           PIC  X(10).
+           02 Cm-Cop-Num       PIC  999.
+       77 Cm-COP-Record1   PIC  X(100).
+       01 TABLE-PAI
+                  OCCURS 5 TIMES.
+           05 IT-PAI           PIC  99.
+           05 IT-ECH           PIC  9.
+           05 IT-TER           PIC  9.
+           05 IT-NJE           PIC  999.
+           05 IT-POU           PIC  9(3)V99.
+           05 IT-MON           PIC  S9(12)V99.
+       77 W-COP            PIC  99.
+       77 W-COP-PR         PIC  99.
+       77 W-LPA            PIC  X(30).
+       77 WENABLE-3        PIC  9
+                  VALUE IS 1.
+       77 NO-LF            PIC  9(4).
+       77 NO-LF1           PIC  9(4).
+       77 W-PCTF           PIC  S9(3)V9(5).
+       77 S-PCT            PIC  S9(3)V99.
+       77 L-PCT            PIC  +++9,99.
+       77 WEnable-Forfait  PIC  9.
+       77 A-BON            PIC  9(8).
+       77 A-LIG            PIC  9(4).
+       77 N-BON            PIC  9(8).
+       77 N-LIG            PIC  9(4).
+       77 A-CLE            PIC  X(20).
+       77 N-CLE            PIC  X(20).
+       77 A-CLEB           PIC  X(20).
+       77 N-CLEB           PIC  X(20).
+       77 A-CLEL           PIC  X(20).
+       77 N-CLEL           PIC  X(20).
+       77 W-INO            PIC  X.
+       77 W-NewCde         PIC  9(8).
+       77 D8   PIC  Z(8).
+       77 D3   PIC  Z(3).
+       77 TCC-Default      PIC  X.
+      *
+      *
+       77 TCC-Urgent       PIC  X.
+      *
+      *
+       77 TCC-Stock        PIC  X.
+       77 TCC-Normal       PIC  X.
+       77 Screen3-Cb-Edb-Buf           PIC  9
+                  VALUE IS 0.
+       77 Screen3-Cb-Edf-Buf           PIC  9
+                  VALUE IS 0.
+       77 Screen3-Cb-Edbp-Buf          PIC  9
+                  VALUE IS 0.
+       77 D-ORD            PIC  9(9).
+       77 W-INDRC          PIC  9(1).
+       77 M-PLA            PIC  S9(3)V99.
+       77 M-MIN            PIC  S9(3)V99.
+       77 M-MAX            PIC  S9(3)V99.
+       77 M-AUT            PIC  X(3).
+       77 ATTENTE          PIC  9(1).
+       77 ATTENTE-MARGE    PIC  9(1).
+       77 T-MARGE          PIC  S9(7)V99.
+       77 WY   PIC  9(4).
+       77 WYD  PIC  9(4).
+       77 WLIBLIV          PIC  X(10).
+       77 W-INDANNUL       PIC  9(1).
+       77 W-TYPTRS         PIC  9(1).
+       77 W-TYPTRSLIG      PIC  9(1).
+       77 W-TLI            PIC  9(1).
+       77 SV-REM           PIC  S9(3)V99.
+       77 SV-REMC          PIC  S9(3)V99.
+       77 T-MG PIC  S9(7)V99.
+       77 W-Ligne-Correcte PIC  9(1).
+      *
+      *
+      *
+       77 Screen4-Handle
+                  USAGE IS HANDLE OF WINDOW VALUE NULL.
+       77 W-COLOR          PIC  9(3).
+       77 W-AFF-MB         PIC  9(1).
+       77 W-MODREM         PIC  9.
+       77 ZREMP            PIC  ++++9,99
+                  BLANK WHEN ZERO.
+       77 W-OK PIC  9.
+       77 W-AGEASA         PIC  X(3).
+       77 W-DEPASA         PIC  9(3).
+       77 W-CODASA         PIC  X(20).
+       77 WENABLE-DPS      PIC  9
+                  VALUE IS 0.
+       77 WVISIBLE-BL      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-RAP      PIC  9
+                  VALUE IS 1.
+       77 WENABLE-BL       PIC  9
+                  VALUE IS 1.
+       77 W-COG            PIC  9(3).
+       01 Screen3-Buf.
+           05 Screen3-RADIO-IFA-BUF        PIC  9
+                      VALUE IS ZERO.
+           05 Screen3-DaEf-FFA-BUF         PIC  ZZ9,99-
+                      BLANK WHEN ZERO.
+           05 Screen3-DaEf-ACO-BUF         PIC  ZZZZZZ9,99
+                      BLANK WHEN ZERO.
+           05 Screen3-RADIO-ADF-BUF        PIC  9
+                      VALUE IS ZERO.
+           05 Screen3-DaEf-Dom-BUF         PIC  X(24).
+           05 Screen3-DaEf-Adb-BUF         PIC  X(24).
+           05 Screen3-DaEf-Rib-BUF         PIC  X(35).
+           05 Screen3-RADIO-MFA-BUF        PIC  9
+                      VALUE IS ZERO.
+           05 Screen3-DaCb-MPA-BUF         PIC  9
+                      VALUE IS ZERO.
+           05 Screen3-DaEf-NPA-BUF         PIC  9.
+           05 Screen3-DaCb-TTR-BUF         PIC  9
+                      VALUE IS ZERO.
+           05 Screen3-Cb-IRM-BUF           PIC  9
+                      VALUE IS ZERO.
+           05 Screen3-NPT-BUF  PIC  Z(5)
+                      VALUE IS ZERO.
+           05 Screen3-PQP-BUF  PIC  Z(5)
+                      VALUE IS ZERO.
+           05 Screen3-NBC-BUF  PIC  Z(5)
+                      VALUE IS ZERO.
+           05 SCREEN3-LIG-MCOB-BUF         PIC  ZZ.
+       77 WENABLE-FAC      PIC  9
+                  VALUE IS 1.
+       77 A-DFA-INT        PIC  X(10).
+       77 ScreenE-Cb-BL-Value          PIC  9
+                  VALUE IS 0.
+       77 ScreenE-Cb-FAC-Value         PIC  9
+                  VALUE IS 0.
+       77 Screen2-Ef-Dep-Col           PIC  S9(4)V9(2)
+                  VALUE IS 90,29.
+       77 Screen2-Pb-Dep-Col           PIC  S9(4)V9(2)
+                  VALUE IS 84,57.
+       77 WChange-Stock    PIC  9.
+       77 WChange-Statut   PIC  9.
+       77 Statut-Av        PIC  9.
+       77 Statut-Ap        PIC  9.
+       77 WCol-Lig         PIC  9(3)
+                  VALUE IS 15.
+       77 WCol-Bon         PIC  9(3)
+                  VALUE IS 14.
+       77 WCol-Tli         PIC  9(3)
+                  VALUE IS 16.
+       77 WCol-AffTli      PIC  9(3)
+                  VALUE IS 9.
+       77 wCol-PUB         PIC  9(3)
+                  VALUE IS 5.
+       77 WCol-Del         PIC  9(3)
+                  VALUE IS 17.
+       77 WCol-SV          PIC  9(3)
+                  VALUE IS 18.
+       77 Wlast-Row        PIC  9(4).
+       77 TMP-9-3          PIC  9(4).
+       77 La-Facture       PIC  X(33)
+                  VALUE IS "Facture n° XX999999/D du 99/99/99".
+       77 Wvisible-lafac   PIC  9
+                  VALUE IS 0.
+       77 IND-INITLINE     PIC  9.
+       77 IND-INITLINE2    PIC  9.
+       77 W-EOF-MASA2      PIC  9.
+       77 W-LINE           PIC  9(4)V99.
+       77 W-COLUMN         PIC  9(4)V99.
+       77 W-SIZE           PIC  9(4)V99.
+       77 W-TABRLA         PIC  9(9).
+       77 TABRLA-FILE-STATUS           PIC  X(2).
+           88 Valid-TABRLA VALUE IS "00" THRU "09". 
+       77 W-DUPBP-INT      PIC  9.
+       77 W-DUP-INT        PIC  9.
+       77 W-DUPBL-INT      PIC  9.
+       77 W-DUPAR-INT      PIC  9.
+       77 W-TEC-INT        PIC  X(4).
+       77 OKVERTx16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 IND-ANN          PIC  9.
+       77 D-SIR            PIC  999B999B999
+                  BLANK WHEN ZERO.
+       77 W-ART-RUP        PIC  X(20).
+       77 W-DES-RUP        PIC  X(40).
+       77 W-COMPL          PIC  9.
+       77 W-EQUIV          PIC  9.
+       77 INDICE-C         PIC  9(3).
+       77 W-Change-Art     PIC  9.
+       77 MATERIE16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 GRIDxxx16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 MARTEAU24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 TERMINX24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 SUITDOS24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 PRECDOS24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 COLISXX16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 CAMIONX24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 PRESTOT24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 RELIQNO16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 RELIQOK16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 TOUTCOC24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 TOUTDEC24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ADRDIVE16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 OK-ECR           PIC  9.
+       77 W-TDEL           PIC  9(4).
+       77 W-SDEL           PIC  9(4).
+       77 W-NBP            PIC  9(3).
+       77 WARBLAN24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 IND-C            PIC  9.
+       77 IND-L            PIC  9.
+       77 ENGRDOU24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 W-ANNUL-EDI      PIC  9.
+       77 FICHART12-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 SV-MAR           PIC  X(4).
+       77 INDIC-EPAVE      PIC  9.
+       77 ASSIGN-MXSELARTBL            PIC  X(60).
+       77 W-MXSELARTBL     PIC  9(9).
+       77 ARTICLE16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ARTICLE12-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ARTICLE16-BPM    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 WENABLE-ESC      PIC  9
+                  VALUE IS 0.
+       77 BASE-ENABLE-ESC  PIC  9.
+      *
+      *
+       77 MOD-OFFICE       PIC  9.
+      *
+      *
+       77 AUTO-EFD         PIC  9.
+       77 UNE-MARGE-BAD    PIC  9.
+       01 W-BON-MAGD.
+           02 W-MOB-MAGD       PIC  9(3).
+           02 W-NUM-MAGD       PIC  9(5).
+       77 WVisible-SAV     PIC  9.
+       77 WVisible-GAR     PIC  9.
+       77 WVisible-LSD     PIC  9.
+       77 Screen2-La-LMBT-Buf          PIC  X(4)
+                  VALUE IS "% MB".
+       77 WV-MBT           PIC  9
+                  VALUE IS 0.
+       77 WENABLE-DUPBL    PIC  9
+                  VALUE IS 1.
+       77 WENABLE-TMP      PIC  9
+                  VALUE IS 1.
+       77 ScreenE-Cb-EX-Value          PIC  9
+                  VALUE IS 0.
+       77 WVISIBLE-EX      PIC  9
+                  VALUE IS 1.
+       77 NBR-CONSTR       PIC  9.
+       77 W-PERFORM        PIC  9.
+       77 ENGRSIM24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ADD-NB           PIC  S9.
+       77 SV-NCP           PIC  9(9).
+       77 SV-NCPL          PIC  9(9).
+       77 W-NCP            PIC  9(9).
+       77 AUTO-LP          PIC  9.
+       77 WORI-CUC         PIC  X.
+       77 DUPLIQU24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 WVISIBLE-ENS     PIC  9
+                  VALUE IS 0.
+       77 WENABLE-DUP      PIC  9
+                  VALUE IS 1.
+       77 WVISIBLE-ENSD    PIC  9
+                  VALUE IS 0.
+       77 WVISIBLE-ENSB    PIC  9
+                  VALUE IS 0.
+       77 WVISIBLE-ENSC    PIC  9
+                  VALUE IS 0.
+       77 W-INIT-ENS       PIC  9.
+       77 MODU-LIE         PIC  9.
+       77 MODU-CB          PIC  9
+                  VALUE IS 0.
+       77 MODU-M3          PIC  9
+                  VALUE IS 1.
+       77 MODU-DECO        PIC  9
+                  VALUE IS 1.
+       77 MODU-MSPLI       PIC  9
+                  VALUE IS 1.
+       77 EXIMOD-DECO      PIC  9
+                  VALUE IS 1.
+       77 GRIDxxx24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 W-IES-MBDI       PIC  9
+                  VALUE IS 0.
+       77 Z-BON            PIC  9(8).
+       77 W-LIE            PIC  9.
+       77 IND-RELIQUAT-DEVIS           PIC  9.
+      *
+      *
+       77 SV-Y-OLD         PIC  9(4).
+       77 CHANGE-DAT       PIC  9.
+       77 LIEUX3x16-jpg    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 SV-DLP           PIC  9(8).
+       77 SV-CLI           PIC  9(8).
+       77 SV-TCC           PIC  X.
+       77 N-TYP            PIC  9.
+       77 Z-MOD            PIC  X
+                  VALUE IS "D".
+       77 SV-CDF-MPAR      PIC  9.
+       77 W-AUTO-BON       PIC  9.
+       77 W-CXSOC          PIC  9(9).
+       77 W-AVOIR-OK       PIC  9.
+       77 W-MXPARACH       PIC  9(9).
+       77 LA-CMQ           PIC  X(20).
+       77 color-stock      PIC  9(6)
+                  VALUE IS 194.
+       77 W-ECRAN          PIC  9.
+       77 Test-TAA         PIC  9.
+       77 Test-Tout        PIC  9.
+       77 WV-AFFGES        PIC  9
+                  VALUE IS 1.
+       77 IND-REPRISE      PIC  9.
+       77 A-STO            PIC  S9(9)V99.
+       77 P-STO            PIC  S9(9)V99.
+       77 W-MAJPRI         PIC  S9(9)V99.
+       77 W-MAJMON         PIC  S9(12)V99.
+       77 W-RIC            PIC  9.
+       77 W-ABANDON        PIC  9.
+       77 W-ERR            PIC  9.
+       77 W-AGSC           PIC  X(3).
+       77 NB-LIG-CDE       PIC  9(4).
+       77 W-LIBTYP         PIC  X(10).
+       77 W-TYPE-ENV       PIC  XX.
+       01 W-ARTR.
+           05 W-ARTR1          PIC  X(4).
+           05 W-ARTR2          PIC  X(21).
+       01 W-ARTR3.
+           05 W-ARTR31         PIC  X(4).
+           05 W-ARTR32         PIC  X(16).
+       01 W-ARTRGD.
+           05 W-ARTRGD1        PIC  X(4).
+           05 FILLER           PIC  X.
+           05 W-ARTRGD2        PIC  X(16).
+       77 IND-RELECT       PIC  9.
+       77 D35  PIC  ZZ9,99999.
+       77 SV-D-RAN         PIC  9(4).
+       77 W-NBR            PIC  9(3).
+       77 W-FIC2           PIC  9.
+       77 W-TYP2           PIC  9.
+       77 EXI-TCFC         PIC  9.
+       77 EXI-TCFBL        PIC  9.
+       77 W-TCFBL          PIC  X.
+       77 W-DELBL          PIC  9(3)
+                  OCCURS 4 TIMES.
+       77 INDICE-DELAI     PIC  9(3).
+       77 W-TCCBL          PIC  X.
+       77 EXI-TCF1         PIC  9.
+       77 EXI-TCF2         PIC  9.
+       77 EXI-TCF3         PIC  9.
+       77 W-EOF-TCF        PIC  9.
+       77 W-EOF-CAL        PIC  9.
+       77 IND-ADRD         PIC  9.
+       77 IND-CMQ          PIC  9.
+       77 IND-AUTO-ANNUL   PIC  9.
+       77 INDIC-BT         PIC  9.
+       77 W-EOF-MAGC2      PIC  9.
+       77 W-EOF-COMPL      PIC  9.
+       77 W-CAL-PUB        PIC  9.
+       77 W-SOCR           PIC  9(4).
+       77 EMAIL-CLIENT     PIC  X(60)
+                  VALUE IS "nathalie,clair@mistral,fr".
+       77 RECHERC16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ScreenRech-Handle
+                  USAGE IS HANDLE OF WINDOW VALUE NULL.
+       77 MAILxxx16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 MAILENV16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 W-BMP            PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 WVISIBLE-ESC     PIC  9
+                  VALUE IS 1.
+       77 W-MXPARAMEXT     PIC  9(9).
+       77 AUTO-REPRISE     PIC  9.
+       77 OCCASAJ16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 REPPMAT16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 Modu-Stockeur    PIC  9
+                  VALUE IS 0.
+       77 Modu-Kardex      PIC  9.
+       77 Modu-Hanel       PIC  9.
+       77 Modu-Modula      PIC  9.
+       77 ASSIGN-STOCKEUR  PIC  X(100).
+       77 ASSIGN-STOCKEUR2 PIC  X(100).
+       77 SV-ASSIGN        PIC  X(80).
+       77 W-COMMAND        PIC  X(200).
+       77 W-STK-TYP        PIC  X.
+       77 W-STK-CAS        PIC  X(7).
+       77 A4   PIC  ZZZ9.
+       77 A3   PIC  ZZ9.
+       77 A2   PIC  Z9.
+       77 A1   PIC  9.
+       77 KS-QTE           PIC  S9(6)V99.
+       77 K-QTE            PIC  ZZZZ9,99.
+       77 K-QTE2           PIC  ZZZZ9.
+       77 K-QTE3           PIC  99999999,99.
+       77 K-DES            PIC  X(40).
+       77 K-RAI            PIC  X(20).
+       01 K-ART.
+           02 K-ART1           PIC  X(4).
+           02 K-ART2           PIC  X(16).
+       77 W-NBL-STK        PIC  9(3).
+       77 W-NBL6-STK       PIC  9(6).
+       77 W-TMP2           PIC  9(3).
+       77 W-TMP            PIC  9(3).
+       77 W-ENR-STK        PIC  X(100).
+       77 W-EOF-MLDI2      PIC  9.
+       77 W-TYP-STK        PIC  X(3).
+       77 W-GEN-STK        PIC  9.
+      *
+      *
+       77 STATUS-CODE      PIC  9.
+       77 W-AMB-MAGD       PIC  9
+                  VALUE IS 1.
+       77 Screen2-La-MSGMBL-Col        PIC  S9(4)V9(2)
+                  VALUE IS 103,00.
+       77 Screen2-La-MSGMBL-Line       PIC  S9(4)V9(2)
+                  VALUE IS 32,62.
+       77 WVISIBLE-ARBP    PIC  9
+                  VALUE IS 0.
+       77 ScreenRUP-Rb-TBP-Value       PIC  S9(1)
+                  VALUE IS 0.
+       77 EUROXXX12-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 WV-ILI           PIC  9
+                  VALUE IS 1.
+       77 SPLITERV7-bmp    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 CLIENTx12-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 AGENCEx16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 W-MXPARFID       PIC  9(9).
+       77 W-MXTABUNI       PIC  9(9).
+       77 SV-HCD-MLDI      PIC  9(8).
+       77 TOUTCOC16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 TOUTDEC16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ETIQxxx24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       01 W-INT-ETI.
+           02 NSA-INT-ETI      PIC  9
+                      VALUE IS 2.
+           02 AGE-INT-ETI      PIC  XXX.
+           02 ETI-INT-ETI      PIC  9
+                      VALUE IS 1.
+           02 ART-INT-ETI      PIC  9.
+           02 ORI-INT-ETI      PIC  9
+                      VALUE IS 6.
+       01 W-INT4-ETI.
+           02 QTE-INT-ETI      PIC  9(4)
+                      OCCURS 90 TIMES.
+           02 CAS-INT-ETI      PIC  9
+                      VALUE IS 1.
+           02 CASD-INT-ETI     PIC  X(7).
+           02 CASF-INT-ETI     PIC  X(7).
+           02 NBSFA-INT-ETI    PIC  99.
+           02 SFA-INT-ETI      PIC  9
+                      VALUE IS 1.
+           02 TSFA-INT-ETI     PIC  9(4)
+                      OCCURS 40 TIMES.
+           02 NAT-INT-ETI      PIC  X.
+           02 COD-INT-ETI      PIC  9(2)
+                      VALUE IS 0.
+           02 PRI-INT-ETI      PIC  9
+                      VALUE IS 1.
+           02 REM-INT-ETI      PIC  9(2).
+           02 CLA-INT-ETI      PIC  9
+                      VALUE IS 1.
+      *
+      *
+           02 MAJ-INT-ETI      PIC  9.
+           02 CHA-INT-ETI      PIC  9
+                      VALUE IS 0.
+           02 DCHA-INT-ETI     PIC  9(8).
+           02 STO-INT-ETI      PIC  9
+                      VALUE IS 0.
+           02 RED-INT-ETI      PIC  9.
+           02 REC-INT-ETI      PIC  9
+                      VALUE IS 1.
+           02 DRED-INT-ETI     PIC  9(8).
+           02 IPR-INT-ETI      PIC  X.
+           02 PRO-INT-ETI      PIC  9
+                      VALUE IS 0.
+           02 IMP-INT-ETI      PIC  X(20).
+           02 CMQ-INT-ETI      PIC  9
+                      VALUE IS 1.
+           02 BDN-INT-ETI      PIC  9
+                      VALUE IS 0.
+           02 CHF-INT-ETI      PIC  99
+                      VALUE IS 50.
+       01 LK-ETI.
+           05 ASSIGN-ETI       PIC  X(60).
+           05 WASS-ETI         PIC  X(20)
+                      VALUE IS "ETI".
+           05 W-ETI            PIC  99
+                      VALUE IS 1.
+           05 LK-ETI-SEL       PIC  9(4).
+           05 LK-ETI-CHO       PIC  X.
+           05 FILLER           PIC  X(79).
+       01 paiements.
+           05 mess1            PIC  X(30)
+                      VALUE IS "Traite directe".
+           05 mess2            PIC  X(30)
+                      VALUE IS "Traite à l'acceptation".
+           05 mess3            PIC  X(30)
+                      VALUE IS "BOR".
+           05 mess4            PIC  X(30)
+                      VALUE IS "Chèque/Commande".
+           05 mess5            PIC  X(30)
+                      VALUE IS "Chèque/Facturation".
+           05 mess6            PIC  X(30)
+                      VALUE IS "Espèces".
+           05 mess7            PIC  X(30)
+                      VALUE IS "Carte bancaire".
+           05 mess8            PIC  X(30)
+                      VALUE IS "Virement".
+           05 mess9            PIC  X(30)
+                      VALUE IS "Prélèvement".
+       78 nb-paiements VALUE IS 9. 
+       01 lib-paiement REDEFINES paiements  PIC  X(30)
+                  OCCURS nb-paiements TIMES.
+       77 COD-TPA          PIC  9(3).
+      * Zones utilisées par la ComboBox des Types de Commandes.
+       01 Cm-MTCC.
+           05 Cm-MTCC-Handle
+                      USAGE IS HANDLE OF COMBO-BOX VALUE NULL.
+           78 Cm-MTCC-NbMaxItems VALUE IS 50. 
+           05 Cm-MTCC-9-3      PIC  9(3)
+                      USAGE IS COMP-1.
+           05 Cm-MTCC-Items
+                      OCCURS Cm-MTCC-NbMaxItems TIMES.
+               10 Cm-MTCC-LIB      PIC  X(12).
+               10 Cm-MTCC-LIB2     PIC  X(25).
+               10 Cm-MTCC-COD      PIC  X(1).
+           05 Cm-MTCC-SelectedItem         PIC  X(1).
+           05 Cm-MTCC-LoadedItems          PIC  9(3)
+                      USAGE IS COMP-1
+                      VALUE IS 0.
+           05 WOPEN-MXTYPCDC   PIC  9.
+           05 WOPEN-MXTYPCDF   PIC  9.
+           05 Cm-MTCC-Last-FOU PIC  9(6).
+      *--- Si = 1 --> Le premier item de la combo est vide
+      *
+           05 Cm-MTCC-Item1Vide            PIC  9.
+       01 AUTO-ZONE-BASE.
+           02 AUTO-DOM         PIC  9.
+           02 AUTO-PAI         PIC  9.
+           02 AUTO-ESC         PIC  9.
+           02 AUTO-ACO         PIC  9.
+           02 AUTO-IAC         PIC  9.
+           02 AUTO-NAF         PIC  9.
+           02 AUTO-REP         PIC  9.
+           02 AUTO-REPO        PIC  9.
+           02 AUTO-AFC         PIC  9.
+           02 AUTO-REGUL       PIC  9.
+           02 AUTO-REF         PIC  9.
+           02 AUTO-TFA         PIC  9.
+           02 AUTO-FDU         PIC  9.
+           02 AUTO-ARD         PIC  9.
+           02 AUTO-PRER        PIC  9.
+      *ation réservée
+           02 AUTO-CREAVO      PIC  9.
+       77 MODU-CDEWEB      PIC  9.
+       77 AG-TOPAZ         PIC  X(3)
+                  VALUE IS "70".
+       77 W-SCREEN         PIC  9.
+       77 IND-AFF-STSC     PIC  9.
+       77 Visible-Etiq     PIC  9
+                  VALUE IS 0.
+       77 D44  PIC  ZZZ9,9999.
+       77 W-CPDA           PIC  9
+                  VALUE IS 0.
+       77 W-NUU            PIC  9(4)V9(4).
+       77 PAS-SCODART      PIC  9.
+       77 IND-CDES-ATT     PIC  9
+                  VALUE IS 0.
+       77 AUTO-CFA         PIC  9.
+       77 W-TROUVE         PIC  9
+                  VALUE IS 0.
+       77 SV-SER           PIC  X(20).
+       77 W-GENCFA         PIC  9.
+       77 W-ACA-WEB        PIC  9.
+       77 W-AR220          PIC  X(30).
+       77 W-SERVEUR        PIC  X(64).
+       77 W-TIT            PIC  X(60).
+       77 WSIZE            PIC  9(3)V99.
+       77 WLINES           PIC  9(3)V99.
+       77 WLIB-MMSG        PIC  X(252).
+       77 CAL-COMP-REMISE  PIC  9.
+       77 WV-RecupCde      PIC  9
+                  VALUE IS 0.
+       77 DOLLARX12-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 WVISIBLE-BLCHF   PIC  9
+                  VALUE IS 1.
+       77 TROMBON24-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 VALIDER16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ANNULER16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ENCOURR16-JPG    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 WV-DELAI         PIC  9
+                  VALUE IS 0.
+       77 Wenable-fgm      PIC  9
+                  VALUE IS 0.
+       77 W-FGM-INT        PIC  9
+                  VALUE IS 0.
+       77 Wvisible-FGM     PIC  9
+                  VALUE IS 1.
+       77 WEBTOPx16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 W-QCFE           PIC  -(6)9,99.
+       77 SV-QCFE          PIC  -(6)9,99.
+       77 W-QCFPAR         PIC  X(20).
+       77 W-FICTRACE       PIC  X(10).
+       77 W-KEY            PIC  X(30).
+       77 WTITLE-DEMAT     PIC  X(30)
+                  VALUE IS "Type démat".
+       77 MODU-EXPANSIO    PIC  9.
+       77 F-BDIS2          PIC  9.
+       77 W-RIABL-INT      PIC  9
+                  VALUE IS 4.
+       77 WVISIBLE-BLAR    PIC  9
+                  VALUE IS 1.
+       77 WENABLE-BLAR     PIC  9
+                  VALUE IS 1.
+       77 WV-SER           PIC  9
+                  VALUE IS 1.
+       77 isModifying      PIC  9
+                  VALUE IS 1.
+       77 W-LIBSTC         PIC  X(30)
+                  VALUE IS "Stock central".
+       77 W-LIBSTG         PIC  X(30)
+                  VALUE IS "Stock global".
+       77 W-LIBSTGR        PIC  X(30)
+                  VALUE IS "Stock groupe".
+       77 Screen1-DaCb-EXC-BUF         PIC  9
+                  VALUE IS 0.
+       77 AJOUTLG16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 INTERLO16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 SAUVEGARDER32-BMP            PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 IMPRIMER32-BMP   PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 MODIFIER32-BMP   PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 SUPPRIMER32-BMP  PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 DUPLIQUER32-BMP  PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 RAFRAICHIR32-BMP PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 CREER32-BMP      PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 Calibri12
+                  USAGE IS HANDLE OF FONT VALUE NULL.
+       77 Calibri11
+                  USAGE IS HANDLE OF FONT VALUE NULL.
+       77 Calibri10
+                  USAGE IS HANDLE OF FONT VALUE NULL.
+       77 Calibri9
+                  USAGE IS HANDLE OF FONT VALUE NULL.
+       77 FLECHED32-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 TERMINER32-BMP   PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 FLECHEG32-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 TROMBONE32-BMP   PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 ADDxxxx16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 SAUVEGA16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 MODIFIE16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 STOPxxx16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 Screen2-Ef-1-Value           PIC  X(30).
+       77 Screen2-Ef-2-Value           PIC  X(30).
+       01 .
+           03 Screen2-Cm-1-Container-Item.
+               05      PIC  X(5)
+                          VALUE IS "Item1".
+               05      PIC  X(5)
+                          VALUE IS "Item2".
+               05      PIC  X(5)
+                          VALUE IS "Item3".
+           78 Screen2-Cm-1-Container-Num VALUE IS 3. 
+           03 Screen2-Cm-1-Container REDEFINES 
+           Screen2-Cm-1-Container-Item  PIC  X(5)
+                      OCCURS 3 TIMES
+                      INDEXED  Screen2-Cm-1-Container-Idx.
+       77 Screen2-Cm-1-Value           PIC  X(5).
+       77 Screen2-Ef-3-Value           PIC  X(30).
+       77 Screen2-Ef-4-Value           PIC  X(30).
+       77 Screen2-Ef-5-Value           PIC  X(30).
+       77 FLECHEB16-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 Screen1-Mn-Fonctions-Handle
+                  USAGE IS HANDLE OF MENU VALUE NULL.
+       77 FLECHEB24-BMP    PIC  S9(6)
+                  USAGE IS COMP-4
+                  VALUE IS 0.
+       77 Screen1-Mn-Boutons-Handle
+                  USAGE IS HANDLE OF MENU VALUE NULL.
+       01 .
+           03 Screen3-Cm-1-Container-Item.
+               05      PIC  X(5)
+                          VALUE IS "Item1".
+               05      PIC  X(5)
+                          VALUE IS "Item2".
+               05      PIC  X(5)
+                          VALUE IS "Item3".
+           78 Screen3-Cm-1-Container-Num VALUE IS 3. 
+           03 Screen3-Cm-1-Container REDEFINES 
+           Screen3-Cm-1-Container-Item  PIC  X(5)
+                      OCCURS 3 TIMES
+                      INDEXED  Screen3-Cm-1-Container-Idx.
+       77 Screen3-Ef-4-Value           PIC  X(30).
+       77 Screen3-Ef-5-Value           PIC  X(30).
+       77 Screen3-Ef-6-Value           PIC  X(30).
+       77 Screen2-Mn-Fonction-Handle
+                  USAGE IS HANDLE OF MENU VALUE NULL.
+       77 W-CTRL           PIC  9.
+       77 W-LIB-MMAR       PIC  X(30).
+       77 Screen1-De-1-Value           PIC  X(16).
+       77 W-COLOR-PROTO    PIC  9(6)
+                  VALUE IS 2.

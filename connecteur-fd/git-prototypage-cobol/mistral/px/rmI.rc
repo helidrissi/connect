@@ -1,0 +1,48 @@
+\rm /acuI/*/o/core  2>>/dev/null
+\rm /acuI/*/o/core.*  2>>/dev/null
+\rm /acuI/*/o/heapdump*  2>>/dev/null
+\rm /acuI/*/o/javacore*  2>>/dev/null
+ls /acuI/mistral/o | grep "runcbl."|while read sourceMIS
+        do
+             \rm /acu/mistral/o/$sourceMIS
+        done
+ls /acuI/mx/o | grep "runcbl."|while read sourceMX
+        do
+             \rm /acu/mx/o/$sourceMX
+        done
+ls /acuI/cx/o | grep "runcbl."|while read sourceCX
+        do
+             \rm /acu/cx/o/$sourceCX
+        done
+ls /acuI/iex/o | grep "runcbl."|while read sourceIEX
+        do
+             \rm /acu/iex/o/$sourceIEX
+        done
+ls /acuI/pex/o | grep "runcbl."|while read sourcePEX
+        do
+             \rm /acu/pex/o/$sourcePEX
+        done
+ls /acuI/mex/o | grep "runcbl."|while read sourceMEX
+        do
+             \rm /acu/mex/o/$sourceMEX
+        done
+ls /acuI/palme/o | grep "runcbl."|while read sourcePALME
+        do
+             \rm /acu/palme/o/$sourcePALME
+        done
+ls /acuI/rx/o | grep "runcbl."|while read sourceRX
+        do
+             \rm /acu/rx/o/$sourceRX
+        done
+ls /acuI/empx/o | grep "runcbl."|while read sourceEMPX
+        do
+             \rm /acu/empx/o/$sourceEMPX
+        done
+ls /acuI/miami/o | grep "runcbl."|while read sourceMIAMI
+        do
+             \rm /acu/miami/o/$sourceMIAMI
+        done
+ls /acuI/miami/o | grep "socks."|while read sourceSOCKS
+        do
+             \rm /acu/miami/o/$sourceSOCKS
+        done

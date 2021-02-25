@@ -1,0 +1,4 @@
+      * variables manquantes dans les copy standard
+       77 W-LOG-PALM       PIC  9(3).
+       77 W-NPR-PALM       PIC  9(3).
+       77 LK-ZONE-PALM     PIC  X(500).

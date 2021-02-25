@@ -1,0 +1,18 @@
+# procedure pour dezipper les programmes transferes par ADSL chez les clients
+#
+cd /acuf/cdrom
+/usr/local/bin/sudo -u root gunzip -f mx.gz
+/usr/local/bin/sudo -u root gunzip -f cx.gz
+/usr/local/bin/sudo -u root gunzip -f empx.gz
+/usr/local/bin/sudo -u root gunzip -f mex.gz
+/usr/local/bin/sudo -u root gunzip -f iex.gz
+/usr/local/bin/sudo -u root gunzip -f pex.gz
+/usr/local/bin/sudo -u root gunzip -f palme.gz
+/usr/local/bin/sudo -u root gunzip -f mistral.gz
+/usr/local/bin/sudo -u root gunzip -f aide.gz
+/usr/local/bin/sudo -u root gunzip -f rx.gz
+/usr/local/bin/sudo -u root gunzip -f miami.gz
+/usr/local/bin/sudo -u root chown mistral:misinf *
+/usr/local/bin/sudo -u root chmod 777 *
+DATE=`date +%y%m%d`                                                  # JJHHMM
+echo 20$DATE >INSTALL

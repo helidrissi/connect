@@ -1,0 +1,38 @@
+export TERM=ansi
+arg1=$1  # Repertoire des programme (ex: /acu/mx/o)
+arg2=$2  # nom du programme a lancer (ex: cra-td.acu)
+arg3=$3  # N° de societe
+arg4=$4  # Mnemonique du programme (ex: CRA)
+arg5=$5  # Code utilisateur (ex: OD)
+arg6=$6  # environnement
+arg7=$7  # n° sélection (pour traitements comme EPM export terre-net)
+export arg1 arg2 arg3 arg3 arg4 arg5 arg6 arg7
+#if [ -d /usr/acucobol8/lib ]
+#   then LIBPATH=/usr/acucobol8/lib
+#else if [ -d /usr/acucobol72/lib ]
+#        then LIBPATH=/usr/acucobol72/lib
+#        else LIBPATH=/usr/acucobol70/lib
+#     fi
+#fi
+if [ -d /usr/java14_64 ]
+   then LIBPATH=$LIBPATH:/usr/java14_64/jre/bin/classic:/usr/java14_64/jre/bin
+        LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/java14_64/jre/bin/classic:/usr/java14_64/jre/bin:/usr/acucobol72/lib
+        PATH=$PATH:/usr/java14_64/jre/bin:/usr/java14_64/jre/bin/classic
+fi
+if [ "$OSTYPE" = "linux-gnu" ]
+then if [ -d /usr/java/jre1.5.0_04 ]
+     then LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/java/jre1.5.0_04/lib/i386/server:/usr/java/jre1.5.0_04/lib/i386/
+     fi
+fi
+export LIBPATH LD_LIBRARY_PATH PATH
+
+echo $arg3  $arg4  $arg5  $arg6  $arg7 > /acu/mistral/ft/ATD-$arg4
+cd $arg1
+#if [ -d /usr/acucobol8/bin ]
+# then /usr/acucobol8/bin/runcbl -c /acu/mistral/cfg/cblconfig $arg2
+#else if [ -d /usr/acucobol72/bin ]
+#  then 
+  /usr/acucobol72/bin/runcbl -c /acu/mistral/cfg/cblconfig $arg2
+#  else /usr/acucobol70/bin/runcbl -c /acu/mistral/cfg/cblconfig $arg2
+# fi 
+#fi 

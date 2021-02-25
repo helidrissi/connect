@@ -1,0 +1,117 @@
+      * Linkage de IMPRIME et IMPMULTI
+      *    LK-IMPRIME-PRVW = "P": avec prévisualisation
+      *                    = blanc: sans prévisualisation 
+      *                    = "F" ou "M" : envoi prévisu en fax ou mail dans RLC
+      *                    = "R" : impression rapide sans écran
+      *                    = "p": sans prévisualisation mais avec choix page (quand on viient de visu imprime PDF viewimpfic)
+      *    
+      *    LK-IMPRIME-PRG: nom du programme d'édition
+      *                    ex: /mx/o/cac-e
+      *    Au retour: renvoie LK-IMPRIME-RES = 1 si impression
+      *    effectuée (dans ce cas sortir du prog de sélection)
+      *    
+      *    S'il existe une feuille de style pour export fichier
+      *    mettre son nom dans LK-IMPRIME-FIC
+      *    (cette feuille de style a le même nom que l'autre, 
+      *     avec une extension .fic
+      *
+      *    Attention : pour IMPMULTI ne pas remettre à blanc à chaque appel de LANCE-IMPRIME
+
+       01 LK-IMPRIME.
+           05 LK-IMPRIME-FIC PIC X(128).
+           05 LK-IMPRIME-XML PIC X(128).
+           05 LK-IMPRIME-XSL PIC X(128).
+           05 LK-IMPRIME-FORMAT PIC X(3).
+           05 LK-IMPRIME-PRVW PIC X.
+      *    Programme ou nom de l'imprimante pour le compte-rendu fax
+           05 LK-IMPRIME-PRG  PIC X(20).
+           05 LK-IMPRIME-RES PIC 9.
+           05 LK-IMPRIME-ORI PIC XXX.
+           05 LK-IMPRIME-LIS PIC X(60).   
+      *    lk-imprime-fac à renseigner à "F" si facture
+      *    dans ce cas si on demande impression, on retourne dans le
+      *    programme appelant avec un code "I" dans lk-imprime-fac
+      *    et le programme appelant lance la facturation
+      *    R = édition des relances
+      *    B = bulletins de paie
+      *    b = pas d'impression possible
+      *    f = impression classique avec gestion recto-verso
+      *    M = mailing (pour génération du fichier dans le bon répertoire)
+           05 LK-IMPRIME-FAC PIC X.   
+      *    dans le cas où le traitement ne doit pas être interrompu 
+      *    jusqu'à la fin de la génération de tous les fichiers
+      *    mettre LK-IMPRIME-FIN à "N"
+      *    sinon en cliquant sur la croix on arrete le programme
+           05 LK-IMPRIME-FIN PIC X.   
+      *    Mettre à 1 pour ne pas fermer l'application aprés impression
+           05 LK-IMPRIME-FERME-PAS PIC 9. 
+      *    Nombre d'exemplaire
+           05 LK-IMPRIME-NBC       PIC 9.
+      *    Nom du fichier postscript à imprimer au verso (conditions de vente...) sous /acu/f/mistral
+      *    Si contient "VIDE" force le recto verso (fiche de travail recto verso)
+020517
+      *     05 LK-IMPRIME-VERSO     PIC X(128).
+           05 LK-IMPRIME-VERSO     PIC X(125).
+           05 LK-IMPRIME-AGE       PIC X(3).
+020517
+      *    Nom du fichier CSV (ou PDF) généré en sortie (export)
+040419*     05 LK-IMPRIME-CSV       PIC X(128).
+040419     05 LK-IMPRIME-CSV       PIC X(124).
+040419     05 FILLER               PIC 9(4).
+      *    Nombre de duplicata avec verso ci-dessus
+           05 LK-IMPRIME-NBVERSO   PIC 9.
+      *    Tiroirs entrée à utiliser pour les duplicatas (le tiroir de l'original est celui sélectionné à l'impression)
+           05 LK-IMPRIME-TIREDUP   PIC 9 OCCURS 3.
+      *    Tiroirs sortie pour les duplicatas (le tiroir de l'original est celui sélectionné à l'impression)
+           05 LK-IMPRIME-TIRSDUP   PIC 9 OCCURS 3.
+      *    Impression au format paysage
+           05 LK-IMPRIME-PAYSAGE   PIC 9.
+      *    Verrouillage nombre d'exemplaire (2=bacs aussi verrouillés)
+           05 LK-IMPRIME-VNBC      PIC 9.
+      *    Adresse Email du client ou fournisseur pour impmulti
+           05 LK-IMPRIME-EMAIL PIC X(60). 
+      *    N° Fax du client ou fournisseur pour impmulti
+           05 LK-IMPRIME-FAX PIC X(12). 
+      *    Envoie directement par fax (sans prévisu)
+           05 LK-IMPRIME-ENVFAX PIC 9.
+      *    Pour les éditions différées (qui ont besoin de l'accept 
+      *    dans l'avion sinon fenetre grise, mettre 1)
+      *    Concerne les factures notamment
+           05 LK-IMPRIME-DIF PIC 9. 
+      *    Pays pour envoi fax
+           05 LK-IMPRIME-PAY PIC X(3). 
+      *    Indicateur Export FICHIER: 1=CSV, 2=PDF, 3=XML, 
+      *     4=PDF sans affichage du message "le fichier a été généré"
+      *     5=PDF sans affichage du message "le fichier a été généré"
+      *           sans affichge "en cours de formatage"
+      *           avec envoi mail (recherche dans TRADIF pour ATD)
+      *     6=CSV sans affichage du message "le fichier a été généré"
+           05 LK-IMPRIME-EXPORT PIC 9.
+      *    N° état à imprimer (pour avoir le nom dans l'export csv)
+           05 LK-IMPRIME-ETAT PIC X(6).
+      *    "N" si on a coché "pas de grisé" dans l'impression et que
+      *    c'est une impression directe (sans prévisu) 
+      *    Permet de gérer l'absence de grisé directement lors de la
+      *    génération du xml
+           05 LK-IMPRIME-GRISE PIC X.
+      *    1 = rapport de fax (imprimante dans LK-IMPRIME-PRG)
+           05 LK-IMPRIME-RAPFAX PIC 9.
+      *    Tiroir entrée à utiliser pour l'original
+           05 LK-IMPRIME-TIREORI   PIC 9.
+      *    Tiroir sortie pour l'original 
+           05 LK-IMPRIME-TIRSORI   PIC 9.
+      *    Nombre originaux
+           05 LK-IMPRIME-NBORI   PIC 9.
+      *    Format (taille papier: mettre 3 si A3 ou 5 si A5)
+           05 LK-IMPRIME-SIZE    PIC 9.
+      *    1=ne pas supprimer le xml à la sortie du programme
+           05 LK-IMPRIME-KEEPXML PIC 9.
+      *    Garde le nom du xsl pour csv (sinon basé sur nom xsl impression)
+           05 LK-IMPRIME-FIC-GARDE PIC 9.
+      *    Possibilité de fusionner les documents
+           05 LK-IMPRIME-FUSDOC   PIC 9.
+      *    N° de sélection pour envoi mail ATD
+      *    ou dans impmulti indicateur mail envoyé
+           05 LK-IMPRIME-NSEL     PIC 9(4).
+      *    Ne pas changer l'entête si envoi de mail
+           05 LK-IMPRIME-ENTOK    PIC 9.

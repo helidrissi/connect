@@ -1,0 +1,13 @@
+$1/bin/acurcl -info -n $2 2>/tmp/RECHUSER$3
+if [ "$1" = "/usr/acucobol8" ]
+then egrep $3 /tmp/RECHUSER$3 |cut -c -22 > /acu/mistral/ft/RECHUSER$3
+else
+egrep $3 /tmp/RECHUSER$3 |cut -c 23- |cut -c -18 > /acu/mistral/ft/RECHUSER$3
+fi
+# rajout BS /tests
+#egrep $3 /tmp/RECHUSER$3 >> /acu/mistral/ft/TEST-RECHUSER
+#cat /acu/mistral/ft/RECHUSER$3 >> /acu/mistral/ft/TEST-RECHUSER
+sleep 1
+# fin rajout BS /tests
+#
+rm /tmp/RECHUSER$3 2>>/dev/null

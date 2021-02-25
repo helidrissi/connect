@@ -1,0 +1,16 @@
+      * Zones utilisées par la ComboBox des Types de Commandes.
+       01 Cm-MTCC.
+           05 Cm-MTCC-Handle HANDLE OF COMBO-BOX.
+           78 Cm-MTCC-NbMaxItems VALUE IS 50. 
+           05 Cm-MTCC-9-3 PIC 9(3) COMP-1.
+           05 Cm-MTCC-Items OCCURS Cm-MTCC-NbMaxItems TIMES.
+               10 Cm-MTCC-LIB  PIC X(12).
+               10 Cm-MTCC-LIB2 PIC X(25).
+               10 Cm-MTCC-COD  PIC X(1).
+           05 Cm-MTCC-SelectedItem PIC X(1).
+           05 Cm-MTCC-LoadedItems PIC 9(3) COMP-1 VALUE IS 0.
+           05 WOPEN-MXTYPCDC   PIC 9.
+           05 WOPEN-MXTYPCDF   PIC 9.
+           05 Cm-MTCC-Last-FOU PIC 9(6).
+      *--- Si = 1 --> Le premier item de la combo est vide
+           05 Cm-MTCC-Item1Vide pic 9.

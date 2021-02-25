@@ -1,0 +1,276 @@
+clear
+ENV="/acuf"
+export ENV
+echo "       PROCEDURE DE CREATION DU JEU D' ESSAI "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= "
+echo "\n"
+echo "S'assurer que personne ne travaille sur le système"
+echo "\n"
+echo "Environnement ($ENV): \c"
+read DIR2
+nbrc=`expr "$DIR2" : '.*'`
+case $nbrc in
+     0) DIR2=$ENV ;;
+esac
+echo $DIR2
+if [ ! -d $DIR2/palme ]
+   then echo "\n      Environnement INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ ! -d $DIR2 ]
+   then echo "\n"
+   echo "Procédure non Réalisable \c"
+   read ok
+   exit
+fi
+echo "Confirmez-vous (Taper 'OUI' Pour confirmer) \c"
+read OK
+if [ $OK != "OUI" ]
+    then
+    echo "\n"
+    echo " Procédure Non Réalisée - Taper Entrée \c "
+    read ok
+    exit
+fi
+NUMSOC=0001
+SOC=$NUMSOC
+   echo "\n"
+   echo "No de Société à copier dans le jeu d'essai ($NUMSOC): \c"
+   SOC=`/acu/mistral/px/ACCNUMERO`
+if [ ! -d $DIR2/mx$SOC ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ -d $DIR2/E ]
+   then echo "\n"
+   echo "Procédure Déjà Réalisée : Non Réalisable \c"
+   read ok
+   exit
+fi
+echo "\n"
+echo " Traitement en Cours - Veuillez Patienter "
+echo "     .Création de l'environnement"
+cd $DIR2
+mkdir E
+cd E
+mkdir mx$SOC mx$SOC/f mx$SOC/ft mx$SOC/fx
+mkdir cx$SOC cx$SOC/f cx$SOC/ft cx$SOC/fx
+mkdir mxg mxg/f mxg/ft
+mkdir cxg cxg/f cxg/ft
+ln -s /acu/cx/fg     cxg/fg
+if [ -d /acu/cx/fA ]
+   then ln -s /acu/cx/fA cxg/fA
+fi
+ln -s /acu/mx/fg     mxg/fg
+## pour MAC-GABILLET par exemple
+if [ -d $DIR2/mxs$SOC ]
+   then mkdir mxs$SOC mxs$SOC/f
+fi
+
+# ln -s /acu/mistral   mistral
+mkdir mistral mistral/f mistral/ft mistral/ferr mistral/fjbu
+ln -s /acu/mistral/COBCAP mistral/COBCAP
+ln -s /acu/mistral/fpmx mistral/fpmx
+ln -s /acu/mistral/fg   mistral/fg
+ln -s /acu/mistral/java mistral/java
+
+# ln -s /acuf/palme    palme
+mkdir palme palme/f palme/ft
+
+if [ -d $DIR2/mx$SOC/fseq ]
+   then ln -s $DIR2/mx$SOC/fseq mx$SOC/fseq
+fi
+if [ -d $DIR2/mx$SOC/fubi ]
+   then ln -s $DIR2/mx$SOC/fubi mx$SOC/fubi
+fi
+if [ -d $DIR2/mx$SOC/fta ]
+   then ln -s $DIR2/mx$SOC/fta mx$SOC/fta
+fi
+if [ -d $DIR2/cx$SOC/fseq ]
+   then ln -s $DIR2/cx$SOC/fseq cx$SOC/fseq
+fi
+#if [ -d $DIR2/mx$SOC/fmobi ]
+#  then mkdir mx$SOC/fmobi
+#       chmod 777 mx$SOC/fmobi 2>/dev/null
+##      pour créer les répertoires par mobile à vide (cp + rm)
+#       cp -R $DIR2/mx$SOC/fmobi/M02* mx$SOC/fmobi/ 2>/dev/null
+#       rm mx$SOC/fmobi/M02*/*/*/* 2>/dev/null
+#       rm mx$SOC/fmobi/M02*/*/* 2>/dev/null
+#       rm mx$SOC/fmobi/M02*/* 2>/dev/null
+#       chmod 777 mx$SOC/fmobi/M02* 2>/dev/null
+#       chmod 777 mx$SOC/fmobi/M02*/* 2>/dev/null
+#       chmod 777 mx$SOC/fmobi/M02*/*/* 2>/dev/null
+#fi
+
+if [ -d $DIR2/mxg/fi ]
+   then mkdir mxg/fi
+   if [ -d $DIR2/mxg/fi/MCL ]
+      then mkdir mxg/fi/MCL
+        cp $DIR2/mxg/fi/MCL/* mxg/fi/MCL/ 2>/dev/null
+   fi
+   if [ -d $DIR2/mxg/fi/VGP ]
+      then mkdir mxg/fi/VGP
+        cp $DIR2/mxg/fi/VGP/* mxg/fi/VGP/ 2>/dev/null
+   fi
+fi
+
+echo "     .Copie des Fichiers Mistral"
+cp $DIR2/mistral/f/* mistral/f
+# FHOSTE et FECRAN doivent être linkés sinon on perd l'environnement
+rm mistral/f/FHOSTE
+rm mistral/f/FHOSTE.vix
+rm mistral/f/FECRAN
+rm mistral/f/FECRAN.vix
+rm mistral/f/NUMPORTC 2>>/dev/null
+ln -s $DIR2/mistral/f/FHOSTE     mistral/f/FHOSTE
+ln -s $DIR2/mistral/f/FHOSTE.vix mistral/f/FHOSTE.vix
+ln -s $DIR2/mistral/f/FECRAN     mistral/f/FECRAN
+ln -s $DIR2/mistral/f/FECRAN.vix mistral/f/FECRAN.vix
+ln -s $DIR2/mistral/f/NUMPORTC   mistral/f/NUMPORTC
+#--- Le fichier USERS est linké avec le réel afin d'avoir le même mot de passe
+#    entre le réel et le jeu d'essai (notamment si gestion dynamique des mots de passe)
+rm mistral/f/USERS
+rm mistral/f/USERS.vix
+ln -s $DIR2/mistral/f/USERS      mistral/f/USERS
+ln -s $DIR2/mistral/f/USERS.vix  mistral/f/USERS.vix
+#
+cp -r $DIR2/mistral/fmenu mistral/fmenu
+if [ $? != 0 ] 
+   then echo "\n"
+        echo "    ATTENTION Problème: cp mistral/f ---> E/mistral/f "
+        echo "    Contacter MISTRAL Informatique \c"
+        read ok
+        exit
+fi
+echo "     .Copie des Fichiers PALME"
+cp $DIR2/palme/f/* palme/f
+if [ $? != 0 ] 
+   then echo "\n"
+        echo "    ATTENTION Problème: cp palme/f ---> E/palme/f "
+        echo "    Contacter MISTRAL Informatique \c"
+        read ok
+        exit
+fi
+echo "     .Copie des Fichiers GESTION"
+cp $DIR2/mx$SOC/f/[A-E]* mx$SOC/f
+cp $DIR2/mx$SOC/f/FAC14* mx$SOC/f
+cp $DIR2/mx$SOC/f/FAM* mx$SOC/f
+cp $DIR2/mx$SOC/f/F[B-Z]* mx$SOC/f
+cp $DIR2/mx$SOC/f/G* mx$SOC/f
+cp $DIR2/mx$SOC/f/HI* mx$SOC/f
+cp $DIR2/mx$SOC/f/[I-Z]* mx$SOC/f
+if [ $? != 0 ] 
+         then echo "\n"
+              echo "    ATTENTION Problème: cp mx$SOC/f ---> E/mx$SOC/f "
+              echo "    Contacter MISTRAL Informatique \c"
+              read ok
+              exit
+fi
+if [ -d $DIR2/mx$SOC/ftra ]
+   then mkdir mx$SOC/ftra
+        cp $DIR2/mx$SOC/ftra/* mx$SOC/ftra
+fi
+## pour MAC-GABILLET par exemple
+if [ -d $DIR2/mxs$SOC ]
+   then cp $DIR2/mxs$SOC/f/* mxs$SOC/f
+fi
+echo "     .Copie des Fichiers GESTION COMMUNS"
+cp $DIR2/mxg/f/* mxg/f
+if [ $? != 0 ] 
+         then echo "\n"
+              echo "    ATTENTION Problème: cp mxg/f ---> E/mxg/f "
+              echo "    Contacter MISTRAL Informatique \c"
+              read ok
+              exit
+fi
+echo "     .Copie des Fichiers COMPTA"
+cp $DIR2/cx$SOC/f/[A-Q]* cx$SOC/f
+cp $DIR2/cx$SOC/f/[S-Z]* cx$SOC/f
+cp $DIR2/cx$SOC/f/R[A-I]* cx$SOC/f 2>/dev/null
+if [ $? != 0 ] 
+         then echo "\n"
+              echo "    ATTENTION Problème: cp cx$SOC/f ---> E/cx$SOC/f "
+              echo "    Contacter MISTRAL Informatique \c"
+              read ok
+              exit
+fi
+echo "     .Copie des Fichiers COMPTA COMMUNS"
+cp $DIR2/cxg/f/* cxg/f
+if [ $? != 0 ] 
+         then echo "\n"
+              echo "    ATTENTION Problème: cp cxg/f ---> E/cxg/f "
+              echo "    Contacter MISTRAL Informatique \c"
+              read ok
+              exit
+fi
+if [ -d $DIR2/empx ]
+   then echo "     .Création de l'environnement / CLEO"
+        mkdir empx empx/f empx/ft
+        echo "     .Copie des Fichiers de CLEO"
+        cp $DIR2/empx/f/* empx/f
+        if [ $? != 0 ] 
+           then echo "\n"
+                echo "    ATTENTION Problème: cp empx/f ---> E/empx/f "
+                echo "    Contacter MISTRAL Informatique \c"
+                read ok
+                exit
+        fi
+fi
+if [ -d $DIR2/iex ]
+   then echo "     .Création de l'environnement / IMAM"
+        mkdir iex iex/f iex/ft
+        echo "     .Copie des Fichiers de IMAM"
+        cp $DIR2/iex/f/* iex/f
+        if [ $? != 0 ] 
+           then echo "\n"
+                echo "    ATTENTION Problème: cp iex/f ---> E/iex/f "
+                echo "    Contacter MISTRAL Informatique \c"
+                read ok
+                exit
+        fi
+fi
+if [ -d $DIR2/rx$SOC ]
+   then echo "     .Création de l'environnement / REMBO"
+        mkdir rx$SOC rx$SOC/f rx$SOC/ft
+        echo "     .Copie des Fichiers de REMBO"
+        cp $DIR2/rx$SOC/f/* rx$SOC/f
+        if [ $? != 0 ] 
+           then echo "\n"
+                echo "    ATTENTION Problème: cp rx$SOC/f ---> E/rx$SOC/f "
+                echo "    Contacter MISTRAL Informatique \c"
+                read ok
+                exit
+        fi
+fi
+if [ -d $DIR2/mex ]
+   then echo "     .Création de l'environnement / MOMIX"
+        mkdir mex mex/f mex/ft
+        echo "     .Copie des Fichiers de MOMIX"
+        cp $DIR2/mex/f/* mex/f
+        if [ $? != 0 ] 
+           then echo "\n"
+                echo "    ATTENTION Problème: cp mex/f ---> E/mex/f "
+                echo "    Contacter MISTRAL Informatique \c"
+                read ok
+                exit
+        fi
+fi
+if [ -d $DIR2/pex ]
+   then echo "     .Création de l'environnement / PAIE"
+        mkdir pex pex/f pex/ft
+        ln -s /acu/pex/fg pex/fg
+        echo "     .Copie des Fichiers PAIE  "
+        cp $DIR2/pex/f/B[A-T]*  pex/f
+        cp $DIR2/pex/f/[C-Z]*  pex/f
+        if [ $? != 0 ] 
+           then echo "\n"
+                echo "    ATTENTION Problème: cp pex/f ---> E/pex/f "
+                echo "    Contacter MISTRAL Informatique \c"
+                read ok
+                exit
+        fi
+fi
+echo "\n"
+echo "Procédure Terminée "

@@ -1,0 +1,141 @@
+      *(( XFD FILE = MXARTSA2 ))
+       FD  MXARTSA2
+           LABEL RECORD IS STANDARD.
+       01 ENR-MASA2.
+           02 CLE1-MASA2.
+
+      *(( XFD COMMENT Code agence ))
+               04 AGE-MASA2        PIC  XXX.
+               04 CLE3-MASA2.
+
+      *(( XFD COMMENT Code article ))
+                   06 COD-MASA2        PIC  X(20).
+
+      *(( XFD COMMENT N° casier ))
+           02 CAS-MASA2        PIC  X(7).
+
+      *(( XFD COMMENT Gestion Stock : 1=oui ))
+           02 STO-MASA2        PIC  9.
+
+      *(( XFD COMMENT Mini ))
+           02 MIN-MASA2        PIC  9(4).
+
+      *(( XFD COMMENT Maxi ))
+           02 MAX-MASA2        PIC  9(5).
+
+      *(( XFD COMMENT Date actualisation Mini & Maxi ))
+           02 DAM-MASA2        PIC  9(8).
+
+      *(( XFD COMMENT Observations ))
+           02 OBS-MASA2        PIC  X(60).
+
+      *(( XFD COMMENT Stock initial en quantité ))
+           02 SIQ-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Prix unitaire stock initial ))
+           02 SIP-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Qté en commande client ))
+           02 QCC-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Qté en commande fournisseur ))
+           02 QCF-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Qtés entrées mois ))
+           02 EQM-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Qtés entrées exercice ))
+           02 EQE-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Qtés entrées intenes mois ))
+           02 TQM-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Qtés entrées intenes exercice ))
+           02 TQE-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Qtés sorties rétrocessions mois ))
+           02 RSQM-MASA2       PIC  S9(7)V99.
+
+      *(( XFD COMMENT Qtés sorties rétrocessions exercice ))
+           02 RSQE-MASA2       PIC  S9(7)V99.
+
+      *(( XFD COMMENT Qtés sorties mois ))
+           02 SQM-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Qtés sorties exercice ))
+           02 SQE-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Qtés sorties internes mois ))
+           02 IQM-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Qtés sorties internes exercice ))
+           02 IQE-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Ventes manquées exercice ))
+           02 VTM-MASA2        PIC  9(6)V99.
+
+      *(( XFD COMMENT Stock central actuel ))
+           02 STC-MASA2        PIC  S9(7)V99.
+
+      *(( XFD COMMENT Stock mois x 12 ))
+           02 QSTM-MASA2       PIC  S9(7)V99
+                      OCCURS 12 TIMES.
+
+      *(( XFD COMMENT Prix unitaire Stock mois x 12 ))
+           02 PMPM-MASA2       PIC  S9(7)V99
+                      OCCURS 12 TIMES.
+
+      *(( XFD COMMENT Délai livraison x 5 dernières réception ))
+           02 DEL-MASA2        PIC  999
+                      OCCURS 5 TIMES.
+
+      *(( XFD COMMENT Date 1ère entrée en stock ))
+           02 DEN-MASA2        PIC  9(8).
+           02 R-DEN-MASA2 REDEFINES DEN-MASA2.
+               04 SDEN-MASA2       PIC  99.
+               04 ADEN-MASA2       PIC  99.
+               04 MDEN-MASA2       PIC  99.
+               04 JDEN-MASA2       PIC  99.
+
+      *(( XFD COMMENT Date dernier inventaire ))
+           02 DDI-MASA2        PIC  9(8).
+           02 R-DDI-MASA2 REDEFINES DDI-MASA2.
+               04 SDDI-MASA2       PIC  99.
+               04 ADDI-MASA2       PIC  99.
+               04 MDDI-MASA2       PIC  99.
+               04 JDDI-MASA2       PIC  99.
+
+      *(( XFD COMMENT PAMP actuel ))
+           02 PAMP-MASA2       PIC  9(7)V99.
+
+      *(( XFD COMMENT PAMP mois -1 ))
+           02 PAMP1-MASA2      PIC  9(7)V99.
+
+      *(( XFD COMMENT PRMP actuel ))
+           02 PRMP-MASA2       PIC  9(7)V99.
+
+      *(( XFD COMMENT PRMP mois -1 ))
+           02 PRMP1-MASA2      PIC  9(7)V99.
+
+      *(( XFD COMMENT Montant dépréciation x 5 ans ))
+           02 DPV-MASA2        PIC  9(8)V99
+                      OCCURS 5 TIMES.
+
+      *(( XFD COMMENT % dépréciation x 5 ans ))
+           02 DPP-MASA2        PIC  9(3)V99
+                      OCCURS 5 TIMES.
+
+      *(( XFD COMMENT Indicateur inventaire initial saisi (1=oui ))
+           02 IOE-MASA2        PIC  9.
+
+      *(( XFD COMMENT Indicateur réapprovisionnement ))
+           02 REA-MASA2        PIC  9.
+
+      *(( XFD COMMENT Modèle étiquettes ))
+           02 ETI-MASA2        PIC  99.
+           02 TETI-MASA2       PIC  X.
+           02 DME-MASA2        PIC  9(8).
+
+      *(( XFD COMMENT Périodicité inventaire (Cf TABDIV) ))
+           02 PINV-MASA2       PIC  X.
+           02 FILLER           PIC  X(25).

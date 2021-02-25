@@ -1,0 +1,69 @@
+      *--- à renseigner avant 
+       01 WENR-MTSE.
+           02 WMOD-MTSE       PIC X.
+           02 WQTE-MTSE       PIC S9(5)V99.
+           02 WCOD-MTSE       PIC XXXX.
+           02 WCO2-MTSE       PIC XXXX.
+           02 WCOP-MTSE       PIC XXXX.
+           02 WPRE-MTSE       PIC XXXX.
+           02 WDSA-MTSE       PIC 9(8).
+           02 R-WDSA-MTSE REDEFINES WDSA-MTSE.
+              03 WDSAS-MTSE   PIC 99.
+              03 WDSAA-MTSE   PIC 99.
+              03 WDSAM-MTSE   PIC 99.
+              03 WDSAJ-MTSE   PIC 99. 
+      *--- à renseigner pour calcul promotion  (+date)
+           02 WART-MTSE       PIC X(20).
+           02 WAGE-MTSE       PIC XXX.
+           02 WPRO-MTSE       PIC 9.
+           02 WCLI-MTSE       PIC 9(6).
+           02 WFCL-MTSE       PIC XX.
+      *--- zones intermédiaires
+           02 WDAT-MTSE       PIC 9(8).
+           02 R-WDAT-MTSE REDEFINES WDAT-MTSE.
+              03 WDATS-MTSE   PIC 99.
+              03 WDATA-MTSE   PIC 99.
+              03 WDATM-MTSE   PIC 99.
+              03 WDATJ-MTSE   PIC 99.
+           02 WAPP-MTSL       PIC 9. 
+           02 WCOR-MTSE       PIC X(4).     
+           02 WRMC-MTSE       PIC 99V999.
+           02 WPRC-MTSE       PIC 9(7)V99.
+           02 W-FAM-P         PIC XX.
+           02 W-FAMR-P REDEFINES W-FAM-P.
+              03 W-FAM-P1     PIC X.
+              03 W-FAM-P2     PIC X.
+           02 W-TSP           PIC 9.
+           02 W-TSP2          PIC 9.
+           02 W-TSL           PIC 9.
+           02 W-TSR           PIC 9.
+           02 W-TSRL          PIC 9.
+           02 W-IND-MTSE      PIC 9.
+           02 W-IND-P         PIC 9.
+           02 W-AGE-P         PIC XXX.
+           02 WT              PIC 999.
+           02 W-OPEN-MXAGPROMO PIC 9.
+      *--- zones obtenues
+           02 WPRI-MTSE       PIC 9(7)V99.
+           02 WPVP-MTSE       PIC 9(7)V99.
+           02 WFOR-MTSE       PIC 9(7)V99.
+           02 WPOU-MTSE       PIC S99V99.
+           02 WREG-MTSL       PIC 9.
+           02 WREM-MTSL       PIC 9.
+           02 WTYP-MTSL       PIC 9.
+      * wmaj-MTSE = 0 -> màj prix de vente
+      * wmaj-MTSE = 1 -> màj prix de vente + remise
+           02 WMAJ-MTSE       PIC 9.
+           02 W-OPEN-MXTSPENT PIC 9.
+           02 W-OPEN-MXTSPLIG PIC 9.
+      *--- Zones retournées après Test Promo
+           02 WBOR-MPRO       PIC 9(5).
+           02 WISP-MPRO       PIC 9.
+           02 WREH-MPRO       PIC 99V99. 
+           02 WREQ-MPRO       PIC 99V99.
+           02 WCDP-MPRO       PIC 9.
+           02 WPPH-MPRO       PIC 9(7)V99. 
+           02 WPPQ-MPRO       PIC 9(7)V99.
+           02 WTTC1-MPRO      PIC 9(7)V99.
+           02 WTTC2-MPRO      PIC 9(7)V99.
+           02 WORD-MPRO       PIC 9(8).

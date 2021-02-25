@@ -1,0 +1,348 @@
+      *(( XFD FILE = BDIS ))
+       FD  MXBDIS
+           LABEL RECORD IS STANDARD.
+       01 ENR-MBDI.
+           02 CLE1-MBDI.
+      *(( XFD NAME = code_agence ))
+               03 AGE-MBDI         PIC  XXX.
+      *(( XFD NAME = no_bon ))
+               03 BON-MBDI         PIC  9(8).
+               03 R-BON-MBDI REDEFINES BON-MBDI.
+                   05 MOB-MBDI         PIC  99.
+                   05 BON2-MBDI        PIC  9(6).
+               03 R2-BON-MBDI REDEFINES BON-MBDI.
+
+      *(( XFD COMMENT Redéfinition pour les Tablettes (MobiDis Tab) ))
+                   05 MOB3-MBDI        PIC  999.
+                   05 BON3-MBDI        PIC  9(5).
+      *(( XFD NAME = type_bon ))
+      *(( XFD COMMENT 0=Commande    1=Livraison    3=Bon de retour   8=Devis ))
+           02 TYP-MBDI         PIC  9.
+      *** TYC: 0=classique 1=BL inter-agence 2=copropri‚taire
+      ***      5=r‚trocession 7=BL remise refactur‚e/fou 9=forfait
+      ***      8=facture comptoir
+           02 TYC-MBDI         PIC  9.
+      *** TYC: 0=classique 1=BL inter-agence 2=copropri‚taire
+      ***      5=r‚trocession 7=BL remise refactur‚e/fou 9=forfait
+      ***      8=facture comptoir
+           02 IVR-MBDI         PIC  9.
+      *** TYC: 0=classique 1=BL inter-agence 2=copropri‚taire
+      ***      5=r‚trocession 7=BL remise refactur‚e/fou 9=forfait
+      ***      8=facture comptoir
+           02 IFO-MBDI         PIC  9.
+      *(( XFD NAME = CODE_CLIENT ))
+           02 CLI-MBDI         PIC  9(6).
+      *(( XFD NAME = type_facturation ))
+           02 TFA-MBDI         PIC  9.
+      *(( XFD NAME = no_lieu ))
+           02 CHC-MBDI         PIC  9(9).
+      *(( XFD NAME = TITRE_LIEU ))
+           02 TIT-MBDI         PIC  99.
+      *(( XFD NAME = indic_adresse_lieu ))
+           02 IAF-MBDI         PIC  9.
+      *(( XFD NAME = NOM_LIEU ))
+           02 RAI-MBDI         PIC  X(25).
+      *(( XFD NAME = adresse_lieu ))
+           02 ADR-MBDI         PIC  X(75).
+      *(( XFD NAME = CODE_POSTAL_LIEU ))
+           02 POS-MBDI         PIC  X(8).
+      *(( XFD NAME = ville_lieu ))
+           02 VIL-MBDI         PIC  X(25).
+      *(( XFD NAME = DATE_CREATION ))
+           02 DAT-MBDI         PIC  9(8).
+           02 R-DAT-MBDI REDEFINES DAT-MBDI.
+               03 SDAT-MBDI        PIC  99.
+               03 ADAT-MBDI        PIC  99.
+               03 MDAT-MBDI        PIC  99.
+               03 JDAT-MBDI        PIC  99.
+      *(( XFD NAME = MODE_PAIEMENT ))
+           02 PAI-MBDI         PIC  99
+                      OCCURS 5 TIMES.
+      *(( XFD NAME = CODE_ECHEANCE ))
+           02 ECH-MBDI         PIC  9
+                      OCCURS 5 TIMES.
+      *(( XFD NAME = CODE_TERME ))
+           02 TER-MBDI         PIC  9
+                      OCCURS 5 TIMES.
+      *(( XFD NAME = nb_jours_echeance ))
+           02 NJE-MBDI         PIC  999
+                      OCCURS 5 TIMES.
+      *(( XFD NAME = montant_echeance ))
+           02 MON-MBDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER
+                      OCCURS 5 TIMES.
+      *(( XFD NAME = PCT_PAIEMENT ))
+           02 POU-MBDI         PIC  999V99
+                      OCCURS 5 TIMES.
+      *(( XFD NAME = LIBELLE_PAIEMENT ))
+           02 LPA-MBDI         PIC  X(20).
+      *(( XFD NAME = REFERENCE_CLIENT ))
+           02 REF-MBDI         PIC  X(30)
+                      OCCURS 2 TIMES.
+      *(( XFD NAME = no_facture ))
+           02 FAC-MBDI         PIC  9(6).
+      *(( XFD NAME = indic_traitement ))
+      *(( XFD COMMENT Pour les devis: 0=Encours 1=Transformé en Cde ou B/L  - Pour les B/L: 0=en-cours  1=Facturé ))
+           02 TRA-MBDI         PIC  9.
+      *(( XFD NAME = code_vendeur ))
+           02 REP-MBDI         PIC  X(4).
+      *(( XFD NAME = reserve ))
+           02 IPR-MBDI         PIC  9.
+      *(( XFD NAME = indic_a_facturer ))
+      *(( XFD COMMENT Stade: 0=En attente  1=A facturer ))
+           02 IFA-MBDI         PIC  9.
+      *(( XFD NAME = date_facture ))
+           02 DFA-MBDI         PIC  9(8).
+           02 R-DFA-MBDI REDEFINES DFA-MBDI.
+               03 SDFA-MBDI        PIC  99.
+               03 ADFA-MBDI        PIC  99.
+               03 MDFA-MBDI        PIC  99.
+               03 JDFA-MBDI        PIC  99.
+      *(( XFD NAME = mt_frais_fac ))
+           02 FFA-MBDI         PIC  S999V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = bon_cde_genere ))
+           02 BCG-MBDI         PIC  9(8).
+      *(( XFD NAME = total_ht ))
+      *(( XFD COMMENT Montant Total HT ))
+           02 TAT-MBDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = total_ttc ))
+      *(( XFD COMMENT Montant Total TTC ))
+           02 TAC-MBDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = REFERENCE_INTERNE ))
+           02 NRF-MBDI         PIC  X(20).
+      *(( XFD NAME = periode_facture ))
+           02 PER-MBDI         PIC  9(4).
+           02 R-PER-MBDI REDEFINES PER-MBDI.
+               04 PERM-MBDI        PIC  99.
+               04 PERA-MBDI        PIC  99.
+      *(( XFD NAME = DOM_BANCAIRE ))
+           02 DOM-MBDI         PIC  X(24).
+      *(( XFD NAME = ADRESSE_BANQUE ))
+           02 ADB-MBDI         PIC  X(24).
+           02 ZRIB-MBDI.
+      *(( XFD NAME = CODE_BANQUE ))
+               03 BQE-MBDI         PIC  9(5).
+      *(( XFD NAME = CODE_GUICHET ))
+               03 GUI-MBDI         PIC  9(5).
+      *(( XFD NAME = NO_CPT_BANQUE ))
+               03 CPT-MBDI         PIC  X(11).
+      *(( XFD NAME = CLE_RIB ))
+               03 RIB-MBDI         PIC  99.
+      *(( XFD NAME = CLE_RIB_ISO ))
+           02 RIBISO-MBDI      PIC  XX.
+      *(( XFD NAME = paiement_sur_relev ))
+           02 MPA-MBDI         PIC  9.
+      *(( XFD NAME = indic_transport ))
+           02 TTR-MBDI         PIC  9.
+      *(( XFD NAME = pct_escompte ))
+           02 ESC-MBDI         PIC  99V99.
+      *(( XFD NAME = agence_sortie_piec ))
+           02 AGS-MBDI         PIC  X(3).
+      *(( XFD NAME = depot_sortie_piece ))
+           02 DEP-MBDI         PIC  9(3).
+      *(( XFD NAME = total_pr ))
+           02 TPR-MBDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = mt_marge_plancher ))
+           02 MBP-MBDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = mt_marge_mini ))
+           02 MMI-MBDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = mt_marge_maxi ))
+           02 MMX-MBDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = AFFEC_FISCALE ))
+           02 AFC-MBDI         PIC  9.
+      *(( XFD NAME = indic_edition ))
+           02 EDI-MBDI         PIC  9.
+      *(( XFD NAME = auteur_creation ))
+           02 SAL-MBDI         PIC  X(4).
+      *(( XFD NAME = origine ))
+           02 ORI-MBDI         PIC  9.
+      *(( XFD NAME = CODE_CLIENT_DIVERS ))
+           02 CDV-MBDI         PIC  9(6).
+      *(( XFD NAME = niveau_commande ))
+           02 ACA-MBDI         PIC  9.
+           02 CBLF-MBDI.
+      *(( XFD NAME = no_agence_blf ))
+               03 ABLF-MBDI        PIC  XXX.
+      *(( XFD NAME = no_blf ))
+               03 LBLF-MBDI        PIC  9(6).
+      *(( XFD NAME = mt_acompte ))
+           02 ACO-MBDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = type_commande_cli ))
+           02 TCC-MBDI         PIC  X.
+      *(( XFD NAME = no_client_divers_l ))
+           02 CDL-MBDI         PIC  9(6).
+      *(( XFD NAME = date_liv_prevue ))
+           02 DLP-MBDI         PIC  9(8).
+           02 R-DLP-MBDI REDEFINES DLP-MBDI.
+               03 SADLP-MBDI       PIC  9999.
+               03 R-SADLP-MBDI REDEFINES SADLP-MBDI.
+                   04 SDLP-MBDI        PIC  99.
+                   04 ADLP-MBDI        PIC  99.
+               03 MDLP-MBDI        PIC  99.
+               03 JDLP-MBDI        PIC  99.
+      *(( XFD NAME = NB_PARTS_COPRO ))
+           02 NPT-MBDI         PIC  9(5).
+
+      *(( XFD COMMENT Message pour validation avoir envoyé ))
+           02 EMSG-MBDI        PIC  9.
+      *(( XFD NAME = Liv_partielle ))
+      *(( XFD COMMENT Livraison partielle autorisée (m3) ))
+           02 LIP-MBDI         PIC  9.
+      *(( XFD NAME = trs_par_nous ))
+      *(( XFD COMMENT Transport par nos soins ))
+           02 ILI-MBDI         PIC  9.
+      *(( XFD NAME = type_materiel ))
+           02 TYM-MBDI         PIC  X(16).
+      *(( XFD NAME = no_ordre_materiel ))
+           02 MAT-MBDI         PIC  9(10).
+      *(( XFD NAME = reserve2 ))
+      *(( XFD COMMENT Type de livraison (spécifique M3) ))
+           02 TBP-MBDI         PIC  9.
+      *(( XFD NAME = delai_devis ))
+           02 DEL-MBDI         PIC  99.
+      *(( XFD NAME = validite_devis ))
+           02 VAO-MBDI         PIC  99.
+      *(( XFD NAME = no_prospect ))
+      *(( XFD COMMENT N° de Prospect ))
+           02 FCO-MBDI         PIC  9(8).
+      *(( XFD NAME = montant_forfait ))
+           02 MFO-MBDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = DETAIL_FORFAIT_FAC ))
+           02 DFO-MBDI         PIC  9.
+      *(( XFD NAME = INDIC_FACTURE_DEVI ))
+           02 IFD-MBDI         PIC  9.
+      *(( XFD NAME = COURS_DEVISE ))
+           02 CRS-MBDI         PIC  9(3)V9(5).
+      *(( XFD NAME = indic_remise ))
+           02 IRE-MBDI         PIC  9.
+      *(( XFD NAME = pct_remise ))
+           02 MRU-MBDI         PIC  99V99.
+      *(( XFD NAME = indic_port_usine ))
+           02 PUS-MBDI         PIC  9.
+      *(( XFD NAME = type_tva ))
+           02 TTV-MBDI         PIC  9.
+      *(( XFD NAME = pct_tva ))
+           02 TVA-MBDI         PIC  99V99.
+      *(( XFD NAME = no_commande ))
+           02 BCO-MBDI         PIC  9(8).
+      *(( XFD NAME = date_liv_prevue_cd ))
+      *(( XFD COMMENT Date de livraison Prévue d'origine ))
+           02 DLO-MBDI         PIC  9(8).
+           02 R-DLO-MBDI REDEFINES DLO-MBDI.
+               03 SDLO-MBDI        PIC  99.
+               03 ADLO-MBDI        PIC  99.
+               03 MDLO-MBDI        PIC  99.
+               03 JDLO-MBDI        PIC  99.
+      *(( XFD NAME = date_commande ))
+           02 DCO-MBDI         PIC  9(8).
+           02 R-DCO-MBDI REDEFINES DCO-MBDI.
+               03 SDCO-MBDI        PIC  99.
+               03 ADCO-MBDI        PIC  99.
+               03 MDCO-MBDI        PIC  99.
+               03 JDCO-MBDI        PIC  99.
+      *(( XFD NAME = mt_port_facture ))
+           02 MPF-MBDI         PIC  S9(6)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = indic_avoir_genere ))
+      *(( XFD COMMENT Indicateur avoir généré ))
+           02 LET-MBDI         PIC  9.
+      *(( XFD NAME = indic_paiement_imm ))
+           02 IMM-MBDI         PIC  9.
+      *(( XFD NAME = no_client_livre ))
+           02 CLL-MBDI         PIC  9(6).
+      *(( XFD NAME = no_interlocuteur ))
+           02 ITC-MBDI         PIC  9(9).
+      *(( XFD NAME = NOMBRE_COPRO ))
+           02 NBC-MBDI         PIC  99.
+      *(( XFD NAME = indic_mobidis ))
+      *(( XFD COMMENT Indicateur Bon à transmettre au siège si MobiDis: 0=Non  1= Oui  2=Déjà Transféré   3=Chargé sur le portable à l'instal   4=Créé sur le système central et transféré sur Mobile ))
+           02 IES-MBDI         PIC  9.
+      *(( XFD NAME = Acompte_deduit ))
+      *(( XFD COMMENT Indicateur acompte transféré sur BL ))
+           02 ADD-MBDI         PIC  9.
+      *(( XFD NAME = no_fou_centrale ))
+           02 FOU-MBDI         PIC  9(6).
+      *(( XFD NAME = no_affaire ))
+           02 NAF-MBDI         PIC  X(10).
+      *(( XFD NAME = transport_saisi ))
+      *(( XFD COMMENT Transport saisi ))
+           02 STR-MBDI         PIC  9.
+      *(( XFD NAME = bon_en_attente ))
+           02 CAT-MBDI         PIC  9.
+      *(( XFD NAME = no_autorisation_cr ))
+      *(( XFD COMMENT N° autorisation crédit ))
+           02 AUT-MBDI         PIC  X(8).
+      *(( XFD NAME = no_ts_prospect ))
+      *(( XFD COMMENT N° tarif sspécial si devis prospect ))
+           02 TSP-MBDI         PIC  X(4).
+      *(( XFD NAME = indic_edition_bl ))
+      *(( XFD COMMENT Indic édition BL ))
+           02 EDIB-MBDI        PIC  9.
+      *(( XFD NAME = no_devis ))
+      *(( XFD COMMENT N° devis d'origine ))
+           02 NOF-MBDI         PIC  9(8).
+      *(( XFD NAME = mode_paiement_acom ))
+      *(( XFD COMMENT Mode paiement acompte ))
+           02 PACO-MBDI        PIC  99.
+      *(( XFD NAME = no_facture_acompte ))
+      *(( XFD COMMENT N° facture d'acompte ))
+           02 FACO-MBDI        PIC  9(6).
+      *(( XFD NAME = indic_or_genere ))
+      *(( XFD COMMENT Indicateur bon généré par un OR ou en inter-société ))
+           02 GEN-MBDI         PIC  9.
+      *(( XFD NAME = marque_mat ))
+      *(( XFD COMMENT Marque matériel ))
+           02 MAM-MBDI         PIC  X(4).
+      *(( XFD NAME = indic_recu_mobile ))
+      *(( XFD COMMENT Indicateur bon reçu d'un mobile : 0 = Non  1=En partie  2= En totalité 3=Reçu Webtop ))
+           02 IRM-MBDI         PIC  9.
+      *(( XFD NAME = no_ordre_blf ))
+      *(( XFD COMMENT N° ordre BLF pour B/L sociétés liées ))
+           02 OBLF-MBDI        PIC  9(2).
+      *(( XFD NAME = stade_devis ))
+      *(( XFD COMMENT Stade devis: Blanc=En cours   1=1er Relance   2=2ème Relance   3=3ème Relance   G=Gagné   P=Perdu    R=Reporté   A=Abandonné ))
+           02 STA-MBDI         PIC  X.
+      *(( XFD NAME = date_relance_devis ))
+      *(( XFD COMMENT Date relance du Devis ))
+           02 DREL-MBDI        PIC  9(8).
+           02 R-DREL-MBDI REDEFINES DREL-MBDI.
+               04 SDREL-MBDI       PIC  99.
+               04 ADREL-MBDI       PIC  99.
+               04 MDREL-MBDI       PIC  99.
+               04 JDREL-MBDI       PIC  99.
+      *(( XFD NAME = no_taa_inter_agenc ))
+      *(( XFD COMMENT N° bon de transfert (TSV) si nter-agence avec gestion stock relais ))
+           02 TAA-MBDI         PIC  9(6).
+      *(( XFD NAME = indic_fidelite ))
+      *(( XFD COMMENT Intégré au programme fidélité ))
+           02 FID-MBDI         PIC  9.
+      *(( XFD NAME = motif_avoir ))
+      *(( XFD COMMENT Motif avoir ou 1 si commande importée du SAV ou n° IDWEBTOP si commande Web ))
+           02 MOA-MBDI         PIC  XX.
+      *(( XFD NAME = agence_livraison ))
+      *(( XFD COMMENT N° agence livraison (M3) ))
+           02 AGL-MBDI         PIC  X(3).
+      *(( XFD NAME = retour_piece ))
+      *(( XFD COMMENT Demande de retour de pièces si TYP = 0 ))
+           02 IRP-MBDI         PIC  9.
+      *(( XFD NAME = indic_conex ))
+      *(( XFD COMMENT Indicateur génération fichier CONEX (Machdeal): 1=Généré ou Drop shipping Topaz ))
+           02 GCO-MBDI         PIC  9.
+      *(( XFD NAME = code_service ))
+      *(( XFD COMMENT Code service notamment pour Chorus ))
+           02 SVC-MBDI         PIC  XX.
+      *(( XFD NAME = indic_conex ))
+      *(( XFD COMMENT Sortie exceptionnelle ))
+           02 EXC-MBDI         PIC  9.
+
+      *(( XFD COMMENT Commandes WEB; n° de l'entête EDO à imprimer sur les documents ))
+           02 EDO-MBDI         PIC  9(2).

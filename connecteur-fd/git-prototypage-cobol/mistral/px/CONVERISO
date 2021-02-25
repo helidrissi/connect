@@ -1,0 +1,9 @@
+while read source
+do 
+#echo  $source
+cp $source $source.old
+cat $source | /acu/mistral/px/ISO > $source.new
+cat $source.new | sed s/AIX52/PIX52/g > $source
+rm $source.old $source.new
+chmod 777 $source
+done

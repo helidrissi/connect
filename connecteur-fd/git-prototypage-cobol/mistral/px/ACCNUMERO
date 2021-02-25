@@ -1,0 +1,11 @@
+read NUMERO
+nbrc=`expr "$NUMERO" : '.*'`
+NUM="ERREUR"
+case $nbrc in
+     0) NUM=$NUMSOC ;;
+     1) NUM="000$NUMERO" ;;
+     2) NUM="00$NUMERO" ;;
+     3) NUM="0$NUMERO" ;;
+     4) NUM="$NUMERO" ;;
+esac
+echo $NUM

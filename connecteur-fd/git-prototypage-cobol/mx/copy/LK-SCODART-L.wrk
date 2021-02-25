@@ -1,0 +1,86 @@
+      * Linkage de scodart-l
+      *    ********************************************************
+      *    * Si aucun article trouvé, Renvoi EXI = 0              *
+      *    * Si un seul article trouvé, Renvoi EXI = 1            *
+      *    * Si plusieurs articles trouvés, Renvoi EXI = 2        *
+      *    *    et Affichage Liste pour sélection                 *
+      *    ********************************************************
+      *    * Pour recherche sur code interne, ref fou et code art.*
+      *    *    Réf. normalisée:                                  *
+      *    *    LK-SCODART-L-TST = 0                              *
+      *    ********************************************************
+      *    * Pour recherche sur code interne uniquement avec      *
+      *    * affichage sans sélection                             *
+      *    *  LK-SCODART-L-TST = 1                                *
+      *    *  LK-SCODART-L-ART = code article sur lequel on teste *
+      *    *  LK-SCODART-L-REF = code interne à rechercher        *
+      *    ********************************************************
+      *    * Pour recherche sur code interne, ref fou et code art:*
+      *    * mais avec un code saisi incomplètement               *
+      *    *  LK-SCODART-L-TST = 3                                *
+      *    *  LK-SCODART-L-REF = partie du code article recherché *
+      *    ********************************************************
+      *    * Pour recherche des articles autorisés à la vente     *
+      *    * seulement (TAR-ART différent de 2)                   *
+      *    *    LK-SCODART-L-VTE = 2
+      *    *    Sinon mettre 0 ou 1
+      *    *    LK-SCODART-L-VTE = 3 : articles autorisés Webtop
+      *    ********************************************************
+      *    * Pour recherche des articles de location seuls        *
+      *    *    LK-SCODART-L-LOC = 1  (Sinon 0)                   *
+      *    ********************************************************
+      *    ********************************************************
+      *    * Pour recherche des articles ou ensembles de location *
+      *    * LK-SCODART-L-INO POUR LA LOCATION                    *
+      *    *             1=article composé (INO not = 0)          *
+      *    *             2=simple + compo fixe                    *
+      *    *             3=composé fixe + variable                *
+      *    *             4=simple + compo fixe + compo variable   *
+      *    ********************************************************
+      *    * Articles d'occasion                                  *
+      *    * LK-SCODART-L-OCC                                     *
+      *    *             1=sans les articles d'occasion           *
+      *    *             2=article d'occasion seuls               *
+      *    ********************************************************
+      *    * Avec sélection articles préférentiels                *
+      *    * LK-SCODART-L-PREF                                    *
+      *    *             1=oui                                    *
+      *    *             0=non                                    *
+      *    ********************************************************
+       01 LK-SCODART-L.
+           02 LK-SCODART-L-REF PIC  X(16).
+           02 LK-SCODART-L-ART PIC  X(20).
+           02 LK-SCODART-L-DES PIC  X(60).
+           02 LK-SCODART-L-EXI PIC  9.
+           02 LK-SCODART-L-TST PIC  9.
+           02 LK-SCODART-L-VTE PIC  9.
+           02 LK-SCODART-L-LOC PIC  9.
+           02 LK-SCODART-L-IDF PIC  X(4).
+           02 LK-SCODART-L-INO PIC  9.
+           02 LK-SCODART-L-OCC PIC  9.
+      * pour calcul prix et stock à partir de SBD 
+      *    Affichage stock et prix net client  LK-SCODART-L-AFF = 1
+      *    Consultation à partir de SBD        LK-SCODART-L-AFF = 2
+      *    Calcul nb de référence équivalentes LK-SCODART-L-AFF = 3 (mode muet sans affichage des ref)
+           02 LK-SCODART-L-AFF PIC  9.
+           02 LK-SCODART-L-AGE PIC  XXX.
+           02 LK-SCODART-L-CLI PIC  9(6).
+           02 LK-SCODART-L-MOD PIC  X.
+           02 LK-SCODART-L-TCC PIC  X.
+           02 LK-SCODART-L-NBR PIC  9(3).
+      *    LK-SCODART-L-ANN = 1 recherche articles annulés aussi
+           02 LK-SCODART-L-ANN PIC  9.
+      *    LK-SCODART-L-SER renvoie le n° de série si article occasion
+      *    (lu sur étiquette déconstruction CO2-MART _|_ NOSERIE)
+           02 LK-SCODART-L-SER PIC  X(20).
+      *    Recherche dans CATFOU: 0=non 1=Recherche simple 2=Avec choix divers/à créer dans ART (SBD/PXR...)
+      *                           3=avec choix à créer (ASA/ART) 
+      *    Faire F11 dans MTF pour créer CATFOUK
+           02 LK-SCODART-L-RCF PIC  9.
+           02 LK-SCODART-L-FOU PIC  9(6).
+           02 LK-SCODART-L-PREF PIC  9.
+      * Déconstruction Codimatra: pas de contrôle si le n° de série est sorti
+           02 LK-SCODART-L-TOUD PIC  9.
+           02 FILLER           PIC  X(49).
+
+

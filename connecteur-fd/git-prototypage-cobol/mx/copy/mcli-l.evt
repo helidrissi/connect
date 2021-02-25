@@ -1,0 +1,1155 @@
+      * mcli-l.evt
+      * mcli-l.evt is generated from W:\mx\spro\mcli-l.Psf
+      * This is a generated file. DO NOT modify this file directly.
+
+
+       Screen1-Event-Proc.
+      * 
+           EVALUATE Event-Type
+           WHEN Cmd-Close
+              PERFORM Screen1-Ev-Cmd-Close
+           END-EVALUATE
+           .
+
+       Screen1-Ef-1-Event-Proc.
+           .
+
+       Screen1-Ef-Interlocuteur-Event-Proc.
+           .
+
+       Screen1-Ef-Fco-Event-Proc.
+           .
+
+       Screen1-DaRb-Ord1-Event-Proc.
+      * 
+           EVALUATE Event-Type
+           WHEN Cmd-Clicked
+              PERFORM Screen1-DaRb-Ord1-Ev-Cmd-Clicked
+           END-EVALUATE
+           .
+
+       Screen1-DaRb-Ord2-Event-Proc.
+      * 
+           EVALUATE Event-Type
+           WHEN Cmd-Clicked
+              PERFORM Screen1-DaRb-Ord2-Ev-Cmd-Clicked
+           END-EVALUATE
+           .
+
+       Screen1-DaRb-Ord3-Event-Proc.
+      * 
+           EVALUATE Event-Type
+           WHEN Cmd-Clicked
+              PERFORM Screen1-DaRb-Ord3-Ev-Cmd-Clicked
+           END-EVALUATE
+           .
+
+       Screen1-DaRb-Ord4-Event-Proc.
+      * 
+           EVALUATE Event-Type
+           WHEN Cmd-Clicked
+              PERFORM Screen1-DaRb-Ord4-Ev-Cmd-Clicked
+           END-EVALUATE
+           .
+
+       Screen1-Gd-1-Event-Proc.
+      * 
+           EVALUATE Event-Type
+           WHEN Msg-Begin-Entry
+              PERFORM Screen1-Gd-1-Ev-Msg-Begin-Entry
+           WHEN Msg-End-Drag
+              PERFORM Screen1-Gd-1-Ev-Msg-Goto-Cell
+           WHEN Msg-Goto-Cell
+              PERFORM Screen1-Gd-1-Ev-Msg-Goto-Cell
+           WHEN Msg-Goto-Cell-Mouse
+              PERFORM Screen1-Gd-1-Ev-Msg-Goto-Cell
+           WHEN Msg-Heading-Clicked
+              PERFORM Screen1-Gd-1-Ev-Msg-Heading-Clicked
+           END-EVALUATE
+           .
+      ***   start event editor code   ***
+           COPY "../../MISTRAL/COPY/ENVMIS.CBL".
+040419*     COPY "W:/mistral/copy/centrefenetre.cbl".
+050819     COPY "W:/mistral/copy/MisCentrefenetre.cbl".
+
+       Init-BMP.
+           .
+      *
+       Open-File-Rtn.
+           OPEN INPUT MXCLI    PERFORM STAT
+           OPEN INPUT MXAGENCE PERFORM STAT 
+           .
+      *
+       Close-File-Rtn.
+           CLOSE MXCLI 
+           CLOSE MXAGENCE
+           .
+      *
+       Init-Grille.
+      * Remise à zéro de la grille...
+           MODIFY Screen1-Gd-1, RESET-GRID = 1|, MASS-UPDATE = 1, 
+           PERFORM Acu-Screen1-Gd-1-Content
+           perform Entete-Grille
+
+      * Remplissage de la grille...
+           INITIALIZE ENR-MCLI
+           MOVE 0 TO W-EOF
+           MOVE W-ORD TO W-KEY-NUM
+           EVALUATE W-KEY-NUM
+               WHEN 1
+                   IF LK-MCLI-L-NumFiltre = 2
+                       MOVE W-FCO TO FCO-MCLI
+                       START MXCLI KEY >= CLE7-MCLI
+                           INVALID MOVE 1 TO W-EOF
+                       END-START                                        
+                   ELSE
+                       MOVE W-COD TO COD-MCLI
+                       START MXCLI KEY >= CLE6-MCLI
+                           INVALID MOVE 1 TO W-EOF
+                       END-START
+                   END-IF
+               WHEN 2
+                   MOVE W-RAI TO RAI-MCLI
+                   START MXCLI KEY >= CLE2-MCLI
+                       INVALID MOVE 1 TO W-EOF
+                   END-START
+               WHEN OTHER
+                   MOVE W-TEL TO TEL-MCLI
+                   START MXCLI KEY >= CLE5-MCLI
+                       INVALID MOVE 1 TO W-EOF
+                   END-START
+           END-EVALUATE
+           PERFORM STAT
+
+           IF W-EOF = 0 THEN
+               READ MXCLI NEXT END MOVE 1 TO W-EOF END-READ
+               PERFORM STAT
+           END-IF
+           MOVE 2 TO Screen1-Gd-1-Cursor-Y-Old
+           MOVE SPACES TO Screen1-Gd-1-FCO
+           MOVE 1 TO Tmp-9-3
+           MOVE 0 TO W-NBR
+           PERFORM UNTIL W-EOF = 1 OR W-NBR > 100
+      
+               MOVE 1 TO W-OK
+
+               IF  W-ORD = 2
+               AND W-RAI <> SPACE THEN
+                 PERFORM Test-CP-Ville
+               END-IF
+
+               IF W-OK = 1 THEN
+      
+                 PERFORM Mep-Un-Cli
+               END-IF
+               READ MXCLI NEXT END MOVE 1 TO W-EOF END-READ
+               PERFORM STAT
+           END-PERFORM
+      * Positionnement du curseur sur la grille...
+           MODIFY Screen1-Gd-1(Screen1-Gd-1-Cursor-Y-Old),
+                  CURSOR-Y = Screen1-Gd-1-Cursor-Y-Old,
+                  ROW-COLOR = W-Row-Low-Color,
+                  |MASS-UPDATE = 0
+
+      * Patch : sans ça, la grille peut parfois mélanger les lignes...
+           MOVE SPACES TO Screen1-Gd-1-Record
+           .
+      *
+       Tel-Fic2Ecr.
+           COPY "../../mistral/copy/Ef-Tel-Fic2Ecr.cbl"
+                REPLACING ==CPYTEL-PAYS== BY ==PAY-MCLI==
+                          ==CPYTEL-FIC==  BY ==TEL-MCLI==
+                          ==CPYTEL-ECR== BY ==W-AF-TEL==.
+           IF W-IND-TEL = 0
+              MOVE W-AF-TEL TO Screen1-Gd-1-TEL
+           ELSE 
+              MOVE SPACES TO Screen1-Gd-1-TEL
+              IF W-IND-TEL = 1
+                 STRING "(*) " W-AF-TEL DELIMITED BY "  " INTO
+                    Screen1-Gd-1-TEL
+                 MOVE 1 TO W-MSG-TEL
+              ELSE
+                 STRING "(#) " W-AF-TEL DELIMITED BY "  " INTO
+                    Screen1-Gd-1-TEL
+                 MOVE 2 TO W-MSG-TEL
+           END-IF.
+           .
+       Tel2-Fic2Ecr.
+           COPY "../../mistral/copy/Ef-Tel-Fic2Ecr.cbl"
+                REPLACING ==CPYTEL-PAYS== BY ==PAY-MPAR==
+                          ==CPYTEL-FIC==  BY ==W-TEL2==
+                          ==CPYTEL-ECR== BY ==W-Ef-Tel==.
+           .
+      *
+       Mep-Un-Cli.
+           IF (COD-MCLI NOT = 0 AND CANN-MCLI = 0 
+               AND LK-MCLI-L-NumFiltre < 2)
+           OR (FCO-MCLI NOT = 0 AND NOT = SPACE AND CANNP-MCLI = 0
+               AND LK-MCLI-L-NumFiltre = 2)
+           OR (FCO-MCLI NOT = 0 AND NOT = SPACE AND CANNP-MCLI = 0
+               AND (COD-MCLI = 0 OR CANN-MCLI = 1)
+               AND LK-MCLI-L-NumFiltre = 3)
+           OR ((FCO-MCLI = 0 OR SPACE) AND COD-MCLI NOT = 0 
+               AND CANN-MCLI = 0
+               AND LK-MCLI-L-NumFiltre = 4)
+                     MOVE SPACE TO Screen1-Gd-1-Record
+                     ADD 1 TO Tmp-9-3 W-NBR
+                     IF AGE-MCLI <> SPACE 
+                     AND LK-MCLI-L-IAG NOT = 1
+                        MOVE SPACE TO ENR-MAGC
+                        MOVE AGE-MCLI TO COD-MAGC
+                        READ MXAGENCE
+                        PERFORM STAT
+                        MOVE ABR-MAGC TO Screen1-Gd-1-Age
+                     END-IF
+                     IF LK-MCLI-L-IAG = 1
+                        MOVE ABR-MAGC TO Screen1-Gd-1-Age
+                     END-IF
+                     PERFORM Tel-Fic2Ecr                    
+                     perform Mep-Infos-Cli
+                     MODIFY Screen1-Gd-1,
+                         RECORD-TO-ADD = Screen1-Gd-1-Record
+                     PERFORM Mep-Bitmap
+                     perform Color-Ligne
+           END-IF
+           .
+
+       Mep-Infos-Cli.
+           IF LK-MCLI-L-NumFiltre < 2 OR = 4 THEN
+              MOVE COD-MCLI TO Screen1-Gd-1-FCO
+           ELSE
+              MOVE FCO-MCLI TO Screen1-Gd-1-FCO
+           END-IF
+           MOVE SPACE TO W-RAISOC
+           MOVE RAI-MCLI TO Screen1-Gd-1-RAI
+           inspect adr-mcli replacing all w-newline by "  "
+           MOVE ADR-MCLI TO Screen1-Gd-1-VIL
+           PERFORM MEP-CP                      
+           STRING Af-POS " " VIL-MCLI
+                  DELIMITED BY "  " INTO Screen1-Gd-1-ADR
+
+           if w-ord = 4 
+              MOVE SIR1-MCLI TO W-SIR
+              IF SIR1N-MCLI = ZERO MOVE SPACE TO W-SIR
+              END-IF                              
+              MOVE W-SIR TO Screen1-Gd-1-INTERLOC
+           end-if.
+
+       Entete-Grille.
+           if w-ord = 4 
+              MODIFY Screen1-Gd-1, X = 9, Y = 1, CELL-COLOR = 112, 
+              CELL-FONT = Small-Font, CELL-DATA = "SIREN", 
+           end-if.
+
+       Mep-Bitmap.    
+           IF LK-MCLI-L-NumFiltre = 2 AND COD-MCLI NOT = ZERO
+           and CANN-MCLI = 0 then
+              MODIFY Screen1-Gd-1(Tmp-9-3, 7), 
+                 BITMAP CLIENTx16-BMP
+                 BITMAP-TRAILING = 1
+           END-IF         
+           IF SIE-MCLI <> 0 THEN
+              MODIFY Screen1-Gd-1(Tmp-9-3, 4), 
+                 BITMAP SIEGSOC16-BMP
+           END-IF            
+           IF RLA-MCLI NOT = 0 
+              EVALUATE RLA-MCLI
+              WHEN 1
+                 MODIFY Screen1-Gd-1(Tmp-9-3, 6), 
+                    BITMAP WARNINX16-BMP
+                    BITMAP-TRAILING = 1
+              WHEN 2
+                 MODIFY Screen1-Gd-1(Tmp-9-3, 6), 
+                    BITMAP STOPxxx16-BMP
+                    BITMAP-TRAILING = 1
+              WHEN 3
+                 MODIFY Screen1-Gd-1(Tmp-9-3, 6), 
+                    BITMAP INTERDI16-BMP
+                    BITMAP-TRAILING = 1
+              END-EVALUATE
+           END-IF.
+
+       Color-Ligne.
+      *     divide tmp-9-3 by 2 giving w-result remainder w-reste
+      *     if w-reste = 0
+      *        MODIFY Screen1-Gd-1(Tmp-9-3) row-color 258
+      *     end-if
+           .
+      *
+       Tel-Ecr2Fic.
+           COPY "../../mistral/copy/Ef-Tel-Ecr2Fic.cbl"
+                REPLACING ==CPYTEL-PAYS== BY ==PAY-MPAR==
+                          ==CPYTEL-FIC==  BY ==W-TEL2==
+                          ==CPYTEL-ECR== BY ==W-Ef-TEL==.
+           .
+      *
+       Mep-CP.
+           COPY "../../mistral/copy/Ef-Pos-Fic2Ecr.cbl"
+           REPLACING  ==CPYPOS-PAYS== BY ==PAY-MCLI==
+                      ==CPYPOS-FIC==  BY ==POS-MCLI==
+                      ==CPYPOS-ECR==  BY ==Af-POS==.
+           .
+      *
+       Plus-Grille.
+           IF W-EOF = 0 THEN
+               READ MXCLI NEXT END MOVE 1 TO W-EOF END-READ
+               PERFORM STAT
+           END-IF
+
+           MOVE SPACES TO Screen1-Gd-1-FCO
+           MOVE 0 TO W-NBR
+           PERFORM UNTIL W-EOF = 1 OR W-NBR > 100
+      
+               MOVE 1 TO W-OK
+
+               IF W-ORD = 2
+               AND W-RAI <> SPACE THEN
+                 PERFORM Test-CP-Ville
+               END-IF
+
+               IF W-OK = 1 THEN
+      
+                 PERFORM Mep-Un-Cli
+               END-IF
+
+               READ MXCLI NEXT END MOVE 1 TO W-EOF END-READ
+               PERFORM STAT
+           END-PERFORM
+      * Patch : sans ça, la grille peut parfois mélanger les lignes...
+           MOVE SPACES TO Screen1-Gd-1-Record
+           .
+
+      *
+       Screen1-AfterInitData.
+050819     PERFORM MisCentreFenetreScreen1
+
+           OPEN INPUT MXPARAM
+           PERFORM STAT
+           MOVE 1 TO W-MXPARAM
+           READ MXPARAM
+           PERFORM STAT
+           CLOSE MXPARAM
+
+           | par défaut, on arrive sur la raison sociale
+           MOVE 1 TO W-DEB
+           PERFORM Screen1-DaRb-Ord2-Ev-Cmd-Clicked
+           MOVE 0 TO W-DEB
+
+      * Remise à zéro de la grille...
+           MODIFY Screen1-Gd-1, RESET-GRID = 1
+           PERFORM Acu-Screen1-Gd-1-Content
+           perform Entete-Grille
+           IF LK-MCLI-L-NumFiltre = 0 MOVE 1 TO LK-MCLI-L-Numfiltre
+           END-IF
+      * Liste des clients "agences"
+           IF LK-MCLI-L-IAG = 1 
+                PERFORM Curseur-Sablier
+                PERFORM INIT-GRILLE-AGENCE
+                PERFORM Curseur-Fleche
+                MOVE 4 TO ACCEPT-CONTROL
+                MOVE 6 TO CONTROL-ID              
+           ELSE
+                MOVE 4 TO ACCEPT-CONTROL
+                MOVE 36 TO CONTROL-ID
+           END-IF
+           .
+      *
+       Screen1-Gd-1-Ev-Msg-Begin-Entry.
+           IF LK-MCLI-L-NumFiltre < 2 OR = 4 THEN
+               INQUIRE Screen1-Gd-1(Screen1-Gd-1-Cursor-Y-Old, 3),
+                       CELL-DATA IN LK-MCLI-L-COD
+           ELSE
+               INQUIRE Screen1-Gd-1(Screen1-Gd-1-Cursor-Y-Old, 3),
+                       CELL-DATA IN LK-MCLI-L-FCO
+           END-IF
+           INQUIRE Screen1-Gd-1(Event-Data-2, 1),
+                   CELL-DATA IN LK-MCLI-L-RAI
+
+           PERFORM Mistral-CloseCurrentWindow
+           MOVE Event-Action-Fail TO Event-Action
+           .
+      *
+       Screen1-Gd-1-Ev-Msg-Goto-Cell.
+      * La ligne de titre est à ignorer...
+           IF Event-Data-2 < 2
+               MOVE 2 TO Event-Data-2
+           END-IF
+
+           If Event-Data-1 = 3 
+              Modify Screen1-La-St1, 
+                Title Is "Filiale (Client rattaché à un siège social)"
+           Else
+              Modify Screen1-La-St1, 
+                     Title Is Spaces
+           End-If
+
+      * Pour voir si on a changé de ligne
+           IF NOT Event-Data-2 = Screen1-Gd-1-Cursor-Y-Old THEN
+               MODIFY Screen1-Gd-1(Screen1-Gd-1-Cursor-Y-Old),
+                      ROW-COLOR = 0
+               move Screen1-Gd-1-Cursor-Y-Old to tmp-9-3
+               perform Color-Ligne
+               MODIFY Screen1-Gd-1(Event-Data-2), 
+                  ROW-COLOR = W-Row-Low-Color
+           END-IF
+
+           MOVE Event-Data-2 TO Screen1-Gd-1-Cursor-Y-Old
+           .
+      *
+       Screen1-Gd-1-Ev-Msg-Heading-Clicked.
+           IF Event-Data-1 = 6 
+              IF W-ORD = 2 AND (W-RAI(1:1) = "/" OR "*")
+                   EXIT PARAGRAPH
+              END-IF
+              IF W-ORD >= 4 
+                   EXIT PARAGRAPH
+              END-IF
+              PERFORM Plus-Grille
+           END-IF
+           .
+      *
+       Screen1-Pb-Accept-Ex-Cmd-Clicked.
+           INQUIRE Screen1-Pb-Accept VISIBLE IN W-VS-PB
+           IF W-VS-PB = 0 THEN
+             EXIT PARAGRAPH
+           END-IF
+           IF LK-MCLI-L-NumFiltre < 2 OR = 4
+                INQUIRE Screen1-Gd-1(Screen1-Gd-1-Cursor-Y-Old, 3),
+                   CELL-DATA IN LK-MCLI-L-COD
+           ELSE INQUIRE Screen1-Gd-1(Screen1-Gd-1-Cursor-Y-Old, 3),
+                   CELL-DATA IN LK-MCLI-L-FCO
+           END-IF
+           INQUIRE Screen1-Gd-1(Screen1-Gd-1-Cursor-Y-Old, 1),
+                   CELL-DATA IN LK-MCLI-L-RAI
+
+      *     PERFORM Mistral-CloseCurrentWindow
+           PERFORM Acu-Screen1-Exit
+           .
+      *
+       Screen1-Pb-Cancel-Ex-Cmd-Clicked.
+           INQUIRE Screen1-Pb-Cancel VISIBLE IN W-VS-PB
+           IF W-VS-PB = 0 THEN
+             EXIT PARAGRAPH
+           END-IF
+           MOVE SPACE TO LK-MCLI-L-FCO
+           MOVE ZERO TO LK-MCLI-L-COD
+           PERFORM Acu-Screen1-Exit
+      *     PERFORM Mistral-CloseCurrentWindow
+           .
+      *
+       Screen1-Pb-Lancer-LinkTo.
+           INQUIRE Screen1-Pb-Lancer VISIBLE IN W-VS-PB
+           IF W-VS-PB = 0 THEN
+             EXIT PARAGRAPH
+           END-IF
+           PERFORM Screen1-Lancer
+           .
+       Screen1-Lancer.
+           MODIFY Screen1-La-nb-elt, VISIBLE FALSE
+           MODIFY Screen1-La-Rech, VISIBLE FALSE
+           MODIFY Screen1-La-Rech2, VISIBLE FALSE
+           MODIFY Screen1-La-St1, TITLE = spaces
+           PERFORM Curseur-Sablier
+       
+           IF W-ORD = 2  OR 5 THEN
+      *       CP + VILLE 
+              INQUIRE Screen1-Ef-CP, VALUE IN W-CP-ECR
+              MOVE 0 TO W-CPT
+              INSPECT W-CP-ECR TALLYING W-CPT FOR TRAILING SPACES
+              COMPUTE W-NDEP = 8 - W-CPT
+
+              IF (W-NDEP <> 2 AND <> 3) OR W-ORIPAYS <> "FR"
+                 MOVE 1 TO Ef-Pos-Ind
+                 COPY "../../mistral/copy/Ef-Pos-Ecr2Fic.cbl"
+                    REPLACING ==CPYPOS-PAYS== BY ==PAY-MPAR==
+                              ==CPYPOS-FIC==  BY ==W-CP-FIC==
+                              ==CPYPOS-ECR==  BY ==W-CP-ECR==
+                              ==CPYPOS-VIL== BY ==W-VILLE==.
+                 MODIFY Screen1-Ef-CP, VALUE = W-CP-ECR
+              END-IF
+
+              INQUIRE Screen1-Ef-VILLE, VALUE IN W-VILLE
+              MOVE 0 TO W-CPT
+              INSPECT W-VILLE TALLYING W-CPT FOR TRAILING SPACES
+              COMPUTE W-NVIL = LENGTH OF W-VILLE - W-CPT
+           END-IF
+      
+           EVALUATE W-ORD
+               WHEN 1 | recherche sur code client
+                   IF LK-MCLI-L-NumFiltre = 2
+                       INQUIRE Screen1-Ef-Fco, VALUE IN W-FCO
+                   ELSE
+                       INQUIRE Screen1-Ef-Cod, VALUE IN W-COD
+                   END-IF
+                   PERFORM INIT-GRILLE
+               WHEN 2 | recherche sur raison sociale
+                   INQUIRE Screen1-Ef-Rai, VALUE IN W-RAI
+                   IF W-RAI <> SPACE 
+                   OR (     W-RAI    = SPACE 
+                        AND W-CP-ECR = SPACE
+                        AND W-VILLE  = SPACE ) THEN
+                   
+                       IF W-RAI(1:1) = "/" OR "*" 
+                          PERFORM Recherche-Raisoc
+                          PERFORM AFFICHE-RECH
+                       ELSE
+                          PERFORM Curseur-Fleche
+                          PERFORM INIT-GRILLE
+                       END-IF
+                    ELSE
+                       IF W-CP-ECR <> SPACE THEN
+                          IF (W-NDEP = 2 OR = 3) AND W-ORIPAYS = "FR"
+                             PERFORM Recherche-DEP
+                             PERFORM AFFICHE-RECH
+                          ELSE
+                             PERFORM Recherche-CP
+                             PERFORM AFFICHE-RECH
+                          END-IF
+                       ELSE
+                          PERFORM Recherche-Ville
+                          PERFORM AFFICHE-RECH
+                       END-IF
+                    END-IF
+      
+               WHEN 3 | recherche sur téléphone
+                   MOVE SPACES TO W-TEL2
+                   INQUIRE Screen1-Ef-Tel, 
+180914*                 VALUE IN W-TEL2(1:W-LGT)
+180914                 VALUE IN W-TEL2
+                   IF W-TEL2 NOT = SPACES
+                      PERFORM Recherche-Tel THRU F-Recherche-Tel
+                   END-IF
+               WHEN 4 | recherche sur n° SIREN
+                   INQUIRE Screen1-Ef-SIREN, VALUE IN W-SIREN
+                   PERFORM Siren-Ecr2Fic
+                   IF W-SIREN NOT = SPACE THEN
+                     PERFORM Recherche-Siren
+                     PERFORM AFFICHE-RECH
+                   ELSE
+                     PERFORM Curseur-Fleche
+                     EXIT PARAGRAPH
+                   END-IF
+               WHEN OTHER
+                   PERFORM Curseur-Fleche
+                   EXIT PARAGRAPH
+           END-EVALUATE
+           PERFORM Curseur-Fleche
+           perform Mistral-TransferFocus.
+           .                            
+      *
+       Screen1-DaRb-Ord3-Ev-Cmd-Clicked.
+           MODIFY Screen1-La-Titre, TITLE = "A partir de"
+           MODIFY Screen1-Ef-Tel, VISIBLE TRUE
+           MODIFY Screen1-Ef-Rai, VISIBLE FALSE
+           MODIFY Screen1-Ef-Cod, VISIBLE FALSE
+           MODIFY Screen1-Ef-Fco, VISIBLE FALSE
+           MODIFY Screen1-Ef-SIREN, VISIBLE FALSE
+           MODIFY Screen1-La-Rech, VISIBLE FALSE
+           MODIFY Screen1-La-Rech2, VISIBLE FALSE
+           MODIFY Screen1-Ef-VILLE, VISIBLE FALSE
+           MODIFY Screen1-Ef-CP, VISIBLE FALSE
+           MODIFY Screen1-La-St1, TITLE SPACES
+           MODIFY Screen1-La-Titre2, VISIBLE FALSE
+           MOVE 4 TO ACCEPT-CONTROL
+           MOVE 46 TO CONTROL-ID
+           PERFORM Mistral-TransferFocus
+           .
+      *
+       Screen1-DaRb-Ord2-Ev-Cmd-Clicked.
+           MODIFY Screen1-La-Titre, TITLE = "A partir de"
+           MODIFY Screen1-La-Rech, VISIBLE TRUE
+           MODIFY Screen1-La-Rech2, VISIBLE TRUE
+           MODIFY Screen1-Ef-Tel, VISIBLE FALSE
+           MODIFY Screen1-Ef-Rai, VISIBLE TRUE, MAX-TEXT 25
+           MODIFY Screen1-Ef-Cod, VISIBLE FALSE
+           MODIFY Screen1-Ef-Fco, VISIBLE FALSE
+           MODIFY Screen1-Ef-SIREN, VISIBLE FALSE
+           MODIFY Screen1-La-St1, TITLE SPACES
+      
+           MODIFY Screen1-La-Titre2, VISIBLE TRUE
+           MODIFY Screen1-Ef-VILLE, VISIBLE TRUE
+           MODIFY Screen1-Ef-CP, VISIBLE TRUE
+      
+           MOVE 4 TO ACCEPT-CONTROL
+           MOVE 36 TO CONTROL-ID
+           
+           IF W-DEB = 0 THEN
+              PERFORM Mistral-TransferFocus
+           END-IF
+      
+           .
+      *
+       Screen1-DaRb-Ord1-Ev-Cmd-Clicked.
+           MODIFY Screen1-La-Titre, TITLE = "A partir de"
+           MODIFY Screen1-Ef-Tel, VISIBLE FALSE
+           MODIFY Screen1-Ef-Rai, VISIBLE FALSE
+           MODIFY Screen1-Ef-SIREN, VISIBLE FALSE
+           MODIFY Screen1-La-Rech, VISIBLE FALSE
+           MODIFY Screen1-La-Rech2, VISIBLE FALSE
+           MODIFY Screen1-Ef-VILLE, VISIBLE FALSE
+           MODIFY Screen1-Ef-CP, VISIBLE FALSE
+           MODIFY Screen1-La-St1, TITLE SPACES
+           MODIFY Screen1-La-Titre2, VISIBLE FALSE
+           IF LK-MCLI-L-NumFiltre < 2 OR = 4
+                MODIFY Screen1-Ef-Cod, VISIBLE TRUE
+                MOVE 4 TO ACCEPT-CONTROL
+                MOVE 16 TO CONTROL-ID
+           ELSE MODIFY Screen1-Ef-Fco, VISIBLE TRUE
+                MOVE 4 TO ACCEPT-CONTROL
+                MOVE 26 TO CONTROL-ID
+           END-IF
+           PERFORM Mistral-TransferFocus
+           .
+      *
+       Screen1-DaRb-Ord4-Ev-Cmd-Clicked.
+           MODIFY Screen1-La-Titre, TITLE = "N° SIREN"
+           MODIFY Screen1-La-Rech, VISIBLE FALSE
+           MODIFY Screen1-La-Rech2, VISIBLE FALSE
+           MODIFY Screen1-Ef-Tel, VISIBLE FALSE
+           MODIFY Screen1-Ef-Rai, VISIBLE FALSE
+           MODIFY Screen1-Ef-Cod, VISIBLE FALSE
+           MODIFY Screen1-Ef-Fco, VISIBLE FALSE
+           MODIFY Screen1-Ef-SIREN, VISIBLE TRUE
+           MODIFY Screen1-Ef-VILLE, VISIBLE FALSE
+           MODIFY Screen1-Ef-CP, VISIBLE FALSE
+           MODIFY Screen1-La-St1, TITLE SPACES
+           MODIFY Screen1-La-Titre2, VISIBLE FALSE
+           MOVE 4 TO ACCEPT-CONTROL
+           MOVE 56 TO CONTROL-ID
+           PERFORM Mistral-TransferFocus
+           .
+
+      *
+       Screen1-Ev-Cmd-Close.
+           PERFORM Mistral-WindowClosing
+           .
+      *
+       Screen1-Bef-Create.
+           PERFORM Controle-Call
+           | POUR GEDEON, MEME PRINCIPE QUE POUR MOBIVIP
+           IF MOB-GEDEON NOT = SPACES
+              MOVE 1 TO MOB-PALM
+           END-IF
+           MOVE 2 TO W-ORD
+           PERFORM Open-File-Rtn
+           PERFORM Init-Bmp
+           IF LK-MCLI-L-NumFiltre = 2
+              MOVE "Liste des Clients-Prospects" TO W-TITLE
+           ELSE
+              IF LK-MCLI-L-NumFiltre = 3
+                  MOVE "Liste des Prospects" TO W-TITLE.
+040419   
+050819*     IF LK-MCLI-L-HANDLE <> 0 THEN  
+050819     IF HANDLE-PALM <> 0 THEN  
+      *       Pour éviter le clignotement de l'écran repositionné
+              MOVE 0 TO Screen1-Visible
+           ELSE
+              MOVE 1 TO Screen1-Visible
+           END-IF
+040419
+           .
+       Screen1-Aft-Create.
+           .
+      *     
+       Screen1-Aft-Routine.
+           PERFORM Close-File-Rtn
+           .
+      *
+       Screen1-Ef-Rai-Ev-Msg-Validate.
+           Perform Screen1-Lancer
+           perform mistral-transferfocus
+           .
+      *     
+       Screen1-Ef-Rai-Bef-Procedure.
+           if w-ord <> 10
+              MODIFY Screen1-La-Rech, VISIBLE TRUE
+              TITLE "Pour rechercher un mot (chaîne de caractères) , fai
+      -             "re précéder par un /" 
+           end-if
+           if w-ord = 2
+              MODIFY Screen1-La-Rech2, VISIBLE TRUE
+           end-if
+           .
+       Screen1-Ef-Interlocuteur-Bef-Procedure.
+           MODIFY Screen1-La-RECH, VISIBLE TRUE
+              TITLE "Pour rechercher un mot (chaîne de caractères) , fai
+      -             "re précéder par un /"           
+           .
+      *
+      *
+      *    RECHERCHE PAR "rech"
+      *
+      *
+       Recherche-Raisoc.
+           COPY "../../mx/copy/Assign-FICTMP.cbl" REPLACING 
+              ==FICTMP==   BY ==RECH==
+              =='FICTMP'== BY ==RECH==.
+           CLOSE RECH.
+      
+           MOVE "CLI" TO CMD-RECH-FIC
+           MOVE MX-DIR TO CMD-RECH-DIR
+           MOVE ASSIGN-RECH TO CMD-RECH-RESULT
+           MOVE 1 TO CMD-RECH-DEBSOR
+           MOVE 79 TO CMD-RECH-FINSOR
+      
+           MOVE RECORD-POSITION OF RAI-MCLI TO CMD-RECH-POSR(1)
+           MOVE LENGTH OF RAI-MCLI TO CMD-RECH-LONR(1)
+040417* recherche dans l'adresse aussi (Lacan)
+           IF W-RAI(1:1) = "*"
+              MOVE 138 to CMD-RECH-LONR(1)
+           end-if
+040417
+           MOVE W-RAI(2:24) TO CMD-RECH-VAL(1)
+           MOVE "s2" TO CMD-RECH-OPE(1)
+      
+           MOVE "T" TO CMD-RECH-T(1)
+           MOVE 42 TO CMD-RECH-POSDT(1)
+           MOVE 72 TO CMD-RECH-POSFT(1)
+      
+           COPY "W:/mistral/copy/rech.cbl".
+           .
+      *
+       Recherche-Siren.
+           COPY "../../mx/copy/Assign-FICTMP.cbl" REPLACING 
+              ==FICTMP==   BY ==RECH==
+              =='FICTMP'== BY ==RECH==.
+           CLOSE RECH.
+      
+           MOVE "CLI" TO CMD-RECH-FIC
+           MOVE MX-DIR TO CMD-RECH-DIR
+           MOVE ASSIGN-RECH TO CMD-RECH-RESULT
+           MOVE 1 TO CMD-RECH-DEBSOR
+           MOVE 79 TO CMD-RECH-FINSOR
+      
+           MOVE RECORD-POSITION OF SIR1-MCLI TO CMD-RECH-POSR(1)
+           MOVE LENGTH OF SIR1-MCLI TO CMD-RECH-LONR(1)
+           MOVE W-SIREN TO CMD-RECH-VAL(1)
+           MOVE "==" TO CMD-RECH-OPE(1)
+      
+           MOVE "T" TO CMD-RECH-T(1)
+           MOVE 42 TO CMD-RECH-POSDT(1)
+           MOVE 72 TO CMD-RECH-POSFT(1)
+      
+           COPY "W:/mistral/copy/rech.cbl".
+           .
+      *
+       Recherche-Ville.
+           COPY "../../mx/copy/Assign-FICTMP.cbl" REPLACING 
+              ==FICTMP==   BY ==RECH==
+              =='FICTMP'== BY ==RECH==.
+           CLOSE RECH.
+      
+           MOVE "CLI" TO CMD-RECH-FIC
+           MOVE MX-DIR TO CMD-RECH-DIR
+           MOVE ASSIGN-RECH TO CMD-RECH-RESULT
+           MOVE 1 TO CMD-RECH-DEBSOR
+           MOVE 79 TO CMD-RECH-FINSOR
+      
+290519* dossier 414364 CASA: il ne faut le faire que si on a mis "*"
+      * pour rechercher aussi dans l'adresse
+      **     MOVE RECORD-POSITION OF VIL-MCLI TO CMD-RECH-POSR(1)
+      **     MOVE LENGTH OF VIL-MCLI TO CMD-RECH-LONR(1)
+      *     MOVE RECORD-POSITION OF ADR-MCLI TO CMD-RECH-POSR(1)
+      *     MOVE 108 TO CMD-RECH-LONR(1)
+           MOVE RECORD-POSITION OF VIL-MCLI TO CMD-RECH-POSR(1)
+           MOVE LENGTH OF VIL-MCLI TO CMD-RECH-LONR(1)
+           MOVE W-VILLE TO CMD-RECH-VAL(1)
+           IF W-VILLE(1:1) = "*"
+              MOVE RECORD-POSITION OF ADR-MCLI TO CMD-RECH-POSR(1)
+              MOVE 108 TO CMD-RECH-LONR(1)
+              MOVE W-VILLE(2:) TO CMD-RECH-VAL(1)
+           end-if
+290519                        
+           MOVE "s2" TO CMD-RECH-OPE(1)
+           MOVE "T" TO CMD-RECH-T(1)
+           MOVE 42 TO CMD-RECH-POSDT(1)
+           MOVE 72 TO CMD-RECH-POSFT(1)
+           
+           COPY "W:/mistral/copy/rech.cbl".
+           .
+      *
+       Recherche-CP.
+           COPY "../../mx/copy/Assign-FICTMP.cbl" REPLACING 
+              ==FICTMP==   BY ==RECH==
+              =='FICTMP'== BY ==RECH==.
+           CLOSE RECH.
+      
+           MOVE "CLI" TO CMD-RECH-FIC
+           MOVE MX-DIR TO CMD-RECH-DIR
+           MOVE ASSIGN-RECH TO CMD-RECH-RESULT
+           MOVE 1 TO CMD-RECH-DEBSOR
+           MOVE 79 TO CMD-RECH-FINSOR
+
+           MOVE RECORD-POSITION OF POS-MCLI TO CMD-RECH-POSR(1)
+           MOVE LENGTH OF POS-MCLI TO CMD-RECH-LONR(1)
+
+           MOVE W-CP-FIC TO CMD-RECH-VAL(1)
+           MOVE "==" TO CMD-RECH-OPE(1)
+           MOVE "T" TO CMD-RECH-T(1)
+           MOVE 42 TO CMD-RECH-POSDT(1)
+           MOVE 72 TO CMD-RECH-POSFT(1)
+
+           COPY "W:/mistral/copy/rech.cbl".
+           .  
+
+       Recherche-DEP.
+           COPY "../../mx/copy/Assign-FICTMP.cbl" REPLACING 
+              ==FICTMP==   BY ==RECH==
+              =='FICTMP'== BY ==RECH==.
+           CLOSE RECH.
+
+           MOVE "CLI" TO CMD-RECH-FIC
+           MOVE MX-DIR TO CMD-RECH-DIR
+           MOVE ASSIGN-RECH TO CMD-RECH-RESULT
+           MOVE 1 TO CMD-RECH-DEBSOR
+           MOVE 79 TO CMD-RECH-FINSOR
+
+
+           MOVE RECORD-POSITION OF POS2-MCLI TO CMD-RECH-POSR(1)
+           MOVE W-NDEP TO CMD-RECH-LONR(1)
+           MOVE W-CP-ECR(1:W-NDEP) TO CMD-RECH-VAL(1)
+           MOVE "==" TO CMD-RECH-OPE(1)
+
+           MOVE RECORD-POSITION OF PAY-MCLI TO CMD-RECH-POSR(2)
+           MOVE LENGTH OF PAY-MCLI TO CMD-RECH-LONR(2)
+           MOVE PAY-MPAR TO CMD-RECH-VAL(2)
+           MOVE "==" TO CMD-RECH-OPE(2)
+
+           MOVE "T" TO CMD-RECH-T(1)
+           MOVE 42 TO CMD-RECH-POSDT(1)
+           MOVE 72 TO CMD-RECH-POSFT(1)
+
+           COPY "W:/mistral/copy/rech.cbl".
+           .  
+
+      *-- Recherche sur le N° de téléphone 1 ou 2 des clients 
+      *--        +  sur le N° de téléphone 1 ou 2 ou 3 des interlocuteurs
+       Recherche-Tel.
+           COPY "../../mx/copy/Assign-FICTMP.cbl" REPLACING 
+              ==FICTMP==   BY ==RECH==
+              =='FICTMP'== BY ==RECH==.
+           CLOSE RECH.
+
+           MOVE ZERO TO W-NBT W-IND-TEL W-MSG-TEL
+           INSPECT W-TEL2 TALLYING W-NBT FOR ALL SPACES
+180914*     COMPUTE W-NBT = 15 - W-NBT
+      *     IF W-NBT = W-LGT                        | Si Nb caract saisi = Nb max de caractère du format du téléphone:
+180914     IF W-NBT = W-SPTEL
+              MOVE W-TEL2 TO W-EF-TEL              | on formate pour la recherche (ex pour la France: W-TEL2 = bb0102030405  (b=Blanc)
+              PERFORM Tel-Ecr2Fic
+           ELSE
+              IF W-TTL = "N"                       | Sinon si le téléphone est numérique, on formate également:
+180914              COMPUTE W-NBT = 15 - W-NBT
+                 COMPUTE W-POS = (12 - W-LGT + 1)  | (ex pour la France: W-TEL2 = bb010203   (b=blanc)
+                 MOVE W-TEL2 TO W-TEL
+                 MOVE SPACES TO W-TEL2
+                 MOVE W-TEL TO W-TEL2(W-POS:)
+              END-IF
+           END-IF
+
+
+           MOVE "CLI" TO CMD-RECH-FIC
+           MOVE MX-DIR TO CMD-RECH-DIR
+           MOVE ASSIGN-RECH TO CMD-RECH-RESULT
+           MOVE 1   TO CMD-RECH-DEBSOR
+           MOVE 200 TO CMD-RECH-FINSOR
+      
+           MOVE RECORD-POSITION OF TEL-MCLI TO CMD-RECH-POSR(1)                                        
+           MOVE LENGTH OF TEL-MCLI TO CMD-RECH-LONR(1)
+           MOVE W-TEL2 TO CMD-RECH-VAL(1)
+           MOVE "="    TO CMD-RECH-OPE(1)
+      
+           MOVE "T" TO CMD-RECH-T(1)
+           MOVE RECORD-POSITION OF TEL-MCLI TO CMD-RECH-POSDT(1)
+           ADD 12 RECORD-POSITION OF TEL-MCLI GIVING CMD-RECH-POSFT(1)
+           COPY "W:/mistral/copy/rech.cbl".
+           PERFORM AFFICHE-RECH
+
+      *  Recherche sur téléphone 2 / Client si N° téléphone saisi est complet et si pas déjà trouvé
+180914*     IF W-NBT NOT = W-LGT OR Tmp-9-3 > 1 GO F-Recherche-Tel
+      *     END-IF.
+
+           COPY "../../mx/copy/Assign-FICTMP.cbl" REPLACING 
+              ==FICTMP==   BY ==RECH==
+              =='FICTMP'== BY ==RECH==.
+           CLOSE RECH.
+
+           MOVE "CLI" TO CMD-RECH-FIC
+           MOVE MX-DIR TO CMD-RECH-DIR
+           MOVE ASSIGN-RECH TO CMD-RECH-RESULT
+           MOVE 1   TO CMD-RECH-DEBSOR
+           MOVE 200 TO CMD-RECH-FINSOR
+      
+           MOVE RECORD-POSITION OF TE2-MCLI TO CMD-RECH-POSR(1)                                        
+           MOVE LENGTH OF TE2-MCLI TO CMD-RECH-LONR(1)
+           MOVE W-TEL2 TO CMD-RECH-VAL(1)
+           MOVE "="    TO CMD-RECH-OPE(1)
+      
+           MOVE "T" TO CMD-RECH-T(1)
+           MOVE RECORD-POSITION OF TE2-MCLI TO CMD-RECH-POSDT(1)
+           ADD 12 RECORD-POSITION OF TE2-MCLI GIVING CMD-RECH-POSFT(1)
+           COPY "W:/mistral/copy/rech.cbl".
+           MOVE 1 TO W-IND-TEL
+180914               W-PAS-RAZ | Garde les numéros déjà trouvés par la première recherche
+           PERFORM AFFICHE-RECH
+180914     MOVE 0 TO W-PAS-RAZ
+           .
+       F-Recherche-Tel.
+           MOVE ZERO TO W-IND-TEL.
+           IF W-MSG-TEL = 1
+              MODIFY Screen1-La-St1, TITLE
+                 "(*) N° recherché = téléphone 2 du client/prospect".
+           IF W-MSG-TEL = 2
+              MODIFY Screen1-La-St1, TITLE
+                 "(#) N° Recherché = téléphone de l'interlocuteur".
+
+      *      
+       AFFICHE-RECH.
+      * Remise à zéro de la grille...
+180914     IF W-PAS-RAZ = 0 THEN
+              MODIFY Screen1-Gd-1, RESET-GRID = 1|, MASS-UPDATE = 1, 
+              PERFORM Acu-Screen1-Gd-1-Content
+              perform Entete-Grille
+180914     END-IF
+           
+      * Remplissage de la grille...
+           OPEN INPUT RECH
+           PERFORM STAT
+           INITIALIZE ENR-MCLI
+
+           MOVE 0 TO W-EOF
+
+180914     IF W-PAS-RAZ = 0 THEN
+              MOVE 1 TO Tmp-9-3
+              MOVE 0 TO W-NBR
+              MOVE 2 TO Screen1-Gd-1-Cursor-Y-Old
+180914     END-IF
+
+           MOVE SPACES TO Screen1-Gd-1-FCO
+           
+           PERFORM UNTIL W-EOF = 1
+              MOVE SPACE TO ENR-RECH 
+              READ RECH NEXT END MOVE 1 TO W-EOF
+              END-READ
+              PERFORM STAT
+              IF W-EOF NOT = 1 
+                    MOVE ENR-RECH(1:9) TO ORD-MCLI
+                    READ MXCLI NOT INVALID
+                       MOVE 1 TO W-OK 
+                       IF  W-ORD = 2 
+                       AND W-RAI <> SPACE THEN
+                          PERFORM Test-CP-Ville
+                       END-IF
+                       IF W-OK = 1 THEN
+                          PERFORM Mep-Un-Cli
+                       END-IF   
+                    END-READ
+                    PERFORM STAT
+              END-IF
+           END-PERFORM
+
+           CLOSE RECH
+           DELETE FILE RECH
+
+      * Positionnement du curseur sur la grille...
+           MODIFY Screen1-Gd-1(Screen1-Gd-1-Cursor-Y-Old),
+                  CURSOR-Y = Screen1-Gd-1-Cursor-Y-Old,
+                  ROW-COLOR = W-Row-Low-Color,
+                  |MASS-UPDATE = 0
+      * affichage du nombre d'éléments trouvés 
+           ADD -1 Tmp-9-3 GIVING Tmp-9-3-FIC
+           MOVE Tmp-9-3-FIC TO Tmp-9-3-ECR
+           STRING Tmp-9-3-ECR DELIMITED BY SIZE
+                  " "
+                  "élément(s) trouvé(s) correspondant(s) au critère" 
+                  DELIMITED BY SIZE
+                  INTO W-NB-ELT
+           MODIFY Screen1-La-nb-elt, VISIBLE TRUE
+           MODIFY Screen1-La-nb-elt, TITLE = W-NB-ELT
+      * Patch : sans ça, la grille peut parfois mélanger les lignes...
+           MOVE SPACES TO Screen1-Gd-1-Record
+           .
+      *
+      *
+      *
+      *    LISTE DES CLIENTS "AGENCES"
+      *
+      *
+       Init-Grille-Agence.
+      * Remise à zéro de la grille...
+           MODIFY Screen1-Gd-1, RESET-GRID = 1|, MASS-UPDATE = 1, 
+           PERFORM Acu-Screen1-Gd-1-Content
+           perform Entete-Grille
+
+      * Remplissage de la grille...
+           INITIALIZE ENR-MAGC
+           MOVE 0 TO W-EOF
+           START MXAGENCE KEY >= CLE1-MAGC INVALID MOVE 1 TO W-EOF
+           END-START
+           IF W-EOF = 0 THEN
+               READ MXAGENCE NEXT END MOVE 1 TO W-EOF 
+               END-READ
+               PERFORM STAT
+           END-IF
+           MOVE 2 TO Screen1-Gd-1-Cursor-Y-Old
+           MOVE SPACES TO Screen1-Gd-1-Record
+           MOVE 1 TO Tmp-9-3
+           PERFORM UNTIL W-EOF = 1
+               IF CLI-MAGC NOT = 0 
+                  MOVE CLI-MAGC TO COD-MCLI
+                  READ MXCLI KEY CLE6-MCLI NOT INVALID 
+                       PERFORM Mep-Un-Cli
+                  END-READ
+                  PERFORM STAT
+               END-IF
+               IF CLI2-MAGC NOT = 0 
+                  MOVE CLI2-MAGC TO COD-MCLI
+                  READ MXCLI KEY CLE6-MCLI NOT INVALID 
+                       PERFORM Mep-Un-Cli
+                  END-READ
+                  PERFORM STAT
+               END-IF
+      * DMP
+      *         IF MXFWK-PALM <> 1 AND
+               IF (CLI-PALM = 970957
+                   OR (IDE-PALM = "NC" AND CLI-PALM = 4))
+                  PERFORM VARYING I-CLI FROM 1 BY 1 UNTIL I-CLI > 8
+                     IF CLIB-MAGC(I-CLI) NOT = 0 
+                        MOVE CLIB-MAGC(I-CLI) TO COD-MCLI
+                        READ MXCLI KEY CLE6-MCLI NOT INVALID 
+                          PERFORM Mep-Un-Cli
+                        END-READ
+                        PERFORM STAT
+                     END-IF
+                  END-PERFORM
+               END-IF
+      *
+               READ MXAGENCE NEXT END MOVE 1 TO W-EOF END-READ
+               PERFORM STAT
+           END-PERFORM
+
+      * Positionnement du curseur sur la grille...
+           MODIFY Screen1-Gd-1(Screen1-Gd-1-Cursor-Y-Old),
+                  CURSOR-Y = Screen1-Gd-1-Cursor-Y-Old,
+                  ROW-COLOR = W-Row-Low-Color,
+                  |MASS-UPDATE = 0
+
+      * Patch : sans ça, la grille peut parfois mélanger les lignes...
+           MOVE SPACES TO Screen1-Gd-1-Record
+           .
+      *
+       Siren-Ecr2Fic.
+           MOVE W-SIREN TO W-SIR
+           MODIFY Screen1-Ef-SIREN, VALUE W-SIR
+           .
+      
+      *
+       Screen1-Ef-SIREN-Bef-Procedure.
+           MODIFY Screen1-Ef-SIREN VALUE W-SIREN
+           .
+
+       Test-CP-Ville.
+      *-------------*
+           MOVE 1 TO W-OK
+
+           IF W-CP-ECR <> SPACE THEN
+
+              IF (W-NDEP = 2 OR = 3) AND W-ORIPAYS = "FR" THEN
+
+                 IF W-CP-ECR(1:W-NDEP) <> POS2-MCLI(1:W-NDEP) 
+                 OR PAY-MCLI <> PAY-MPAR THEN
+                    MOVE 0 TO W-OK
+                    EXIT PARAGRAPH
+                 END-IF
+
+              ELSE
+
+                 IF W-CP-FIC <> POS-MCLI THEN
+                    MOVE 0 TO W-OK
+                    EXIT PARAGRAPH
+                 END-IF
+
+              END-IF
+
+           END-IF
+
+           IF W-VILLE <> SPACE THEN
+              MOVE 0 TO I
+              INSPECT VIL-MCLI TALLYING I FOR ALL W-VILLE(1:W-NVIL)
+              IF I = 0 THEN
+                 MOVE 0 TO W-OK
+                 EXIT PARAGRAPH
+              END-IF
+           END-IF
+           .
+      *
+       Screen1-Ef-CP-Bef-Procedure.
+      *---------------------------*     
+           MODIFY Screen1-La-Rech, VISIBLE TRUE
+              TITLE 
+              "Pour une recherche par département, saisissez son numéro"
+           .
+      *
+       Screen1-Ef-VILLE-Bef-Procedure.
+      *------------------------------*           
+           MODIFY Screen1-La-Rech, VISIBLE TRUE
+              TITLE 
+              "Recherche du nom ou d'une partie du nom d'une ville"           
+           .
+      *
+       Screen1-Ef-CP-Aft-Procedure.
+      *---------------------------*     
+           INQUIRE Screen1-Ef-CP, VALUE IN W-CP-ECR
+
+           IF W-CP-ECR = SPACE THEN
+              EXIT PARAGRAPH
+           END-IF
+
+           MOVE 0 TO W-CPT
+           INSPECT W-CP-ECR TALLYING W-CPT FOR TRAILING SPACES
+           COMPUTE W-NDEP = 8 - W-CPT
+
+           IF W-NDEP > 3 THEN
+              MODIFY Screen1-Ef-VILLE,
+                 VALUE SPACE
+           END-IF
+           .           .
+      *
+       Screen1-Ef-VILLE-Aft-Procedure.
+      *------------------------------*
+           INQUIRE Screen1-Ef-VILLE, VALUE IN W-VILLE
+
+           IF W-VILLE = SPACE THEN
+              EXIT PARAGRAPH
+           END-IF
+
+           INQUIRE Screen1-Ef-CP, VALUE IN W-CP-ECR
+           MOVE 0 TO W-CPT
+           INSPECT W-CP-ECR TALLYING W-CPT FOR TRAILING SPACES
+           COMPUTE W-NDEP = 8 - W-CPT
+
+           IF W-NDEP > 3 THEN
+              MODIFY Screen1-Ef-CP,
+                 VALUE SPACE
+           END-IF
+           .
+      *
+       Screen1-DaRb-Ord10-Ev-Cmd-Clicked.
+           MODIFY Screen1-La-Titre, TITLE = "E-mail"
+           MODIFY Screen1-La-Rech, VISIBLE FALSE
+           MODIFY Screen1-La-Rech2, VISIBLE FALSE
+           MODIFY Screen1-Ef-Tel, VISIBLE FALSE
+           MODIFY Screen1-Ef-Rai, VISIBLE TRUE, MAX-TEXT 60
+           MODIFY Screen1-Ef-Cod, VISIBLE FALSE
+           MODIFY Screen1-Ef-Fco, VISIBLE FALSE
+           MODIFY Screen1-Ef-SIREN, VISIBLE FALSE
+           MODIFY Screen1-Ef-VILLE, VISIBLE FALSE
+           MODIFY Screen1-Ef-CP, VISIBLE FALSE
+           MODIFY Screen1-La-St1, TITLE SPACES
+           MODIFY Screen1-La-Titre2, VISIBLE FALSE
+           MOVE 4 TO ACCEPT-CONTROL
+           MOVE 76 TO CONTROL-ID
+           PERFORM Mistral-TransferFocus
+           .
+
+       

@@ -1,0 +1,6 @@
+while read source
+do 
+#--- Remplacement CR en CR LF (Unix --> DOS)
+sed 's///' $source > $source.new
+mv $source.new $source
+done

@@ -1,0 +1,61 @@
+      *(( XFD FILE = COMMENT ))
+       FD  MXCOMMENT.
+       01 ENR-MCMO.
+           02 CLE1-MCMO.
+      *(( XFD NAME = Origine ))
+               04 ORI-MCMO         PIC  XXX.
+               04 R-ORI-MCMO REDEFINES ORI-MCMO.
+      *(( XFD NAME = Activite ))
+                   05 ACT-MCMO         PIC  X.
+      *(( XFD NAME = Niveau ))
+      *(( XFD COMMENT Stade: D=devis C=commande L=livraison (pour vente matériel) "A" pour assurance dans OR M=TG prévisionnel ou écart / TG réel  d=Motif refus devis R=matériel à renouveler spécif INV G=DG (CLAAS SOL2) ))
+                   05 NIT-MCMO         PIC  X.
+      *(( XFD NAME = Stade ))
+      *(( XFD COMMENT Indicateur composition:  E=si entête C=composition P=planning SAV 1/2=n° ligne assurance OR P=TG prévisionnel E=Ecart TG réel / prévisionnel I=Instructions V=Validation offre U=DG CLAAS SOL2 URL ))
+                   05 INO-MCMO         PIC  X.
+      *(( XFD NAME = Cle_fichier ))
+               04 CLE-MCMO         PIC  X(24).
+               04 R-CLE-MCMO REDEFINES CLE-MCMO.
+                   05 NUM-MCMO         PIC  9(6).
+                   05 FNUM-MMCO        PIC  X(18).
+               04 R1-CLE-MCMO REDEFINES CLE-MCMO.
+      *
+      *
+                   06 CLE-IDE-MCMO     PIC  X(4).
+                   06 CLE-DAT-MCMO     PIC  9(8).
+                   06 CLE-HEU-MCMO     PIC  99V99.
+                   06 CLE-NOP-MCMO     PIC  X(8).
+      *(( XFD NAME = Libelle ))
+           02 LIB-MCMO         PIC  X(320).
+      *(( XFD NAME = Edition_AR ))
+           02 EAR-MCMO         PIC  9.
+      *(( XFD NAME = Edition_BL ))
+           02 EBL-MCMO         PIC  9.
+      *(( XFD NAME = Edition_Fac ))
+           02 EFAC-MCMO        PIC  9.
+      *(( XFD NAME = Edition_BP ))
+           02 EBP-MCMO         PIC  9.
+      *(( XFD NAME = Nb_lignes ))
+           02 NBRL-MCMO        PIC  9(3).
+      *(( XFD NAME = Date_acompte ))
+      *(( XFD COMMENT Spécifique acomptes: date facturation ))
+           02 DFA-MCMO         PIC  9(8).
+      *(( XFD NAME = Date_acompte ))
+      *(( XFD COMMENT Compteur 1 départ réservation Mobistac ))
+           02 CD1-MCMO REDEFINES DFA-MCMO  PIC  9(8).
+      *(( XFD NAME = Ss_total ))
+      *(( XFD COMMENT Indicateur sous-total = 1 ))
+           02 STO-MCMO         PIC  9.
+      *(( XFD NAME = Ss_total ))
+      *(( XFD COMMENT Etat matériel sortie / réservation Mobistac ))
+           02 EMS-MCMO REDEFINES STO-MCMO  PIC  9.
+      *(( XFD NAME = Motif_refus ))
+      *(( XFD COMMENT Motif refus devis ))
+           02 MOT-MCMO         PIC  X.
+      *(( XFD NAME = Date_acompte ))
+      *(( XFD COMMENT Compteur 2 départ réservation Mobistac ))
+           02 CD2-MCMO         PIC  9(7).
+      *(( XFD NAME = Date_acompte ))
+      *(( XFD COMMENT Nb litres carburant départ réservation Mobistac ))
+           02 NLC-MCMO         PIC  9(4).
+           02 FILLER           PIC  X(5).

@@ -1,0 +1,503 @@
+<h2>JRecord 0.90.2 Readme</h2>
+<p>This release contains extra functions for the CodeGen utility,
+Csv parsing changes and fix for duplicate field processing.
+
+<p>If you have Questions, problems, suggestions, code donations please contact me at either<ul>
+ <li><a href="https://sourceforge.net/p/jrecord/discussion/">JRecord Forums</a></li>
+ <li><a href="https://sourceforge.net/p/jrecord/bugs/">JRecord Tickets</a></li>
+</ul>
+<p><b>Source</b> is now available at <a href="https://github.com/bmTas/JRecord">Github</a>
+
+<p>You can ask questions at either:
+<ul>
+ <li><a href="https://stackoverflow.com/questions/tagged/jrecord">stackoverflow</a> use tag=<b>jrecord</b></li>
+ <li><a href="https://sourceforge.net/p/jrecord/discussion/">JRecord Forums</a></li>
+</ul>
+
+<p><b>Contents:</b>
+<ul>
+ <li><a href="#userAdvice">User Warnings</a>
+ <li><a href="#intro">Introduction</a></li>
+ <li><a href="#Software">Software Recommendations</a></li>
+ <li><a href="#changesum">Change Summary</a></li>
+ <li><a href="#09002">Changes 0.90.2</a></li>
+ <li><a href="#09000">Changes 0.90</a></li>
+ <li><a href="#08105">Changes 0.81.5</a></li>
+ <li><a href="#08104">Changes 0.81.4</a></li>
+ <li><a href="#08103">Changes 0.81.3</a></li>
+ <li><a href="#cbl2csvu">Changes to Cobol to Csv program</a></li>
+ <li><a href="#cbl2xmlu">Changes to Cobol to Xml Java Interface</a></li>
+ <li><a href="#MultiRecCbl2Xml">Multi-Record Support in Cobol-Data &lt;==&gt; Xml</a></li>
+ <li><a href="#continuous">New Continuous IO</a></li>
+</ul>
+
+<h2><a id="userAdvice">User Warnings</a></h2>
+
+<h3><a id="allusers">Warning All Users</a></h3>
+<p>There have been major changes to the Code (so increased chance of problems)<ul>
+<li>The Cobol Copybook processing has been rewritten</li>
+<li>Numeric conversion (comp, comp-3, zoned-decimal) has been optermised.</li>
+</ul>
+<h3><a id="oldusers">Warning Existing Users (pre 0.81.4/0.90)</a></h3>
+<p>Some classes/interfaces have moved from <b>net.sf.JRecord.External</b>
+to  <b>net.sf.JRecord.External.base</b>. Classes / Interfaces affected:
+<ul>
+ <li><b>CopybookWriter</b></li>
+ <li><b>ExternalConversion</b></li>
+ <li>Several others that you are unlikely to use</li>
+ <li>Interface <i>ICobolCopybookLoader</i> has become <i>ICopybookLoaderCobol</i>. This
+ is an internal interface so it should not affect you directly but it does affect CobolToXml
+ and CobolToJson sub-projects.</li>
+ <li>Fields could be stored in a differerent order to previous versions (Version 0.90)</li>
+ <li>Several classes have change packages. For the most part, these classes are internal to JRecord
+ so will not affect users. (Version 0.90).
+</ul>
+<p>These are to reduce the amount of duplicate code int JRecord/RecordEditor.
+
+<h3><a id="newusers">Notes for New Users</a></h3>
+<p>The <a href="ReadMe_NewUsers.htm">ReadMe_NewUsers.htm</a> has an expanded version of this section.</p>
+<p>The first thing new users need to decide is<ul>
+ <li>Are you going to use the <i>Java</i> interface ???, then see <a href="#javaInterface">Java Interface</a></li>
+ <li>Are you going to use the existing <a href="lib/Overview.html#Csv2Cbl">Cobol2Csv</a> / <a href="lib/CobolData2Xml/Cobol2Xml_ReadMe.htm">Cobol2Xml</a> interfaces. These programs will
+convert Cobol-Data-Files to/from Csv/Xml files.</li>
+ <li>Are you going to write <i>your own generic</i> interface ???. If so look at the <b>CobolSchemaReader</b> class
+and see how it is used in Cobol2Xml. Also If copying files, look at <b>Copy</b> class.</li>
+</ul>
+<h2><a id="intro">Introduction to JRecord</a></h2>
+<P><B>JRecord</B> provides
+<ol>
+  <li>IO routines for Length Based (Lines are either fixed length or a length
+field at the start of the record) files. Standard Text files are also supported</li>
+  <li>IO routines for Cobol Data files (both Text and Binary).
+  <li>IO routines for Flat Files (both Fixed Field width and CSV files).
+  <li>Cobol2Csv, Csv2Cobol and Cobol2Cobol utilities (they can be found in the <a href="lib">lib</a> directory.
+      These 3 utilities need the cb2xml.jar and JRecord.jar libraries to be in the same directory.
+  <li>Same IO routines for all File Types (XML (via StAX parser), CSV and Fixed Field Width) 
+</ol>
+<p>For Documentation see <a href="Docs/JRecordIntro.htm">JRecord Documentation</a>
+
+<h3><a id="javaInterface">Getting started with JRecord Java interface</a></h3>
+<p>The easiest way to access <b>JRecord</b> is via <font color="green">IOBuilders</font> (using the <font color="blue">JRecordInterface1</font> class):</p>
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   2 </font></span>    ICobolIOBuilder ioBldr 
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   3 </font></span>                <font color="#000000"><strong>=</strong></font> JRecordInterface1.COBOL
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   4 </font></span>                    .<font color="#9966ff">newIOBuilder</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">CobolCopybook</font><font color="#ff00cc">.</font><font color="#ff00cc">cbl</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">   5 </font></span>                        .<font color="#9966ff">setSplitCopybook</font><font color="#000000"><strong>(</strong></font>CopybookLoader.SPLIT_01_LEVEL<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   6 </font></span>                        .<font color="#9966ff">setDialect</font><font color="#000000"><strong>(</strong></font>ICopybookDialects.FMT_FUJITSU<font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   7 </font></span>    AbstractLineReader reader <font color="#000000"><strong>=</strong></font> ioBldr.<font color="#9966ff">newReader</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">input</font><font color="#ff00cc"> </font><font color="#ff00cc">File</font><font color="#ff00cc"> </font><font color="#ff00cc">Name</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   8 </font></span>    AbstractLine l;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   9 </font></span>        
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">  10 </font></span>    <font color="#006699"><strong>while</strong></font> <font color="#000000"><strong>(</strong></font><font color="#000000"><strong>(</strong></font>l <font color="#000000"><strong>=</strong></font> reader.<font color="#9966ff">read</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font> <font color="#000000"><strong>!</strong></font><font color="#000000"><strong>=</strong></font> <font color="#cc00cc">null</font><font color="#000000"><strong>)</strong></font> <font color="#000000"><strong>{</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  11 </font></span>        ...
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  12 </font></span>    <font color="#000000"><strong>}</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  13 </font></span>    reader.<font color="#9966ff">close</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>;
+</font></pre>
+
+<p>There is a description of using the IOBuilder interface in the <a href="Docs/JRecordIntro.htm#HDRIOBLDR">JRecord Manual</a>. You should also investigate
+the <a href="#CodeGen">Code Generation</a> options</p>
+
+
+<h3><a id="CodeGen">Code Generation</a></h3>
+<p>To help you get started with JRecord, there are 2 Code Generate options available:<ul>
+ 
+ <li><b>JRecord CodeGen</b> is now part of the <a href="https://sourceforge.net/projects/record-editor/">RecordEditor</a>
+ see <a href="Docs/RecordEditorGenerate.htm">RecordEditor Generate option</a> for details.. 
+ You can generate skelton Java~JRecord using the GUI screens. The <b>RecordEditor</b> provides 
+ an easy way to try out the various <b>CodeGen</b> Templates</li>
+ 
+ <li>The <a href="Docs/JRecordIntro.htm#HDRCODEGEN">JRecord CodeGen</a> sub-project will generate a skelton Java~JRecord Read/write programs from a Cobol Copybook.</li>
+</ul>
+
+
+<h2><a id="Software">Software Recommendations</a></h2>
+<p>Previous versions of <b>JRecord</b> came with utilities (editors etc), this version does not
+with old utilities (it does have Csv2Cobol and Cobol2Csv utilities). 
+I would suggest you:<ul>
+ <li>Download and use the <a href="http://record-editor.sourceforge.net/">RecordEditor</a> instead of the old utilities.</li>
+ <li>Download <a href="https://sourceforge.net/projects/jrecord/files/jrecord/Version_0.80//">JRecord 0.80</a> which includes the Editor etc</li>
+</ul>
+<p>You can use either package to view / try out the JRecord-options before writing your code.
+<p>In the future, I hope to release a Cobol-Version of the RecordEditor that uses Cobol-Copybooks and Xml-File
+descriptions. This will replace the old JRecord-Utilities. This is unlikely to be released before the end of 2015 though.
+<h2><a id="changesum">Change Summary</a></h2>
+
+<h2><a id="09002">Changes 0.90.2</a></h2>
+This is a minor upgrade pickup up changes for RecordEditor / CodeGen.
+<ul>
+<li>Cobol~CodeGen and RecordEditor related changes</li>
+<li>fixes for MicroFocus~Reader/Writers. <b>Note:</b> Microfocus File support is very limited.</li>
+<li>New version of cb2xml (1.01.1)</li>
+<li>new setToSpaces method on FieldValue class.</li>
+<li>Minor updates/fixes to JRecord and CodeGen. Many of these changes are for the 
+upcoming <a href="https://sourceforge.net/projects/record-editor/">RecordEditor</a> release.</li>
+<li><b>Source</b> is now available at <a href="https://github.com/bmTas/JRecord">Github</a></li>
+</ul>
+<h2><a id="09000">Changes 0.90</a></h2>
+Changes to cobol processing, Cobol Item tree added to <b>RecordDetail</b> class, new interfaces:
+<ul>
+ <li>Changed to use Cb2xml 1.01, Cobol copybook information is passed directly
+to JRecord (rather than going via Xml).</li>
+ <li>Cobol Copybook processing has been rewritten</li>
+ <li>Cobol Copybook information is now available via the Layout (RecordDetail class).</li>
+ <li>Numeric processing has been optermized.</li>
+ <li>New Interfaces <b>IByteRecordReader</b> and <b>IByteRecordWriter</b> have been added.
+These interfaces can be used to interface JRecord with Mainframe (via ZFile), Google Data Store,
+MQ or other byte based Data-Storage.</li>
+ <li>Fix for processing large copybooks.</li>
+ <li>Adding RecordDeciderBuilder's - will build basic RecordDeciders.</li>
+ <li>Adding option to only use old Type (unoptized types).
+ <li><b>LayoutDetail</b> class has 2 new methods:<ul>
+    <li> <b>getCobolItems</b> - gets the Cobol definition for a Cobol Group/Field specified by the supplied name.</li>
+    <li><b>getCobolGroupItems</b> gets the Cobol definition for a Cobol Group specified by the supplied name.</li>
+    </ul></li>
+ <li>Changes to interfaces so that CodeGen can support <i>Cobol Tree</i> details and Csv CodeGeneration.
+ <li>Lot of minor fixes</li>
+ <li>Minor fixes to the IoBuilders.</li>
+ <li>Added example of <i>Cobol Replace</i> builder
+</ul>
+<h2><a id="08105">Changes 0.81.5</a></h2>
+<p>Changes for complex Occurs Depending</p>
+<ul>
+ <li>Minor improvements in handling duplicate field names</li>
+ <li>Csv changes to Bring JRecord into line with the RecordEditor, in particular<ul>
+   <li>Csv Quotes can now be expressed in hex format x'FF' etc.
+   <li>JRecord has both <i>Chartacter</i> based Csv Parser and a <i>Byte</i> based  Csv parser.
+   The <i>Byte</i> based  Csv was very basic but it has been upgraded to be the same as the  <i>Chartacter</i> based Csv Parser.
+ </ul> </li>
+ <li>Extra Functionality For use by <i>CodeGen</i> generated code. </li>
+ <li>Two new <i>Code Templates</i> added to the CodeGen utility.</li>
+</ul>
+
+<h2><a id="08104">Changes 0.81.4</a></h2>
+<p>Changes for complex Occurs Depending</p>
+<ul>
+ <li>Reduction in Memory usage in CobolToXml, CobolToJson when using Occurs depending.</li>
+ <li>Fixes for Complex Occurs-Depend for CobolToXml, CobolToJson</li>
+ <li>Added Pretty-print and asIoBuilder options to CobolToJson builder</li>
+ <li>Add pom files to CobolToJson, Fix pom files for CobolToXml</li>
+ <li>Csv-field-delimiters can be specified in \u0001 format (unicode hex format</li>
+ <li>Some Csv fix's for specifying field-delimiters in the x'01' type format.
+</ul>
+<h2><a id="08103">Changes 0.81.3</a></h2>
+<p>This release consists of Complex Occurs depending support and improved Xml IOBuilder
+support.
+<ul>
+ <li>Support for Complex Occurs Depending (size fields insides OD arrays) :
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">4 </font></span><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font>        <font color="#ff0000">03</font>  size-1                <font color="#006699"><strong>pic</strong></font> s9(<font color="#ff0000">4</font>).
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">5 </font></span><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font>        <font color="#ff0000">03</font>  <font color="#006699"><strong>occurs</strong></font> <font color="#ff0000">1</font> <font color="#006699"><strong>to</strong></font> <font color="#ff0000">20</font> <font color="#006699"><strong>times</strong></font> <font color="#006699"><strong>depending</strong></font> <font color="#006699"><strong>on</strong></font> size-1.
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">6 </font></span><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font>            <font color="#ff0000">05</font>  size-11           <font color="#006699"><strong>pic</strong></font> s9(<font color="#ff0000">4</font>).
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">7 </font></span><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font><font color="#cc6600"> </font>            <font color="#ff0000">05</font>  <font color="#006699"><strong>occurs</strong></font> <font color="#ff0000">1</font> <font color="#006699"><strong>to</strong></font> <font color="#ff0000">20</font> <font color="#006699"><strong>times</strong></font> <font color="#006699"><strong>depending</strong></font> <font color="#006699"><strong>on</strong></font> size-11.
+</font></pre> 
+ </li>
+ <li>The <B>JRecordInterface1.XML_SCHEMA.newIOBuilder(...)</B> now accepts a reader
+ as input (as well as File-Name and InputStream).
+ <li>With <i>Xml-IOBuilder</i> you can set a default font to be used (if no font is specified in the Xml) using the <b>setDefaultFont</b> method.</li>
+ <li>With <i>Xml-IOBuilder</i> you can override the font in the Xml with the <b>setFont</b> method.</li>
+</ul>
+<h2><a id="08102">Changes 0.81.2</a></h2>
+<p>This release consists of minor Cobol enhancements and upgrades to utilities.
+<ul>
+ <li>Changes to Xml-Schema format, you can now enter just field-lengths (or positions) when
+  fields follow one after the other.
+ <li>For Xml-Schema the Font is now used as a default-font (if not in the Xml definition).
+ <li>The ExternalRecord class now has a asIOBuilder which converts it back into a IOBuilder.
+ <li>Allows fields to be inserted into a **ExternalRecord**. Use at your own risk.
+ <li>Can set starting-position in MultiCopybookLoader + extra functions added to ExternalRecord
+ <li>Support for complex Occurs-Depending. These changes are not complete.
+</ul>
+<h2><a id="08101">Changes 0.81.1</a></h2>
+<p>This release consists of minor Cobol enhancements and upgrades to utilities.
+<ul>
+ <li>New CobolToJson utility</li>
+ <li>A new <a href="Examples/SchemaCompare/CompareProgram_ReadMe.html">program</a> to compare JRecord-Layouts generated with JRecord with prior versions.</li>
+ <li>Major upgrades to <a href="https://sourceforge.net/projects/jrecord/files/jrecord_CodeGen/">JRecord CodeGen Utility</a>:<ul>
+   <li>Two new <i>Templates</i>: <b>lineWrapper</b> and <b>stdPojo</b>.</li>
+   <li>An example program using generated Java code.</li>
+   <li>CodeGen has been added to the <a href="https://sourceforge.net/projects/record-editor/">RecordEditor</a>.
+   See <a href="Docs/RecordEditorGenerate.htm">RecordEditor Generate function</a>
+   for more details.</li>
+ </ul></li>
+ <li>New cb2xml jar. This Minor upgrades to the Cobol Parser
+ (Support for _, right justfied and a Fix for GNU Cobols Zoned Decimal).</li>
+ <li><a href="http://coboltocsv.sourceforge.net/wCbl2C02.htm">CobolToCsv</a>
+ and <a href="http://coboltoxml.sourceforge.net/wCbl2X02.htm">CobolToXml</a> 
+ have been released as seperate projects. They will be gradually removed from JRecord</li>
+</ul>
+<h2><a id="081">Changes 0.81</a></h2>
+<p>In this release there have been few changes to the core "Cobol" interface. This release includes 
+completion of the IOBuilder interface (Csv files etc), new IOBuilder documentation, Upgraded utilities
+plus some user requests / problem fixs.
+<ul>
+<li>New <a href="Docs/JRecordIntro.htm">IOBuilder documentation</a> 
+<li>New <a href="https://sourceforge.net/projects/jrecord/files/jrecord_CodeGen/">Code Generation utility</a>.
+This utility will convert a Cobol Copybook into skelton interface code.
+<li>Refactor IOBuilders<ul>
+    <li>Updates, fixes, Documentation for CsvIOBuilder (<b>JRecordInterface1.CSV</b>)</li> 
+    <li>Updates, fixes, Documentation for FixedWidthIOBuilder (<b>JRecordInterface1.FIXED_WIDTH</b>)</li>
+    <li>Updates, fixes, Documentation for RecordEditor-Xml-IOBuilder (<b>JRecordInterface1.SCHEMA_XML</b>)</li>
+</ul></li>
+<li>Refactor Cobol2Xml (both interfaces and Implementing classes).<ul>
+    <li>Added extra options to Cobol <--> Xml processing</li>
+    <li>Added Java-Script and Groovy Examples for Converting Cobol Files to/from Xml.</li>   
+    <li>Added Record support</li>
+</ul></li>
+<li>Rewrite of Cobol2Csv / Csv2Cobol; it now supports occurs depending, can produce files without Column Headings</li>
+<li>New Extended Cobol Copybook reader class (<b>CobolSchemaReader</b>) for use use in utilities like Cobol2Xml or Cobol2JSon.
+This class has been extracted from Cobol2Xml. It should make some generic processing easier.</li>
+<li>Version 0.95.6 of cb2xml has been used.</li>
+<li>Various User requests and fixes</li>
+</ul>
+
+<h2><a id="0808i">Changes 0.80.8i</a></h2>
+
+<p>This version contains minor enhancements Cobol2Csv and Cobol2Xml programs and
+major refactoring of IOBuilders and Cobol2Xml (both the Interfaces and implementation classes).
+<ul>
+ <li>Added new parameter <a href="cbl2csvu">-OutputFileStructure (-ofs)</a> to Cobol2Csv program. This option allows users to generate Csv files with/without column headings.</li>
+ <li>Refactor  IOBuilder Interfaces and implementation classes. General code cleanup.</li>
+ <li>Refactor  Cobol2Xml Interfaces and implementation classes.</li>
+ <li>Fixes for the Fixed-Width and Csv IOBuilders</li>
+ <li>Added <b>initToSpaces</b> option to IOBuilders / Cobol2Xml classes. When writing very large Cobol Files, setting to <b>false</b> will be more efficient, but you will need to set every field</li>  
+ <li>Added Cobol-Copybook <i>Reader</i> option to IOBuilders and Cobol2Xml interfaces/classes.</li>
+ <li>Added <a href="cbl2xmlu">Record-Hierarchy</a> option to Cobol2Xml classes. This allows you to define a hierarchy between records and *read/write*
+  xml more accurately reflects the internal relationship</li>
+ <li>Added Record-Selection and Record-Hierarchy options to Data2Xml and Xml2Data programs (batch cobol to/from Xml programs)</li>
+ <li>Added <a href="lib/CobolData2Xml/CobolDataXml.jjs">JavaScript</a> / <a href="lib/CobolData2Xml/CobolDataXml.groovy">Groovy</a> examples of converting cobol files to/from Xml.</li>
+</ul>
+
+<h2><a id="0808h">Changes 0.80.8h</a></h2>
+<p>Enhancements for the new Cobol to/from Xml programs.
+<ul>
+ <li>Fix issue with file structure in CobolIoProvider.java (Bug #12)</li>
+ <li>Fix issue with redefines (Bug #13)</li>
+ <li>Fix to TextLineReader to make it thread safe (Bug 15)</li>
+ <li>Several other minor fixes</li>
+ <li>Added support for occurs depending Cobol <==> Xml programs</li>
+ <li>Added support for specifying Usage at Group Level in copybook</li>
+ <li>Added support for Multi-line value's in copybook</li>
+ <li>Added maven pom files</li>
+ <li>Added test files to Source directory to allow Maven Testing</li>
+ <li>Changes for testing on Linux</li>
+ <li>Extra tests</li>
+ <li>Reorganize source diretory</li>
+ <li>Change to cb2xml 0.95.5</li>
+</ul>
+
+<h2><a id="0808g">Changes 0.80.8g</a></h2>
+<p>Enhancements for the new Cobol to/from Xml programs.
+<ul>
+<li>Support for Multi-Record (split=01 or highest-repeating) files in Data2Xml and Xml2Data programs. 
+This must be done in Java-Code rather than using the utilities.</li>
+<li>Support for "Occurs" in the Xml2Data programs.</li>
+<li>Support for setting record-type based on there position in the file (when reading the file) using the <b>setRecordPositionCode</b> method.
+<li>RecordException is now a <b>RunTimeException</b> (instead of Exception).
+<li>If anyone has implemented a <i>LineReader</i>, in the base class <i>AbstractLineReader</i> the <B>abstract</B> method
+has become <b>final</b>, you should now extend <b>readImplementation</b>.</li>
+<li>Fixed name of Icb2xml2Xml interface.
+</ul>
+
+<h2><a id="0808f">Changes 0.80.8f</a></h2>
+<p>Added a new Cobol to/from Xml programs. These where written as replacements for programs in <a href="https://sourceforge.net/p/cb2xml/bugs/14/">cb2xml project</a>
+<ul>
+<li>New Data2Xml and Xml2Data example programs.</li>
+<li>New multi-Cobol-Copybook IOBuilder
+<li>Export option added to JRecordInterface1.SCHEMA_XML.
+<li>Changes for the up coming Code-Generate program.</li>
+<li>Minor problem fixes</li>
+</ul>
+
+<h2><a id="0808e">Changes 0.80.8e</a></h2>
+<p>Changes are related to User-Requests, problem fixes and <i>IOBuilder</i> related:
+<ul>
+<li>Import/Export of RecordEditor-Xml to include Group-Details.</li>
+<li>Added deprecated to some old methods</li>
+<li>Fix for looking accessing array-fields in the GetGroupField method</li>
+<li>Add Checks to IOBuilders to make sure the Line-Type is compatible with the schema (i.e. byte based records are used with Binary layouts).</li> 
+<li>More Work & testing of IOBuilders. Inparticular the CSV, FIXED_WIDTH, SCHEMA and SCHEMA_XML IOBuilders have undergone basic testing</li>
+<li>More <a href="Source/JRecord_IO_Builder_Examples/src/net/sf/JRecord/zExamples/iob">IOBuilder examples</a></li>
+</ul>
+
+<h2><a id="0808d">Changes 0.80.8d</a></h2>
+<p>Changes are either related to User-Requests and <i>IOBuilder</i> related:<ul>
+<li>Fix for Fixed-Length Writer (see <a href="https://sourceforge.net/p/jrecord/discussion/678634/thread/6439da49/">API or user problem</a>)</li>
+<li>line.getFieldValue("Invalid-Field-name") will throw a run-time expception if an invalid field-name is used.
+(see <a href="https://sourceforge.net/p/jrecord/discussion/678634/thread/6439da49/">API or user problem</a>.</li>
+<li>new methods (isLowValues, isHighValues, setHex, isDefined, setToLowValues and setToHighValues) have been
+added to fieldValue class. (see <a href="https://sourceforge.net/p/jrecord/discussion/678634/thread/7338e619/">Unsuported values</a>. 
+Some of these methods (setHex, setToLowValues and setToHighValues) only work for byte based records (i.e. Line-class as apposed to CharLine etc).</li>
+<li>New <b>Continuous</b> (IO_CONTINOUS_NO_LINE_MARKER) for <a href="https://sourceforge.net/p/jrecord/discussion/678634/thread/52f85140/">Split_Redefine</a>.
+This is for multi-record files where there is no line (or record) marker. Record-Length is based on the indivual Record-Type's.
+<li>New <b>JRecordInterface1</b> class that acts as a Front-end to JRecord via      
+ <a href="IOBuilders.htm">IOBuilders</a>. I would suggest using the new IOBuilder class, take <font color="blue">care</font> as there is still more testing needed.
+</ul>
+<h2><a id="cbl2csvu">Changes to Cobol to Csv program</a></h2>
+<p>A new parameter <b>-OutputFileStructure</b> (or <b>-ofs</b> for short) has been added to the Cobol2Csv program. This new 
+lets you define and <I>Output File Structure</I>. If you specify a an Output structure of Text_Unicode, the CSV file will be written
+without a column header line on the first line.
+<pre>
+
+     java -jar ../Cobol2Csv.jar -I DTAR020.bin ...    <font color="blue"><b>-ofs Text_Unicode</b></font>
+</pre>     
+<h2><a id="cbl2xmlu">Changes to Cobol to Xml Java Interface</a></h2>
+<p>There have been substantial changes to the <a href="lib/CobolData2Xml/Cobol2Xml_ReadMe.htm">Cobol to Xml</a> processing, namely
+<ul>
+ <li>Refracture of Cobot2Xml Interface's</li>
+ <li>Rewrite of sections of the implementing classes</li>
+ <li>Add Record-Hierarchy support</li>
+ <li>Added Record support to Data2Xml and Xml2Data programs</li>
+ <li>Added  <a href="lib/CobolData2Xml/CobolDataXml.jjs">JavaScript</a> and <a href="lib/CobolData2Xml/CobolDataXml.groovy">Groovy</a> Examples</li>
+</ul> 
+<p>I will look at splitting Cobol2Xml off as a separate project !!! 
+ 
+ 
+
+<h3>Record Hiearchy</h3>
+<p>In Cobol file there can be a logical relationship between records, e.g.
+<pre>
+      PO-Record (Purchase Order Record), Each PO-Record has one or more
+        !                                 <i>Child</i> Product records  
+        !
+        +------ Product-Record            Each Product-Record has one or more
+                  !                       <i>Child</i> Location records
+                  !
+                  +------  Location-Record
+</pre>                 
+<p>You can now represent this Record hiearchy like:</p>
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 3 </font></span>        Cobol2GroupXml  .<font color="#9966ff">newCobol2Xml</font><font color="#000000"><strong>(</strong></font>copybookFileName<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 4 </font></span>                            .<font color="#9966ff">setFileOrganization</font><font color="#000000"><strong>(</strong></font>Constants.IO_UNICODE_TEXT<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066"> 5 </font></span>                            .<font color="#9966ff">setDialect</font><font color="#000000"><strong>(</strong></font>ICopybookDialects.FMT_FUJITSU<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 6 </font></span>                            .<font color="#9966ff">setSplitCopybook</font><font color="#000000"><strong>(</strong></font>CopybookLoader.SPLIT_01_LEVEL<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 7 </font></span>                                            <font color="#ff8400">//</font><font color="#ff8400"> </font><font color="#ff8400">Define</font><font color="#ff8400"> </font><font color="#ff8400">Record</font><font color="#ff8400"> </font><font color="#ff8400">Selection</font><font color="#ff8400"> </font><font color="#ff8400"> </font><font color="#ff8400"> </font><font color="#ff8400"> </font><font color="#ff8400"> </font><font color="#ff8400"> </font><font color="#ff8400"> </font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 8 </font></span>                            .<font color="#9966ff">setRecordSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">PO</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>,       <font color="#9966ff">newFieldSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Record</font><font color="#ff00cc">-</font><font color="#ff00cc">Type</font><font color="#ff00cc">&quot;</font>,<font color="#ff00cc">&quot;</font><font color="#ff00cc">H1</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 9 </font></span>                            .<font color="#9966ff">setRecordSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Product</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>,  <font color="#9966ff">newFieldSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Record</font><font color="#ff00cc">-</font><font color="#ff00cc">Type</font><font color="#ff00cc">&quot;</font>,<font color="#ff00cc">&quot;</font><font color="#ff00cc">D1</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">10 </font></span>                            .<font color="#9966ff">setRecordSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Location</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>, <font color="#9966ff">newFieldSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Record</font><font color="#ff00cc">-</font><font color="#ff00cc">Type</font><font color="#ff00cc">&quot;</font>,<font color="#ff00cc">&quot;</font><font color="#ff00cc">S1</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">11 </font></span>                                            <font color="#ff8400">//</font><font color="#ff8400"> </font><font color="#ff8400">Define</font><font color="#ff8400"> </font><font color="#ff8400">parent</font><font color="#ff8400"> </font><font color="#ff8400">-</font><font color="#ff8400"> </font><font color="#ff8400">child</font><font color="#ff8400"> </font><font color="#ff8400">relationship</font><font color="#ff8400"> </font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">12 </font></span>                            .<font color="#9966ff">setRecordParent</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Product</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>,  <font color="#ff00cc">&quot;</font><font color="#ff00cc">PO</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>             
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">13 </font></span>                            .<font color="#9966ff">setRecordParent</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Location</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>, <font color="#ff00cc">&quot;</font><font color="#ff00cc">Product</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">14 </font></span>                        .<font color="#9966ff">cobol2xml</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">xmlDataFile</font><font color="#ff00cc">.</font><font color="#ff00cc">xml</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">15 </font></span>                   
+</font></pre>
+<p>The Xml will be formated with <b>Product</b> Records inside the <b>PO</b> Record and <b>Location</b> Record inside the <b>Product</b>:</p>
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 3 </font></span>  <font color="#0000ff">&lt;</font><font color="#0000ff">PO-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 4 </font></span>     ...
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066"> 5 </font></span>     <font color="#0000ff">&lt;</font><font color="#0000ff">Product-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 6 </font></span>         ...
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 7 </font></span>         <font color="#0000ff">&lt;</font><font color="#0000ff">Location-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 8 </font></span>             ...
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000"> 9 </font></span>         <font color="#0000ff">&lt;</font><font color="#0000ff">/</font><font color="#0000ff">Location-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">10 </font></span>         <font color="#0000ff">&lt;</font><font color="#0000ff">Location-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">11 </font></span>             ...
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">12 </font></span>         <font color="#0000ff">&lt;</font><font color="#0000ff">/</font><font color="#0000ff">Location-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">13 </font></span>         <font color="#0000ff">&lt;</font><font color="#0000ff">Location-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">14 </font></span>             ...
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">15 </font></span>         <font color="#0000ff">&lt;</font><font color="#0000ff">/</font><font color="#0000ff">Location-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">16 </font></span>     <font color="#0000ff">&lt;</font><font color="#0000ff">/</font><font color="#0000ff">Product-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">17 </font></span>     <font color="#0000ff">&lt;</font><font color="#0000ff">Product-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">18 </font></span>        ....
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">19 </font></span>     <font color="#0000ff">&lt;</font><font color="#0000ff">/</font><font color="#0000ff">Product-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">20 </font></span>     <font color="#0000ff">&lt;</font><font color="#0000ff">Product-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">21 </font></span>        ....
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">22 </font></span>     <font color="#0000ff">&lt;</font><font color="#0000ff">/</font><font color="#0000ff">Product-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">23 </font></span>  <font color="#0000ff">&lt;</font><font color="#0000ff">PO-Record</font><font color="#0000ff">&gt;</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">24 </font></span>         
+</font></pre>
+
+<h2><a id="MultiRecCbl2Xml">Multi-Record Support in Cobol-Data &lt;==&gt; Xml</a></h3>
+
+<p>At the moment Split=Redefines is not supported, Split=01 and Split=Highest-Repeating is.</p>
+<p>The Xml ==&gt; Cobol-Data method does not need record-selection code as the <b>Xml Tag name</b> is used for record-selection.
+<p>When using Multiple record (Cobol-Data ==&gt;&gt; Xml) you must set-up record selection (so the program know which record it is reading/writing !!):</h2>
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   1 </font></span>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   2 </font></span>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   3 </font></span>        Cobol2GroupXml.<font color="#9966ff">newCobol2Xml</font><font color="#000000"><strong>(</strong></font>copybookFileName<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   4 </font></span>                          .<font color="#9966ff">setFileOrganization</font><font color="#000000"><strong>(</strong></font>Constants.IO_BIN_TEXT<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">   5 </font></span>                          .<font color="#9966ff">setDialect</font><font color="#000000"><strong>(</strong></font>ICopybookDialects.FMT_INTEL<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   6 </font></span>                          .<font color="#9966ff">setSplitCopybook</font><font color="#000000"><strong>(</strong></font>CopybookLoader.SPLIT_01_LEVEL<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   7 </font></span>                              .<font color="#9966ff">setRecordSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">PO</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>, <font color="#9966ff">newFieldSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Record</font><font color="#ff00cc">-</font><font color="#ff00cc">Type</font><font color="#ff00cc">&quot;</font>,<font color="#ff00cc">&quot;</font><font color="#ff00cc">H1</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   8 </font></span>                              .<font color="#9966ff">setRecordSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Product</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>, <font color="#9966ff">newFieldSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Record</font><font color="#ff00cc">-</font><font color="#ff00cc">Type</font><font color="#ff00cc">&quot;</font>,<font color="#ff00cc">&quot;</font><font color="#ff00cc">D1</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   9 </font></span>                              .<font color="#9966ff">setRecordSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Location</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>, <font color="#9966ff">newFieldSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Record</font><font color="#ff00cc">-</font><font color="#ff00cc">Type</font><font color="#ff00cc">&quot;</font>,<font color="#ff00cc">&quot;</font><font color="#ff00cc">S1</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">  10 </font></span>                      .<font color="#9966ff">cobol2xml</font><font color="#000000"><strong>(</strong></font><font color="#006699"><strong>new</strong></font> <font color="#9966ff">FileInputStream</font><font color="#000000"><strong>(</strong></font>dataFileName<font color="#000000"><strong>)</strong></font>, os<font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  11 </font></span>
+</font></pre>
+
+<p>or</p>
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   1 </font></span>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   2 </font></span>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   3 </font></span>        Cobol2GroupXml.<font color="#9966ff">newCobol2Xml</font><font color="#000000"><strong>(</strong></font>copybookFileName<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   4 </font></span>                          .<font color="#9966ff">setFileOrganization</font><font color="#000000"><strong>(</strong></font>Constants.IO_BIN_TEXT<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">   5 </font></span>                          .<font color="#9966ff">setDialect</font><font color="#000000"><strong>(</strong></font>ICopybookDialects.FMT_INTEL<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   6 </font></span>                          .<font color="#9966ff">setSplitCopybook</font><font color="#000000"><strong>(</strong></font>CopybookLoader.SPLIT_01_LEVEL<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   7 </font></span>                              .<font color="#9966ff">setRecordPositionCode</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Header</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>,  Options.RP_FIRST_RECORD_IN_FILE<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   8 </font></span>                              .<font color="#9966ff">setRecordPositionCode</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Detail</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>,  Options.RP_MIDDLE_RECORDS<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   9 </font></span>                              .<font color="#9966ff">setRecordPositionCode</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Trailer</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>, Options.RP_LAST_RECORD_IN_FILE<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">  10 </font></span>                      .<font color="#9966ff">cobol2xml</font><font color="#000000"><strong>(</strong></font><font color="#006699"><strong>new</strong></font> <font color="#9966ff">FileInputStream</font><font color="#000000"><strong>(</strong></font>dataFileName<font color="#000000"><strong>)</strong></font>, os<font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  11 </font></span>
+</font></pre>
+
+<p>In the above code, <b>newFieldSelection</b> is defined as:</p>
+
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">20 </font></span>    <font color="#009966"><strong>private</strong></font> <font color="#009966"><strong>static</strong></font> ExternalFieldSelection <font color="#9966ff">newFieldSelection</font><font color="#000000"><strong>(</strong></font>String fieldName, String value<font color="#000000"><strong>)</strong></font> <font color="#000000"><strong>{</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">21 </font></span>        ExternalFieldSelection r <font color="#000000"><strong>=</strong></font> <font color="#006699"><strong>new</strong></font> <font color="#9966ff">ExternalFieldSelection</font><font color="#000000"><strong>(</strong></font>fieldName, value<font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">22 </font></span>        r.<font color="#9966ff">setCaseSensitive</font><font color="#000000"><strong>(</strong></font><font color="#cc00cc">false</font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">23 </font></span>        <font color="#006699"><strong>return</strong></font> r;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">24 </font></span>    <font color="#000000"><strong>}</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">25 </font></span>
+</font></pre>
+
+<h2><a id="continuous">New Continuous IO</a></h2>
+<p>Reading with the new IO_CONTINOUS_NO_LINE_MARKER, is like reading with any other type of IO <font color="red"><b>Except</b> 
+</font><font color="blue">you must specify specify record selection criteria (<b>setRecordSelection</b> method)</font> or <font color="blue">define a <b>RecordDecider</b> via layout.setDecider(...)</font>.
+<p>Also <b>try and</b> <font color="red"><b>Avoid</b></font> using <b>IO_CONTINOUS_NO_LINE_MARKER</b> if you can, it is always going to be error prone. I have provided this option just in case there is no other choice.</p>
+<pre><font color="#000000"><span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   1 </font></span>        String copyName <font color="#000000"><strong>=</strong></font> <font color="#cc00cc">this</font>.<font color="#9966ff">getClass</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>.<font color="#9966ff">getResource</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">MultiRecordTest</font><font color="#ff00cc">.</font><font color="#ff00cc">cbl</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>.<font color="#9966ff">getFile</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   2 </font></span> 
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   3 </font></span>        ICobolIOBuilder IOBldr <font color="#000000"><strong>=</strong></font> JRecordInterface1.COBOL
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   4 </font></span>                                  .<font color="#9966ff">newIOBuilder</font><font color="#000000"><strong>(</strong></font>copyName<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">   5 </font></span>                                    .<font color="#9966ff">setDialect</font><font color="#000000"><strong>(</strong></font>ICopybookDialects.FMT_FUJITSU<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   6 </font></span>                                    .<font color="#9966ff">setSplitCopybook</font><font color="#000000"><strong>(</strong></font>CopybookLoader.SPLIT_01_LEVEL<font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   7 </font></span>                                    .<font color="#9966ff">setFileOrganization</font><font color="#000000"><strong>(</strong></font>Constants.IO_CONTINOUS_NO_LINE_MARKER<font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   8 </font></span>        
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">   9 </font></span>        <font color="#ff8400">//</font><font color="#ff8400"> </font><font color="#ff8400">For</font><font color="#ff8400"> </font><font color="#ff8400">IO_CONTINOUS</font><font color="#ff8400"> </font><font color="#ff8400">you</font><font color="#ff8400"> </font><font color="#ff8400">must</font><font color="#ff8400"> </font><font color="#ff8400">either</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">  10 </font></span>        <font color="#ff8400">//</font><font color="#ff8400"> </font><font color="#ff8400">*</font><font color="#ff8400"> </font><font color="#ff8400">define</font><font color="#ff8400"> </font><font color="#ff8400">record</font><font color="#ff8400"> </font><font color="#ff8400">selection</font><font color="#ff8400"> </font><font color="#ff8400">criteria</font><font color="#ff8400"> </font><font color="#ff8400">as</font><font color="#ff8400"> </font><font color="#ff8400">below</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  11 </font></span>        <font color="#ff8400">//</font><font color="#ff8400"> </font><font color="#ff8400">*</font><font color="#ff8400"> </font><font color="#ff8400">or</font><font color="#ff8400"> </font><font color="#ff8400">define</font><font color="#ff8400"> </font><font color="#ff8400">a</font><font color="#ff8400"> </font><font color="#ff8400">RecordDecider</font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  12 </font></span>            
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  13 </font></span>        IOBldr.<font color="#9966ff">setRecordSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Header</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>,  <font color="#9966ff">newFieldSelection</font><font color="#000000"><strong>(</strong></font>RECORD_TYPE, HEADER_ID<font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  14 </font></span>              .<font color="#9966ff">setRecordSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Detail</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>,  <font color="#9966ff">newFieldSelection</font><font color="#000000"><strong>(</strong></font>RECORD_TYPE, DETAIL_ID<font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">  15 </font></span>              .<font color="#9966ff">setRecordSelection</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Trailer</font><font color="#ff00cc">-</font><font color="#ff00cc">Record</font><font color="#ff00cc">&quot;</font>, <font color="#9966ff">newFieldSelection</font><font color="#000000"><strong>(</strong></font>RECORD_TYPE, TRAILER_ID<font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  16 </font></span>              
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  17 </font></span>              
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  18 </font></span>        AbstractLine line;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  19 </font></span>        String fileData <font color="#000000"><strong>=</strong></font> <font color="#9966ff">toString</font><font color="#000000"><strong>(</strong></font>list<font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">  20 </font></span>        
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  21 </font></span>        AbstractLineReader r <font color="#000000"><strong>=</strong></font> ioBldr.<font color="#9966ff">newReader</font><font color="#000000"><strong>(</strong></font><font color="#006699"><strong>new</strong></font> <font color="#9966ff">ByteArrayInputStream</font><font color="#000000"><strong>(</strong></font>fileData.<font color="#9966ff">getBytes</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  22 </font></span>        
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  23 </font></span>        <font color="#006699"><strong>while</strong></font> <font color="#000000"><strong>(</strong></font><font color="#000000"><strong>(</strong></font>line <font color="#000000"><strong>=</strong></font> r.<font color="#9966ff">read</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font> <font color="#000000"><strong>!</strong></font><font color="#000000"><strong>=</strong></font> <font color="#cc00cc">null</font><font color="#000000"><strong>)</strong></font> <font color="#000000"><strong>{</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  24 </font></span>            String recordType <font color="#000000"><strong>=</strong></font> line.<font color="#9966ff">getFieldValue</font><font color="#000000"><strong>(</strong></font>RECORD_TYPE<font color="#000000"><strong>)</strong></font>.<font color="#9966ff">asString</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">  25 </font></span>            
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  26 </font></span>            <font color="#006699"><strong>if</strong></font> <font color="#000000"><strong>(</strong></font>HEADER_ID.<font color="#9966ff">equals</font><font color="#000000"><strong>(</strong></font>recordType<font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font> <font color="#000000"><strong>{</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  27 </font></span>                System.out.<font color="#9966ff">println</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Header</font><font color="#ff00cc"> </font><font color="#ff00cc">Information</font><font color="#ff00cc">:</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  28 </font></span>                System.out.<font color="#9966ff">println</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  29 </font></span>                System.out.<font color="#9966ff">println</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#6600cc">\t</font><font color="#ff00cc">Header</font><font color="#ff00cc"> </font><font color="#ff00cc">Date</font><font color="#ff00cc">:</font><font color="#ff00cc"> </font><font color="#ff00cc">&quot;</font> <font color="#000000"><strong>+</strong></font> line.<font color="#9966ff">getFieldValue</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Creation</font><font color="#ff00cc">-</font><font color="#ff00cc">Date</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>.<font color="#9966ff">asString</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">  30 </font></span>                System.out.<font color="#9966ff">println</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#6600cc">\t</font><font color="#ff00cc"> </font><font color="#ff00cc"> </font><font color="#ff00cc"> </font><font color="#ff00cc"> </font><font color="#ff00cc">Version</font><font color="#ff00cc">:</font><font color="#ff00cc"> </font><font color="#ff00cc">&quot;</font> <font color="#000000"><strong>+</strong></font> line.<font color="#9966ff">getFieldValue</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Version</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>.<font color="#9966ff">asString</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  31 </font></span>                System.out.<font color="#9966ff">println</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  32 </font></span>                System.out.<font color="#9966ff">println</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#6600cc">\t</font><font color="#ff00cc"> </font><font color="#ff00cc">Field</font><font color="#ff00cc">-</font><font color="#ff00cc">1</font><font color="#6600cc">\t</font><font color="#ff00cc"> </font><font color="#ff00cc">Field</font><font color="#ff00cc">-</font><font color="#ff00cc">2</font><font color="#6600cc">\t</font><font color="#ff00cc"> </font><font color="#ff00cc">Field</font><font color="#ff00cc">-</font><font color="#ff00cc">3</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  33 </font></span>                System.out.<font color="#9966ff">println</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#6600cc">\t</font><font color="#ff00cc"> </font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#6600cc">\t</font><font color="#ff00cc"> </font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#6600cc">\t</font><font color="#ff00cc"> </font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">-</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  34 </font></span>            <font color="#000000"><strong>}</strong></font> <font color="#006699"><strong>else</strong></font> <font color="#006699"><strong>if</strong></font> <font color="#000000"><strong>(</strong></font>DETAIL_ID.<font color="#9966ff">equals</font><font color="#000000"><strong>(</strong></font>recordType<font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font> <font color="#000000"><strong>{</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">  35 </font></span>                System.out.<font color="#9966ff">println</font><font color="#000000"><strong>(</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  36 </font></span>                          <font color="#ff00cc">&quot;</font><font color="#6600cc">\t</font><font color="#ff00cc"> </font><font color="#ff00cc">&quot;</font> <font color="#000000"><strong>+</strong></font> line.<font color="#9966ff">getFieldValue</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Field</font><font color="#ff00cc">-</font><font color="#ff00cc">1</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>.<font color="#9966ff">asString</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>.<font color="#9966ff">trim</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  37 </font></span>                        <font color="#000000"><strong>+</strong></font> <font color="#ff00cc">&quot;</font><font color="#6600cc">\t</font><font color="#ff00cc"> </font><font color="#ff00cc">&quot;</font> <font color="#000000"><strong>+</strong></font> line.<font color="#9966ff">getFieldValue</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Field</font><font color="#ff00cc">-</font><font color="#ff00cc">2</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>.<font color="#9966ff">asString</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>.<font color="#9966ff">trim</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  38 </font></span>                        <font color="#000000"><strong>+</strong></font> <font color="#ff00cc">&quot;</font><font color="#6600cc">\t</font><font color="#ff00cc"> </font><font color="#ff00cc">&quot;</font> <font color="#000000"><strong>+</strong></font> line.<font color="#9966ff">getFieldValue</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Field</font><font color="#ff00cc">-</font><font color="#ff00cc">3</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>.<font color="#9966ff">asString</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>.<font color="#9966ff">trim</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>        
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  39 </font></span>                <font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">  40 </font></span>            <font color="#000000"><strong>}</strong></font> <font color="#006699"><strong>else</strong></font> <font color="#000000"><strong>{</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  41 </font></span>                System.out.<font color="#9966ff">println</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  42 </font></span>                System.out.<font color="#9966ff">println</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Trailer</font><font color="#ff00cc"> </font><font color="#ff00cc">Count</font><font color="#ff00cc">:</font><font color="#ff00cc"> </font><font color="#ff00cc">&quot;</font> <font color="#000000"><strong>+</strong></font> line.<font color="#9966ff">getFieldValue</font><font color="#000000"><strong>(</strong></font><font color="#ff00cc">&quot;</font><font color="#ff00cc">Record</font><font color="#ff00cc">-</font><font color="#ff00cc">Count</font><font color="#ff00cc">&quot;</font><font color="#000000"><strong>)</strong></font>.<font color="#9966ff">asString</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  43 </font></span>            <font color="#000000"><strong>}</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  44 </font></span>        <font color="#000000"><strong>}</strong></font>
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#990066">  45 </font></span>        
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  46 </font></span>        r.<font color="#9966ff">close</font><font color="#000000"><strong>(</strong></font><font color="#000000"><strong>)</strong></font>;
+<span style="background:#dbdbdb; border-right:solid 2px black; margin-right:5px; "><font color="#000000">  47 </font></span>
+</font></pre>
+

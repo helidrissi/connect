@@ -1,0 +1,7 @@
+ftp -i -v -n 192.63.63.3 << !
+user root misibm
+binary
+passive
+put /SAUVE/SVG.gz /RV/SVG.gz
+quit
+!!

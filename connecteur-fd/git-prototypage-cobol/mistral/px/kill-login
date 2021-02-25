@@ -1,0 +1,6 @@
+ps -ef |grep slogin|awk '{ print $2}' | while read TACHE
+    do
+        kill -9 $TACHE
+        echo "Kill du process runcbl $TACHE"
+
+    done

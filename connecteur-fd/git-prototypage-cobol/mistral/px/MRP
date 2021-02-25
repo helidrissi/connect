@@ -1,0 +1,15 @@
+export TERM=aixterm-m
+echo ">> Mise à Jour Répertoire Programmes et Menus personnalisés <<"
+cd /acu/mistral
+cp fpmx/ELICEN* f/
+cp fpmx/LLICEN* f/
+cp fpmx/TBLPERM* f/
+cp fpmx/LOGICI* f/
+cp fpmx/MAJPRGMIS* f/
+cp fpmx/MENU* fmenu/
+cd /acu/mistral/o
+/usr/acucobol62/bin/runcbl -c /acu/mistral/cfg/cblconfig /acu/mistral/o/mrp.acu
+cd /acu/mistral
+cp cfg/acurcl.ini cfg/acurcl.ini.old
+cp f/acurcl.ini cfg/acurcl.ini
+echo ">> Traitement terminé <<"

@@ -1,0 +1,94 @@
+clear
+ENV="/acuf"
+export ENV
+echo "       PROCEDURE DE CREATION DU JEU D' ESSAI VIDE "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- "
+echo "\n"
+echo "Environnement ($ENV): \c"
+read DIR2
+nbrc=`expr "$DIR2" : '.*'`
+case $nbrc in
+     0) DIR2=$ENV ;;
+esac
+echo $DIR2
+if [ ! -d $DIR2/palme ]
+   then echo "\n      Environnement INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ ! -d $DIR2 ]
+   then echo "\n"
+   echo "Procédure non Réalisable \c"
+   read ok
+   exit
+fi
+echo "Confirmez-vous (Taper 'OUI' Pour confirmer) \c"
+read OK
+if [ $OK != "OUI" ]
+    then
+    echo "\n"
+    echo " Procédure Non Réalisée - Taper Entrée \c "
+    read ok
+    exit
+fi
+NUMSOC=0001
+SOC=$NUMSOC
+   echo "\n"
+   echo "No de Société à créer dans le jeu d'essai ($NUMSOC): \c"
+   SOC=`/acu/mistral/px/ACCNUMERO`
+if [ ! -d $DIR2/mx$SOC ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ -d $DIR2/E ]
+   then echo "\n"
+   echo "Procédure Déjà Réalisée : Non Réalisable \c"
+   read ok
+   exit
+fi
+echo "\n"
+echo " Traitement en Cours - Veuillez Patienter "
+echo "     .Création de l'environnement"
+cd $DIR2
+mkdir E
+cd E
+mkdir mx$SOC mx$SOC/f mx$SOC/ft mx$SOC/fx
+mkdir cx$SOC cx$SOC/f cx$SOC/ft cx$SOC/fx
+mkdir mxg mxg/f mxg/ft
+mkdir cxg cxg/f cxg/ft
+ln -s /acu/cx/fg     cxg/fg
+if [ -d /acu/cx/fA ]
+   then ln -s /acu/cx/fA cxg/fA
+fi
+ln -s /acu/mx/fg     mxg/fg
+
+ln -s /acu/mistral   mistral
+# mkdir mistral mistral/f mistral/ft mistral/ferr mistral/fjbu
+# ln -s /acu/mistral/COBCAP mistral/COBCAP
+# ln -s /acu/mistral/fpmx mistral/fpmx
+# ln -s /acu/mistral/fg   mistral/fg
+# ln -s /acu/mistral/java mistral/java
+
+ln -s /acuf/palme    palme
+# mkdir palme palme/f palme/ft
+
+if [ -d $DIR2/mx$SOC/fseq ]
+   then ln -s $DIR2/mx$SOC/fseq mx$SOC/fseq
+fi
+if [ -d $DIR2/mx$SOC/fubi ]
+   then ln -s $DIR2/mx$SOC/fubi mx$SOC/fubi
+fi
+if [ -d $DIR2/mx$SOC/fta ]
+   then ln -s $DIR2/mx$SOC/fta mx$SOC/fta
+fi
+if [ -d $DIR2/cx$SOC/fseq ]
+   then ln -s $DIR2/cx$SOC/fseq cx$SOC/fseq
+fi
+if [ -d $DIR2/pex ]
+   then echo "     .Création de l'environnement / PAIE"
+        mkdir pex pex/f pex/ft
+        ln -s /acu/pex/fg pex/fg
+fi
+echo "\n"
+echo "Procédure Terminée "

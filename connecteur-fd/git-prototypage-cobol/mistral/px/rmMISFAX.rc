@@ -1,0 +1,4 @@
+\rm /Xmistral/tmp/*  2>>/dev/null
+\rm /acuf/soffice/tmp/* 2>>/dev/null
+\rm /Xmistral/BUREAU/ARCHIVES/IMAGES/*.ppm 2>>/dev/null
+\rm /Xmistral/mx/fax/out/*.pdf 2>>/dev/null

@@ -1,0 +1,6 @@
+       SELECT INTSEL
+           ASSIGN       TO  ASSIGN-INT
+           ORGANIZATION IS RELATIVE
+           ACCESS MODE  IS DYNAMIC
+           RELATIVE KEY IS W-INT
+           FILE STATUS  IS FILE-STATUS.

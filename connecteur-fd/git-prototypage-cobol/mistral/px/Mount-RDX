@@ -1,0 +1,1 @@
+mount -V jfs2 -o log=/dev/usbms0 /dev/usbms0 /rdxaix

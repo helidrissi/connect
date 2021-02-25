@@ -1,0 +1,197 @@
+      *(( XFD FILE = MXPARDIS ))
+       FD  MXPARDIS
+           LABEL RECORD IS STANDARD.
+       01 ENR-MPAD.
+
+      *(( XFD COMMENT Abrégé activité ))
+           02 ABR-MPAD         PIC  X(6).
+
+      *(( XFD COMMENT Seuil HT factures pour paiement minimum ))
+           02 SFP-MPAD         PIC  9(4).
+
+      *(( XFD COMMENT Montant minimum traites ))
+           02 MMT-MPAD         PIC  9(4).
+
+      *(( XFD COMMENT Mode de paiement imposé ))
+           02 MPI-MPAD         PIC  99.
+
+      *(( XFD COMMENT Code échéance imposé ))
+           02 ECI-MPAD         PIC  9.
+
+      *(( XFD COMMENT Code terme imposé ))
+           02 TEI-MPAD         PIC  9.
+
+      *(( XFD COMMENT Montant frais de facturation inconditionnels ))
+           02 FIF-MPAD         PIC  99V99.
+
+      *(( XFD COMMENT Seul HT frais de facturation conditionnels ))
+           02 SFF-MPAD         PIC  9(5).
+
+      *(( XFD COMMENT Montant frais de facturation conditionnels ))
+           02 FFF-MPAD         PIC  99V99.
+
+      *(( XFD COMMENT Taux de TVA frais de facturation ))
+           02 TFF-MPAD         PIC  9.
+
+      *(( XFD COMMENT FF sur avoirs: 0=non 1=négatifs 2=positifs ))
+           02 IFN-MPAD         PIC  9.
+
+      *(( XFD COMMENT Application FF sur factures: 0=inférieures au seuil 1=supérieures ))
+           02 CFF-MPAD         PIC  9.
+
+      *(( XFD COMMENT FF sur factures: 0=toutes 1=copropriétés ))
+           02 PFF-MPAD         PIC  9.
+
+      *(( XFD COMMENT Taux d'escompte factures comptant ))
+           02 EFC-MPAD         PIC  99V99.
+
+      *(( XFD COMMENT Affectation pièces par marque et type ))
+           02 APM-MPAD         PIC  9.
+
+      *(( XFD COMMENT Base commissions vendeurs (0=pas de commission 1=CA net 2=CA pondéré ))
+           02 BCO-MPAD         PIC  9.
+
+      *(( XFD COMMENT Bonus affaire nouvelle (0=non 1=% majoration 2=montant fixe ))
+           02 BAC-MPAD         PIC  9.
+
+      *(( XFD COMMENT % majoration ))
+           02 PAC-MPAD         PIC  99V99.
+
+      *(( XFD COMMENT Montant majoration ))
+           02 MAC-MPAD         PIC  9(5).
+
+      *(( XFD COMMENT Application bonus sur articles (1=oui 2=non ))
+           02 LAC-MPAD         PIC  9.
+
+      *(( XFD COMMENT Application bonus sur prestations (1=oui 2=non ))
+           02 LPC-MPAD         PIC  9.
+
+      *(( XFD COMMENT Vendeur SBD (0=CLI 1=CLI ou preneur d'ordre 2=preneur d'ordre ))
+           02 IEE-MPAD         PIC  9.
+
+      *(( XFD COMMENT TVA :1=débit 2=encaissement ))
+           02 TVD-MPAD         PIC  9.
+
+      *(( XFD COMMENT Taux de TVA sur le port ))
+           02 TPD-MPAD         PIC  9.
+
+      *(( XFD COMMENT Gestion niveau de commandes ))
+           02 GMT-MPAD         PIC  9.
+
+      *(( XFD COMMENT Abrégé niveau commande 1 ))
+           02 AB0-MPAD         PIC  X.
+
+      *(( XFD COMMENT Abrégé niveau commande 2 ))
+           02 AB1-MPAD         PIC  X.
+
+      *(( XFD COMMENT Abrégé niveau commande 3 ))
+           02 AB2-MPAD         PIC  X.
+
+      *(( XFD COMMENT Libellé niveau commande 1 ))
+           02 LC0-MPAD         PIC  X(12).
+
+      *(( XFD COMMENT Libellé niveau commande 2 ))
+           02 LC1-MPAD         PIC  X(12).
+
+      *(( XFD COMMENT Libellé niveau commande 3 ))
+           02 LC2-MPAD         PIC  X(12).
+
+      *(( XFD COMMENT Commisionnement (0=sans 1=sur CA / CA 2=sur CA/marge 3=sur marge/marge ))
+           02 TCD-MPAD         PIC  9.
+
+      *(( XFD COMMENT Seuil CA 1 ))
+           02 DC1-MPAD         PIC  9(7).
+
+      *(( XFD COMMENT Seuil CA 2 ))
+           02 DC2-MPAD         PIC  9(7).
+
+      *(( XFD COMMENT Seuil marge 1 ))
+           02 DM1-MPAD         PIC  99V99.
+
+      *(( XFD COMMENT Seuil marge 2 ))
+           02 DM2-MPAD         PIC  99V99.
+
+      *(( XFD COMMENT Mode paiement autorisé clients divers ))
+           02 FILLER           PIC  X(10).
+
+      *(( XFD COMMENT Ventilation CA selon niveau (0=non 1=art 2=art+presta (non utilisé ))
+           02 VCC-MPAD         PIC  9.
+
+      *(( XFD COMMENT Appartenance client/agence (1=oui ))
+           02 BCA-MPAD         PIC  9.
+
+      *(( XFD COMMENT Seuil 1 commande/remise complémentaire ))
+           02 MNR-MPAD         PIC  9(6).
+
+      *(( XFD COMMENT Seuil 2 commande/remise complémentaire ))
+           02 MXR-MPAD         PIC  9(6).
+
+      *(( XFD COMMENT Seuil 3 commande/remise complémentaire ))
+           02 MXR2-MPAD        PIC  9(6).
+
+      *(( XFD COMMENT Minimum facturation ))
+           02 MFA-MPAD         PIC  999.
+
+      *(( XFD COMMENT Délai maximum attente facturation ))
+           02 NMM-MPAD         PIC  9.
+
+      *(( XFD COMMENT Controle clients RAS: 0=non 1=solde comptable 2=risque cpt 3=risque total ))
+           02 RCN-MPAD         PIC  9.
+
+      *(( XFD COMMENT Controle clients à surv.: 0=non 1=solde comptable 2=risque cpt 3=risque total ))
+           02 RCR-MPAD         PIC  9.
+
+      *(( XFD COMMENT Risque: 0=toutes activités 1=hors vte mat ))
+           02 RHM-MPAD         PIC  9.
+
+      *(( XFD COMMENT Expédition multi-sites (1=oui ))
+           02 EXM-MPAD         PIC  9.
+
+      *(( XFD COMMENT Base globale répartition marge agents ))
+           02 BGM-MPAD         PIC  999.
+
+      *(( XFD COMMENT Base concessionnaires répartition marge agents ))
+           02 PMC-MPAD         PIC  99.
+
+      *(( XFD COMMENT Base agents répartition marge agents ))
+           02 PMA-MPAD         PIC  99.
+
+      *(( XFD COMMENT Mimimum marge pour PV calculé avec marge pondérée ))
+           02 MPM-MPAD         PIC  99.
+
+      *(( XFD COMMENT Mise en attente facture/référence ))
+           02 IRG-MPAD         PIC  9.
+
+      *(( XFD COMMENT Type de commande par défaut ))
+           02 TCC-MPAD         PIC  X.
+
+      *(( XFD COMMENT Type de commande par défaut Webtop ))
+           02 TCCW-MPAD        PIC  X.
+
+      *(( XFD COMMENT Niveau de commande par défaut : 0 ))
+           02 NCD-MPAD         PIC  9.
+
+      *(( XFD COMMENT Calcul date prévue de livraison avec délai de livraison fournisseur ))
+           02 DEF-MPAD         PIC  9.
+
+      *(( XFD COMMENT Abrégé niveau commande 4 ))
+           02 AB3-MPAD         PIC  X.
+
+      *(( XFD COMMENT Libellé niveau commande 4 ))
+           02 LC3-MPAD         PIC  X(12).
+
+      *(( XFD COMMENT Sortie du stock central de la société d'appartenance de la pièce par défaut ))
+           02 SSAP-MPAD        PIC  9.
+
+      *(( XFD COMMENT Génération vente inter-agence si sortie du stock d'une aitre sté comptable ))
+           02 GVIA-MPAD        PIC  9.
+
+      *(( XFD COMMENT Taux de TVA sur acomptes ))
+           02 TVC-MPAD         PIC  9.
+
+      *(( XFD COMMENT Gestion livraisons complètes avec transfert dépôt ))
+           02 LIVC-MPAD        PIC  9.
+
+      *(( XFD COMMENT Génération paiement immédiat dans API / acompte WEB ))
+           02 GPIW-MPAD        PIC  9.
+           02 FILLER           PIC  X(69).

@@ -1,0 +1,4 @@
+      *(( XFD FILE = TEST-REL ))
+       FD  TEST-REL.
+       01 ENR-TR.
+           05 FIELD1-TR        PIC  X(10).

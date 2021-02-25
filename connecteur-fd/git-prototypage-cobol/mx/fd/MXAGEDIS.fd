@@ -1,0 +1,181 @@
+      *(( XFD FILE = AGEDIS ))
+       FD  MXAGEDIS
+           LABEL RECORD IS STANDARD.
+       01 ENR-MAGD.
+           02 CLE1-MAGD.
+      *(( XFD NAME = CODE_AGENCE ))
+      *(( XFD COMMENT Code agence ))
+               04 COD-MAGD         PIC  XXX.
+      *(( XFD NAME = DER_NO_BON ))
+      *(( XFD COMMENT Dernier n° Bon ))
+           02 BON-MAGD         PIC  9(8).
+      *(( XFD NAME = DER_NO_FACT_MOIS ))
+      *(( XFD COMMENT Dernier n° facture mois ))
+           02 FAC-MAGD         PIC  9(6)
+                      OCCURS 12 TIMES.
+      *(( XFD NAME = CODE_JAL_VENTE ))
+      *(( XFD COMMENT N° journal vente ))
+           02 JOU-MAGD         PIC  XXXX.
+      *(( XFD NAME = CODE_JAL_CAISSE ))
+      *(( XFD COMMENT N° journal caisse ))
+           02 JOC-MAGD         PIC  XXXX.
+      *(( XFD NAME = CODE_JAL_OD ))
+      *(( XFD COMMENT N° journal OD ))
+           02 JOD-MAGD         PIC  XXXX.
+      *(( XFD NAME = NO_CPT_PORT_SOUMIS ))
+      *(( XFD COMMENT N° compte port soumis ))
+           02 CPOS-MAGD        PIC  9(8).
+      *(( XFD NAME = NO_CPT_PORT_EXO ))
+      *(( XFD COMMENT N° compte port exonéré ))
+           02 CPOE-MAGD        PIC  9(8).
+      *(( XFD NAME = NO_CPT_FRAIS_FAC_S ))
+      *(( XFD COMMENT N° compte frais de facturation soumis ))
+           02 CFFS-MAGD        PIC  9(8).
+      *(( XFD NAME = NO_CPT_FRAIS_FAC_E ))
+      *(( XFD COMMENT N° compte frais de facturation exonéré ))
+           02 CFFE-MAGD        PIC  9(8).
+      *(( XFD NAME = NO_CPT_ESCPT_SOUMI ))
+      *(( XFD COMMENT N° compte escompte soumis ))
+           02 CESS-MAGD        PIC  9(8).
+      *(( XFD NAME = NO_CPT_ESCPT_EXO ))
+      *(( XFD COMMENT N° compte escompte exonéré ))
+           02 CESE-MAGD        PIC  9(8).
+
+      *(( XFD COMMENT N° compte TVA ))
+           02 CTV-MAGD         PIC  9(8).
+
+      *(( XFD COMMENT N° compte attente ))
+           02 CATT-MAGD        PIC  9(8).
+
+      *(( XFD COMMENT N° compte écart centimes ))
+           02 CEC-MAGD         PIC  9(8).
+
+      *(( XFD COMMENT N° compte vente en rétrocession ))
+           02 CVR-MAGD         PIC  9(8).
+
+      *(( XFD COMMENT N° compte caisse ))
+           02 CAI-MAGD         PIC  9(8).
+
+      *(( XFD COMMENT N° compte chèque à encaisser ))
+           02 CHQ-MAGD         PIC  9(8).
+
+      *(( XFD COMMENT N° compte carte bancaire 1 ))
+           02 CBL-MAGD         PIC  9(8).
+
+      *(( XFD COMMENT N° compte carte bancaire 2 ))
+           02 CBL2-MAGD        PIC  9(8).
+
+      *(( XFD COMMENT Plafond port par BL si traitement port = 3 ))
+           02 PLF-MAGD         PIC  999.
+
+      *(( XFD COMMENT Type vente centrale par défaut ))
+           02 VCE-MAGD         PIC  9.
+
+      *(( XFD COMMENT Niveau commande Web ))
+           02 ACA-MAGD         PIC  9.
+
+      *(( XFD COMMENT Gestion marge en temps réel: 1=oui 0=non ))
+           02 FILLER-GTM-MAGD  PIC  9.
+
+      *(( XFD COMMENT Affichage marge en saise BL: 1=oui 0=non ))
+           02 AMB-MAGD         PIC  9.
+
+      *(( XFD COMMENT Message dépassement mini ))
+           02 MMN-MAGD         PIC  X(12).
+
+      *(( XFD COMMENT Message dépassement maxi ))
+           02 MMX-MAGD         PIC  X(12).
+
+      *(( XFD COMMENT Message dépassement plancher ))
+           02 MPL-MAGD         PIC  X(12).
+
+      *(( XFD COMMENT Niveau affichage marge: 1=ligne 2=total 3=ligne+total ))
+           02 NAM-MAGD         PIC  9.
+
+      *(( XFD COMMENT Blocage si inférieur à plancher: 0=non 1=facture 2=BL + facture ))
+           02 CBP-MAGD         PIC  9.
+
+      *(( XFD COMMENT Mot de passe/blocage ))
+           02 MDP-MAGD         PIC  XXX.
+
+      *(( XFD COMMENT Pourcentage majoration sur commande de dépannage ))
+           02 PMA-MAGD         PIC  99V9.
+
+      *(( XFD COMMENT Majoration minimum ))
+           02 AMN-MAGD         PIC  999.
+
+      *(( XFD COMMENT Majoration maximum ))
+           02 AMX-MAGD         PIC  999.
+
+      *(( XFD COMMENT % minoration commande de stock ))
+           02 PMI-MAGD         PIC  99V99.
+
+      *(( XFD COMMENT Niveau traitement du port: 0=manuel 1=%/facture 2=forfait/facture 3=%/BL 4=saisie transporteur/BL ))
+           02 NTP-MAGD         PIC  9.
+
+      *(( XFD COMMENT % ou forfait port ))
+           02 FOP-MAGD         PIC  9(4)V99.
+
+      *(( XFD COMMENT Libellé port sur facture ))
+           02 LIP-MAGD         PIC  X(5).
+
+      *(( XFD COMMENT Délai standard livraison devis ))
+           02 DEL-MAGD         PIC  99.
+
+      *(( XFD COMMENT Validité standard devis ))
+           02 VAO-MAGD         PIC  99.
+
+      *(( XFD COMMENT Ecart autorisé/paiement immédiat ))
+           02 ECA-MAGD         PIC  99V99.
+
+      *(( XFD COMMENT N° client/factures comptoir ))
+           02 CLD-MAGD         PIC  9(6).
+
+      *(( XFD COMMENT N° client divers/factures comptoir ))
+           02 CDV-MAGD         PIC  9(6).
+
+      *(( XFD COMMENT Régime TVA= 0=idem PGX 1=Débits 2=Encaissements ))
+           02 RTVA-MAGD        PIC  9.
+           02 GFW-MAGD.
+
+      *(( XFD COMMENT Famille article vente centrale par défaut ))
+               04 GRW-MAGD         PIC  99.
+
+      *(( XFD COMMENT Sous-famille article vente centrale par défaut ))
+               04 FAW-MAGD         PIC  99.
+           02 CAC-MAGD         PIC  9(8).
+           02 JAC-MAGD         PIC  X(4).
+
+      *(( XFD COMMENT Controle marges inter-agences: 0=standard 1=par rapport à 0 ))
+           02 MIA-MAGD         PIC  9.
+
+      *(( XFD COMMENT Blocage bon si marge d"une ligne est incorrecte ))
+           02 BML-MAGD         PIC  9.
+
+      *(( XFD COMMENT Factures à emettre ))
+           02 FAE-MAGD         PIC  9(8).
+
+      *(( XFD COMMENT Avoirs à emettre ))
+           02 AAE-MAGD         PIC  9(8).
+      *(( XFD NAME = NO_PIECE_ENCOURS ))
+      *(( XFD COMMENT Fournisseur articles occasion ))
+           02 FAO-MAGD         PIC  9(6).
+
+      *(( XFD COMMENT n° compte TVA sur marge ))
+           02 CTM-MAGD         PIC  9(8).
+
+      *(( XFD COMMENT N° caisse libre-service paiements immédiats ))
+           02 CLSD-MAGD        PIC  99.
+      *(( XFD NAME = NO_PIECE_ENCOURS ))
+      *(( XFD COMMENT N° client Webtop / Magento ))
+           02 CLW-MAGD         PIC  9(6).
+
+      *(( XFD COMMENT Taux d'escompte factures comptant ))
+           02 EFC-MAGD         PIC  99V99.
+
+      *(( XFD COMMENT Blocage impression devis et commande si marge incorrecte ))
+           02 CBD-MAGD         PIC  9.
+
+      *(( XFD COMMENT Type de commande par défaut Web ))
+           02 TCCW-MAGD        PIC  X.
+           02 FILLER           PIC  X(36).

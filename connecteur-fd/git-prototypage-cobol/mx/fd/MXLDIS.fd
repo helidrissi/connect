@@ -1,0 +1,235 @@
+      *(( XFD FILE = LDIS ))
+       FD  MXLDIS
+           LABEL RECORD IS STANDARD.
+       01 ENR-MLDI.
+           02 CLE1-MLDI.
+      *(( XFD NAME = no_agence ))
+               03 AGE-MLDI         PIC  XXX.
+      *(( XFD NAME = no_bon ))
+               03 BON-MLDI         PIC  9(8).
+      *(( XFD NAME = no_ligne ))
+               03 LIG-MLDI         PIC  9999.
+      *(( XFD NAME = no_casier ))
+           02 CAS-MLDI         PIC  X(7).
+      *(( XFD NAME = type_produit ))
+           02 INP-MLDI         PIC  X.
+      *(( XFD NAME = code_article ))
+           02 ART-MLDI         PIC  X(20).
+           02 R-ART-MLDI REDEFINES ART-MLDI.
+      *(( XFD NAME = code_prestation ))
+               03 PRE-MLDI         PIC  X(4).
+      *(( XFD NAME = vide ))
+               03 BID-MLDI         PIC  X(16).
+           02 R1-ART-MLDI REDEFINES ART-MLDI.
+      *(( XFD NAME = code_article1 ))
+               03 AR1-MLDI         PIC  X(4).
+      *(( XFD NAME = code_article2 ))
+               03 AR2-MLDI         PIC  X(16).
+      *(( XFD NAME = rang ))
+           02 RAN-MLDI         PIC  9999.
+           02 COM1-MLDI.
+      *(( XFD NAME = designation ))
+               03 DES-MLDI         PIC  X(40).
+      *(( XFD NAME = designation2 ))
+               03 DE2-MLDI         PIC  X(20).
+           02 R2-COM1-MLDI REDEFINES COM1-MLDI.
+      *(( XFD NAME = designationp ))
+               03 LPR-MLDI         PIC  X(35).
+               03 FILLER           PIC  X(25).
+      *(( XFD NAME = quantite ))
+           02 QTE-MLDI         PIC  S9(6)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = quantite_cde ))
+      *(( XFD COMMENT Délais (SRM) ))
+           02 QTC-MLDI         PIC  S9(6)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = regul ))
+           02 ISQ-MLDI         PIC  9.
+      *(( XFD NAME = pu_brut ))
+           02 PUB-MLDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = remise ))
+           02 REM-MLDI         PIC  S99V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = remise_cascade ))
+           02 REC-MLDI         PIC  99V99
+                      OCCURS 6 TIMES.
+      *(( XFD NAME = remise_comp ))
+           02 REMC-MLDI        PIC  S99V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = pu_net ))
+           02 PUN-MLDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = prix_revient ))
+           02 PRU-MLDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = prix_achat ))
+           02 PAC-MLDI         PIC  S9(7)V99
+                      SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = indic_gratuit ))
+           02 PZE-MLDI         PIC  9.
+      *(( XFD NAME = famille_art ))
+           02 GRA-MLDI         PIC  99.
+      *(( XFD NAME = ss_famille_art ))
+           02 FAM-MLDI         PIC  99.
+      *(( XFD NAME = indic_edition ))
+           02 EDI-MLDI         PIC  9.
+      *(( XFD NAME = type_ligne ))
+      *(( XFD COMMENT 1=Ligne Livrée ou ligne devis   3=En commande ))
+           02 TLI-MLDI         PIC  9.
+      *(( XFD NAME = type_cde_cli ))
+           02 TCC-MLDI         PIC  X.
+      *(( XFD NAME = indic_promotion ))
+           02 PRO-MLDI         PIC  9.
+      *(( XFD NAME = indic_ligne_cdee ))
+      *(( XFD COMMENT Indicateur ligne d'abord commandée ))
+           02 ILC-MLDI         PIC  9.
+      *(( XFD NAME = indic_compo ))
+      *(( XFD COMMENT Indicateur composition: 0=Sans compo 1=Avec composition ))
+           02 INO-MLDI         PIC  9.
+      *(( XFD NAME = type_cde_fou ))
+           02 TCF-MLDI         PIC  X.
+      *(( XFD NAME = no_ligne_cde_fou ))
+           02 LCF-MLDI         PIC  9999.
+      *(( XFD NAME = no_ligne_bl_fou ))
+           02 LLF-MLDI         PIC  9999.
+      *(( XFD NAME = edition_compo_bl ))
+           02 EDB-MLDI         PIC  9.
+      *(( XFD NAME = edition_compo_fac ))
+           02 EDF-MLDI         PIC  9.
+      *(( XFD NAME = code_vte_manquee ))
+           02 CVM-MLDI         PIC  9.
+           02 R-CVM-MLDI REDEFINES CVM-MLDI.
+
+      *(( XFD COMMENT Indicateur impression étiquette d'emballage: 0=non édité  1=édité ))
+               04 ETI-MLDI         PIC  9.
+      *(( XFD NAME = libelle_gratuit ))
+           02 LPZ-MLDI         PIC  X(10).
+      *(( XFD NAME = marque_mat ))
+           02 MAM-MLDI         PIC  XXXX.
+      *(( XFD NAME = type_mat ))
+           02 TYM-MLDI         PIC  X(16).
+      *(( XFD NAME = date_liv_prevue ))
+           02 DLP-MLDI         PIC  9(8).
+           02 R-DLP-MLDI REDEFINES DLP-MLDI.
+               03 SADLP-MLDI       PIC  9999.
+               03 R-SADLP-MLDI REDEFINES SADLP-MLDI.
+                   04 SDLP-MLDI        PIC  99.
+                   04 ADLP-MLDI        PIC  99.
+               03 MDLP-MLDI        PIC  99.
+               03 JDLP-MLDI        PIC  99.
+      *(( XFD NAME = date_sortie_pieces ))
+           02 DSP-MLDI         PIC  9(8).
+           02 R-DSP-MLDI REDEFINES DSP-MLDI.
+               03 SDSP-MLDI        PIC  99.
+               03 ADSP-MLDI        PIC  99.
+               03 MDSP-MLDI        PIC  99.
+               03 JDSP-MLDI        PIC  99.
+      *(( XFD NAME = indic_gie ))
+           02 IGA-MLDI         PIC  9.
+      *(( XFD NAME = type_gie ))
+           02 TGA-MLDI         PIC  9.
+      *(( XFD NAME = indic_gie_pieces ))
+           02 INGP-MLDI        PIC  9.
+      *(( XFD NAME = duree_gie_pieces ))
+           02 DUGP-MLDI        PIC  999.
+      *(( XFD NAME = indic_gie_mo ))
+           02 INGM-MLDI        PIC  9.
+      *(( XFD NAME = duree_gie_mo ))
+           02 DUGM-MLDI        PIC  999.
+      *(( XFD NAME = indic_gie_divers ))
+           02 INGD-MLDI        PIC  9.
+      *(( XFD NAME = duree_gie_divers ))
+           02 DUGD-MLDI        PIC  999.
+      *(( XFD NAME = indic_debut_gie ))
+           02 IDG-MLDI         PIC  9.
+      *(( XFD NAME = date_debut_gie ))
+           02 DDG-MLDI         PIC  9(8).
+           02 R-DDG-MLDI REDEFINES DDG-MLDI.
+               04 SDDG-MLDI        PIC  99.
+               04 ADDG-MLDI        PIC  99.
+               04 MDDG-MLDI        PIC  99.
+               04 JDDG-MLDI        PIC  99.
+      *(( XFD NAME = no_depot ))
+           02 DEP-MLDI         PIC  999.
+      *(( XFD NAME = no_agence_sortie ))
+           02 AGS-MLDI         PIC  XXX.
+      *(( XFD NAME = motif_manque ))
+           02 MOT-MLDI         PIC  X(15).
+           02 R-MOT-MLDI REDEFINES MOT-MLDI.
+
+      *(( XFD COMMENT Prix TTC WEB pour Agrizone ))
+               05 PTTC-MLDI        PIC  S9(12)V99.
+           02 R1-MOT-MLDI REDEFINES MOT-MLDI.
+
+      *(( XFD COMMENT Délais (SRM) ))
+               05 DELD-MLDI        PIC  9(3)
+                          OCCURS 5 TIMES.
+      *(( XFD NAME = no_fournisseur ))
+           02 FOU-MLDI         PIC  9(6).
+      *(( XFD NAME = indic_catalogue_fo ))
+           02 ICF-MLDI         PIC  9.
+      *(( XFD NAME = bp_imprime ))
+           02 EPG-MLDI         PIC  9.
+      *(( XFD NAME = sorte_exceptionnel ))
+           02 EXC-MLDI         PIC  9.
+      *(( XFD NAME = no_hiscdd ))
+           02 HCD-MLDI         PIC  9(8).
+      *(( XFD NAME = no_hisdvd ))
+           02 HDD-MLDI         PIC  9(8).
+      *(( XFD NAME = no_reserv ))
+           02 REV-MLDI         PIC  9(6).
+      *(( XFD NAME = no_vmanque ))
+           02 VMQ-MLDI         PIC  9(6).
+      *(( XFD NAME = date_commande ))
+           02 DCO-MLDI         PIC  9(8).
+
+      *(( XFD COMMENT Date de commande ))
+           02 R-DCO-MLDI REDEFINES DCO-MLDI.
+               04 SDCO-MLDI        PIC  99.
+               04 ADCO-MLDI        PIC  99.
+               04 MDCO-MLDI        PIC  99.
+               04 JDCO-MLDI        PIC  99.
+      *(( XFD NAME = no_histo_ventes ))
+           02 HIV-MLDI         PIC  9(9).
+      *(( XFD NAME = no_histo_achats ))
+           02 HIA-MLDI         PIC  9(9).
+      *(( XFD NAME = no_agence_achat ))
+           02 AGET-MLDI        PIC  X(3).
+      *(( XFD NAME = no_ligne_transfert ))
+      *(( XFD COMMENT N° ligne bon de transfert (TSV) si nter-agence avec gestion stock relais ))
+           02 TAA-MLDI         PIC  9(4).
+      *(( XFD NAME = indic_abandon ))
+      *(( XFD COMMENT Indicateur ligne devis 1=abandonnée 2=gagnée ))
+           02 IAD-MLDI         PIC  9.
+      *(( XFD NAME = indic_reprise ))
+      *(( XFD COMMENT Indic reprise petit matériel ))
+           02 IRPM-MLDI        PIC  9.
+      *(( XFD NAME = tva_marge ))
+      *(( XFD COMMENT Indic TVA sur la marge ))
+           02 ITM-MLDI         PIC  9.
+      *(( XFD NAME = reprise_ht ))
+      *(( XFD COMMENT Indic reprise HT ou TTC ))
+           02 IRE-MLDI         PIC  9.
+      *(( XFD NAME = type_livraison ))
+      *(( XFD COMMENT Type livraison 1=sur stock 2=direct client 3=via stock central - M3 ))
+           02 TBP-MLDI         PIC  9.
+      *(( XFD NAME = no_bl_intersoc ))
+      *(( XFD COMMENT N° BL inter-agence généré en efd-genbdi ))
+           02 BLI-MLDI         PIC  9(8).
+      *(( XFD NAME = pn_modifie ))
+      *(( XFD COMMENT Indicateur prix net modifié ))
+           02 IPNS-MLDI        PIC  9.
+      *(( XFD NAME = pa_ou_ptf ))
+      *(( XFD COMMENT Indicateur prix saisi article divers 0=PTF 1=PA Net ))
+           02 IPAC-MLDI        PIC  9.
+      *(( XFD NAME = taux_tva ))
+      *(( XFD COMMENT Taux de TVA pour Agrizone ))
+           02 TTVA-MLDI        PIC  9.
+      *(( XFD NAME = no_lig_transaction ))
+      *(( XFD COMMENT N° Ligne transaction pour Agrizone ))
+           02 NTR-MLDI         PIC  X(4).
+      *(( XFD NAME = indic_cde_complete ))
+      *(( XFD COMMENT Indicateur commande complète GCU ))
+           02 ICOC-MLDI        PIC  9.
+           02 FILLER           PIC  X(2).

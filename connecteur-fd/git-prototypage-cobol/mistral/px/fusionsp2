@@ -1,0 +1,36 @@
+# Fusion sans impression pour ensuite concaténer le fichier pour impression sécurisée
+
+# $1  = Nom du fichier Postscript en entree
+# $2  = Nom du fichier a fusionner pour le verso
+# $3  = Nom de la file d'attente
+# $4  = Nom du fichier de traitement sed
+echo $1 >>/tmp/SED
+echo $2 >>/tmp/SED
+echo $3 >>/tmp/SED
+echo $4 >>/tmp/SED
+# ajout 31/07/2015
+export LIBPATH=""
+NbrPages=`egrep "\%\%Pages\:" $1 |grep -v atend |cut -f 2 -d :` 
+# ajout NC 09/07/13 pour contrats Fenwick
+if [ -z "$NbrPages" ]
+then NbrPages=1
+fi
+#
+NomFic=`echo $1 |cut -f 1 -d .`
+OUT=out
+IMP=imp
+TMP=tmp
+T1=1
+page=0
+while [ "$NbrPages" -gt "$page"  ]
+do
+        page=`expr $page + 1`
+        psselect -p$page $1 $NomFic$OUT$page.ps 
+       
+       gs -dNOPAUSE -dBATCH -sDEVICE=pswrite -sOutputFile=$NomFic$IMP$page.ps $NomFic$OUT$page.ps $2
+       sed -f $4 $NomFic$IMP$page.ps > $3
+
+       rm $NomFic$OUT$page.ps
+       rm $NomFic$IMP$page.ps
+done
+

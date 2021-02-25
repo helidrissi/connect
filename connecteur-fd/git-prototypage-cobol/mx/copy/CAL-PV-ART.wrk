@@ -1,0 +1,31 @@
+      * Zones utilisées par la mise à jour du prix
+      * en saisie de BL
+       01 CAL-PV-ART.
+      * Si article référencé
+           05 CAL-PV-PAMP  PIC S9(9)V99.
+           05 CAL-PV-PAC   PIC S9(9)V99.
+           05 CAL-PV-MARG  PIC S9(9)V99.
+           05 CAL-PV-POU1  PIC S9(9)V99.
+           05 CAL-PV-POU   PIC S9(9). | volontairement pas de décimales
+           05 CAL-PV-Z     PIC 9(5).
+      * Si catalogue fournisseur
+           05 CAL-PV-FOU   PIC 9(6).
+           05 CAL-PV-REF   PIC X(21).
+           05 CAL-PV-PTF   PIC S9(9)V99.
+           05 CAL-PV-PTFS  PIC S9(9)V99.
+           05 CAL-PV-GRI   PIC 9.
+           05 CAL-PV-RFO   PIC 9.
+           05 CAL-PV-OPEN  PIC 9.
+           05 CAL-PV-COE   PIC 99V999.
+           05 CAL-PV-REM0  PIC S999V999.
+           05 CAL-PV-REM1  PIC S999V999.
+           05 CAL-PV-REM2  PIC S999V999.
+           05 CAL-PV-N     PIC 9(5).
+           05 CAL-PV-TCF   PIC X.
+      * Cession interne
+           05 CAL-PV-VPC   PIC 9.
+           05 CAL-PV-CPC   PIC 9V999.
+           05 CAL-PV-EOF   PIC 9.
+           05 CAL-PV-CRF   PIC 999.
+081217     05 CAL-PV-TROUV PIC 9.
+

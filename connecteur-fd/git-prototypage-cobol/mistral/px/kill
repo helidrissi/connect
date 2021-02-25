@@ -1,0 +1,6 @@
+ps -ef -o "%p  %c " |grep runcbl|awk '{ print $1}' | while read TACHE
+    do 
+        kill -9 $TACHE
+        echo "Kill du process runcbl $TACHE" 
+
+    done

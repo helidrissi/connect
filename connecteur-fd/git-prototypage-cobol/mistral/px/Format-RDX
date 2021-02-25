@@ -1,0 +1,5 @@
+mkfs -olog=INLINE,ea=v2 -Vjfs2 /dev/usbms0 << !!    2>>/tmp/FORMAT >>/tmp/FORMAT
+oui
+y
+!!
+

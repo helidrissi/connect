@@ -1,0 +1,22 @@
+      * Linkage de MCHC-L
+       01 LK-MCHC-L.
+           05 LK-MCHC-L-NCP PIC 9(9).
+           05 LK-MCHC-L-ORD PIC 9(9).
+           05 LK-MCHC-L-RAI PIC X(25).
+      * LK-MCHC-L-TYP = 0 = titre = lieux de livraison
+      * LK-MCHC-L-TYP = 1 = titre = lieux d'utilisation
+           05 LK-MCHC-L-TYP PIC 9.
+      * Pour dire si on peut renvoyer un n° à zéro pour effacer le
+      * chantier saisi (ex: en saisie de B/L)
+           05 LK-MCHC-L-RAZ PIC 9.
+      * Pour utilisation webtop en lecture seule (valeur "X")
+           05 LK-MCHC-L-WTO PIC X.
+      * Pole d'activité
+           05 LK-MCHC-L-POL PIC XX.
+      * Cloture Pole d'activité
+           05 LK-MCHC-L-CLO PIC 9(8).
+      * Avec les prospect
+           05 LK-MCHC-L-FCP PIC 9.
+      *    Handle fenêtre appelante pour centrage fenetre multi écran
+           05 LK-MCHC-L-handle PIC 9(4).
+           05 FILLER PIC X(82).

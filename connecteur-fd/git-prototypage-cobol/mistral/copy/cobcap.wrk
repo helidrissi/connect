@@ -1,0 +1,633 @@
+
+       01 COPY-COBCAP-WRK.
+          02 W-Heading-Color  PIC 9(6) VALUE 112.
+          02 W-End-Color      PIC 9(6) VALUE 16.
+          02 W-Divider-Color  PIC 9(6) VALUE 8.
+          02 W-Heading-Divider-Color  PIC 9(6) VALUE 8.
+          02 W-Row-Low-Color   PIC 9(6) VALUE 257.
+          02 W-Row-Hight-Color PIC 9(6) VALUE 482.
+          02 W-Row-High-Color  PIC 9(6) VALUE 482.
+          02 W-Cell-Low-Color  PIC 9(6) VALUE 194.
+          02 W-Cell-High-Color PIC 9(6) VALUE 226.
+          02 W-Num-Rows        PIC 9(6) VALUE 0.
+      *-----------------------------------------------------------------
+          02  LK-NUMSOC           PIC 9999.
+          02  LK-NUMSOC2          PIC 9999.
+          02  LK-ASS-SOC1.
+              03 LK-ASS-LSOC1     PIC XX.
+              03 LK-ASS-NSOC1     PIC 9999. 
+          02  LK-ASS-SOC2.
+              03 LK-ASS-LSOC2     PIC XX.
+              03 LK-ASS-NSOC2     PIC 9999.
+          02  LK-NUMSOCMX         PIC 9999.
+          02  LK-NUMSOCMXS        PIC 9999.
+          02  LK-NUMSOCCX         PIC 9999.
+          02  LK-NUMSOCRX         PIC 9999.
+          02  COBCAP-COB          PIC X(26) 
+                                  VALUE "../../mistral/COBCAP".
+          02  ENVW-COB          PIC X(60) 
+                                  VALUE "../../mistral/f/ENVW".
+          02  W-ATD-SOC           PIC 9(4).
+          02  W-ATD-IDE           PIC X(4).
+          02  W-ATD-ENV           PIC X(30).
+          02  W-ATD-FIL           PIC X(10).  
+          02  W-ATD-SEL           PIC X(8).  
+          02 LK-ASS-SOC1S         PIC X(7).
+          02 LK-ASS-SOC2S         PIC X(7).
+      *-----------------------------------------------------------------
+          02  WCE-MAC            PIC S9(12)V99.
+          02  WCE-MCO            PIC S9(12)V99.
+          02  WCE-DEV            PIC X(3).
+          02  WCE-CRS            PIC 9(4)V9(5).
+      ****************************************************************
+      * Variables relatives a la l'assignation des Fichiers  CX & MX *
+      ****************************************************************
+          02  ZC-NOM-DIR.
+              03 CX-DIR       PIC X(25).
+              03 MX-DIR       PIC X(25).
+          02  CX-DIR2         PIC X(25).
+          02  RX-DIR          PIC X(25).
+          02  G-DIR           PIC X(25).
+          02  IMAGE-DIR       PIC X(25).
+          02  P-DIR           PIC X(25).
+          02  FTP-DIR         PIC X(25).
+          02  NOM-LOG         PIC X(15).
+          02  ZC-IND-COB      PIC 999999.
+          02  ZC-ZON-1        PIC XXX.
+          02  ZC-ZON-2        PIC X(37).
+          02  ZC-ZON-COB      PIC X(40).
+          02  ZC-DEB-COB      PIC 999999.
+      ****************************************************************
+      * Zones pour PALME                                             *
+      ****************************************************************
+          02  ZONE-PALM       PIC X(500).
+          02  ZONER-PALM REDEFINES ZONE-PALM.
+      *    ===== Zones en entree ====================================
+      *    LOG-PALM = numero d'applicatif    
+              03  LOG-PALM       PIC 9(3).
+      *    NPR-PALM = numero du programme
+              03  NPR-PALM       PIC 9(4).
+      *    ===== Zones en entree & sortie ===========================
+      *    IDE-PALM = code utilisateur
+              03  IDE-PALM       PIC X(4).
+      *    ===== Zones en sortie ====================================
+      *    PRO-PALM = code procédure
+              03  PRO-PALM       PIC X(8).
+      *    NOM-PALM = nom utilisateur
+              03  NOM-PALM       PIC X(25).
+              03  FONCTIONS-PALM.
+      *    EXEC-PALM = Execution
+                  04  EXEC-PALM      PIC X.
+      *    CREAT-PALM = Création
+                  04  CREAT-PALM     PIC X.
+      *    MODIF-PALM = Modification
+                  04  MODIF-PALM     PIC X.
+      *    INTER-PALM = Interrogation (Interro OK si Execution)
+                  04  INTER-PALM     PIC X.
+      *    ANNUL-PALM = Annulation
+                  04  ANNUL-PALM     PIC X.
+      *    IMPRIM-PALM = Impression (impression à partir autre prog)
+                  04  IMPRIM-PALM    PIC X.
+      *    FONC7-PALM = fonction 7 (non utilisée)
+                  04  FONC7-PALM     PIC X.
+      *    FONC8-PALM = fonction 8 (non utilisée)
+                  04  FONC8-PALM     PIC X.
+      *    FONC9-PALM = fonction 9 (non utilisée)
+                  04  FONC9-PALM     PIC X.
+      *    FONCA-PALM = fonction A (non utilisée)
+                  04  FONCA-PALM     PIC X.
+              03  R-FONCTIONS-PALM REDEFINES FONCTIONS-PALM.
+                  04  ELT-PALM  OCCURS 10 PIC X.
+      *    SOC-PALM = Societe affectee a l'Utilisateur
+              03  SOC-PALM       PIC 9(4).
+      *    ISO-PALM = B si Utilisateur Bloque sur cette Societe
+      *               C pour contrôler l'accès aux Societes
+      *    (SOC-PALM et ISO-PALM controle dans acces si DLRIX ou CX)
+              03  ISO-PALM       PIC X.
+      *    AGE-PALM = Agence affectee a l'Utililisateur
+              03  AGE-PALM       PIC X(3).
+      *    IAG-PALM = B si Utilisateur Bloque sur cette Agence
+      *     C pour contrôler l'accès aux Agences
+      *     A pour contrôler l'accès aux Agences (autorisées /défaut)
+              03  IAG-PALM       PIC X.
+      *===> /IAG-PALM = A ou C : ATA-PALM màj dans le contrôle d'accès
+      *
+      *    NSO-PALM = Nø de Société sélectionnée pour contrôle accès
+      *               aux sociétés ou aux agences (ISO ou IAG = C)
+      *    BSO-PALM = X si accès refusé à la société NSO
+              03  NSO-PALM       PIC 9(4).
+              03  BSO-PALM       PIC X.
+      *    TFONSO-PALM = permission par fonctions /Société (10)
+              03  TFONSO-PALM.
+                  05 TFSO-PALM  OCCURS 10 PIC X.
+      *    NAG-PALM = N° d'Agence sélectionnée pour contrôle accès
+      *               aux agences (IAG = C ou A)
+              03  NAG-PALM       PIC X(3).
+      *    BAG-PALM = X si accès refus‚ à l'agence NAG
+              03  BAG-PALM       PIC X.
+      *    NREG-PALM = N° de région à contrôler
+              03  NREG-PALM      PIC X(2).
+      *    BREG-PALM = X si accès refusé à la région
+              03  BREG-PALM      PIC X.
+      *    TFONAG-PALM = permission par fonctions /Agence (10)
+              03  TFONAG-PALM.
+                  05 TFAG-PALM  OCCURS 10 PIC X.
+      *    FONPR-PALM = Fonction du prog. (mis à jour / acces)
+      *                (1=av MàJ, 2=ss MàJ, 3=choix fonct ds le prog.)
+              03  FONPR-PALM     PIC 9.
+      *    ATA-PALM : Droit d'accès à toutes les agences, 0=Non,
+      *    1=Interrogation autorisée à toutes, 2=Saisie sur toutes
+              03  ATA-PALM       PIC 9.
+      *===> ATA-PALM est mis à jour dans le contrôle d'accès
+      *     le programme acces fait un call de accestage
+      *     -> dans les prog,
+      *        . tester ATA-PALM >= 1 si prog de consultation
+      *        . tester ATA-PALM >= 2 si prog de saisie/modif
+      *        
+      *    Infos du configurateur
+              03  NOMLOG-PALM    PIC X(10).
+              03  NOMMOD-PALM    PIC X(22).
+              03  CAS-PALM       PIC 9.
+              03  CAA-PALM       PIC 9.        | CAA-PALM = 1 --> mono-agence
+              03  CLI-PALM       PIC 9(6).
+              03  ESSAI-PALM     PIC 9.
+              03  LAN-PALM       PIC XXX.
+      *---------------------------------------------------------------
+      *    Modules configurés pour la Sté
+              03  MODULES-PALM.
+      *    MX - Module Base (01)
+               04 MX-PALM         PIC 9.
+      *    Module Achat (03)
+               04 MXACH-PALM      PIC 9.
+      *    Module Stock (04)
+               04 MXSTO-PALM      PIC 9.
+      *    Module Caisse (68)
+               04 MXCAI-PALM      PIC 9.
+      *    Module Distri (06)
+               04 MXDIS-PALM      PIC 9.
+      *    Module Gestion Parc (08)
+               04 MXPARC-PALM     PIC 9.
+      *    Module Gestion Conso (09)
+               04 MXCONS-PALM     PIC 9.
+      *    Module Vente Mat. (10)
+               04 MXMAT-PALM      PIC 9.
+      *    Module Envoi SMS (53)
+               04 MXSMS-PALM      PIC 9.
+      *    Module R‚paration (12)
+               04 MXREP-PALM      PIC 9.
+      *    Module Gestion Garanties (13)
+               04 MXGAR-PALM      PIC 9.
+      *    Module Location (14)
+               04 MXLOC-PALM      PIC 9.
+      *    Module Location Longue Durée (15)
+               04 MXLLD-PALM      PIC 9.
+      *    Module Contrats Entretien (16)
+               04 MXENT-PALM      PIC 9.
+      *    Module Gestion Garanties Conces. (17)
+               04 MXGARC-PALM     PIC 9.
+      *    Module Etudes Internes (19)
+               04 MXETUI-PALM     PIC 9.
+      *    Module Service Cial (20)
+               04 MXSVC-PALM      PIC 9.
+      *    Module Sociétés Liées (25)
+               04 MXSLIE-PALM     PIC 9.
+      *    Module Import-Export (30)
+               04 MXIEXP-PALM     PIC 9.
+      *    Module D.E.B (31)
+               04 MXDEB-PALM      PIC 9.
+      *    Module TRANSPORTS (56)
+               04 MXTRS-PALM      PIC 9.
+      *    Module L.S.D (35)
+               04 MXLSD-PALM      PIC 9.
+      *    Module Emailing (54)
+               04 MXEMAIL-PALM    PIC 9.                                                         
+      *    Module Gestion Fidélité Régis BTP (46)
+               04 MXFID-PALM      PIC 9.
+      *    Module Intégr. Compta /Agence (45)
+               04 MXICA-PALM      PIC 9.
+      *    Module Vers. Internationale (50)
+               04 MXVINT-PALM     PIC 9.
+      *    Module Mobiles /Distri (23)
+               04 MXMOBIDIS-PALM  PIC 9.
+      *    Module Mobiles /Vente (70)
+               04 MXMOBIVTE-PALM  PIC 9.
+      *    Module Mobiles /Devis (71)
+               04 MXMOBIDEV-PALM  PIC 9.      
+      *    Module Mobiles /Vente (72)
+               04 MXMOBI3-PALM    PIC 9.
+      *    Module Spécifique FENWICK (95)
+               04 MXFWK-PALM      PIC 9.
+      *    Module Mobiles /Location (76)
+               04 MXMOBILOC-PALM  PIC 9.
+      *    Module ICA avec référentiel (49)
+               04 MXICAREF-PALM   PIC 9.
+      *    Module assurances (67)
+               04 MXASS-PALM      PIC 9.
+      *    Module mobitec (78)
+               04 MXMOBITEC-PALM  PIC 9.
+      *    Module mobismart et/ou MobiVip Tab Vte Matériel (74)
+               04 MXMOBISMART-PALM  PIC 9.
+      *    Module Mobi Distri /Tablette(63)
+               04 MXMOBIDISTAB-PALM  PIC 9. 
+281217*    Module MobiLoc /Tablette(37)
+               04 MXMOBILOCTAB-PALM  PIC 9.
+               04 FILLER          PIC X(20).
+
+      *    CX - Module Base (01)
+               04 CX-PALM         PIC 9.
+      *    Module Analytique (/Segment) (07)
+               04 CXANAS-PALM     PIC 9.
+      *    Module Ets Deportes (09)
+               04 CXETSD-PALM     PIC 9.
+      *    Module Interface APPLIX (10) non conservé
+      *         04 CXAPLX-PALM     PIC 9.
+               04 FILLER          PIC X.
+      *    Module Clients Douteux (21)
+               04 CXDOUT-PALM     PIC 9.
+               04 FILLER          PIC X(9).
+      *    CXGT - Module Base (01)
+               04 CXGT-PALM       PIC 9.
+      *    PEX - Module Base (01)
+               04 PX-PALM         PIC 9.
+      *    PEX - Module DADSu  (05)
+               04 PXDADSU-PALM    PIC 9.
+      *    PEX - Module DSN  (06)
+               04 PXDSN-PALM      PIC 9.
+               04 FILLER          PIC X(4).
+      *    IEX - Module Base (01)
+               04 IA-PALM         PIC 9.
+               04 IA200210-PALM   PIC 9.
+290819*    No tablette Mobisign
+               04 MOBSIG-PALM     PIC 9(4).
+      *    MEX - Module Base (01)
+               04 EM-PALM         PIC 9.
+      *    MEX - Module Prélèvements Nationaux (02)
+               04 EMPREL-PALM     PIC 9.
+      *    MEX - Module Prélèvements SEPA (05)
+               04 EMPRES-PALM     PIC 9.
+               04 FILLER          PIC X(4).
+      *    EMPX - Module Base (01)
+               04 GF-PALM         PIC 9.
+               04 FILLER          PIC X(2).
+      *    RX - Module Base (01)
+               04 RX-PALM         PIC 9.
+               04 FILLER          PIC X(2).
+      *    COM-BAC - Module Base (01)
+               04 CB-PALM         PIC 9.
+               04 CB5-PALM        PIC 9.
+               04 CBTS-PALM       PIC 9.
+               04 FILLER          PIC X(3).
+      *    GTI - Module Base (01)                      
+               04 GTI-PALM         PIC 9.
+               04 FILLER          PIC X(4).
+      *    MIAMI  - Module Base (01)
+               04 MIAMI-PALM      PIC 9.
+               04 FILLER          PIC X(2).
+      *    MISFAX - Module Base (01)
+               04 MISFAX-PALM     PIC 9.   
+150318*    N° WEBTOP 
+               04 IDWEBTOP-PALM   PIC X(2).
+               04 FILLER          PIC X(3). 
+      *         04 FILLER          PIC X(5). 
+      *    Proc‚dure + LogicieL + Titre Programme /Affichage en haut
+              03  PROLOG-PALM    PIC X(80).
+      *    DTT-PALM = date du jour
+              03  DTT-PALM       PIC 9(8).
+              03  R-DTT-PALM REDEFINES DTT-PALM.
+                  05 SDTT-PALM   PIC 99.
+                  05 ADTT-PALM   PIC 99.
+                  05 MDTT-PALM   PIC 99.
+                  05 JDTT-PALM   PIC 99.
+      *** Zones -PALM2 pour vérification d'accès à d'autres programmes
+      *** avec verifacc
+      *    LOG-PALM2 = numero d'applicatif    
+              03  LOG-PALM2       PIC 9(3).
+      *    NPR-PALM2 = numero du programme
+      *        si numero prog non renseign‚, recherche avec PRO-PALM
+              03  NPR-PALM2       PIC 9(4).
+      *    IDE-PALM2 = code utilisateur
+              03  IDE-PALM2       PIC X(4).
+              03  FONCTIONS-PALM2.
+      *    EXEC-PALM2 = Execution
+                  04  EXEC-PALM2      PIC X.
+      *    CREAT-PALM2 = Cr‚ation
+                  04  CREAT-PALM2     PIC X.
+      *    MODIF-PALM2 = Modification
+                  04  MODIF-PALM2     PIC X.
+      *    INTER-PALM2 = Interrogation (Interro OK si Execution)
+                  04  INTER-PALM2     PIC X.
+      *    ANNUL-PALM2 = Annulation
+                  04  ANNUL-PALM2     PIC X.
+      *    IMPRIM-PALM2 = Impression (impression à partir autre prog)
+                  04  IMPRIM-PALM2    PIC X.
+      *    FONC7-PALM2 = fonction 7 (non utilisée)
+                  04  FONC7-PALM2     PIC X.
+      *    FONC8-PALM2 = fonction 8 (non utilisée)
+                  04  FONC8-PALM2     PIC X.
+      *    FONC9-PALM2 = fonction 9 (non utilisée)
+                  04  FONC9-PALM2     PIC X.
+      *    FONCA-PALM2 = fonction A (non utilisée)
+                  04  FONCA-PALM2     PIC X.
+              03  W-COLOR-PROTO   PIC 9(6).
+              03  FILLER          PIC X(3).
+      
+240315*    WLOGIN-PALM: 1 = Traitement appelé à partir de slogin en call
+              03 WLOGIN-PALM     PIC 9.
+      *    W-BGP: 0 = Trait. en avant plan   1 = Trait. en arrière plan  
+      *           2 = Traitement appelé directement (CLI et SBD en direct chez M3)
+      *           3 = Appel à partir du Webtop ou MobiTec
+              03 W-BGP           PIC 9.
+      *    Imprimante par défaut
+              03 IMP-PALM        PIC X(20).
+      *    Logiciel DLRIX (1) ou MAGRIX (2)
+              03 IDM-PALM        PIC 9.
+      *    N° de Mobile ou Portable (000 = système central)
+              03 MOB-PALM        PIC 999.
+      *    Répertoire racine de l'environnement de travail
+              03 ENV-PALM        PIC X(30).
+      * Variables  relative  à l'heure de debut de tache              *
+              03 PROCESS-PALM       PIC 9(7).
+              03 DATE-PROCESS-PALM  PIC 9(8).
+              03 DEBUT-PROCESS-PALM PIC 9(8).
+      *    Activité/Mobile ou Portable (M=MobiVip   L=MobiLoc  D-MobiDis)
+              03 ACTMOB-PALM     PIC X.
+      *    Indicateur écran tactile "t" (pour programmes appelés)
+              03 TACTIL-PALM REDEFINES ACTMOB-PALM     PIC X.
+      *    Nom du programme cobol
+              03 NOMPROG-PALM     PIC X(20).
+      *   Variable Spécifique GEDEON
+              03 MOB-GEDEON       PIC XXXX.
+      *   Indic pour savoir si la nouvelle gestion des documents 
+      *   attachés est en place (03/2009)
+              03 IND-MIG-PHOTO    PIC 9.
+      *   Code de l'environnement de travail
+              03 CENV-PALM        PIC X(10).
+      *   n° de langue de l'utilisateur dans le fichier langue
+      *   si version inetrnationale
+              03 NLAN-PALM        PIC 99.  
+      *   Handle écran appelant pour MisCentreFenetre
+              03 HANDLE-PALM HANDLE OF WINDOW.  
+      *===========  FIN  ZONE-PALME    ================================
+
+
+      ****************************************************************
+      * Variables relatives a la creation du fichier journal         *
+      ****************************************************************
+          02 DATHEU-SYS-M.
+             03 DAT-SYS-M        PIC 9(8).
+             03 DATE-SYS-M REDEFINES DAT-SYS-M.
+                04 SSS-SYS-M     PIC 99.
+                04 AAA-SYS-M     PIC 99.
+                04 MMM-SYS-M     PIC 99.
+                04 JJJ-SYS-M     PIC 99.
+             03 HEURE-SYS-M      PIC 9(8).
+             03 HEURER-SYS-M REDEFINES HEURE-SYS-M.
+                04 HEU-SYS-M     PIC 99.
+                04 MIN-SYS-M     PIC 99.
+                04 SEC-SYS-M     PIC 99.
+                04 CEN-SYS-M     PIC 99.
+             03 HEURER1-SYS-M REDEFINES HEURE-SYS-M.
+                04 HEUMIN-SYS-M  PIC 9(4).
+                04 R-HEUMIN-SYS-M REDEFINES HEUMIN-SYS-M.
+                   06 HEUMIN-SYS-MV  PIC 99V99.
+                04 SECCEN-SYS-M  PIC 9(4).
+      *  Pour affichage titre programmes appelés sans Bandeau
+      *  Mettre NOMLOG-PALM dans Z-TITRE1
+      *  Mettre le titre dans Z-TITRE2
+      *  Mettre ZONE-TITRE dans le titre de la fenˆtre
+          02 ZONE-TITRE  PIC X(80).
+          02 ZONE-TITRE-R REDEFINES ZONE-TITRE. 
+             03 Z-TITRE1 PIC X(15).
+             03 Z-TITRE2 PIC X(65).
+      * Contenu de la status barre des programmes de sélection.
+           02 STB-SELECT  PIC X(120) VALUE
+           "Sélectionner les critères, puis lancer l'impression avec le 
+      -    "bouton imprimante ou aperçu avant impression".
+
+          02 WAGC-OK      PIC 9.
+          02 WOPEN-MXAGENCE PIC 9.
+          02 WDEP-OK      PIC 9.
+          02 WOPEN-MXDEPOT  PIC 9.
+          02 WREG-OK      PIC 9.
+          02 WOPEN-MXREGION PIC 9.
+130212* mettre 1 pour ne pas faire les tests d'autorisation sur les agences
+          02 WAGC-AUTO      PIC 9.
+          02 TMP-FILE-PROCESS1  PIC X(100).
+          02 TMP-FILE-PROCESS2  PIC X(100).
+          02 TMP-FILE-PROCESS3  PIC X(1).
+          02 Jbu-Acu-Msg-BOX.
+              05 Jbu-Acu-Msg-1 PIC X(80).
+              05 Jbu-Acu-Msg-2 PIC X(80).
+              05 Jbu-Acu-Msg-3 PIC X(80).
+      ****************************************************************
+      * Variables relatives au calcul du siecle pour l'an 2000       *
+      ****************************************************************
+          02 L-DAT8             PIC 99/99/9999.| blank when zero.
+          02 RL-DAT8 REDEFINES L-DAT8 PIC X(10).
+          02 L-DAT6             PIC 99/99/99.| blank when zero.
+          02 RL-DAT6 REDEFINES L-DAT6 PIC X(8).
+          02 L-DAT6M            PIC 99/9999.
+          02 RL-DAT6M REDEFINES L-DAT6M PIC X(7).
+          02 L-DAT4M            PIC 99/99.
+          02 RL-DAT4M REDEFINES L-DAT4M PIC X(5).
+          02 D-JMA             PIC 9(6).
+          02 R-D-JMA REDEFINES D-JMA.
+              03 J-JMA         PIC 99.
+              03 D-MA          PIC 9999.
+              03 R-D-MA REDEFINES D-MA.
+                 04 M-JMA         PIC 99.
+                 04 A-JMA         PIC 99.
+          02 D-JMSA             PIC 9(8).
+          02 R-D-JMSA REDEFINES D-JMSA.
+              03 J-JMSA         PIC 99.
+              03 D-MSA          PIC 999999.
+              03 R-D-MSA REDEFINES D-MSA.
+                 04 M-JMSA         PIC 99.
+                 04 SA-JMSA          PIC 9999.
+                 04 R-SA-JMSA REDEFINES SA-JMSA.
+                    05 S-JMSA         PIC 99.
+                    05 A-JMSA         PIC 99.
+          02 D-SAMJ             PIC 9(8).
+          02 R-D-SAMJ REDEFINES D-SAMJ.
+              03 D-SAM          PIC 9(6).
+              03 R-D-SAM REDEFINES D-SAM.
+                 04 SA-SAMJ        PIC 9(4).
+                 04 R-SA-SAMJ REDEFINES SA-SAMJ.
+                    05 S-SAMJ         PIC 99.
+                    05 A-SAMJ         PIC 99.
+                 04 M-SAMJ         PIC 99.
+              03 J-SAMJ         PIC 99.
+          02 R2-D-SAMJ REDEFINES D-SAMJ.
+              03 FILLER         PIC 99.
+              03 D-AMJ          PIC 9(6).
+          02 D-SAMJ1            PIC 9(8).
+          02 R-D-SAMJ1 REDEFINES D-SAMJ1.
+              03 D-SAM1          PIC 9(6).
+              03 R-D-SAM1 REDEFINES D-SAM1.
+                 04 SA-SAMJ1           PIC 9(4).
+                 04 R-SA-SAMJ1 REDEFINES SA-SAMJ1.
+                    05 S-SAMJ1        PIC 99.
+                    05 A-SAMJ1        PIC 99.
+                 04 M-SAMJ1        PIC 99.
+              03 J-SAMJ1        PIC 99.
+          02 D-SAMJ2            PIC 9(8).
+          02 R-D-SAMJ2 REDEFINES D-SAMJ2.
+              03 D-SAM2          PIC 9(6).
+              03 R-D-SAM2 REDEFINES D-SAM2.
+                 04 SA-SAMJ2         PIC 9(4).
+                 04 R-SA-SAMJ2 REDEFINES SA-SAMJ2.
+                    05 S-SAMJ2        PIC 99.
+                    05 A-SAMJ2        PIC 99.
+                 04 M-SAMJ2        PIC 99.
+              03 J-SAMJ2        PIC 99.
+010415*    02 COBCAP-RESULT PIC 9(3).
+010415    02 COBCAP-RESULT PIC 9(6).
+          02 COBCAP-RESTE  PIC 9(2).
+      ****************************************************************
+      * Variables relatives au positionnement initial des fenêtres   *
+      ****************************************************************
+          02  INIT-COLUMN       PIC S9(4)V9(2) VALUE 180.
+          02  INIT-LINE         PIC S9(4)V9(2) VALUE 90.      
+      ****************************************************************
+      * Variable  relative  … l'identification de l'O.S.             *
+      ****************************************************************
+          02 LK-OS-TYPE         PIC X(45).
+          02 W-NUMPORT-TOMCAT   PIC  X(30).
+      ****************************************************************
+      * Variables relatives aux permissions                          *
+      ****************************************************************
+         02 LK-CPERMIS.
+      **** Zones en entrée
+      **** LK-CPERMIS-IDE = Code Utilisateur
+            03  LK-CPERMIS-IDE  PIC X(4).
+      **** LK-CPERMIS-LOG = Logiciel
+            03  LK-CPERMIS-LOG  PIC 9(4).
+      **** LK-CPERMIS-RUB = Rubrique
+            03  LK-CPERMIS-RUB  PIC 9(4).
+      **** Zones en sortie
+      **** LK-CPERMIS-PER = Permission :
+      ****             0 = Pas d'Interdiction, 1 = Autorisé
+      ****             2 = Interdit, 3 = Soumis à autorisation
+            03  LK-CPERMIS-PER  PIC 9.
+            03  FILLER          PIC X(87).
+      *-----------------------------------------------------------------
+          02 TOTEM-USER-DEFINED-VARIABLE.
+              10 TOTEM-CHECK-STATUS     PIC X.
+                 88 TOTEM-CHECK-OK      VALUE "Y" FALSE SPACE.
+          02 IND-STAT             PIC 9.
+          02 W-EOF                PIC 9.
+          02 W-FIN-IMPRIME        PIC 9.
+          02 W-QUIT-IMPRIME       PIC 9.
+          78 W-NEWLINE            VALUE IS X"0D0A". 
+          02 W-LON-CELLULE        PIC 9V99.
+          02 W-LON-cadre          PIC 9V99.
+          02 W-HAUT-CELLULE       PIC 9V99.
+          02 W-HAUT-cadre         PIC 9V99.
+          02 W-VS-PB              PIC 9.
+          02 CDF-FONCTION         PIC X.
+          02 OK-FONCTION          PIC 9.
+          02 IND-TAB-PALM         PIC 9.
+      * Lettres pour uniformiser et ne pas avoir à traduire x fois
+      * la même chose en version internationale
+      * Produits
+          02 PRODUIT-M            PIC X VALUE "M".
+          02 PRODUIT-A            PIC X VALUE "A".
+          02 PRODUIT-P            PIC X VALUE "P".
+          02 PRODUIT-L            PIC X VALUE "L".     
+          02 PRODUIT-C            PIC X VALUE "C".
+          02 PRODUIT-S            PIC X VALUE "S".
+          02 PRODUIT-E            PIC X VALUE "E".
+      * Choix de fonction
+          02 CHOIX-M              PIC X VALUE "M".
+          02 CHOIX-C              PIC X VALUE "C".
+          02 CHOIX-I              PIC X VALUE "I".
+          02 CHOIX-A              PIC X VALUE "A".
+          02 CHOIX-P              PIC X VALUE "P".
+          02 CHOIX-Z              PIC X VALUE "Z".
+          02 CHOIX-D              PIC X VALUE "D".
+      * Modules
+          02 MODULE-D             PIC X VALUE "D".
+          02 MODULE-M             PIC X VALUE "M".
+          02 MODULE-R             PIC X VALUE "R".
+          02 MODULE-L             PIC X VALUE "L".
+          02 MODULE-F             PIC X VALUE "F".
+          02 MODULE-A             PIC X VALUE "A".
+          02 MODULE-PS            PIC X(2) VALUE "PS".
+      * Sens des comptes
+          02 SENS-C               PIC X VALUE "C".
+          02 SENS-D               PIC X VALUE "D".
+      ****************************************************************
+      * Variables relatives à l'annulation d'un enregistrement dans  *
+      * un fichier                                                   *
+      ****************************************************************
+          02 ZONE-ANN.
+      **** Date d'annulation
+            03 Acu-DANN           PIC 9(8).
+      **** Auteur de l'annulation
+            03 Acu-IANN           PIC X(4).
+      *-----------------------------------------------------------------
+          02  PROCESS-ID         PIC 9(8).
+          02  Z-PROCESS-ID       PIC Z(8).
+
+      *   Utilisés par PERFORM ERREUR-LOG pour générer un fichier trace d'erreur 
+          02 STAT-CMD            PIC X(512).
+          02 STAT-COD            PIC 9.
+      *   Nom du programme + éventuellement clé (ex: SFA-C 00 009372)
+          02 STAT-PROG           PIC X(40).
+          02 MSG-REFERENTIEL     PIC X(60) VALUE
+             "Cette fonction n'est autorisée que sur le référentiel.".
+          02 MSG-MOBITEC         PIC X(80) VALUE
+             "OR transmis à technicien itinérant, traitement simultané n
+      -      "on autorisé.". 
+      *   Test accés niveau société en modification dans TestNiveau et TestNiveau2
+          02 TESTNIVEAU-SOC-MODIF PIC 9.
+       COPY "W:/mistral/copy/LK-CJBUSER.wrk".
+       COPY "W:/mistral/copy/LK-USERPROC.wrk".
+       01 LK-MEP-COULAGE.
+              03 LK-MEP-COULAGE-AGE   PIC XXX.
+              03 LK-MEP-COULAGE-SOC   PIC 9(4).
+              03 LK-MEP-COULAGE-COUL  PIC 999.
+              03 FILLER             PIC X(20).
+       01 ZON-CONVERT-NUMERIC.
+              03 ZC-NUM-NEG         PIC 9. 
+              03 ZC-NUM-VIR         PIC 99.
+              03 ZC-NUM-DEB         PIC 99. 
+              03 ZC-NUM-LON         PIC 99. 
+              03 ZC-NUM-I           PIC 99. 
+              03 ZC-NUM-ENT         PIC X(20).
+              03 ZC-NUM-SOR         PIC S9(12)V9(5).
+              03 ZC-NUM-SOR-R REDEFINES ZC-NUM-SOR.
+                 05 ZC-NUM-SOR-E    PIC 9(12).
+                 05 ZC-NUM-SOR-D    PIC 9(5).
+              03 ZC-NUM-AFF         PIC Z(11)9,99- BLANK WHEN ZERO.
+              03 ZC-NUM-AVT         PIC X(20).
+              03 ZC-NUM-APR         PIC X(20).
+              03 ZC-NUM-PTS         PIC 9. 
+      * Variables MisCentreFenetre
+       01 MISCENTREFENETRE.   
+      *    Fenêtre principale appelante (Screen1 par défaut)
+           02  MCF-HANDLE-FP HANDLE OF WINDOW.
+      *    Fenêtre secondaire à centrer (Screen1 par défaut, mais ne pas laisser par défaut en même temps que MCF-HANDLE-FP)
+           02  MCF-HANDLE-FS HANDLE OF WINDOW.
+      *    Si fenêtre appelée pas de type Float mettre 1 :
+           02 MCF-ABSOLU      PIC  9.
+
+           02 MCF-LINES-FP    PIC  S9(4)V99.
+           02 MCF-SIZE-FP     PIC  S9(4)V99.
+           02 MCF-LINES-FS    PIC  S9(4)V99.
+           02 MCF-SIZE-FS     PIC  S9(4)V99.
+           02 MCF-LINE-FP     PIC  S9(4)V99.
+           02 MCF-COLUMN-FP   PIC  S9(4)V99.
+           02 MCF-LINE-FS     PIC  S9(4)V99.
+           02 MCF-COLUMN-FS   PIC  S9(5)V99.
+           02 MCF-COLMID-FP   PIC  S9(4)V99.
+
+           02 MCF-HANDLE      PIC 9(4).
+           02 MCF-PIXLINE-FP  PIC 99.
+           02 MCF-PIXLINE-FS  PIC 99.
+           02 MCF-PIXSIZE-FP  PIC 99.
+           02 MCF-PIXSIZE-FS  PIC 99.
+           02 MCF-SV-HANDLE-PALM HANDLE OF WINDOW.
+    
+
+

@@ -1,0 +1,6 @@
+su root -c "echo '     D‚montage du CD-ROM'; umount /dev/cd0"
+if [ "$?" != 0 ] ; then
+          echo 'Echec : impossibilit‚ de d‚monter le CD-ROM' ; exit 1
+else      echo 'OK : D‚montage r‚ussi '
+fi
+

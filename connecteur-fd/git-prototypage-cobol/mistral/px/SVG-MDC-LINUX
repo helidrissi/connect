@@ -1,0 +1,43 @@
+/usr/sbin/mknfsmnt -f '/replocal' -d '/repdistant' -h 'host' -M 'sys' '-N' '-a' -t 'rw' -w 'bg' '-Y' '-Z' '-X' '-H' '-j' '-q' '-g'
+
+if [ -f /tmp/RESNAS8 ]
+   then mv /tmp/RESNAS8 /tmp/RESNAS9 2>>/dev/null
+fi
+if [ -f /tmp/RESNAS7 ]
+   then mv /tmp/RESNAS7 /tmp/RESNAS8 2>>/dev/null
+fi
+if [ -f /tmp/RESNAS6 ]
+   then mv /tmp/RESNAS6 /tmp/RESNAS7 2>>/dev/null
+fi
+if [ -f /tmp/RESNAS5 ]
+   then mv /tmp/RESNAS5 /tmp/RESNAS6 2>>/dev/null
+fi
+if [ -f /tmp/RESNAS4 ]
+   then mv /tmp/RESNAS4 /tmp/RESNAS5 2>>/dev/null
+fi
+if [ -f /tmp/RESNAS3 ]
+   then mv /tmp/RESNAS3 /tmp/RESNAS4 2>>/dev/null
+fi
+if [ -f /tmp/RESNAS2 ]
+   then mv /tmp/RESNAS2 /tmp/RESNAS3 2>>/dev/null
+fi
+if [ -f /tmp/RESNAS1 ]
+   then mv /tmp/RESNAS1 /tmp/RESNAS2 2>>/dev/null
+fi
+if [ -f /tmp/RESNAS ]
+   then mv /tmp/RESNAS /tmp/RESNAS1 2>>/dev/null
+fi
+
+echo  "Sauvegarde Automatique " >/tmp/RESNAS
+echo  "Démarrée le \c" >>/tmp/RESNAS
+date >>/tmp/RESNAS
+
+LISREP=`cat /acu/mistral/f/REPSAU |cut -f 2,3,4,5,6 -d " "`
+
+/bin/tar cvf /repdistant/ficdistant`date +"%w"` $LISREP >/tmp/p-sauvnas 2>>/tmp/RESNAS
+
+echo "Fin de Sauvegarde le \c" >>/tmp/RESNAS
+date >>/tmp/RESNAS
+
+
+umount /replocal

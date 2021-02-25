@@ -1,0 +1,25 @@
+      * Linkage pour fichier paramètres d'impression INT
+       01 LK-INT.
+           05 ASSIGN-INT        PIC X(60).
+           05 ASSIGN-INTSEL REDEFINES ASSIGN-INT PIC X(60).
+           05 WASS-INT          PIC X(19).
+           05 WASS-INTSEL REDEFINES WASS-INT PIC X(19).
+           05 W-INT             PIC 999 VALUE 1.
+           05 LK-INT-SEL        PIC 9(4).
+      * LK-INT-CHO: S=mémoriser sélection L=rappeler sélection T=rappeler sélection ATD (Retour TRTSELECT = R si remplt sélection)
+           05 LK-INT-CHO        PIC X.
+           05 LK-INT-ETA        PIC X(4).
+           05 LK-INT-MODULE     PIC X.
+      * LK-INT-MAIL = 1 si demande envoi par mail pour MobiVip (dmc-e)
+           05 LK-INT-MAIL       PIC 9.
+      * Indicateur traitement automatisé (ex: EPM pour Terre-Net)
+           05 LK-INT-AUTO       PIC 9.
+      * Code sélection imposée (ex: STOKHUN OU STOJD)
+           05 LK-INT-CODSEL     PIC X(7).
+      *     05 FILLER            PIC X(53).
+      *    Nom de la sélection pour imprimer sur l'état
+           05 LK-INT-NOMSEL     PIC X(60).
+      *    Code erreur
+           05 LK-INT-ERR        PIC 9.
+           05 FILLER            PIC X(4).
+

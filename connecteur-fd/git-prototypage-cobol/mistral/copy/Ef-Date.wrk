@@ -1,0 +1,48 @@
+      * Zones utilisées par les EntryField de Dates.
+       01 Ef-Date.
+           05 Ef-Date-IdxE PIC 9(2) COMP-1.
+           05 Ef-Date-IdxF PIC 9(2) COMP-1.
+           05 Ef-Date-Tmp1 PIC 9(4) COMP-1.
+           05 Ef-Date-Tmp2 PIC 9(4) COMP-1.
+271210     05 Ef-Date-Tmp6 PIC 9(6).
+           05 Ef-Date-Erreur PIC 9(1) COMP-1.
+           05 Ef-Date-Siecle PIC 9(1) COMP-1. 
+           05 Ef-Date-Fic.
+               10 Ef-Date-Fic-Y PIC 9(4).
+241016         10 R-Ef-Date-Fic-Y REDEFINES Ef-Date-Fic-Y.
+241016            12 Ef-Date-Fic-Y1 PIC 99.
+241016            12 Ef-Date-Fic-Y2 PIC 99.
+               10 Ef-Date-Fic-M PIC 9(2).
+               10 Ef-Date-Fic-D PIC 9(2).
+           05 Ef-Date-Ecr.
+               10 Ef-Date-Ecr-D  PIC 9(2).
+               10 Ef-Date-Ecr-S1 PIC X(1).
+               10 Ef-Date7-Ecr.
+                   15 Ef-Date-Ecr-M  PIC 9(2).
+                   15 Ef-Date-Ecr-S2 PIC X(1).
+                   15 Ef-Date-Ecr-Y  PIC 9(4).
+           05 Ef-Tmp-Dat      PIC  9(8).
+           05 Ef-Tmp-Sie      PIC  99.
+           05 Ef-Tmp-POS      PIC  99.
+           05 Ef-Tmp-9-2      PIC  9(2).
+091215     05 Ef-Date-Muet    PIC 9(1) COMP-1.
+.
+
+      * Date saisie
+      *     05 DateSaisie PIC 9(8).
+      *     05 R-DateSaisie REDEFINES DateSaisie.
+      *         10 DateSaisie-AM   PIC 9(6).
+      *         10 DateSaisie-Jour PIC 9(2).
+      * 
+      *     05 DateSaisie-Erreur PIC 9(1).
+
+      ** Date période en cours
+      *     05 PeriodeEnCours PIC 9(6).
+      *     05 R-PeriodeEnCours REDEFINES PeriodeEnCours.
+      *         10 PeriodeEnCours-An   PIC 9(4).
+      *         10 PeriodeEnCours-Mois PIC 9(2).
+      *
+      ** Date période précedente
+      *     05 PeriodePrecedente PIC 9(6).
+      *     05 R-PeriodePrecedent REDEFINES PeriodePrecedente.
+      *         10 PeriodePrecedente-An   PIC 9(4).

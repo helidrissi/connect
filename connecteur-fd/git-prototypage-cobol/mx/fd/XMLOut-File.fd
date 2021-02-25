@@ -1,0 +1,4 @@
+      *(( XFD FILE = XMLOut-File ))
+       FD  XMLOut-File
+           LABEL RECORD IS STANDARD.
+       01 XMLOut-Record    PIC  X(256).

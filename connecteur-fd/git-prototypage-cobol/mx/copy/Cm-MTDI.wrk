@@ -1,0 +1,15 @@
+      * Zones utilisées par la ComboBox des Motifs
+       01 Cm-MTDI.
+           05 Cm-MTDI-Handle HANDLE OF COMBO-BOX.
+           78 Cm-MTDI-NbMaxItems VALUE IS 100. 
+           05 Cm-MTDI-9-3 PIC 9(3) COMP-1.
+           05 Cm-MTDI-Items OCCURS Cm-MTDI-NbMaxItems TIMES.
+               10 Cm-MTDI-LIB PIC X(20).
+               10 FILLER      PIC X(20).
+               10 Cm-MTDI-COD PIC X(2).
+           05 Cm-MTDI-SelectedItem PIC X(2).
+           05 Cm-MTDI-Last-TYP PIC X(2).
+           05 Cm-MTDI-LoadedItems PIC 9(3) COMP-1 VALUE IS 0.
+           05 Cm-MTDI-WOPEN-MXTABDIV PIC 9.
+      *    si = 1, 1er choix = vide pour aucun choix
+           05 Cm-MTDI-Facultatif     PIC 9.

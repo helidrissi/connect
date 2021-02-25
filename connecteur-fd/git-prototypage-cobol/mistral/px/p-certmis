@@ -1,0 +1,48 @@
+cut -c 1-9 /acu/mistral/f/REPSAU > /tmp/REPSAU
+if [ "$OSTYPE" = "linux-gnu" ]
+then echo -e "Certification Automatique " >>/tmp/RESSAU
+     echo -e "Démarrée le \c" >>/tmp/RESSAU
+     date >>/tmp/RESSAU
+     if [ -h /rdx ]
+     then if [ -s /acu/mistral/f/DEVSAU ]
+          then mount `cat /acu/mistral/f/DEVSAU` /media/usbdisk 2>>/tmp/RESSAU
+          else mount /dev/sdb1 /media/usbdisk 2>>/tmp/RESSAU
+          fi
+          sleep 2
+          if [ `du /media/usbdisk |wc -l` =  "1" ]
+          then echo  "Pas de support dans le lecteur" >>/tmp/RESSAU
+               echo -e "Fin de Certification le \c" >>/tmp/RESSAU
+               date >>/tmp/RESSAU
+               exit
+          fi
+     fi
+     tar tvfP `cut -f 1 -d " " /acu/mistral/f/REPSAU` > /dev/null 2>>/tmp/RESSAU
+     echo -e "Fin de Certification le \c" >>/tmp/RESSAU
+     date >>/tmp/RESSAU
+     if [ -h /rdx ]
+     then umount /media/usbdisk 2>>/tmp/RESSAU
+     fi
+else echo "Certification Automatique " >>/tmp/RESSAU
+     echo "Démarrée le \c" >>/tmp/RESSAU
+     date >>/tmp/RESSAU
+     if [ -d /rdxaix ]
+     then mount -V jfs2 -o log=/dev/usbms0 /dev/usbms0 /rdxaix 2>/tmp/RESMOUNT
+          sleep 2
+          if [ -s /tmp/RESMOUNT ]
+          then TESTSUPPORT=`grep fonctionner" /tmp/RESMOUNT`
+               if [ -n $TESTSUPPORT ]
+               then echo "ERREUR !! - Pas de Support dans le lecteur" >>/tmp/RESSAU
+                    echo "Fin de Certification le \c" >>/tmp/RESSAU
+                    date >>/tmp/RESSAU
+                    rm /tmp/RESMOUNT >>/dev/null 2>>/dev/null
+                    exit
+               fi
+          fi
+     fi
+     tar tvfd `cat /acu/mistral/f/REPSAU` >/tmp/p-sauvmis 2>>/tmp/RESSAU
+     echo "Fin de Certification le \c" >>/tmp/RESSAU
+     date >>/tmp/RESSAU
+     if [ -d /rdxaix ]
+     then umount /rdxaix 2>>/tmp/RESSAU
+     fi
+fi

@@ -1,0 +1,27 @@
+if [ $# = 8 ]
+then :
+else echo "Nombre de paramètres érronné , $# au lieu de 8"
+     exit
+fi
+find /acu/mistral -name acurcl.ini -print > /tmp/MAJADRIP
+cat /tmp/MAJADRIP | while read source
+        do
+          echo "Mise à jour du Fichier "  $source
+          cp $source $source.old
+          sed "s/$1\.$2\.$3\.$4/$5\.$6\.$7\.$8/"  $source > $source.new
+          mv $source.new $source
+          chmod 777 $source
+#          rm $source.old
+        done
+find /acu/mistral -name cblconfig -print > /tmp/MAJADRIP
+cat /tmp/MAJADRIP | while read source
+        do
+          echo "Mise à jour du Fichier "  $source
+          cp $source $source.old
+          sed "s/$1\.$2\.$3\.$4/$5\.$6\.$7\.$8/"  $source > $source.new
+          mv $source.new $source
+          chmod 777 $source
+#          rm $source.old
+        done
+
+

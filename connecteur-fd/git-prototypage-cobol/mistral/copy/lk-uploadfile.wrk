@@ -1,0 +1,17 @@
+       01 lk-uploadfile.
+      *    Nom du fichier qui sera créé sur le serveur
+           02 lk-uploadfile-destfile PIC X(256).
+      *    Indique si l'extension ou le nom du fichier sélectionné par l'utilisateur est
+      *    conservée.
+      *      si 0 : le nom du fichier de destination est utilisé tel quel
+      *      si 1 : l'extension est rajoutée au nom du fichier de destination. 
+      *      si 2 : le nom du fichier de l'utilisateur est conservé et rajouté au nom
+      *             du fichier de destination qui doit alors désigner un répertoire
+           02 lk-uploadfile-keepext PIC 9.
+      *    Titre de la fenêtre
+           02 lk-uploadfile-title PIC X(64).
+      *    Nom du fichier source (sans chemin) sélectionné par l'utilisateur
+           02 lk-uploadfile-srcfile PIC X(64).
+      *    Nom du fichier sauvegardé sur le serveur
+           02 lk-uploadfile-savedfile PIC X(64).
+           02 FILLER PIC X(22).

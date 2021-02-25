@@ -1,0 +1,35 @@
+if [ "$OSTYPE" = "linux-gnu" ]
+then ECHO="echo -e "
+else ECHO="echo "
+fi
+
+echo  "Sauvegarde Automatique acuf " >/tmp/RESSVACUF
+$ECHO "Démarrée le \c" >>/tmp/RESSVACUF
+date >>/tmp/RESSVACUF
+REPMONTAGE="/BCK_GESMIS"
+ADRSERVSVG="BACKUP"
+if [ "$OSTYPE" = "linux-gnu" ]
+then /bin/mount -t nfs $ADRSERVSVG:/$REPMONTAGE /$REPMONTAGE
+else 
+     /usr/sbin/mknfsmnt -f $REPMONTAGE -d $REPMONTAGE -h $ADRSERVSVG -M 'sys' '-N' '-a' -t 'rw' -w 'bg' '-Y' '-Z' '-X' '-H' '-j' '-q' '-g' 2>>/dev/null
+fi
+MONTAGEOK=`mount |grep $REPMONTAGE`
+if [ -z "$MONTAGEOK" ]
+then echo "Sauvegarde Impossible - Erreur de montage " >>/tmp/RESSVACUF
+     $ECHO "Fin de Sauvegarde le \c" >>/tmp/RESSVACUF
+     date >>/tmp/RESSVACUF
+     exit
+else :
+fi
+NOMFIC="GESMIS_ACUF"
+LISREP="/acuf/*/f /acu/*/f"
+
+if [ "$OSTYPE" = "linux-gnu" ]
+then /bin/tar cvfPz /$REPMONTAGE/$NOMFIC`date +"%w"`.tar $LISREP > /tmp/p-sauvacuf 2>>/tmp/RESSVACUF
+else /opt/freeware/bin/tar cvfPz $REPMONTAGE/$NOMFIC`date +"%w"`.tar $LISREP >/tmp/p-sauvacuf 2>>/tmp/RESSVACUF
+fi
+$ECHO "Fin de Sauvegarde le \c" >>/tmp/RESSVACUF
+date >>/tmp/RESSVACUF
+
+
+umount $REPMONTAGE

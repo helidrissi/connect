@@ -1,0 +1,31 @@
+       01 TAB-ECH.
+          02 FILLER          PIC X(10) VALUE "A vue".
+          02 FILLER          PIC X(10) VALUE "15 Jours".
+          02 FILLER          PIC X(10) VALUE "30 Jours".
+          02 FILLER          PIC X(10) VALUE "45 Jours".
+          02 FILLER          PIC X(10) VALUE "60 Jours".
+          02 FILLER          PIC X(10) VALUE "90 Jours".
+          02 FILLER          PIC X(10) VALUE "120 Jours".
+          02 FILLER          PIC X(10) VALUE "150 Jours".
+          02 FILLER          PIC X(10) VALUE "180 Jours".
+          02 FILLER          PIC X(10) VALUE "+180 Jours".
+       01 R-TAB-ECH REDEFINES TAB-ECH.
+          02 ELT-ECH         PIC X(10) OCCURS 10.
+       01 TAB-NJE-ECH.
+          02 FILLER          PIC X(30)
+             VALUE "000015030045060090120150180000".
+       01 R-TAB-NJE-ECH REDEFINES TAB-NJE-ECH.
+          02 ELT-NJE-ECH     PIC 999 OCCURS 10.
+       01 TAB-LNJE-ECH.
+          02 FILLER          PIC X(5) VALUE "A vue".
+          02 FILLER          PIC X(5) VALUE "Jours".
+          02 FILLER          PIC X(5) VALUE "Jours".
+          02 FILLER          PIC X(5) VALUE "Jours".
+          02 FILLER          PIC X(5) VALUE "Jours".
+          02 FILLER          PIC X(5) VALUE "Jours".
+          02 FILLER          PIC X(5) VALUE "Jours".
+          02 FILLER          PIC X(5) VALUE "Jours".
+          02 FILLER          PIC X(5) VALUE "Jours".
+          02 FILLER          PIC X(5) VALUE "Jours".
+       01 R-TAB-LNJE-ECH REDEFINES TAB-LNJE-ECH.
+          02 ELT-LNJE-ECH    PIC X(5) OCCURS 10.

@@ -1,0 +1,13 @@
+       77  ScreenPatienter-Handle USAGE IS HANDLE OF WINDOW.
+       77  PatienterX00-JPG    PIC  S9(6) USAGE IS COMP-4    VALUE IS 0.
+       77  ScreenPatienter-Fic PIC  X(30).
+       77  ScreenPatienter-Cle PIC  X(30).
+       77  SCreenPatienter-Accept-Thread USAGE IS HANDLE OF THREAD.
+       77  ScreenPatienter-End PIC  9.
+      * Mettre à 1 pour rendre le bouton "Annuler" visible
+      * et ensuite tester ScreenPatienter-End  (si 1: arrêt de la recherche)
+       77  ScreenPatienter-PB-Visible PIC  9.
+
+       77  ScreenPatienter-Msg PIC X(50) VALUE 
+           "Traitement arrêté - Sélection incomplète".
+

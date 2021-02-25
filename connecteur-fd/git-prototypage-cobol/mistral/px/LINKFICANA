@@ -1,0 +1,116 @@
+clear1
+echo "\n"
+echo "       PROCEDURE POUR LINKER LES FICHIERS ANALYTIQUES D'1 STE COMPTA "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= "
+echo "\n"
+echo "Environement (exemples : /acuf /acuf/S2): \c"
+read DIR2
+if [ ! -d $DIR2/palme ]
+   then echo "\n      Environement INVALIDE !!! \c"
+        read ok
+        exit
+fi
+cd $DIR2
+echo "\n"
+echo "No Soci‚t‚ Comptable Principale ($NUMSOC): \c"
+SOC=`/acu/mistral/px/ACCNUMERO`
+SOC1=$SOC
+if [ ! -d cx$SOC1 ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+echo "\n"
+echo "No Soci‚t‚ Comptable … linker : \c"
+SOC=`/acu/mistral/px/ACCNUMERO`
+SOC2=$SOC
+if [ ! -d cx$SOC2 ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ -d cx$SOC2/flnkana ]
+   then echo "\n      Liens d‚j… faits : flnkana !! \c"
+        read ok
+        exit
+fi
+echo "\n Confirmez-vous - Taper 'OUI' Pour confirmer \c"
+read OK
+if [ $OK = "OUI" ] 2>>/dev/null
+    then :
+    else echo "\n"
+         echo " Proc‚dure Non R‚aliss‚e - Taper • \c"
+         read ok
+         exit
+fi
+echo "\n"
+echo " Traitement en Cours - Patienter "
+if [ ! -d cx$SOC2/flnkana ]
+   then mkdir cx$SOC2/flnkana
+fi
+####### fichier ANASEG ##############################
+if [ -f cx$SOC2/f/ANASEG ]
+   then mv cx$SOC2/f/ANASEG cx$SOC2/flnkana/ANASEG
+        mv cx$SOC2/f/ANASEG.vix cx$SOC2/flnkana/ANASEG.vix
+fi
+ln -s $DIR2/cx$SOC1/f/ANASEG cx$SOC2/f/ANASEG
+ln -s $DIR2/cx$SOC1/f/ANASEG.vix cx$SOC2/f/ANASEG.vix
+####### fichier GENANA ##############################
+# PRE IMPUTATION Rattaché à GEN et JOUR non linké
+# LINK Supprimé le 14/11/11 Par FJZZ
+#if [ -f cx$SOC2/f/GENANA ]
+#   then mv cx$SOC2/f/GENANA cx$SOC2/flnkana/GENANA
+#        mv cx$SOC2/f/GENANA.vix cx$SOC2/flnkana/GENANA.vix
+#fi
+#ln -s $DIR2/cx$SOC1/f/GENANA cx$SOC2/f/GENANA
+#ln -s $DIR2/cx$SOC1/f/GENANA.vix cx$SOC2/f/GENANA.vix
+####### fichier GRIREPS ##############################
+if [ -f cx$SOC2/f/GRIREPS ]
+   then mv cx$SOC2/f/GRIREPS cx$SOC2/flnkana/GRIREPS
+        mv cx$SOC2/f/GRIREPS.vix cx$SOC2/flnkana/GRIREPS.vix
+fi
+ln -s $DIR2/cx$SOC1/f/GRIREPS cx$SOC2/f/GRIREPS
+ln -s $DIR2/cx$SOC1/f/GRIREPS.vix cx$SOC2/f/GRIREPS.vix
+####### fichier POSGRS ##############################
+if [ -f cx$SOC2/f/POSGRS ]
+   then mv cx$SOC2/f/POSGRS cx$SOC2/flnkana/POSGRS
+        mv cx$SOC2/f/POSGRS.vix cx$SOC2/flnkana/POSGRS.vix
+fi
+ln -s $DIR2/cx$SOC1/f/POSGRS cx$SOC2/f/POSGRS
+ln -s $DIR2/cx$SOC1/f/POSGRS.vix cx$SOC2/f/POSGRS.vix
+####### fichier SEGANA ##############################
+if [ -f cx$SOC2/f/SEGANA ]
+   then mv cx$SOC2/f/SEGANA cx$SOC2/flnkana/SEGANA
+        mv cx$SOC2/f/SEGANA.vix cx$SOC2/flnkana/SEGANA.vix
+fi
+ln -s $DIR2/cx$SOC1/f/SEGANA cx$SOC2/f/SEGANA
+ln -s $DIR2/cx$SOC1/f/SEGANA.vix cx$SOC2/f/SEGANA.vix
+####### fichier VALSEG ##############################
+if [ -f cx$SOC2/f/VALSEG ]
+   then mv cx$SOC2/f/VALSEG cx$SOC2/flnkana/VALSEG
+        mv cx$SOC2/f/VALSEG.vix cx$SOC2/flnkana/VALSEG.vix
+fi
+ln -s $DIR2/cx$SOC1/f/VALSEG cx$SOC2/f/VALSEG
+ln -s $DIR2/cx$SOC1/f/VALSEG.vix cx$SOC2/f/VALSEG.vix
+####### fichier PETBASE ##############################
+if [ -f cx$SOC2/f/PETBASE ]
+   then mv cx$SOC2/f/PETBASE cx$SOC2/flnkana/PETBASE
+        mv cx$SOC2/f/PETBASE.vix cx$SOC2/flnkana/PETBASE.vix
+fi
+ln -s $DIR2/cx$SOC1/f/PETBASE cx$SOC2/f/PETBASE
+ln -s $DIR2/cx$SOC1/f/PETBASE.vix cx$SOC2/f/PETBASE.vix
+####### fichier PETBASC ##############################
+if [ -f cx$SOC2/f/PETBASC ]
+   then mv cx$SOC2/f/PETBASC cx$SOC2/flnkana/PETBASC
+        mv cx$SOC2/f/PETBASC.vix cx$SOC2/flnkana/PETBASC.vix
+fi
+ln -s $DIR2/cx$SOC1/f/PETBASC cx$SOC2/f/PETBASC
+ln -s $DIR2/cx$SOC1/f/PETBASC.vix cx$SOC2/f/PETBASC.vix
+####### fichier PETBASL ##############################
+if [ -f cx$SOC2/f/PETBASL ]
+   then mv cx$SOC2/f/PETBASL cx$SOC2/flnkana/PETBASL
+        mv cx$SOC2/f/PETBASL.vix cx$SOC2/flnkana/PETBASL.vix
+fi
+ln -s $DIR2/cx$SOC1/f/PETBASL cx$SOC2/f/PETBASL
+ln -s $DIR2/cx$SOC1/f/PETBASL.vix cx$SOC2/f/PETBASL.vix
+echo "\n Proc‚dure Termin‚e ! "

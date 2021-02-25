@@ -1,0 +1,1 @@
+cat /acuf/mx0001/ficem/MANITOU/$1/MANIDOCWEB.$1 |grep "%7C" | sed "s/%7C/\|/g" |sed "s/%20/ /g"|sed "s/%2C/\,/g" >/acuf/mx0001/ficem/MANITOU/$1/MANIDOCWEB

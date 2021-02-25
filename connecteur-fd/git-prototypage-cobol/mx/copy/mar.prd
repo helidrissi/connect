@@ -1,0 +1,268 @@
+      * mar.prd
+      * mar.prd is generated from W:\mx\spro\mar.Psf
+      * This is a generated file. DO NOT modify this file directly.
+
+       Acu-Initial-Routine.
+      *    Before-Init
+      * get system information
+           ACCEPT System-Information FROM System-Info
+      * get terminal information
+           ACCEPT Terminal-Abilities FROM Terminal-Info
+      * set custom color
+           MOVE 3 TO Wpal-Color-Id
+           MOVE 69 TO Wpal-Red
+           MOVE 122 TO Wpal-Green
+           MOVE 211 TO Wpal-Blue
+           CALL "W$PALETTE" USING Wpalette-Set-Color, Wpalette-Data
+           MOVE 6 TO Wpal-Color-Id
+           MOVE 223 TO Wpal-Red
+           MOVE 223 TO Wpal-Green
+           MOVE 255 TO Wpal-Blue
+           CALL "W$PALETTE" USING Wpalette-Set-Color, Wpalette-Data
+           MOVE 15 TO Wpal-Color-Id
+           MOVE 255 TO Wpal-Red
+           MOVE 255 TO Wpal-Green
+           MOVE 128 TO Wpal-Blue
+           CALL "W$PALETTE" USING Wpalette-Set-Color, Wpalette-Data
+      * set font
+           PERFORM Acu-Init-Font
+      * load bitmap
+           PERFORM Acu-Init-Bmp
+      * open file
+           PERFORM Acu-Open-Files
+      *    After-Init
+           .
+
+       Acu-Init-Font.
+      * font setting
+           INITIALIZE WFONT-DATA Calibri12
+           MOVE 12 TO WFONT-SIZE
+           MOVE "Calibri" TO WFONT-NAME
+           SET WFCHARSET-DEFAULT TO TRUE
+           SET WFONT-BOLD TO FALSE
+           SET WFONT-ITALIC TO FALSE
+           SET WFONT-UNDERLINE TO FALSE
+           SET WFONT-STRIKEOUT TO FALSE
+           SET WFFAMILY-DONT-CARE TO TRUE
+           SET WFONT-FIXED-PITCH TO FALSE
+           CALL "W$FONT" USING WFONT-GET-FONT, Calibri12, WFONT-DATA
+           INITIALIZE WFONT-DATA Calibri12B
+           MOVE 12 TO WFONT-SIZE
+           MOVE "Calibri" TO WFONT-NAME
+           SET WFCHARSET-DEFAULT TO TRUE
+           SET WFONT-BOLD TO TRUE
+           SET WFONT-ITALIC TO FALSE
+           SET WFONT-UNDERLINE TO FALSE
+           SET WFONT-STRIKEOUT TO FALSE
+           SET WFFAMILY-DONT-CARE TO TRUE
+           SET WFONT-FIXED-PITCH TO FALSE
+           CALL "W$FONT" USING WFONT-GET-FONT, Calibri12B, WFONT-DATA
+           .
+
+       Acu-Init-Bmp.
+      * bitmap loading
+           COPY RESOURCE "RAFRAICHIR32.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "RAFRAICHIR32.BMP", 
+              GIVING RAFRAICHIR32-BMP
+           COPY RESOURCE "MODIFIER32.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "MODIFIER32.BMP", GIVING 
+              MODIFIER32-BMP
+           COPY RESOURCE "SUPPRIMER32.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "SUPPRIMER32.BMP", GIVING 
+              SUPPRIMER32-BMP
+           COPY RESOURCE "ZOOMxxx12.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "ZOOMxxx12.BMP", GIVING 
+              ZOOMxxx12-BMP
+           COPY RESOURCE "FLECHEB24.BMP".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "FLECHEB24.BMP", GIVING 
+              FLECHEB24-BMP
+           COPY RESOURCE "TRIERAE10.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "TRIERAE10.JPG", GIVING 
+              TRIERAE10-JPG
+           COPY RESOURCE "TRIERDE10.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "TRIERDE10.JPG", GIVING 
+              TRIERDE10-JPG
+           COPY RESOURCE "TRIERDD10.JPG".
+           CALL "W$BITMAP" USING WBITMAP-LOAD "TRIERDD10.JPG", GIVING 
+              TRIERDD10-JPG
+           .
+
+       Acu-Exit-Rtn.
+      * destroy font
+           PERFORM Acu-Exit-Font
+      * destroy bitmap
+           PERFORM Acu-Exit-Bmp
+           PERFORM Acu-Close-Files
+      *    After-Program
+           EXIT PROGRAM
+           STOP RUN
+           .
+       Acu-Exit-Font.
+      * font destroy
+           IF Calibri12 NOT = NULL
+              DESTROY Calibri12
+              SET Calibri12 TO NULL
+           END-IF
+           IF Calibri12B NOT = NULL
+              DESTROY Calibri12B
+              SET Calibri12B TO NULL
+           END-IF
+           .
+
+       Acu-Exit-Bmp.
+      * bitmap destroy
+           IF RAFRAICHIR32-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY RAFRAICHIR32-BMP
+              MOVE 0 TO RAFRAICHIR32-BMP
+           END-IF
+           IF MODIFIER32-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY MODIFIER32-BMP
+              MOVE 0 TO MODIFIER32-BMP
+           END-IF
+           IF SUPPRIMER32-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY SUPPRIMER32-BMP
+              MOVE 0 TO SUPPRIMER32-BMP
+           END-IF
+           IF ZOOMxxx12-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY ZOOMxxx12-BMP
+              MOVE 0 TO ZOOMxxx12-BMP
+           END-IF
+           IF FLECHEB24-BMP NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY FLECHEB24-BMP
+              MOVE 0 TO FLECHEB24-BMP
+           END-IF
+           IF TRIERAE10-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY TRIERAE10-JPG
+              MOVE 0 TO TRIERAE10-JPG
+           END-IF
+           IF TRIERDE10-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY TRIERDE10-JPG
+              MOVE 0 TO TRIERDE10-JPG
+           END-IF
+           IF TRIERDD10-JPG NOT = 0
+              CALL "W$BITMAP" USING WBITMAP-DESTROY TRIERDD10-JPG
+              MOVE 0 TO TRIERDD10-JPG
+           END-IF
+           .
+
+       Acu-Open-Files.
+      *    Before-Open
+      *    After-Open
+           .
+
+       Acu-Screen1-Routine.
+      *    Before-Routine
+           PERFORM Acu-Screen1-Scrn
+           PERFORM Acu-Screen1-Proc
+           PERFORM Screen1-Aft-Routine
+           .
+
+       Acu-Screen1-Scrn.
+           PERFORM Acu-Screen1-Create-Win
+           PERFORM Acu-Screen1-Init-Data
+           .
+
+       Acu-Screen1-Create-Win.
+           PERFORM Screen1-BeforeCreate
+      * display screen
+              DISPLAY Independent GRAPHICAL WINDOW
+                 SCREEN LINE INIT-LINE, SCREEN COLUMN INIT-COLUMN, 
+                 LINES 46,69, SIZE 73,14, CELL HEIGHT 13, CELL WIDTH 7, 
+                 AUTO-MINIMIZE, COLOR IS 131329, LABEL-OFFSET 0, 
+                 LINK TO THREAD, MODELESS, NO SCROLL, WITH SYSTEM MENU, 
+                 TITLE "MARQUES", TITLE-BAR, USER-GRAY, USER-WHITE, 
+                 NO WRAP, 
+                 EVENT PROCEDURE Screen1-Event-Proc, 
+                 HANDLE IS Screen1-Handle
+      * toolbar
+      * status-bar
+           DISPLAY STATUS-BAR
+              PANEL-WIDTHS 128, 
+              PANEL-STYLE 1, 
+              PANEL-TEXT SPACE, 
+              FONT IS Small-Font, 
+              HANDLE IS Screen1-St-1-Handle
+           DISPLAY Screen1 UPON Screen1-Handle
+      *    After-Create
+           .
+
+       Acu-Screen1-Init-Data.
+      *    Before-Initdata
+           PERFORM Acu-Screen1-Gd-1-Content
+           PERFORM Screen1-AfterInitData
+           .
+      * Screen1
+       Acu-Screen1-Proc.
+           PERFORM UNTIL Exit-Pushed
+              ACCEPT Screen1  
+                 ON EXCEPTION PERFORM Acu-Screen1-Evaluate-Func
+              END-ACCEPT
+           END-PERFORM
+           DESTROY Screen1-Handle
+           INITIALIZE Key-Status
+           .
+
+      * Screen1-Gd-1
+       Acu-Screen1-Gd-1-Content.
+      * Cells Settings
+           MODIFY Screen1-Gd-1, X = 1, Y = 1, CELL-COLOR = 304, 
+              CELL-FONT = Calibri12B, CELL-DATA = "Code", 
+           MODIFY Screen1-Gd-1, X = 2, Y = 1, CELL-COLOR = 304, 
+              CELL-FONT = Calibri12B, CELL-DATA = "Libellé", 
+           MODIFY Screen1-Gd-1, X = 3, Y = 1, CELL-COLOR = 304, 
+              CELL-FONT = Calibri12B, CELL-DATA = "Abrégé", 
+           MODIFY Screen1-Gd-1, X = 4, Y = 1, CELL-COLOR = 304, 
+              CELL-FONT = Calibri12B, CELL-DATA = "Code TVH", 
+           MODIFY Screen1-Gd-1, X = 5, Y = 1, CELL-COLOR = 304, 
+              CELL-FONT = Small-Font, 
+           .
+
+      * Screen1
+       Acu-Screen1-Evaluate-Func.
+           EVALUATE TRUE
+              WHEN Exit-Pushed
+                 PERFORM Acu-Screen1-Exit
+              WHEN Event-Occurred
+                 IF Event-Type = Cmd-Close
+                    PERFORM Acu-Screen1-Exit
+                 END-IF
+      * Screen1-Pb-Refresh Link To
+              WHEN Key-Status = 9855
+                 PERFORM Screen1-Pb-Refresh-LinkTo
+      * Screen1-Pb-Modify Link To
+              WHEN Key-Status = 9854
+                 PERFORM Screen1-Pb-Modify-LinkTo
+      * Screen1-Pb-Delete Link To
+              WHEN Key-Status = 9856
+                 PERFORM Screen1-Pb-Delete-LinkTo
+           END-EVALUATE
+           MOVE 1 TO Accept-Control
+           .
+
+       Acu-Screen1-Display-Status-Msg.
+           MODIFY Screen1-St-1-Handle
+              PANEL-WIDTHS 128, 
+              PANEL-STYLE 1, 
+              PANEL-TEXT SPACE, 
+              FONT IS Small-Font, 
+           .
+
+       Acu-Screen1-Clear-Status-Msg.
+           PERFORM Acu-Screen1-Display-Status-Msg
+           .
+
+       Acu-Close-Files.
+      *    Before-Close
+      *    After-Close
+           .
+
+      * MXPARAM
+
+      * COBCAP
+
+      * MXMARQUE
+
+       Acu-Screen1-Exit.
+           SET Exit-Pushed TO TRUE
+           .
+

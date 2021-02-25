@@ -1,0 +1,96 @@
+clear1
+echo "       PROCEDURE DE RAJOUT D'1 STE EN JEU D' ESSAI POUR CX "
+echo "       =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= "
+echo "\n"
+echo "S'assurer que personne ne travaille dans CX"
+echo "\n"
+echo "\n"
+echo "Environnement (exemples : /acuf /acuf/S2): \c"
+read DIR2
+if [ ! -d $DIR2/palme ]
+   then echo "\n      Environnement INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ ! -d $DIR2 ]
+   then echo "\n"
+   echo "Procédure non Réalisable \c"
+   read ok
+   exit
+fi
+echo "Confirmez-vous (Taper 'OUI' Pour confirmer) \c"
+read OK
+if [ $OK != "OUI" ]
+    then
+    echo "\n"
+    echo " Procédure Non Réalisée - Taper • \c "
+    read ok
+    exit
+fi
+NUMSOC=0001
+SOC=$NUMSOC
+   echo "\n"
+   echo "No Société Comptable à copier dans le jeu d'essai ($NUMSOC): \c"
+   SOC=`/acu/mistral/px/ACCNUMERO`
+if [ ! -d $DIR2/cx$SOC ]
+   then echo "\n      No DE SOCIETE INVALIDE !!! \c"
+        read ok
+        exit
+fi
+if [ -d $DIR2/E ]
+   then :
+   else echo "\n"
+   echo "Jeu d'Essai Inexistant : Non Réalisable \c"
+   read ok
+   exit
+fi
+if [ -d $DIR2/E/cx$SOC ]
+   then echo "\n"
+   echo "Procédure Déjà Réalisée : Non Réalisable \c"
+   read ok
+   exit
+fi
+echo "\n"
+echo " Traitement en Cours - Veuillez Patienter "
+echo "     .Création de l'environnement"
+cd $DIR2
+cd E
+mkdir cx$SOC cx$SOC/f cx$SOC/ft cx$SOC/fx
+ln -s /u/cx/COBCAP cx$SOC/COBCAP
+if [ -d $DIR2/cx$SOC/fseq ]
+   then ln -s $DIR2/cx$SOC/fseq cx$SOC/fseq
+fi
+## pour MAC-GABILLET par exemple
+if [ -d $DIR2/mxs$SOC ]
+   then mkdir mxs$SOC mxs$SOC/f
+fi
+echo "     .Copie des Fichiers COMPTA"
+cp $DIR2/cx$SOC/f/[A-Q]* cx$SOC/f
+cp $DIR2/cx$SOC/f/[S-Z]* cx$SOC/f
+cp $DIR2/cx$SOC/f/R[A-I]* cx$SOC/f
+if [ $? != 0 ] 
+         then echo "\n"
+              echo "    ATTENTION Problème: cp cx$SOC/f ---> E/cx$SOC/f "
+              echo "    Contacter MISTRAL Informatique \c"
+              read ok
+              exit
+fi
+## pour MAC-GABILLET par exemple
+if [ -d $DIR2/mxs$SOC ]
+   then cp $DIR2/mxs$SOC/f/* mxs$SOC/f
+fi
+if [ -d $DIR2/rx$SOC ]
+   then echo "     .Création de l'environnement / REMBO"
+        mkdir rx$SOC rx$SOC/f rx$SOC/ft
+        echo "     .Copie des Fichiers de REMBO"
+        cp $DIR2/rx$SOC/f/* rx$SOC/f
+        if [ $? != 0 ] 
+           then echo "\n"
+                echo "    ATTENTION Problème: cp rx$SOC/f ---> E/rx$SOC/f "
+                echo "    Contacter MISTRAL Informatique \c"
+                read ok
+                exit
+        fi
+fi
+echo "\n"
+echo "Procédure Terminée "

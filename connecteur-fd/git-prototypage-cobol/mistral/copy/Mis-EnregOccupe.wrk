@@ -1,0 +1,9 @@
+       77  ScreenOccupe-Handle USAGE IS HANDLE OF WINDOW.
+       77  OCCUPEX00-JPG    PIC  S9(6) USAGE IS COMP-4    VALUE IS 0.
+       77  ScreenOccupe-Fic PIC  X(30).
+       77  ScreenOccupe-Cle PIC  X(30).
+       77  ScreenOccupe-Nom PIC  X(30).
+       77  ScreenOccupe-Proc PIC  X(60).
+       77  SCreenOccupe-Accept-Thread USAGE IS HANDLE OF THREAD.
+       77  ScreenOccupe-End PIC  9.
+       77  ScreenOccupe-EnCours PIC  9.

@@ -1,0 +1,144 @@
+Command: B2H JRecordIntro.dcf (HTMPEXT=htm HTMLEXT=htm LOG=Copy.log QUIET)
+|MsgNum Type---| |----- B2H R4.7 (390) ------------------------------|
+|B2H105 Info:    Conversion started: 2018-05-17 22:39:23
+|B2H160 Info:    Loading system symbol table "F:\Work\Rexx\B2H\B2H.SYM" ...
+|B2H160 Info:    Loading system profile "F:\Work\Rexx\B2H\B2H.PRO" ...
+|B2H100 Info:    CurrSys=WINNT, DestSys=WINNT, Input=F:\Work\JRecord\Versions\Version_0.90\Docs\JRecordIntro.dcf
+|B2H101 Info:    PhysicalOut=JRecordIntro.htm, LogicalOut=JRecordIntro.htm
+|B2H104 Info:    Beginning pass 1 of 2 (processing markup) ...
+|B2H302 Info:    Reading file "F:\Work\JRecord\Versions\Version_0.90\Docs\JRecordIntro.dcf" ...
+|B2H303 Info:    ..Imbedding 'TagDefs.dcf' ...
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. example IT=N VAT=N ATT=N SE=N V='<a href=xmple.htm>RecordEditor Examples</a>'
+|B2H109 Info:      (in line 1 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. RecordEditor IT=N VAT=N ATT=N SE=N V='<a href="http://record-editor.sourceforge.net" TARGET="_top">RecordEditor</a>'
+|B2H109 Info:      (in line 2 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. JRecord IT=N VAT=N ATT=N SE=N V='<a href="https://sourceforge.net/projects/jrecord">JRecord</a>'
+|B2H109 Info:      (in line 3 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. cb2xml IT=N VAT=N ATT=N SE=N V='<a href="https://sourceforge.net/projects/cb2xml">cb2xml</a>'
+|B2H109 Info:      (in line 4 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. CobolToXml IT=N VAT=N ATT=N SE=N V='<a href="https://sourceforge.net/projects/coboltoxml">CobolToXml</a>'
+|B2H109 Info:      (in line 5 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. CobolToCsv IT=N VAT=N ATT=N SE=N V='<a href="https://sourceforge.net/projects/coboltocsv">CobolToCsv</a>'
+|B2H109 Info:      (in line 6 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. reCobolToXml IT=N VAT=N ATT=N SE=N V='<a href="http://coboltoxml.sourceforge.net/wCbl2X05.htm">RecordEditor - Generate CobolToXml</a>'
+|B2H109 Info:      (in line 7 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. reCobolToCsv IT=N VAT=N ATT=N SE=N V='<a href="http://coboltocsv.sourceforge.net/wCbl2C05.htm">RecordEditor - Generate CobolToCsv</a>'
+|B2H109 Info:      (in line 8 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. RecEdit IT=N VAT=N ATT=N SE=N V='<b>RecordEditor</b>'
+|B2H109 Info:      (in line 9 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. Velocity IT=N VAT=N ATT=N SE=N V='<a href="http://velocity.apache.org/" TARGET="Velocity">Velocity</a>'
+|B2H109 Info:      (in line 10 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. PropertiesEditor IT=N VAT=N ATT=N SE=N V='<font color="blue">Edit RecordEditor Startup Properties</font> program'
+|B2H109 Info:      (in line 11 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. Cobol2Xml IT=N VAT=N ATT=N SE=N V='<font color="blue">Cobol2Xml</font>'
+|B2H109 Info:      (in line 12 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. Cobol2Csv IT=N VAT=N ATT=N SE=N V='<font color="blue">Cobol2Csv</font>'
+|B2H109 Info:      (in line 13 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. CobolToJson IT=N VAT=N ATT=N SE=N V='<a href="https://sourceforge.net/projects/jrecord">CobolToJson (subproject of JRecord)</a>'
+|B2H109 Info:      (in line 14 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. RecordEditGen IT=N VAT=N ATT=N SE=N V='<a href="http://record-editor.sourceforge.net/RecordEditorGenerate.htm">RecordEditor CodeGen</a>'
+|B2H109 Info:      (in line 15 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. Blue IT=N VAT=N ATT=N SE=Y V='<font color="blue">'
+|B2H109 Info:      (in line 17 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. EBlue IT=N VAT=N ATT=N SE=Y V='</font>'
+|B2H109 Info:      (in line 18 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. Red IT=N VAT=N ATT=N SE=Y V='<font color="red">'
+|B2H109 Info:      (in line 19 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. ERed IT=N VAT=N ATT=N SE=Y V='</font>'
+|B2H109 Info:      (in line 20 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. BBlue IT=N VAT=N ATT=N SE=Y V='<font color="blue"><b>'
+|B2H109 Info:      (in line 22 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. EBBlue IT=N VAT=N ATT=N SE=Y V='</b></font>'
+|B2H109 Info:      (in line 23 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. BGreen IT=N VAT=N ATT=N SE=Y V='<font color="green"><b>'
+|B2H109 Info:      (in line 25 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. EBGreen IT=N VAT=N ATT=N SE=Y V='</b></font>'
+|B2H109 Info:      (in line 26 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. BackgroundYellow IT=N VAT=N ATT=N SE=Y V='<span style="background-color&gml.#FFF0CC"><b>'
+|B2H109 Info:      (in line 28 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. EBackgroundYellow IT=N VAT=N ATT=N SE=Y V='</b></span>'
+|B2H109 Info:      (in line 29 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. yellow IT=N VAT=N ATT=N SE=Y V='<font color="yellow"><b>'
+|B2H109 Info:      (in line 31 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. eyellow IT=N VAT=N ATT=N SE=Y V='</b></font>'
+|B2H109 Info:      (in line 32 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. BRed IT=N VAT=N ATT=N SE=Y V='<font color="red"><b>'
+|B2H109 Info:      (in line 34 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. EBRed IT=N VAT=N ATT=N SE=Y V='</b></font>'
+|B2H109 Info:      (in line 35 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :TAG. Pnl IT=N VAT=N ATT=Y SE=N V='<Table border="3" cellpadding="7" cellspacing="3"><tr><TD BGCOLOR="#000000"><FONT COLOR="#00ff00"><pre>'
+|B2H109 Info:      (in line 37 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :TAG. ePnl IT=N VAT=N ATT=Y SE=N V='</pre></font></td></tr></pre></table>'
+|B2H109 Info:      (in line 38 of TagDefs.dcf)
+|B2H109 Info:    Setting symbol table entry using
+|B2H109 Info:      .*B2H SYMBOL :tag. rlink IT=N VAT=N ATT=N SE=N V='.relink'
+|B2H109 Info:      (in line 48 of TagDefs.dcf)
+|B2H310 Info:    Reading line 100 from F:\Work\JRecord\Versions\Version_0.90\Docs\JRecordIntro.dcf ...
+|B2H310 Info:    Reading line 200 from F:\Work\JRecord\Versions\Version_0.90\Docs\JRecordIntro.dcf ...
+|B2H310 Info:    Reading line 300 from F:\Work\JRecord\Versions\Version_0.90\Docs\JRecordIntro.dcf ...
+|B2H310 Info:    Reading line 400 from F:\Work\JRecord\Versions\Version_0.90\Docs\JRecordIntro.dcf ...
+|B2H310 Info:    Reading line 500 from F:\Work\JRecord\Versions\Version_0.90\Docs\JRecordIntro.dcf ...
+|B2H310 Info:    Reading line 600 from F:\Work\JRecord\Versions\Version_0.90\Docs\JRecordIntro.dcf ...
+|B2H310 Info:    Reading line 700 from F:\Work\JRecord\Versions\Version_0.90\Docs\JRecordIntro.dcf ...
+|B2H310 Info:    Reading line 800 from F:\Work\JRecord\Versions\Version_0.90\Docs\JRecordIntro.dcf ...
+|B2H310 Info:    Reading line 900 from F:\Work\JRecord\Versions\Version_0.90\Docs\JRecordIntro.dcf ...
+|B2H303 Info:    ..Imbedding 'cbl2csv.dcf' ...
+|B2H303 Info:    ....Imbedding 'cbl2csv_examples.dcf' ...
+|B2H303 Info:    ....Imbedding 'cbl2csv_programOptions.dcf' ...
+|B2H303 Info:    ..Imbedding 'JRec_Cobol2Xml.dcf' ...
+|B2H303 Info:    ..Imbedding 'cbl2json_01_Intro.dcf' ...
+|B2H303 Info:    ..Imbedding 'JRec_Cobol2Json_02_options.dcf' ...
+|B2H303 Info:    ..Imbedding 'JRec_Cobol2Json_03.dcf' ...
+|B2H304 Info:    974 lines read from F:\Work\JRecord\Versions\Version_0.90\Docs\JRecordIntro.dcf
+|B2H306 Info:    1443 lines written to B0083563.$59 
+|B2H104 Info:    Beginning pass 2 of 2 (resolving cross-references) ...
+|B2H310 Info:    Reading line 100 from B0083563.$59 ...
+|B2H310 Info:    Reading line 200 from B0083563.$59 ...
+|B2H310 Info:    Reading line 300 from B0083563.$59 ...
+|B2H310 Info:    Reading line 400 from B0083563.$59 ...
+|B2H310 Info:    Reading line 500 from B0083563.$59 ...
+|B2H310 Info:    Reading line 600 from B0083563.$59 ...
+|B2H310 Info:    Reading line 700 from B0083563.$59 ...
+|B2H310 Info:    Reading line 800 from B0083563.$59 ...
+|B2H310 Info:    Reading line 900 from B0083563.$59 ...
+|B2H310 Info:    Reading line 1000 from B0083563.$59 ...
+|B2H310 Info:    Reading line 1100 from B0083563.$59 ...
+|B2H310 Info:    Reading line 1200 from B0083563.$59 ...
+|B2H310 Info:    Reading line 1300 from B0083563.$59 ...
+|B2H310 Info:    Reading line 1400 from B0083563.$59 ...
+|B2H306 Info:    1409 lines written to JRecordIntro.htm (JRecordIntro.htm) 
+|B2H304 Info:    1443 lines read from B0083563.$59
+|B2H106 Info:    Conversion completed in 0.25 seconds
+|B2H306 Info:    144 lines written to Copy.log 
+|B2H107 Info:    Highest RC=0

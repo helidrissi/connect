@@ -1,0 +1,6 @@
+ftp -v -n 213.56.106.204 << !
+user magrix-article Agro2016*
+binary
+get $1 $2
+quit
+!!

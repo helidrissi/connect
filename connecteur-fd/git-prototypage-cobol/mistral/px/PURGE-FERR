@@ -1,0 +1,20 @@
+#  Script de purge des fichiers contenus dans le répertoire /acu/mistral/ferr
+# 
+#	Principe du script 
+#	Rechercher les répertoires ARCHIVE de fmobi 
+#	ensuite dans chacun de ces répertoires rechercher
+#	les fichiers plus anciens de X jours X étant le nombre
+#	spécifié après le paramètre -mtime de la commande find
+
+if [ "$OSTYPE" = "linux-gnu" ]
+then RM="rm -f "
+else RM="rm "
+fi
+cd /acu/mistral/ferr
+find . -mtime +365 |while read fic
+     do
+        if [ "$fic" != "." -a "$fic" != ".." ]
+        then $RM $fic
+        fi
+     done
+

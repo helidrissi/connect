@@ -1,0 +1,34 @@
+      * Linkage de ART-C
+       01 LK-ART-C.
+      * LK-ART-C-CALL: 0= Si appel à partir du prog. "art"
+      *                1= Si appel à partir d'un autre Prog.
+      *                2= Si appel à partir d'ASA
+           05 LK-ART-C-CALL  PIC 9.
+      * Choix de Fonction: C=Création M=Modification I=Interrogation S=Création fournisseur secondaire
+           05 LK-ART-C-CHO   PIC X.
+      * Code article.
+           05 LK-ART-C-COD   PIC X(20).
+      * Référence.
+           05 LK-ART-C-REF   PIC X(21).
+      * Création article divers :
+      * Fournisseur   
+           05 LK-ART-C-FOU   PIC 9(6).
+      * Prix tarif fournisseur en devise
+           05 LK-ART-C-PDE   PIC 9(8)V99.
+      * Code prospect pour affichage planches contenant la pièce (Landa)
+           05 LK-ART-C-FCO REDEFINES LK-ART-C-PDE PIC 9(10).
+      * Prix tarif fournisseur
+           05 LK-ART-C-PTF   PIC 9(7)V99.
+      * Remise fournisseur
+           05 LK-ART-C-REM   PIC S99V99.
+      * Prix d'achat net
+           05 LK-ART-C-PAC   PIC 9(7)V99.
+      * Désignation
+           05 LK-ART-C-DES   PIC X(40).
+      * Position de la fenêtre (Ligne) (0=position standard)
+           05 LK-ART-C-LINE  PIC 9(4).
+      * Position de la fenêtre (Colonne) (0=position standard)
+           05 LK-ART-C-COLUMN  PIC 9(4).
+           05 LK-ART-C-AGE REDEFINES LK-ART-C-COLUMN PIC X(4).
+      *     05 FILLER         PIC X(8).           
+

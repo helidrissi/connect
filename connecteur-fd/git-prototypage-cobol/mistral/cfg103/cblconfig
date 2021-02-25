@@ -1,0 +1,222 @@
+TERM=aixterm-m
+FICMX=/webf/mx
+FICCX=/webf/cx
+FICWX=/webp/wx
+FICRX=/webf/rx
+FIC=/webf
+FICIMAGE=/webf
+DIR=/webp
+DIRMX=/webp/mx
+DIRCX=/webp/cx
+DIRPALME=/webp/palme
+DIRMEX=/webp/mex
+DIRWX=/webp/wx
+DIRRX=/webp/rx
+DIRIEX=/webp/iexN
+DIREMPX=/webp/empx
+DIRPEX=/webp/pex
+DIRAPL=/webp/apl
+DIRMIS=/webp/mistral
+DIRDCX=/webp/dcx
+FICOFFICE=/Xmistral/mx
+DIRINSTALL=/webf/cdrom
+#login et passwd de la servlet file/voir param‚trage dans web.xml
+FILELOGIN=MIS
+FILEPWD=C1SECRET
+
+#    NOTE : Pour activer le file trace il faut ajouter après le numéro de port
+#    et avant l'alias le paramètre -e NomTraceFichier 
+#    Exemple webpthin --nosplash SERVEUR_MIS:10005 -e /webf/FICTRACE MXCLI
+#  NIVTRACE:  0=Pas de Trace    1=Avec Trace    2=Trace uniquement pour les users indiqués dans USERTRACE 
+NIVTRACE=0
+#USERTRACE=RV;VO
+#   FILETRACE 1 = niveau le plus faible 9 le plus élévé
+FILE_TRACE=0
+#   FILETRACEFLUSH permet de vider la mémoire à chaque opération
+FILE_TRACE_FLUSH=0
+#   FILETRACETIMESTAMP fourni l'heure de l'opération                  
+FILE_TRACE_TIMESTAMP=1
+
+HELP-PROGRAM=/webp/mistral/o/ContextHelp.webp
+# pour mettre les pdf temporaires avant affichage (cf fichier cfg Tomcat)
+PDFT=/webp/mistral/ft
+# pour recherche des fichiers d'aide: lecteur r‚seau 
+OSTYPE=LINUX
+SERVEUR=192.63.63.102
+SERVEUR-AIDE=192.63.63.102
+SERVEUR-MIAMI=192.63.63.102
+SERVEUR-FAX=192.63.63.102
+MODEM-FAX=ttyACM0
+SERVEUR-WEBTOP=192.63.63.102
+# Port de base
+NUMPORT=10300
+# Ports de Secours
+NUMPORT2=10300
+NUMPORT3=10300
+NUMPORT4=10300
+NUMPORT5=10300
+# Port Miami
+NUMPORTM=10300
+# Port Login
+NUMPORTL=10300
+NUMPORT-MIAMI=4250
+NUMPORT-WEBTOP=8880
+NUMPORT-TOMCAT=80
+
+DIRCOBOL=/usr/
+REPCOBOL=acucobol10
+APACHE-TOMCAT=1
+
+PRELOAD_JAVA_LIBRARY=0
+JAVA_LIBRARY_NAME=libjvm.so
+JAVA_OPTIONS=-Djava.class.path=/webp/mistral/java/mistral.jar:/webp/mistral/java/fop.jar:/webp/mistral/java/avalon-framework-4.1.5.jar:/webp/mistral/java/batik.jar:/webp/mistral/java/jcommon-1.0.7.jar:/webp/mistral/java/jfreechart-1.0.3.jar:/webp/mistral/java/jimi-1.0.jar:/webp/mistral/java/mail.jar:/webp/mistral/java/activation.jar:/webp/mistral/java/xmlParserAPIs.jar:/webp/mistral/java/mistral-ws.jar:/webp/mistral/java/httpcomponents.jar:/webp/mistral/java/ccon.jar:/webp/mistral/java/commons-codec-1.5.jar:/webp/mistral/java/axis-jaxrpc-1.4.jar:/webp/mistral/java/axis-1.4.jar:/webp/mistral/java/commons-logging-api-1.0.4.jar:/webp/mistral/java/commons-discovery-0.2.jar:/webp/mistral/java/jaxws-api-2.1-1.jar:/webp/mistral/java/wsdl4j-1.6.2.jar:/webp/mistral/java/lib/sunjce_provider.jar:/webp/mistral/java/htmlparser.jar:/webp/mistral/java/htmllexer.jar:/webp/mistral/java/excel.jar -Djava.awt.headless=true
+#
+# pour avoir le message: remote host is not respondig seulement 
+# au bout de 32767 secondes (valeur maxi)
+TC_SERVER_TIMEOUT=32767
+#
+#DEFAULT_FONT=FIXED-FONT
+#DEFAULT_FONT=MEDIUM-FONT
+#DEFAULT_FONT=DEFAULT-FONT
+#DEFAULT_FONT=SMALL-FONT
+###########V80-3D-ENTRY-SIZE=1
+#WIN32_NATIVECTLS=1  non! met les mots de passe en ENORME!!!
+WIN32_3D=1
+#ECN_QA027=1
+BITMAP-PATH=/webp/mistral/resource
+# CODE_PREFIX définit les répertoires dans lesquels sont recherchés les prog. appelés (CALL)
+CODE_PREFIX . /webp/mistral/o /webp/mx/o /webp/cx/o /webp/gedeon/o
+TEXT 2=Numérique obligatoire
+TEXT 31=SVP Entrer une valeur entre %ld et %ld
+#FILE_SUFFIX .vis
+KEYBOARD RM-2-DEFAULT-HANDLING=yes
+KEYBOARD SCREEN-DEFAULT=yes
+#KEYBOARD CHECK-NUMBERS=yes
+#KEYBOARD AUTO-RETURN=yes
+#KEYBOARD IMPLIED-DECIMAL=yes
+# Inverion des point/virgule 
+KEYSTROKE DATA=44 46
+KEYSTROKE DATA=46 44
+#
+# redefinition des touches de fonction pour envoyer une valeur
+# dans mf-crt-status-name, qui est redefini en MF1 et MF3
+# F1 a F12
+KEYSTROKE EXCEPTION=9801 k1
+KEYSTROKE EXCEPTION=9852 k2
+# F3 (créer)
+KEYSTROKE EXCEPTION=9853 k3
+# F4 (modifier)
+KEYSTROKE EXCEPTION=9854 k4
+# F5 (rafraichir)
+KEYSTROKE EXCEPTION=9855 k5
+# F6 (supprimer)
+KEYSTROKE EXCEPTION=9856 k6
+# F7 (ajouter une ligne)
+KEYSTROKE EXCEPTION=9857 k7
+# F8 (valider = croix verte)
+KEYSTROKE EXCEPTION=9858 k8
+# F9 (lancer = engrenage ou boule bleue)
+KEYSTROKE EXCEPTION=9859 k9
+# F10 (annuler = croix rouge)
+KEYSTROKE EXCEPTION=9860 k0
+# F11 (page suivante)
+KEYSTROKE EXCEPTION=9861 U2 
+# F12 (page pr‚c‚dente)
+KEYSTROKE EXCEPTION=9862 U1 
+# shift F1/F2/F12
+#KEYSTROKE EXCEPTION=1014 K1
+#KEYSTROKE EXCEPTION=1015 K2
+#KEYSTROKE EXCEPTION=1025 K5
+# fleche haut
+#KEYSTROKE EXCEPTION=1052 ku
+# fleche bas
+#KEYSTROKE EXCEPTION=1053 kd
+# home
+#KEYSTROKE EXCEPTION=1054 kh
+# fin (quitter)
+KEYSTROKE EXCEPTION=9840 KE
+# tab
+#KEYSTROKE EXCEPTION=3009 0009
+# sardine haut 
+#KEYSTROKE EXCEPTION=9862 kP
+# sardine bas 
+#KEYSTROKE EXCEPTION=9861 kN
+# esc (un seul)
+KEYSTROKE EXCEPTION=9841 0027
+# ctrl + c (copier)
+KEYSTROKE EXCEPTION=9803 0003
+# ctrl + f (recherche)
+KEYSTROKE EXCEPTION=9806 0006
+# ctrl + p (imprimer)
+KEYSTROKE EXCEPTION=9816 0016
+# ctrl + s (sauvegarder)
+KEYSTROKE EXCEPTION=9819 0019
+# ctrl + v (coller)
+KEYSTROKE EXCEPTION=9822 0022
+# ctrl + x (couper)
+KEYSTROKE EXCEPTION=9824 0024
+# ctrl + z (undo)
+KEYSTROKE EXCEPTION=9826 0026
+# 
+KEYSTROKE EXCEPTION=9827 0001
+KEYSTROKE EXCEPTION=0027 U0
+#
+#RESTRICTED-VIDEO-MODE 7
+#COLOR_MAP HIGH=GREEN
+#KEYBOARD CURSOR-PAST-END=yes
+#KEYBOARD AUTO-RETURN=yes
+#
+#  IO_CREATES=1 Permet de créer des fichiers par OPEN I-O
+IO_CREATES=1
+#  CLOSE_ON_EXIT=1 Ferme les fichiers en sortie de programme
+CLOSE_ON_EXIT=1
+#  ERRORS_OK=1 permet de fermer des fichiers non ouverts
+ERRORS_OK=1
+
+# N'empeche pas la lecture des enreg. lockés, retourne status 99.
+WAIT_FOR_LOCKS=0
+
+FILE_STATUS_CODES=85
+
+# Nombre de fichiers ouverts simultanément
+MAX_FILES=500
+
+# Création des fichiers ouverts en extend si non existants
+EXTEND_CREATES=yes
+
+# pour autoriser les call récursifs (plusieurs fois le même programme
+RECURSION=1
+
+# pour le plantage de PXL sur bouton suivant
+#WARNING_ON_RECURSIVE_ACCEPTS=1
+
+#FIELDS_UNBOXED=1
+#NUMERIC_VALIDATION=1
+#JUSTIFY_NUM_FIELDS=1
+#AUTO_DECIMAL=1
+HINTS_OFF=400
+HINTS_ON=100
+
+#DEFAULT_FONT SMALL
+
+# pour g‚rer un fichier trace
+#FILE_TRACE=0
+#MAX_ERROR_LINES=5000
+#FILE_TRACE_FLUSH=1
+#FILE_TRACE_TIMESTAMP=1
+#TC_TV-SELCHANGING=2
+ICON /webp/mistral/resource/DLRIX.ico
+#Conversion minuscule -> majuscule
+UPPER_LOWER_MAP 085 251
+#        
+ECN-3699=0
+
+# DSCLIENT
+COBCAP=../../mistral/COBCAPCR
+#DSCLIENT_HOSTNAME=192.63.63.97
+DSCLIENT_HOSTNAME=192.63.63.102
+#DSCLIENT_HOSTNAME=127.0.0.1
+#DSCLIENT_HOSTNAME=172.169.164.100
+#DSCLIENT_HOSTNAME=127.0.0.1
+# test pour rech
+V_VERSION=5

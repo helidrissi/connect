@@ -1,0 +1,7167 @@
+; CASEMaker AcuBench Program Structure File, Version 10.2
+; WARNING: DO NOT MODIFY THIS FILE!
+
+[PROGRAM_CONTENT]
+QUIT_CONFIRM=0
+MAIN_SCREEN_NAME=Screen1
+
+{{@DESCRIPTION:
+
+@}}
+
+[WORKING_STORAGE]
+m_nType=1
+m_strName=Working Storage
+m_bBlockRecords=1
+m_bRecordFixed=1
+m_bStandard=1
+{{@FD_m_strDescriptionWK
+
+@}}
+[FDITEM0_WK]
+m_strName=COPY-COBCAP-WRK
+m_nItemLevel=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM0_WK
+==============================================================*
+@}}
+[FDITEM1_WK]
+m_nType=10
+m_strName=W-Heading-Color
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_strDefaultValue=112
+m_nItemLevel=2
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM1_WK
+
+@}}
+[FDITEM2_WK]
+m_nType=10
+m_strName=W-End-Color
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_strDefaultValue=16
+m_nItemLevel=2
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM2_WK
+
+@}}
+[FDITEM3_WK]
+m_nType=10
+m_strName=W-Divider-Color
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_strDefaultValue=8
+m_nItemLevel=2
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM3_WK
+
+@}}
+[FDITEM4_WK]
+m_nType=10
+m_strName=W-Heading-Divider-Color
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_strDefaultValue=8
+m_nItemLevel=2
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM4_WK
+
+@}}
+[FDITEM5_WK]
+m_strName=W-Row-Low-Color
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_strDefaultValue=257
+m_nItemLevel=2
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM5_WK
+
+@}}
+[FDITEM6_WK]
+m_strName=W-Row-Hight-Color
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_strDefaultValue=482
+m_nItemLevel=2
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM6_WK
+
+@}}
+[FDITEM7_WK]
+m_strName=W-Row-High-Color
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_strDefaultValue=482
+m_nItemLevel=2
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM7_WK
+
+@}}
+[FDITEM8_WK]
+m_strName=W-Cell-Low-Color
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_strDefaultValue=194
+m_nItemLevel=2
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM8_WK
+
+@}}
+[FDITEM9_WK]
+m_nType=10
+m_strName=W-Num-Rows
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_strDefaultValue=0
+m_nItemLevel=2
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM9_WK
+
+@}}
+[FDITEM10_WK]
+m_strName=LK-NUMSOC
+m_strRawPic=9999
+m_strPic=9999
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM10_WK
+-----------------------------------------------------------------
+@}}
+[FDITEM11_WK]
+m_strName=LK-NUMSOC2
+m_strRawPic=9999
+m_strPic=9999
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM11_WK
+
+@}}
+[FDITEM12_WK]
+m_strName=LK-ASS-SOC1
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM12_WK
+
+@}}
+[FDITEM13_WK]
+m_strName=LK-ASS-LSOC1
+m_strRawPic=XX
+m_strPic=XX
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM13_WK
+
+@}}
+[FDITEM14_WK]
+m_strName=LK-ASS-NSOC1
+m_strRawPic=9999
+m_strPic=9999
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM14_WK
+
+@}}
+[FDITEM15_WK]
+m_strName=LK-ASS-SOC2
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM15_WK
+
+@}}
+[FDITEM16_WK]
+m_strName=LK-ASS-LSOC2
+m_strRawPic=XX
+m_strPic=XX
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM16_WK
+
+@}}
+[FDITEM17_WK]
+m_strName=LK-ASS-NSOC2
+m_strRawPic=9999
+m_strPic=9999
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM17_WK
+
+@}}
+[FDITEM18_WK]
+m_strName=LK-NUMSOCMX
+m_strRawPic=9999
+m_strPic=9999
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM18_WK
+
+@}}
+[FDITEM19_WK]
+m_strName=LK-NUMSOCCX
+m_strRawPic=9999
+m_strPic=9999
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM19_WK
+
+@}}
+[FDITEM20_WK]
+m_strName=COBCAP-COB
+m_strRawPic=X(26)
+m_strPic=X(26)
+m_strDefaultValue="../../mistral/COBCAP"
+m_nItemLevel=2
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM20_WK
+
+@}}
+[FDITEM21_WK]
+m_strName=ZC-NOM-DIR
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM21_WK
+***************************************************************
+ Variables relatives a la l'assignation des Fichiers  CX & MX *
+***************************************************************
+@}}
+[FDITEM22_WK]
+m_strName=CX-DIR
+m_strRawPic=X(25)
+m_strPic=X(25)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM22_WK
+
+@}}
+[FDITEM23_WK]
+m_strName=MX-DIR
+m_strRawPic=X(25)
+m_strPic=X(25)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM23_WK
+
+@}}
+[FDITEM24_WK]
+m_strName=CX-DIR2
+m_strRawPic=X(25)
+m_strPic=X(25)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM24_WK
+
+@}}
+[FDITEM25_WK]
+m_strName=RX-DIR
+m_strRawPic=X(25)
+m_strPic=X(25)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM25_WK
+
+@}}
+[FDITEM26_WK]
+m_strName=G-DIR
+m_strRawPic=X(25)
+m_strPic=X(25)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM26_WK
+
+@}}
+[FDITEM27_WK]
+m_strName=ZC-IND-COB
+m_strRawPic=999999
+m_strPic=999999
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM27_WK
+
+@}}
+[FDITEM28_WK]
+m_strName=ZC-ZON-1
+m_strRawPic=XXX
+m_strPic=XXX
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM28_WK
+
+@}}
+[FDITEM29_WK]
+m_strName=ZC-ZON-2
+m_strRawPic=X(37)
+m_strPic=X(37)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM29_WK
+
+@}}
+[FDITEM30_WK]
+m_strName=ZC-ZON-COB
+m_strRawPic=X(40)
+m_strPic=X(40)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM30_WK
+
+@}}
+[FDITEM31_WK]
+m_strName=ZC-DEB-COB
+m_strRawPic=999999
+m_strPic=999999
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM31_WK
+
+@}}
+[FDITEM32_WK]
+m_strName=ZONE-PALM
+m_strRawPic=X(500)
+m_strPic=X(500)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM32_WK
+***************************************************************
+ Zones pour PALME                                             *
+***************************************************************
+@}}
+[FDITEM33_WK]
+m_strName=ZONER-PALM
+m_nItemLevel=2
+m_bRedefines=1
+m_strRedefines=ZONE-PALM
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM33_WK
+
+@}}
+[FDITEM34_WK]
+m_strName=LOG-PALM
+m_strRawPic=9(3)
+m_strPic=9(3)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM34_WK
+    ===== Zones en entree ====================================
+    LOG-PALM = numero d'applicatif    
+@}}
+[FDITEM35_WK]
+m_strName=NPR-PALM
+m_strRawPic=9(4)
+m_strPic=9(4)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM35_WK
+    NPR-PALM = numero du programme
+        si numero prog non renseign‚, recherche avec PRO-PALM
+@}}
+[FDITEM36_WK]
+m_nType=10
+m_strName=IDE-PALM
+m_strRawPic=X(4)
+m_strPic=X(4)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM36_WK
+    ===== Zones en entree & sortie ===========================
+    IDE-PALM = code utilisateur
+@}}
+[FDITEM37_WK]
+m_strName=PRO-PALM
+m_strRawPic=X(8)
+m_strPic=X(8)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM37_WK
+    ===== Zones en sortie ====================================
+    PRO-PALM = code proc‚dure
+@}}
+[FDITEM38_WK]
+m_strName=NOM-PALM
+m_strRawPic=X(25)
+m_strPic=X(25)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM38_WK
+    NOM-PALM = nom utilisateur
+@}}
+[FDITEM39_WK]
+m_strName=FONCTIONS-PALM
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM39_WK
+
+@}}
+[FDITEM40_WK]
+m_strName=EXEC-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM40_WK
+    EXEC-PALM = Execution
+@}}
+[FDITEM41_WK]
+m_strName=CREAT-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM41_WK
+    CREAT-PALM = Cr‚ation
+@}}
+[FDITEM42_WK]
+m_strName=MODIF-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM42_WK
+    MODIF-PALM = Modification
+@}}
+[FDITEM43_WK]
+m_strName=INTER-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM43_WK
+    INTER-PALM = Interrogation
+@}}
+[FDITEM44_WK]
+m_strName=ANNUL-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM44_WK
+    ANNUL-PALM = Annulation
+@}}
+[FDITEM45_WK]
+m_strName=FONC6-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM45_WK
+    FONC6-PALM = fonction 6 (non utilis‚e)
+@}}
+[FDITEM46_WK]
+m_strName=FONC7-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM46_WK
+    FONC7-PALM = fonction 7 (non utilis‚e)
+@}}
+[FDITEM47_WK]
+m_strName=FONC8-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM47_WK
+    FONC8-PALM = fonction 8 (non utilis‚e)
+@}}
+[FDITEM48_WK]
+m_strName=FONC9-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM48_WK
+    FONC9-PALM = fonction 9 (non utilis‚e)
+@}}
+[FDITEM49_WK]
+m_strName=FONCA-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM49_WK
+    FONCA-PALM = fonction A (non utilis‚e)
+@}}
+[FDITEM50_WK]
+m_strName=SOC-PALM
+m_strRawPic=9(4)
+m_strPic=9(4)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM50_WK
+    SOC-PALM = Societe affectee a l'Utililisateur
+@}}
+[FDITEM51_WK]
+m_strName=ISO-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM51_WK
+    ISO-PALM = B si Utilisateur Bloque sur cette Societe
+               C pour contr“ler l'accŠs aux Societes
+    (SOC-PALM et ISO-PALM controle dans acces si DLRIX ou CX)
+@}}
+[FDITEM52_WK]
+m_strName=AGE-PALM
+m_strRawPic=X(3)
+m_strPic=X(3)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM52_WK
+    AGE-PALM = Agence affectee a l'Utililisateur
+@}}
+[FDITEM53_WK]
+m_strName=IAG-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM53_WK
+    IAG-PALM = B si Utilisateur Bloque sur cette Agence
+     C pour contr“ler l'accŠs aux Agences
+     A pour contr“ler l'accŠs aux Agences (autoris‚es /d‚faut)
+@}}
+[FDITEM54_WK]
+m_strName=NSO-PALM
+m_strRawPic=9(4)
+m_strPic=9(4)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM54_WK
+
+    NSO-PALM = Nø de Soci‚t‚ s‚lectionn‚e pour contr“le accŠs
+               aux soci‚t‚s ou aux agences (ISO ou IAG = C)
+    BSO-PALM = X si accŠs refus‚ … la soci‚t‚ NSO
+@}}
+[FDITEM55_WK]
+m_strName=BSO-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM55_WK
+
+@}}
+[FDITEM56_WK]
+m_strName=TFONSO-PALM
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM56_WK
+    TFONSO-PALM = permission par fonctions /Soci‚t‚ (10)
+@}}
+[FDITEM57_WK]
+m_strName=TFSO-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=5
+m_nSync=-1
+m_bOccurs=1
+m_bFixed=1
+m_strRawSize=10
+m_nSize=10
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM57_WK
+
+@}}
+[FDITEM58_WK]
+m_strName=NAG-PALM
+m_strRawPic=X(3)
+m_strPic=X(3)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM58_WK
+    NAG-PALM = Nø d'Agence s‚lectionn‚e pour contr“le accŠs
+               aux agences (IAG = C ou A)
+@}}
+[FDITEM59_WK]
+m_strName=BAG-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM59_WK
+    BAG-PALM = X si accŠs refus‚ … l'agence NAG
+@}}
+[FDITEM60_WK]
+m_strName=NREG-PALM
+m_strRawPic=9(2)
+m_strPic=9(2)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM60_WK
+    NREG-PALM = Nø de r‚gion … contr“ler
+@}}
+[FDITEM61_WK]
+m_strName=BREG-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM61_WK
+    BREG-PALM = X si accŠs refus‚ … la r‚gion
+@}}
+[FDITEM62_WK]
+m_strName=TFONAG-PALM
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM62_WK
+    TFONAG-PALM = permission par fonctions /Agence (10)
+@}}
+[FDITEM63_WK]
+m_strName=TFAG-PALM
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=5
+m_nSync=-1
+m_bOccurs=1
+m_bFixed=1
+m_strRawSize=10
+m_nSize=10
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM63_WK
+
+@}}
+[FDITEM64_WK]
+m_strName=FONPR-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM64_WK
+    FONPR-PALM = Fonction du prog. (mis … jour / acces)
+                (1=av M…J, 2=ss M…J, 3=choix fonct ds le prog.)
+@}}
+[FDITEM65_WK]
+m_strName=ATA-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM65_WK
+    ATA-PALM : Droit d'accŠs … toutes les agences, 0=Non,
+    1=Interrogation autoris‚e … toutes, 2=Saisie sur toutes
+@}}
+[FDITEM66_WK]
+m_strName=NOMLOG-PALM
+m_strRawPic=X(10)
+m_strPic=X(10)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM66_WK
+    Infos du configurateur
+@}}
+[FDITEM67_WK]
+m_strName=NOMMOD-PALM
+m_strRawPic=X(22)
+m_strPic=X(22)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM67_WK
+
+@}}
+[FDITEM68_WK]
+m_strName=CAS-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM68_WK
+
+@}}
+[FDITEM69_WK]
+m_strName=CAA-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM69_WK
+
+@}}
+[FDITEM70_WK]
+m_strName=CLI-PALM
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM70_WK
+
+@}}
+[FDITEM71_WK]
+m_strName=NPC-PALM
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM71_WK
+
+@}}
+[FDITEM72_WK]
+m_strName=LAN-PALM
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM72_WK
+
+@}}
+[FDITEM73_WK]
+m_strName=MODULES-PALM
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM73_WK
+---------------------------------------------------------------
+    Modules configur‚s pour la St‚
+@}}
+[FDITEM74_WK]
+m_strName=MX-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM74_WK
+    MX - Module Base (01)
+@}}
+[FDITEM75_WK]
+m_strName=MXACH-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM75_WK
+    Module Achat (03)
+@}}
+[FDITEM76_WK]
+m_strName=MXSTO-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM76_WK
+    Module Stock (04)
+@}}
+[FDITEM77_WK]
+m_strName=MXCOMV-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM77_WK
+    Module Commis. Vend.(05)
+@}}
+[FDITEM78_WK]
+m_strName=MXDIS-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM78_WK
+    Module Distri (06)
+@}}
+[FDITEM79_WK]
+m_strName=MXPARC-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM79_WK
+    Module Gestion Parc (08)
+@}}
+[FDITEM80_WK]
+m_strName=MXCONS-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM80_WK
+    Module Gestion Conso (09)
+@}}
+[FDITEM81_WK]
+m_strName=MXMAT-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM81_WK
+    Module Vente Mat. (10)
+@}}
+[FDITEM82_WK]
+m_strName=MXMARCH-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM82_WK
+    Module Gestion March‚s (11)
+@}}
+[FDITEM83_WK]
+m_strName=MXREP-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM83_WK
+    Module R‚paration (12)
+@}}
+[FDITEM84_WK]
+m_strName=MXGAR-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM84_WK
+    Module Gestion Garanties (13)
+@}}
+[FDITEM85_WK]
+m_strName=MXLOC-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM85_WK
+    Module Location (14)
+@}}
+[FDITEM86_WK]
+m_strName=MXLLD-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM86_WK
+    Module Location Longue Dur‚e (15)
+@}}
+[FDITEM87_WK]
+m_strName=MXENT-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM87_WK
+    Module Contrats Entretien (16)
+@}}
+[FDITEM88_WK]
+m_strName=MXGARC-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM88_WK
+    Module Gestion Garanties Conces. (17)
+@}}
+[FDITEM89_WK]
+m_strName=MXETUI-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM89_WK
+    Module Etudes Internes (19)
+@}}
+[FDITEM90_WK]
+m_strName=MXSVC-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM90_WK
+    Module Service Cial (20)
+@}}
+[FDITEM91_WK]
+m_strName=MXSLIE-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM91_WK
+    Module St‚s Li‚es (25)
+@}}
+[FDITEM92_WK]
+m_strName=MXIEXP-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM92_WK
+    Module Import-Export (30)
+@}}
+[FDITEM93_WK]
+m_strName=MXDEB-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM93_WK
+    Module D.E.B (31)
+@}}
+[FDITEM94_WK]
+m_strName=MXEDI-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM94_WK
+    Module E.D.I (32)
+@}}
+[FDITEM95_WK]
+m_strName=MXLSD-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM95_WK
+    Module L.S.D (35)
+@}}
+[FDITEM96_WK]
+m_strName=MXHRE-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM96_WK
+    Module Gestion des Heures (40)
+@}}
+[FDITEM97_WK]
+m_strName=MXTPS-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM97_WK
+    Module Gestion des Temps (41)
+@}}
+[FDITEM98_WK]
+m_strName=MXICA-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM98_WK
+    Module Int‚gr. Compta /Agence (45)
+@}}
+[FDITEM99_WK]
+m_strName=MXVINT-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM99_WK
+    Module Vers. Internationale (50)
+@}}
+[FDITEM100_WK]
+m_strName=MXMOBIDIS-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM100_WK
+    Module Mobiles /Distri (23)
+@}}
+[FDITEM101_WK]
+m_strName=MXMOBIVTE-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM101_WK
+    Module Mobiles /Vente (70)
+@}}
+[FDITEM102_WK]
+m_strName=MXMOBIDEV-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM102_WK
+    Module Mobiles /Devis (71)
+@}}
+[FDITEM103_WK]
+m_strName=MXMOBI3-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM103_WK
+    Module Mobiles /Vente (72)
+@}}
+[FDITEM104_WK]
+m_strName=MXFWK-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM104_WK
+    Module Sp‚cifique FENWICK (95)
+@}}
+[FDITEM105_WK]
+m_strName=FILLER
+m_strRawPic=X(27)
+m_strPic=X(27)
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM105_WK
+
+@}}
+[FDITEM106_WK]
+m_strName=CX-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM106_WK
+    CX - Module Base (01)
+@}}
+[FDITEM107_WK]
+m_strName=CXANAS-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM107_WK
+    Module Analytique (/Segment) (07)
+@}}
+[FDITEM108_WK]
+m_strName=CXETSD-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM108_WK
+    Module Ets Deportes (09)
+@}}
+[FDITEM109_WK]
+m_strName=CXAPLX-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM109_WK
+    Module Interface APPLIX (10)
+@}}
+[FDITEM110_WK]
+m_strName=CXDOUT-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM110_WK
+    Module Clients Douteux (21)
+@}}
+[FDITEM111_WK]
+m_strName=FILLER
+m_strRawPic=X(10)
+m_strPic=X(10)
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM111_WK
+
+@}}
+[FDITEM112_WK]
+m_strName=PX-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM112_WK
+    PEX - Module Base (01)
+@}}
+[FDITEM113_WK]
+m_strName=PXTDS-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM113_WK
+    PEX - Module TDS  (02)
+@}}
+[FDITEM114_WK]
+m_strName=FILLER
+m_strRawPic=X(5)
+m_strPic=X(5)
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM114_WK
+
+@}}
+[FDITEM115_WK]
+m_strName=IA-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM115_WK
+    IEX - Module Base (01)
+@}}
+[FDITEM116_WK]
+m_strName=FILLER
+m_strRawPic=X(5)
+m_strPic=X(5)
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM116_WK
+
+@}}
+[FDITEM117_WK]
+m_strName=EM-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM117_WK
+    MEX - Module Base (01)
+@}}
+[FDITEM118_WK]
+m_strName=EMPREL-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM118_WK
+    MEX - Module Pr‚lŠv. (02)
+@}}
+[FDITEM119_WK]
+m_strName=FILLER
+m_strRawPic=X(5)
+m_strPic=X(5)
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM119_WK
+
+@}}
+[FDITEM120_WK]
+m_strName=GF-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM120_WK
+    EMPX - Module Base (01)
+@}}
+[FDITEM121_WK]
+m_strName=FILLER
+m_strRawPic=X(2)
+m_strPic=X(2)
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM121_WK
+
+@}}
+[FDITEM122_WK]
+m_strName=RX-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM122_WK
+    RX - Module Base (01)
+@}}
+[FDITEM123_WK]
+m_strName=FILLER
+m_strRawPic=X(2)
+m_strPic=X(2)
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM123_WK
+
+@}}
+[FDITEM124_WK]
+m_strName=CB-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM124_WK
+    COM-BAC - Module Base (01)
+@}}
+[FDITEM125_WK]
+m_strName=FILLER
+m_strRawPic=X(5)
+m_strPic=X(5)
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM125_WK
+
+@}}
+[FDITEM126_WK]
+m_strName=TE-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM126_WK
+    GTI - Module Base (01)                      
+@}}
+[FDITEM127_WK]
+m_strName=FILLER
+m_strRawPic=X(4)
+m_strPic=X(4)
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM127_WK
+
+@}}
+[FDITEM128_WK]
+m_strName=MIAMI-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM128_WK
+    MIAMI  - Module Base (01)
+@}}
+[FDITEM129_WK]
+m_strName=FILLER
+m_strRawPic=X(2)
+m_strPic=X(2)
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM129_WK
+
+@}}
+[FDITEM130_WK]
+m_strName=MISFAX-PALM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM130_WK
+    MISFAX - Module Base (01)
+@}}
+[FDITEM131_WK]
+m_strName=FILLER
+m_strRawPic=X(5)
+m_strPic=X(5)
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM131_WK
+
+@}}
+[FDITEM132_WK]
+m_strName=PROLOG-PALM
+m_strRawPic=X(80)
+m_strPic=X(80)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM132_WK
+    Proc‚dure + LogicieL + Titre Programme /Affichage en haut
+@}}
+[FDITEM133_WK]
+m_strName=DTT-PALM
+m_strRawPic=9(8)
+m_strPic=9(8)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM133_WK
+    DTT-PALM = date du jour
+@}}
+[FDITEM134_WK]
+m_strName=LOG-PALM2
+m_strRawPic=9(3)
+m_strPic=9(3)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM134_WK
+** Zones -PALM2 pour vérification d'accès à d'autres programmes
+** avec verifacc
+    LOG-PALM2 = numero d'applicatif    
+@}}
+[FDITEM135_WK]
+m_strName=NPR-PALM2
+m_strRawPic=9(4)
+m_strPic=9(4)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM135_WK
+    NPR-PALM2 = numero du programme
+        si numero prog non renseign‚, recherche avec PRO-PALM
+@}}
+[FDITEM136_WK]
+m_strName=IDE-PALM2
+m_strRawPic=X(4)
+m_strPic=X(4)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM136_WK
+    IDE-PALM2 = code utilisateur
+@}}
+[FDITEM137_WK]
+m_strName=FONCTIONS-PALM2
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM137_WK
+
+@}}
+[FDITEM138_WK]
+m_strName=EXEC-PALM2
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM138_WK
+    EXEC-PALM2 = Execution
+@}}
+[FDITEM139_WK]
+m_strName=CREAT-PALM2
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM139_WK
+    CREAT-PALM2 = Cr‚ation
+@}}
+[FDITEM140_WK]
+m_strName=MODIF-PALM2
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM140_WK
+    MODIF-PALM2 = Modification
+@}}
+[FDITEM141_WK]
+m_strName=INTER-PALM2
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM141_WK
+    INTER-PALM2 = Interrogation
+@}}
+[FDITEM142_WK]
+m_strName=ANNUL-PALM2
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM142_WK
+    ANNUL-PALM2 = Annulation
+@}}
+[FDITEM143_WK]
+m_strName=FONC6-PALM2
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM143_WK
+    FONC6-PALM2 = fonction 6 (non utilis‚e)
+@}}
+[FDITEM144_WK]
+m_strName=FONC7-PALM2
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM144_WK
+    FONC7-PALM2 = fonction 7 (non utilis‚e)
+@}}
+[FDITEM145_WK]
+m_strName=FONC8-PALM2
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM145_WK
+    FONC8-PALM2 = fonction 8 (non utilis‚e)
+@}}
+[FDITEM146_WK]
+m_strName=FONC9-PALM2
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM146_WK
+    FONC9-PALM2 = fonction 9 (non utilis‚e)
+@}}
+[FDITEM147_WK]
+m_strName=FONCA-PALM2
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM147_WK
+    FONCA-PALM2 = fonction A (non utilis‚e)
+@}}
+[FDITEM148_WK]
+m_strName=FILLER
+m_strRawPic=X(10)
+m_strPic=X(10)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM148_WK
+
+@}}
+[FDITEM149_WK]
+m_strName=W-BGP
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM149_WK
+    W-BGP: 0 = Trait. en avant plan   1 = Trait. en arriŠre plan
+@}}
+[FDITEM150_WK]
+m_strName=DATHEU-SYS-M
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM150_WK
+***************************************************************
+ Variables relatives a la creation du fichier journal         *
+***************************************************************
+@}}
+[FDITEM151_WK]
+m_strName=DAT-SYS-M
+m_strRawPic=9(8)
+m_strPic=9(8)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM151_WK
+
+@}}
+[FDITEM152_WK]
+m_strName=DATE-SYS-M
+m_nItemLevel=3
+m_bRedefines=1
+m_strRedefines=DAT-SYS-M
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM152_WK
+
+@}}
+[FDITEM153_WK]
+m_strName=SSS-SYS-M
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM153_WK
+
+@}}
+[FDITEM154_WK]
+m_strName=AAA-SYS-M
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM154_WK
+
+@}}
+[FDITEM155_WK]
+m_strName=MMM-SYS-M
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM155_WK
+
+@}}
+[FDITEM156_WK]
+m_strName=JJJ-SYS-M
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM156_WK
+
+@}}
+[FDITEM157_WK]
+m_strName=HEURE-SYS-M
+m_strRawPic=9(8)
+m_strPic=9(8)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM157_WK
+
+@}}
+[FDITEM158_WK]
+m_strName=HEURER-SYS-M
+m_nItemLevel=3
+m_bRedefines=1
+m_strRedefines=HEURE-SYS-M
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM158_WK
+
+@}}
+[FDITEM159_WK]
+m_strName=HEU-SYS-M
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM159_WK
+
+@}}
+[FDITEM160_WK]
+m_strName=MIN-SYS-M
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM160_WK
+
+@}}
+[FDITEM161_WK]
+m_strName=SEC-SYS-M
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM161_WK
+
+@}}
+[FDITEM162_WK]
+m_strName=CEN-SYS-M
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM162_WK
+
+@}}
+[FDITEM163_WK]
+m_nType=10
+m_strName=ZONE-TITRE
+m_strRawPic=X(80)
+m_strPic=X(80)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM163_WK
+  Pour affichage titre programmes appel‚s sans Bandeau
+  Mettre NOMLOG-PALM dans Z-TITRE1
+  Mettre le titre dans Z-TITRE2
+  Mettre ZONE-TITRE dans le titre de la fenˆtre
+@}}
+[FDITEM164_WK]
+m_strName=ZONE-TITRE-R
+m_nItemLevel=2
+m_bRedefines=1
+m_strRedefines=ZONE-TITRE
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM164_WK
+
+@}}
+[FDITEM165_WK]
+m_strName=Z-TITRE1
+m_strRawPic=X(15)
+m_strPic=X(15)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM165_WK
+
+@}}
+[FDITEM166_WK]
+m_strName=Z-TITRE2
+m_strRawPic=X(65)
+m_strPic=X(65)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM166_WK
+
+@}}
+[FDITEM167_WK]
+m_strName=WAGC-OK
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM167_WK
+   02 APPLIC-M    PIC X(40).
+   02 NOMFIC-M    PIC X(40).
+   02 NOMCLE-M    PIC X(40).
+   02 FONCTION-M  PIC X(40).
+   02 ZONFIC-M    PIC X(2000).
+   02 TYP-M       PIC 9.
+   02 DITR-M      PIC X(10).
+   02 FITR-M      PIC X(10).
+   02 DBCL-M      PIC X(10).
+   02 FBCL-M      PIC X(10).
+   02 ZONE-SOC-M  PIC X(50).
+   02 ZONE-SOC-M-R REDEFINES ZONE-SOC-M. 
+      03 Z-SOC-M  OCCURS 50 PIC X.
+   02 SOC-M        PIC 9(4).
+   02 SOC-M-R REDEFINES SOC-M.
+      03 N-SOC-M  OCCURS 4 PIC 9.
+   02 I-M          PIC 99.
+   02 J-M          PIC 99.
+@}}
+[FDITEM168_WK]
+m_strName=WOPEN-MXAGENCE
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM168_WK
+
+@}}
+[FDITEM169_WK]
+m_strName=DEM-SPOOL
+m_strRawPic=X(99)
+m_strPic=X(99)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM169_WK
+
+@}}
+[FDITEM170_WK]
+m_strName=LK-FILELPR
+m_strRawPic=X(40)
+m_strPic=X(40)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM170_WK
+
+@}}
+[FDITEM171_WK]
+m_strName=SPOOL-FICHIER
+m_strRawPic=X(40)
+m_strPic=X(40)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM171_WK
+
+@}}
+[FDITEM172_WK]
+m_strName=SPOOL-CDE
+m_strRawPic=X(100)
+m_strPic=X(100)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM172_WK
+
+@}}
+[FDITEM173_WK]
+m_strName=SPOOL-CDER
+m_nItemLevel=2
+m_bRedefines=1
+m_strRedefines=SPOOL-CDE
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM173_WK
+
+@}}
+[FDITEM174_WK]
+m_strName=SPOOL-NEX
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM174_WK
+
+@}}
+[FDITEM175_WK]
+m_strName=FILLER
+m_strRawPic=X(99)
+m_strPic=X(99)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM175_WK
+
+@}}
+[FDITEM176_WK]
+m_strName=R-SS
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM176_WK
+***************************************************************
+ Variables relatives … la gestion des Num‚ros de T‚l‚phone    *
+***************************************************************
+   02  LK-TEL-ZONE.
+       03  LK-TEL-NUME    PIC X(14).
+       03  LK-TEL-EDIT    PIC X(14).
+       03  LK-TEL-PAYS    PIC XXX.
+       03  FILLER         PIC X(21).
+***************************************************************
+ Variables relatives … la gestion du nø de TVA CEE            *
+***************************************************************
+   02 LK-TVA-ZONE.
+      03  LK-TVA-NUME    PIC X(20).
+      03  LK-TVA-EDIT    PIC X(20).
+      03  LK-TVA-PAYS    PIC 999.
+      03  LK-TVA-LINE    PIC 99.
+      03  LK-TVA-POSI    PIC 99.
+      03  LK-TVA-TRAI    PIC 9.
+    = 1 SAISIE ET AFFICHAGE
+    = 2 AFFICHAGE
+    = 3 RETOUR DE TVA-EDIT MOUVEMENTE
+      03  LK-TVA-MF1     PIC 9.
+      03  LK-TVA-MF3     PIC 99 COMP.
+      03  FILLER         PIC X(20).
+***************************************************************
+ Variables relatives … la gestion des Codes Postaux           *
+***************************************************************
+   02 LK-POS-ZONE.
+      03  LK-POS-NUME    PIC X(8).
+      03  LK-POS-EDIT    PIC X(12).
+      03  LK-POS-PAYS    PIC 999.
+      03  LK-POS-LINE    PIC 99.
+      03  LK-POS-POSI    PIC 99.
+      03  LK-POS-TRAI    PIC 9.
+      03  LK-POS-MF1     PIC 9.
+      03  LK-POS-MF3     PIC 99 COMP.
+      03  LK-POS-TYC     PIC 9.
+      03  LK-POS-VIL     PIC X(25).
+      03  LK-POS-LIS     PIC 9.
+      03  LK-POS-DEC     PIC 9.
+      03  FILLER         PIC X(18).
+   02 LK-POSC.
+      03  FILLER         PIC XXX.
+      03  LK-POSCN       PIC 9(5).
+***************************************************************
+ Variables relatives au calcul du siecle pour l'an 2000       *
+***************************************************************
+@}}
+[FDITEM177_WK]
+m_strName=L-DAT8
+m_strRawPic=99/99/9999
+m_strPic=99/99/9999
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM177_WK
+01 L-DAT8             PIC 99/99/9999  BLANK WHEN ZERO.
+01 L-DAT6             PIC 99/99/99    BLANK WHEN ZERO.
+@}}
+[FDITEM178_WK]
+m_strName=L-DAT6
+m_strRawPic=99/99/99
+m_strPic=99/99/99
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM178_WK
+
+@}}
+[FDITEM179_WK]
+m_strName=D-JMA
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM179_WK
+
+@}}
+[FDITEM180_WK]
+m_strName=R-D-JMA
+m_nItemLevel=2
+m_bRedefines=1
+m_strRedefines=D-JMA
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM180_WK
+
+@}}
+[FDITEM181_WK]
+m_strName=J-JMA
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM181_WK
+
+@}}
+[FDITEM182_WK]
+m_strName=M-JMA
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM182_WK
+
+@}}
+[FDITEM183_WK]
+m_strName=A-JMA
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM183_WK
+
+@}}
+[FDITEM184_WK]
+m_strName=D-JMSA
+m_strRawPic=9(8)
+m_strPic=9(8)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM184_WK
+
+@}}
+[FDITEM185_WK]
+m_strName=R-D-JMSA
+m_nItemLevel=2
+m_bRedefines=1
+m_strRedefines=D-JMSA
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM185_WK
+
+@}}
+[FDITEM186_WK]
+m_strName=J-JMSA
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM186_WK
+
+@}}
+[FDITEM187_WK]
+m_strName=M-JMSA
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM187_WK
+
+@}}
+[FDITEM188_WK]
+m_strName=SA-JMSA
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM188_WK
+
+@}}
+[FDITEM189_WK]
+m_strName=S-JMSA
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM189_WK
+
+@}}
+[FDITEM190_WK]
+m_strName=A-JMSA
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM190_WK
+
+@}}
+[FDITEM191_WK]
+m_strName=D-SAMJ
+m_strRawPic=9(8)
+m_strPic=9(8)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM191_WK
+
+@}}
+[FDITEM192_WK]
+m_strName=R-D-SAMJ
+m_nItemLevel=2
+m_bRedefines=1
+m_strRedefines=D-SAMJ
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM192_WK
+
+@}}
+[FDITEM193_WK]
+m_strName=SA-SAMJ
+m_strRawPic=9(4)
+m_strPic=9(4)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM193_WK
+
+@}}
+[FDITEM194_WK]
+m_strName=R-SA-SAMJ
+m_nItemLevel=3
+m_bRedefines=1
+m_strRedefines=SA-SAMJ
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM194_WK
+
+@}}
+[FDITEM195_WK]
+m_strName=S-SAMJ
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM195_WK
+
+@}}
+[FDITEM196_WK]
+m_strName=A-SAMJ
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM196_WK
+
+@}}
+[FDITEM197_WK]
+m_strName=M-SAMJ
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM197_WK
+
+@}}
+[FDITEM198_WK]
+m_strName=J-SAMJ
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM198_WK
+
+@}}
+[FDITEM199_WK]
+m_strName=D-SAMJ1
+m_strRawPic=9(8)
+m_strPic=9(8)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM199_WK
+
+@}}
+[FDITEM200_WK]
+m_strName=R-D-SAMJ1
+m_nItemLevel=2
+m_bRedefines=1
+m_strRedefines=D-SAMJ1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM200_WK
+
+@}}
+[FDITEM201_WK]
+m_strName=SA-SAMJ1
+m_strRawPic=9(4)
+m_strPic=9(4)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM201_WK
+
+@}}
+[FDITEM202_WK]
+m_strName=R-SA-SAMJ1
+m_nItemLevel=3
+m_bRedefines=1
+m_strRedefines=SA-SAMJ1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM202_WK
+
+@}}
+[FDITEM203_WK]
+m_strName=S-SAMJ1
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM203_WK
+
+@}}
+[FDITEM204_WK]
+m_strName=A-SAMJ1
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM204_WK
+
+@}}
+[FDITEM205_WK]
+m_strName=M-SAMJ1
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM205_WK
+
+@}}
+[FDITEM206_WK]
+m_strName=J-SAMJ1
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM206_WK
+
+@}}
+[FDITEM207_WK]
+m_strName=D-SAMJ2
+m_strRawPic=9(8)
+m_strPic=9(8)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM207_WK
+
+@}}
+[FDITEM208_WK]
+m_strName=R-D-SAMJ2
+m_nItemLevel=2
+m_bRedefines=1
+m_strRedefines=D-SAMJ2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM208_WK
+
+@}}
+[FDITEM209_WK]
+m_strName=SA-SAMJ2
+m_strRawPic=9(4)
+m_strPic=9(4)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM209_WK
+
+@}}
+[FDITEM210_WK]
+m_strName=R-SA-SAMJ2
+m_nItemLevel=3
+m_bRedefines=1
+m_strRedefines=SA-SAMJ2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM210_WK
+
+@}}
+[FDITEM211_WK]
+m_strName=S-SAMJ2
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM211_WK
+
+@}}
+[FDITEM212_WK]
+m_strName=A-SAMJ2
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=4
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM212_WK
+
+@}}
+[FDITEM213_WK]
+m_strName=M-SAMJ2
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM213_WK
+
+@}}
+[FDITEM214_WK]
+m_strName=J-SAMJ2
+m_strRawPic=99
+m_strPic=99
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM214_WK
+
+@}}
+[FDITEM215_WK]
+m_strName=INIT-COLUMN
+m_strRawPic=S9(4)V9(2)
+m_strPic=S9(4)V9(2)
+m_strDefaultValue=180
+m_nItemLevel=2
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM215_WK
+***************************************************************
+ Variables relatives … la gestion des nø SIRET                *
+***************************************************************
+   02 LK-SIR-ZONE.
+      03  LK-SIR-NUME    PIC X(14).
+      03  LK-SIR-EDIT    PIC X(15).
+      03  LK-SIR-PAYS    PIC XXX.
+      03  LK-SIR-LINE    PIC 99.
+      03  LK-SIR-POSI    PIC 99.
+      03  LK-SIR-TRAI    PIC 9.
+      03  LK-SIR-MF1     PIC 9.
+      03  LK-SIR-MF3     PIC 99 COMP.
+      03  LK-SIR-TEST    PIC 9.
+      03  FILLER         PIC X(18).
+***************************************************************
+ Variables relatives … la gestion des R.I.B                   *
+***************************************************************
+   02 LK-RIB-ZONE.
+      03  LK-RIB-PAY     PIC XXX.
+** LK-RIB-ZDOM correspond … LK-ZONE-DOMT du prog domtiers-l
+      03  LK-RIB-ZDOM.
+          04 LK-RIB-CISO    PIC XX.
+          04 LK-RIB-ZRIB    PIC X(30).
+          04 LK-RIB-DOM     PIC X(24).
+          04 LK-RIB-ADB     PIC X(24).
+          04 FILLER         PIC X(105).
+      03  LK-RIB-LIN     PIC 99.
+      03  LK-RIB-POS     PIC 99.
+      03  LK-RIB-TRAI    PIC 9.
+      03  LK-RIB-ARIB    PIC X(35).
+      03  LK-RIB-MF1     PIC 9.
+      03  LK-RIB-MF3     PIC 99 COMP.
+      03  FILLER         PIC X(100).
+***************************************************************
+ Variables relatives au positionnement initial des fenêtres   *
+***************************************************************
+@}}
+[FDITEM216_WK]
+m_strName=INIT-LINE
+m_strRawPic=S9(4)V9(2)
+m_strPic=S9(4)V9(2)
+m_strDefaultValue=90
+m_nItemLevel=2
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM216_WK
+
+@}}
+[FDITEM217_WK]
+m_strName=LK-OS-TYPE
+m_strRawPic=X(45)
+m_strPic=X(45)
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM217_WK
+***************************************************************
+ Variable  relative  … l'identification de l'O.S.             *
+***************************************************************
+@}}
+[FDITEM218_WK]
+m_strName=ZONE-PERM
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM218_WK
+***************************************************************
+ Variables relatives au contr“le programme                    *
+***************************************************************
+   02  ZONE-CONT.
+       05 LOG-CONT         PIC  9(4).
+       05 MOD-CONT         PIC  9(4).
+       05 ECR-CONT         PIC  9(4).
+       05 NOML-CONT        PIC  X(10).
+       05 NOMM-CONT        PIC  X(10).
+       05 CAS-CONT         PIC  9.
+       05 CAA-CONT         PIC  9.
+       05 TOP-CONT         PIC  99.
+       05 SOC-CONT         PIC  9(4).
+       05 IED-CONT         PIC  9.
+       05 NPC-CONT         PIC  99.
+       05 CLI-CONT         PIC  9(6).
+       05 RAI-CONT         PIC  X(25).
+       05 FILLER           PIC  X(30).
+   02 ZONE-EXIMOD.
+    Zones en entrees
+    LOG-EXIMOD = CODE LOGICIEL
+    MOD-EXIMOD = CODE MODULE        
+    ECR-EXIMOD = NUMERO D'ECRAN     
+      03  IDE-EXIMOD       PIC X(4).
+      03  LOG-EXIMOD       PIC 9(4).
+      03  MOD-EXIMOD       PIC 99.
+      03  ECR-EXIMOD       PIC 9(4).
+    Zones en sorties
+    TOP-EXIMOD = VARIABLE DE CONTROLE D'EXECUTION 
+                 = 0 si OK                    
+      03  TOP-EXIMOD       PIC 99.
+      03  CAA-EXIMOD       PIC 9.
+      03  SOC-EXIMOD       PIC 9(4).
+      03  NPC-EXIMOD       PIC 99.
+      03  CLI-EXIMOD       PIC 9(6).
+      03  LAN-EXIMOD       PIC 99.
+      03  FILLER           PIC X(31).
+***************************************************************
+ Variables relatives aux permissions                          *
+***************************************************************
+@}}
+[FDITEM219_WK]
+m_strName=IDE-ZPERM
+m_strRawPic=X(4)
+m_strPic=X(4)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM219_WK
+*** Zones en entree
+*** IDE-ZPERM = Code Utilisateur
+@}}
+[FDITEM220_WK]
+m_strName=LOG-ZPERM
+m_strRawPic=9(4)
+m_strPic=9(4)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM220_WK
+*** LOG-ZPERM = Logiciel
+
+@}}
+[FDITEM221_WK]
+m_strName=RUB-ZPERM
+m_strRawPic=9(4)
+m_strPic=9(4)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM221_WK
+*** RUB-ZPERM = Rubrique
+
+@}}
+[FDITEM222_WK]
+m_strName=PER-ZPERM
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM222_WK
+*** Zones en sortie
+*** PER-ZPERM = Permission :
+***             0 = Pas d'Interdiction, 1 = Autoris‚
+***             2 = Interdit, 3 = Soumis … autorisation
+@}}
+[FDITEM223_WK]
+m_strName=FILLER
+m_strRawPic=X(487)
+m_strPic=X(487)
+m_nItemLevel=3
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM223_WK
+
+@}}
+[FDITEM224_WK]
+m_strName=TOTEM-USER-DEFINED-VARIABLE
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM224_WK
+   02 ZONE-AUTO.
+      03  LIPO-ZAUTO   PIC 9999.
+      03  R-LIPO-ZAUTO REDEFINES LIPO-ZAUTO.
+          04 LI-ZAUTO  PIC 99.
+          04 PO-ZAUTO  PIC 99.
+      03  RUB-ZAUTO    PIC 9999.
+      03  COD-ZAUTO    PIC X(8).
+      03  NAT-ZAUTO    PIC 9.
+      03  NIV-ZAUTO    PIC 9.
+      03  FILLER       PIC X(22).
+-----------------------------------------------------------------
+@}}
+[FDITEM225_WK]
+m_strName=TOTEM-CHECK-STATUS
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=10
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM225_WK
+
+@}}
+[FDITEM226_WK]
+m_strName=TOTEM-CHECK-OK
+m_nItemLevel=88
+m_nSync=-1
+m_bFixed=1
+m_strTrue="Y"
+m_strFalse=SPACE
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM226_WK
+
+@}}
+[FDITEM227_WK]
+m_strName=IND-STAT
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM227_WK
+
+@}}
+[FDITEM228_WK]
+m_strName=W-EOF
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM228_WK
+
+@}}
+[FDITEM229_WK]
+m_strName=W-NEWLINE
+m_strDefaultValue=H"0A"
+m_nItemLevel=78
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM229_WK
+
+@}}
+[FDITEM230_WK]
+m_strName=LK-AIDE
+m_nItemLevel=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM230_WK
+ Linkage de AIDE
+
+@}}
+[FDITEM231_WK]
+m_strName=LK-AIDE-PAGE
+m_strRawPic=X(36)
+m_strPic=X(36)
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM231_WK
+ Nom du fichier d'aide (sans chemin).
+
+@}}
+[FDITEM232_WK]
+m_strName=FILLER
+m_strRawPic=X(80)
+m_strPic=X(80)
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=cobcap.wrk
+m_strCopyFile=U:\mistral\copy\cobcap.wrk
+m_strCopyFilePathName=\mistral\copy\cobcap.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM232_WK
+
+@}}
+[FDITEM233_WK]
+m_strName=ScreenOccupe-Handle
+m_nUsage=24
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Mis-EnregOccupe.wrk
+m_strCopyFile=U:\mistral\copy\Mis-EnregOccupe.wrk
+m_strCopyFilePathName=\mistral\copy\Mis-EnregOccupe.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM233_WK
+
+@}}
+[FDITEM234_WK]
+m_strName=OCCUPEX00-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Mis-EnregOccupe.wrk
+m_strCopyFile=U:\mistral\copy\Mis-EnregOccupe.wrk
+m_strCopyFilePathName=\mistral\copy\Mis-EnregOccupe.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM234_WK
+
+@}}
+[FDITEM235_WK]
+m_strName=ScreenOccupe-Fic
+m_strRawPic=X(30)
+m_strPic=X(30)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Mis-EnregOccupe.wrk
+m_strCopyFile=U:\mistral\copy\Mis-EnregOccupe.wrk
+m_strCopyFilePathName=\mistral\copy\Mis-EnregOccupe.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM235_WK
+
+@}}
+[FDITEM236_WK]
+m_strName=ScreenOccupe-Cle
+m_strRawPic=X(30)
+m_strPic=X(30)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Mis-EnregOccupe.wrk
+m_strCopyFile=U:\mistral\copy\Mis-EnregOccupe.wrk
+m_strCopyFilePathName=\mistral\copy\Mis-EnregOccupe.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM236_WK
+
+@}}
+[FDITEM237_WK]
+m_strName=ScreenOccupe-Nom
+m_strRawPic=X(30)
+m_strPic=X(30)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Mis-EnregOccupe.wrk
+m_strCopyFile=U:\mistral\copy\Mis-EnregOccupe.wrk
+m_strCopyFilePathName=\mistral\copy\Mis-EnregOccupe.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM237_WK
+
+@}}
+[FDITEM238_WK]
+m_strName=ScreenOccupe-Proc
+m_strRawPic=X(60)
+m_strPic=X(60)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Mis-EnregOccupe.wrk
+m_strCopyFile=U:\mistral\copy\Mis-EnregOccupe.wrk
+m_strCopyFilePathName=\mistral\copy\Mis-EnregOccupe.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM238_WK
+
+@}}
+[FDITEM239_WK]
+m_strName=SCreenOccupe-Accept-Thread
+m_nUsage=47
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Mis-EnregOccupe.wrk
+m_strCopyFile=U:\mistral\copy\Mis-EnregOccupe.wrk
+m_strCopyFilePathName=\mistral\copy\Mis-EnregOccupe.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM239_WK
+
+@}}
+[FDITEM240_WK]
+m_strName=ScreenOccupe-End
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Mis-EnregOccupe.wrk
+m_strCopyFile=U:\mistral\copy\Mis-EnregOccupe.wrk
+m_strCopyFilePathName=\mistral\copy\Mis-EnregOccupe.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM240_WK
+
+@}}
+[FDITEM241_WK]
+m_strName=ScreenOccupe-EnCours
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Mis-EnregOccupe.wrk
+m_strCopyFile=U:\mistral\copy\Mis-EnregOccupe.wrk
+m_strCopyFilePathName=\mistral\copy\Mis-EnregOccupe.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM241_WK
+
+@}}
+[FDITEM242_WK]
+m_strName=Gd-Sort
+m_nItemLevel=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM242_WK
+ Zones utilisées par les tris de grilles.
+@}}
+[FDITEM243_WK]
+m_strName=Gd-Sort-First
+m_strRawPic=9(3)
+m_strPic=9(3)
+m_nUsage=2
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM243_WK
+ Indice de la première ligne à trier.
+
+@}}
+[FDITEM244_WK]
+m_strName=Gd-Sort-Last
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_nUsage=2
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM244_WK
+ Indice de la dernière ligne à trier.
+
+@}}
+[FDITEM245_WK]
+m_strName=Gd-Sort-I
+m_strRawPic=9(3)
+m_strPic=9(3)
+m_nUsage=2
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM245_WK
+ Indices utilisés pour boucler sur la grille.   
+
+@}}
+[FDITEM246_WK]
+m_strName=Gd-Sort-J
+m_strRawPic=9(3)
+m_strPic=9(3)
+m_nUsage=2
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM246_WK
+
+@}}
+[FDITEM247_WK]
+m_strName=Gd-Sort-K
+m_strRawPic=9(3)
+m_strPic=9(3)
+m_nUsage=2
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM247_WK
+
+@}}
+[FDITEM248_WK]
+m_strName=Gd-Sort-NbMaxKeys
+m_strDefaultValue=500
+m_nItemLevel=78
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM248_WK
+ Variables tampons.
+
+@}}
+[FDITEM249_WK]
+m_strName=Gd-Sort-Keys
+m_strRawPic=X(16)
+m_strPic=X(16)
+m_nItemLevel=5
+m_nSync=-1
+m_bOccurs=1
+m_bFixed=1
+m_strRawSize=Gd-Sort-NbMaxKeys
+m_nSize=500
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM249_WK
+
+@}}
+[FDITEM250_WK]
+m_strName=Gd-Sort-Key-I
+m_strRawPic=X(16)
+m_strPic=X(16)
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM250_WK
+
+@}}
+[FDITEM251_WK]
+m_strName=Gd-Sort-Key-J
+m_strRawPic=X(16)
+m_strPic=X(16)
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM251_WK
+
+@}}
+[FDITEM252_WK]
+m_strName=Gd-Sort-Swap-I
+m_strRawPic=X(512)
+m_strPic=X(512)
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM252_WK
+
+@}}
+[FDITEM253_WK]
+m_strName=Gd-Sort-Swap-J
+m_strRawPic=X(512)
+m_strPic=X(512)
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM253_WK
+
+@}}
+[FDITEM254_WK]
+m_strName=Gd-Sort-Swap9-I
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM254_WK
+
+@}}
+[FDITEM255_WK]
+m_strName=Gd-Sort-Swap9-J
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM255_WK
+
+@}}
+[FDITEM256_WK]
+m_strName=Gd-Sort-KeyHidden
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM256_WK
+ Colonne de tri = valeur HIDDEN-DATA (Gd-SortH)
+
+@}}
+[FDITEM257_WK]
+m_strName=Gd-Sort-SansMsg
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=2
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=Gd-Sort.wrk
+m_strCopyFile=W:\mistral\copy\Gd-Sort.wrk
+m_strCopyFilePathName=W:\mistral\copy\Gd-Sort.wrk
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM257_WK
+ Pour ne pas avoir le message de dépassement de capacité
+
+@}}
+[FDITEM258_WK]
+m_nType=10
+m_strName=Screen1-Handle
+m_nUsage=24
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM258_WK
+
+@}}
+[FDITEM259_WK]
+m_nType=10
+m_strName=Default-Font
+m_nUsage=38
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM259_WK
+
+@}}
+[FDITEM260_WK]
+m_nType=10
+m_strName=Small-Font
+m_nUsage=37
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM260_WK
+
+@}}
+[FDITEM261_WK]
+m_strName=W-LOG-PALM
+m_strRawPic=9(3)
+m_strPic=9(3)
+m_strDefaultValue=25
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM261_WK
+
+@}}
+[FDITEM262_WK]
+m_strName=W-NPR-PALM
+m_strRawPic=9(4)
+m_strPic=9(4)
+m_strDefaultValue=631
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM262_WK
+
+@}}
+[FDITEM263_WK]
+m_strName=CDF
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM263_WK
+
+@}}
+[FDITEM264_WK]
+m_strName=W-MXPARAM
+m_strRawPic=9(9)
+m_strPic=9(9)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM264_WK
+
+@}}
+[FDITEM265_WK]
+m_nType=11
+m_strName=FILE-STATUS
+m_strRawPic=X(2)
+m_strPic=X(2)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM265_WK
+
+@}}
+[FDITEM266_WK]
+m_nType=10
+m_strName=QUITTER16-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM266_WK
+
+@}}
+[FDITEM267_WK]
+m_nType=10
+m_strName=SUPPRIM16-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM267_WK
+
+@}}
+[FDITEM268_WK]
+m_nType=10
+m_strName=RAFRAIC16-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM268_WK
+
+@}}
+[FDITEM269_WK]
+m_nType=10
+m_strName=RAFRAICH16-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM269_WK
+
+@}}
+[FDITEM270_WK]
+m_nType=10
+m_strName=VALIDER16-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM270_WK
+
+@}}
+[FDITEM271_WK]
+m_nType=10
+m_strName=W-LIB-MCMO
+m_strRawPic=X(320)
+m_strPic=X(320)
+m_strDefaultValue="MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM"
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM271_WK
+
+@}}
+[FDITEM272_WK]
+m_strName=I
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM272_WK
+
+@}}
+[FDITEM273_WK]
+m_strName=J
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM273_WK
+
+@}}
+[FDITEM274_WK]
+m_strName=K
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM274_WK
+
+@}}
+[FDITEM275_WK]
+m_strName=Z
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM275_WK
+
+@}}
+[FDITEM276_WK]
+m_nType=10
+m_strName=Screen1-Cb-BL-Value
+m_strRawPic=9
+m_strPic=9
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM276_WK
+
+@}}
+[FDITEM277_WK]
+m_nType=10
+m_strName=Screen1-Cb-BP-Value
+m_strRawPic=9
+m_strPic=9
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM277_WK
+
+@}}
+[FDITEM278_WK]
+m_nType=10
+m_strName=Screen1-Cb-DV-Value
+m_strRawPic=9
+m_strPic=9
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM278_WK
+
+@}}
+[FDITEM279_WK]
+m_nType=10
+m_strName=Screen1-Cb-Fac-Value
+m_strRawPic=9
+m_strPic=9
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM279_WK
+
+@}}
+[FDITEM280_WK]
+m_nType=10
+m_strName=W-EF-SIZE
+m_strRawPic=S9(4)V9(2)
+m_strPic=S9(4)V9(2)
+m_strDefaultValue=124,14
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM280_WK
+
+@}}
+[FDITEM281_WK]
+m_nType=10
+m_strName=W-SCR-SIZE
+m_strRawPic=S9(4)V9(2)
+m_strPic=S9(4)V9(2)
+m_strDefaultValue=127,86
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM281_WK
+
+@}}
+[FDITEM282_WK]
+m_nType=10
+m_strName=W-Refresh-Col
+m_strRawPic=S9(4)V9(2)
+m_strPic=S9(4)V9(2)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM282_WK
+
+@}}
+[FDITEM283_WK]
+m_nType=10
+m_strName=W-Delete-Col
+m_strRawPic=S9(4)V9(2)
+m_strPic=S9(4)V9(2)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM283_WK
+
+@}}
+[FDITEM284_WK]
+m_nType=10
+m_strName=W-Quit-Col
+m_strRawPic=S9(4)V9(2)
+m_strPic=S9(4)V9(2)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM284_WK
+
+@}}
+[FDITEM285_WK]
+m_nType=10
+m_strName=W-EF-LINES
+m_strRawPic=S9(4)V9(2)
+m_strPic=S9(4)V9(2)
+m_strDefaultValue=13,15
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM285_WK
+
+@}}
+[FDITEM286_WK]
+m_nType=10
+m_strName=W-SCR-LINES
+m_strRawPic=S9(4)V9(2)
+m_strPic=S9(4)V9(2)
+m_strDefaultValue=26,54
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM286_WK
+
+@}}
+[FDITEM287_WK]
+m_nType=10
+m_strName=W-TITLE
+m_strRawPic=X(50)
+m_strPic=X(50)
+m_strDefaultValue="Commentaire"
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM287_WK
+
+@}}
+[FDITEM288_WK]
+m_strName=W-Fr-SIZE
+m_strRawPic=S9(4)V9(2)
+m_strPic=S9(4)V9(2)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM288_WK
+
+@}}
+[FDITEM289_WK]
+m_strName=W-SCR-COL
+m_strRawPic=S9(4)V9(2)
+m_strPic=S9(4)V9(2)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM289_WK
+
+@}}
+[FDITEM290_WK]
+m_strName=DER-NUM
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM290_WK
+
+@}}
+[FDITEM291_WK]
+m_nType=10
+m_strName=WV-MOD
+m_strRawPic=9
+m_strPic=9
+m_strDefaultValue=1
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM291_WK
+
+@}}
+[FDITEM292_WK]
+m_nType=10
+m_strName=Screen2-Handle
+m_nUsage=24
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM292_WK
+
+@}}
+[FDITEM293_WK]
+m_nType=10
+m_strName=MS-Sans-Serif9B
+m_nUsage=26
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM293_WK
+
+@}}
+[FDITEM294_WK]
+m_nType=10
+m_strName=SUPPRIM24-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM294_WK
+
+@}}
+[FDITEM295_WK]
+m_nType=10
+m_strName=QUITTER24-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM295_WK
+
+@}}
+[FDITEM296_WK]
+m_nType=10
+m_strName=MODIFIE24-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM296_WK
+
+@}}
+[FDITEM297_WK]
+m_nType=10
+m_strName=RAFRAIC24-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM297_WK
+
+@}}
+[FDITEM298_WK]
+m_nType=10
+m_strName=VALIDER24-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM298_WK
+
+@}}
+[FDITEM299_WK]
+m_nType=10
+m_strName=Screen2-Gd-1-Record
+m_nItemLevel=1
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM299_WK
+
+@}}
+[FDITEM300_WK]
+m_nType=10
+m_strName=Screen2-Gd-1-LIB
+m_strRawPic=X(90)
+m_strPic=X(90)
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM300_WK
+
+@}}
+[FDITEM301_WK]
+m_nType=10
+m_strName=Screen2-Gd-1-NUM
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM301_WK
+
+@}}
+[FDITEM302_WK]
+m_strName=AUTO-MOD
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM302_WK
+
+@}}
+[FDITEM303_WK]
+m_strName=W-CLA
+m_strRawPic=9
+m_strPic=9
+m_strDefaultValue=2
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM303_WK
+
+@}}
+[FDITEM304_WK]
+m_strName=tmp-9-3
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM304_WK
+
+@}}
+[FDITEM305_WK]
+m_strName=w-sel
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM305_WK
+
+@}}
+[FDITEM306_WK]
+m_strName=w-gd1col
+m_strRawPic=9(6)
+m_strPic=9(6)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM306_WK
+
+@}}
+[FDITEM307_WK]
+m_strName=w-ok
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM307_WK
+
+@}}
+[FDITEM308_WK]
+m_strName=wenable
+m_strRawPic=9
+m_strPic=9
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM308_WK
+
+@}}
+[FDITEM309_WK]
+m_nType=10
+m_strName=Screen1-Cb-Sto-Value
+m_strRawPic=9
+m_strPic=9
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM309_WK
+
+@}}
+[FDITEM310_WK]
+m_nType=10
+m_strName=Rech-Nom
+m_strRawPic=X(30)
+m_strPic=X(30)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM310_WK
+
+@}}
+[FDITEM311_WK]
+m_nType=10
+m_strName=FINDNEX16-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM311_WK
+
+@}}
+[FDITEM312_WK]
+m_nType=10
+m_strName=CLASSER24-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM312_WK
+
+@}}
+[FDITEM313_WK]
+m_strName=ASSIGN-TRI
+m_strRawPic=X(60)
+m_strPic=X(60)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM313_WK
+
+@}}
+[FDITEM314_WK]
+m_strName=WASS-TRI
+m_strRawPic=X(20)
+m_strPic=X(20)
+m_strDefaultValue="CCOMMENT"
+m_nItemLevel=77
+m_bValue=1
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM314_WK
+
+@}}
+[FDITEM315_WK]
+m_nType=10
+m_strName=VALIDER16-BMP
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM315_WK
+
+@}}
+[FDITEM316_WK]
+m_nType=10
+m_strName=SUPPRIM16-BMP
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM316_WK
+
+@}}
+[FDITEM317_WK]
+m_nType=10
+m_strName=RAFRAIC16-BMP
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM317_WK
+
+@}}
+[FDITEM318_WK]
+m_nType=10
+m_strName=ZOOMxxx16-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM318_WK
+
+@}}
+[FDITEM319_WK]
+m_nType=10
+m_strName=SAUVEGA16-JPG
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM319_WK
+
+@}}
+[FDITEM320_WK]
+m_nType=10
+m_strName=SAUVEGA16-BMP
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM320_WK
+
+@}}
+[FDITEM321_WK]
+m_nType=10
+m_strName=ZOOMxxx16-BMP
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM321_WK
+
+@}}
+[FDITEM322_WK]
+m_nType=10
+m_strName=RECHERC16-BMP
+m_strRawPic=S9(6)
+m_strPic=S9(6)
+m_nUsage=5
+m_strDefaultValue=0
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM322_WK
+
+@}}
+
+
+[LINKAGE_SECTION]
+m_strName=Linkage Section
+{{@FD_m_strDescriptionLK
+
+@}}
+[FDITEM0_LK]
+m_strName=LK-ZONE-PALM
+m_strRawPic=X(500)
+m_strPic=X(500)
+m_nItemLevel=77
+m_nSync=-1
+m_bFixed=1
+{{@DataItem_m_strDescriptionFDITEM0_LK
+
+@}}
+[FDITEM1_LK]
+m_strName=LK-CCOMMENT
+m_nItemLevel=1
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=\MX\COPY\LK-CCOMMENT.WRK
+m_strCopyFile=LK-CCOMMENT.WRK
+m_strCopyFilePathName=\MX\COPY\LK-CCOMMENT.WRK
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM1_LK
+ Linkage de CCOMMENT
+
+@}}
+[FDITEM2_LK]
+m_strName=LK-CCOMMENT-ORI
+m_strRawPic=X(3)
+m_strPic=X(3)
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=\MX\COPY\LK-CCOMMENT.WRK
+m_strCopyFile=LK-CCOMMENT.WRK
+m_strCopyFilePathName=\MX\COPY\LK-CCOMMENT.WRK
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM2_LK
+ Types : O = commande fournisseur              
+         B = bon de distribution                           
+         C = commande matériel client          
+         D = devis matériel client             
+         L = livraison matériel client         
+         H = marché matériel client            
+         F = contrat location longue durée / contrat d'entretien
+         L = location
+                    
+ Niveau : D = Devis
+          C = Commande
+          L = bon de livraison 
+          S = Bon de sortie
+          R = Bon de retour
+          A = Avoir (location)
+ 
+ INO   : " " = Ligne normale
+         C = Ligne composition
+         E = texte saisi en entête de bon (format 4 x 80)
+         P = Clauses particulières 
+         I = Instructions internes
+           
+ Lib : 40 premiers caracères du commentaire pour mise à jour
+       ligne du bon
+
+@}}
+[FDITEM3_LK]
+m_strName=R-LK-CCOMMENT-ORI
+m_nItemLevel=5
+m_bRedefines=1
+m_strRedefines=LK-CCOMMENT-ORI
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=\MX\COPY\LK-CCOMMENT.WRK
+m_strCopyFile=LK-CCOMMENT.WRK
+m_strCopyFilePathName=\MX\COPY\LK-CCOMMENT.WRK
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM3_LK
+
+@}}
+[FDITEM4_LK]
+m_strName=LK-CCOMMENT-ACT
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=6
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=\MX\COPY\LK-CCOMMENT.WRK
+m_strCopyFile=LK-CCOMMENT.WRK
+m_strCopyFilePathName=\MX\COPY\LK-CCOMMENT.WRK
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM4_LK
+
+@}}
+[FDITEM5_LK]
+m_strName=LK-CCOMMENT-NIT
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=6
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=\MX\COPY\LK-CCOMMENT.WRK
+m_strCopyFile=LK-CCOMMENT.WRK
+m_strCopyFilePathName=\MX\COPY\LK-CCOMMENT.WRK
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM5_LK
+
+@}}
+[FDITEM6_LK]
+m_strName=LK-CCOMMENT-INO
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=6
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=\MX\COPY\LK-CCOMMENT.WRK
+m_strCopyFile=LK-CCOMMENT.WRK
+m_strCopyFilePathName=\MX\COPY\LK-CCOMMENT.WRK
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM6_LK
+
+@}}
+[FDITEM7_LK]
+m_strName=LK-CCOMMENT-CLE
+m_strRawPic=X(24)
+m_strPic=X(24)
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=\MX\COPY\LK-CCOMMENT.WRK
+m_strCopyFile=LK-CCOMMENT.WRK
+m_strCopyFilePathName=\MX\COPY\LK-CCOMMENT.WRK
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM7_LK
+
+@}}
+[FDITEM8_LK]
+m_strName=LK-CCOMMENT-CDF
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=\MX\COPY\LK-CCOMMENT.WRK
+m_strCopyFile=LK-CCOMMENT.WRK
+m_strCopyFilePathName=\MX\COPY\LK-CCOMMENT.WRK
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM8_LK
+
+@}}
+[FDITEM9_LK]
+m_strName=LK-CCOMMENT-STA
+m_strRawPic=X
+m_strPic=X
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=\MX\COPY\LK-CCOMMENT.WRK
+m_strCopyFile=LK-CCOMMENT.WRK
+m_strCopyFilePathName=\MX\COPY\LK-CCOMMENT.WRK
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM9_LK
+
+@}}
+[FDITEM10_LK]
+m_strName=LK-CCOMMENT-LIB
+m_strRawPic=X(40)
+m_strPic=X(40)
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=\MX\COPY\LK-CCOMMENT.WRK
+m_strCopyFile=LK-CCOMMENT.WRK
+m_strCopyFilePathName=\MX\COPY\LK-CCOMMENT.WRK
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM10_LK
+
+@}}
+[FDITEM11_LK]
+m_strName=FILLER
+m_strRawPic=X(31)
+m_strPic=X(31)
+m_nItemLevel=5
+m_nSync=-1
+m_bFixed=1
+m_strCopyEntry=\MX\COPY\LK-CCOMMENT.WRK
+m_strCopyFile=LK-CCOMMENT.WRK
+m_strCopyFilePathName=\MX\COPY\LK-CCOMMENT.WRK
+m_nCopyFileLevel=1
+{{@DataItem_m_strDescriptionFDITEM11_LK
+
+@}}
+
+
+[DATASET_CONTENT:DS1]
+DATASET_NAME=COBCAP
+DATA_LAYOUT=COBCAP
+
+[DATASET_CONTENT:DS2]
+DATASET_NAME=MXCOMMENT
+DATA_LAYOUT=MXCOMMENT
+KEY=CLE1-MCMO
+
+[DATASET_CONTENT:DS3]
+DATASET_NAME=MXPARAM
+DATA_LAYOUT=MXPARAM
+KEY=W-MXPARAM
+
+[DATASET_CONTENT:DS4]
+DATASET_NAME=MXCOMMENT2
+DATA_LAYOUT=MXCOMMENT2
+KEY=CLE1-MCMO2
+
+[SEL_LAYOUT_FILE_CONTENT:DATALAYOUT1]
+DATA_LAYOUT=COBCAP
+OPEN=0
+DECLARATIVES=
+BEFORE_OPEN=
+AFTER_OPEN=
+BEFORE_COMMIT=
+AFTER_COMMIT=
+BEFORE_ROLLBACK=
+AFTER_ROLLBACK=
+BEFORE_DELETEFILE=
+AFTER_DELETEFILE=
+
+[SEL_LAYOUT_FILE_CONTENT:DATALAYOUT1-IO_FUNCTION_CONTENT]
+
+[SEL_LAYOUT_FILE_CONTENT:DATALAYOUT2]
+DATA_LAYOUT=MXCOMMENT
+DECLARATIVES=
+BEFORE_OPEN=
+AFTER_OPEN=
+BEFORE_COMMIT=
+AFTER_COMMIT=
+BEFORE_ROLLBACK=
+AFTER_ROLLBACK=
+BEFORE_DELETEFILE=
+AFTER_DELETEFILE=
+
+[SEL_LAYOUT_FILE_CONTENT:DATALAYOUT2-IO_FUNCTION_CONTENT]
+
+[SEL_LAYOUT_FILE_CONTENT:DATALAYOUT3]
+DATA_LAYOUT=MXPARAM
+DECLARATIVES=
+BEFORE_OPEN=
+AFTER_OPEN=
+BEFORE_COMMIT=
+AFTER_COMMIT=
+BEFORE_ROLLBACK=
+AFTER_ROLLBACK=
+BEFORE_DELETEFILE=
+AFTER_DELETEFILE=
+
+[SEL_LAYOUT_FILE_CONTENT:DATALAYOUT3-IO_FUNCTION_CONTENT]
+GENERATE_IO_FUNCTION1=Declaratives
+GENERATE_IO_FUNCTION2=Read File Key Is
+GENERATE_IO_FUNCTION3=Read File Next
+GENERATE_IO_FUNCTION4=Read File Previous
+GENERATE_IO_FUNCTION5=Write
+GENERATE_IO_FUNCTION6=Rewrite
+GENERATE_IO_FUNCTION7=Delete File Record
+GENERATE_IO_FUNCTION8=Delete File
+GENERATE_IO_FUNCTION9=Close File
+
+[SEL_LAYOUT_FILE_CONTENT:DATALAYOUT4]
+DATA_LAYOUT=MXCOMMENT2
+DECLARATIVES=
+BEFORE_OPEN=
+AFTER_OPEN=
+BEFORE_COMMIT=
+AFTER_COMMIT=
+BEFORE_ROLLBACK=
+AFTER_ROLLBACK=
+BEFORE_DELETEFILE=
+AFTER_DELETEFILE=
+
+[SEL_LAYOUT_FILE_CONTENT:DATALAYOUT4-IO_FUNCTION_CONTENT]
+GENERATE_IO_FUNCTION1=Declaratives
+GENERATE_IO_FUNCTION2=Read File Key Is
+GENERATE_IO_FUNCTION3=Read File Next
+GENERATE_IO_FUNCTION4=Read File Previous
+GENERATE_IO_FUNCTION5=Write
+GENERATE_IO_FUNCTION6=Rewrite
+GENERATE_IO_FUNCTION7=Delete File Record
+GENERATE_IO_FUNCTION8=Delete File
+GENERATE_IO_FUNCTION9=Close File
+
+{{@SCREEN:
+*   Screen Painter Data
+*   Schema 6.0
+*
+BEGIN-SPDATA
+
+CUSTOM-COLOR      = ( 3, 13859397 )
+CUSTOM-COLOR      = ( 6, 16768991 )
+CUSTOM-COLOR      = ( 15, 8454143 )
+
+GRAPHICAL-SCREEN
+
+Begin Screen Screen1
+   PREFIX            = Screen1
+   LOCK-CONTROL      = FALSE
+   (Name)            = Screen1
+   Absolute Column   = 0
+   Absolute Line     = 0
+   Action            = (None)
+   ATW CSS ID        = modal_screen_ccomment_1
+   Auto Minimize     = FALSE
+   Auto Resize       = FALSE
+   Bind To Thread    = FALSE
+   Boxed             = FALSE
+   Cell              = TRUE
+   Cell Height       = 13
+   Cell Measure      = Measuring Control Font
+   Cell Width        = 7
+   Color             = 65793
+   Controls Uncropped = FALSE
+   Erase Screen      = FALSE
+   Font              = Default Font
+   Handle Variable   = Screen1-Handle
+   Help ID           = 0
+   Label Offset      = 0
+   Layout Manager    = None
+   Lines             = 26,46
+   Link To Thread    = TRUE
+   Max Lines         = 0,00
+   Max Size          = 0,00
+   Measuring Control = Label
+   Measuring Font    = Default Font
+   Measuring Style   = [None]
+   Min Lines         = 0,00
+   Min Size          = 0,00
+   Modeless          = FALSE
+   No Close          = FALSE
+   Resizable         = FALSE
+   Scroll            = FALSE
+   Size              = 126,86
+   System Menu       = FALSE
+   Title             = "Commentaire"
+   Title Bar         = TRUE
+   Title Picture     = X(50)
+   Title Variable    = W-TITLE
+   Unit              = Cells
+   User Gray         = TRUE
+   User White        = TRUE
+   Visible           = 0:FALSE
+   Window Type       = Floating
+   Wrap              = FALSE
+   Event Procedure   = Screen1-Event-Proc
+   Before Create     = Screen1-Bef-Create
+   After Initdata    = Screen1-AfterInitData
+   After Routine     = Screen1-Aft-Routine
+   Begin Frame Screen1-Fr-Edi
+      SCREEN-COL        = 2,14
+      SCREEN-LINE       = 3,85
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Fr-Edi
+      3D Style          = Lowered
+      Alternate         = FALSE
+      ATW CSS Class     = card-bottom
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 2,14
+      Csize             = 0
+      Destroy Type      = Automatic
+      FILL-COLOR        = 16
+      FILL-PERCENT      = 100
+      FILL-COLOR2       = 16
+      Font              = Small Font
+      Font Variable     = Small-Font
+      Full Height       = FALSE
+      Help ID           = 0
+      High Color        = 0
+      ID                = 8
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 3,85
+      Lines             = 4,15
+      Low Color         = 0
+      Size              = 124,14
+      Tab Order         = 1
+      Thickness         = Default
+      Title Position    = 0:Unaligned
+      Visible           = 0:FALSE
+   End
+   Begin Push-Button Screen1-Pb-Refresh
+      SCREEN-COL        = 71,43
+      SCREEN-LINE       = 1,38
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Pb-Refresh
+      ATW CSS Class     = button-rafraichir
+      Bitmap            = "RAFRAIC16.BMP"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = RAFRAIC16-BMP
+      Bitmap Number     = 1
+      Bitmap Square     = FALSE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 71,43
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 9855
+      Flat              = FALSE
+      Font              = Default Font
+      Font Variable     = Default-Font
+      Help ID           = 0
+      ID                = 5
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,38
+      Lines             = 2,38
+      Lines in Pixels   = 24
+      Multiline         = FALSE
+      No Auto Default   = TRUE
+      No Tab            = TRUE
+      Self Act          = FALSE
+      Size              = 18,00
+      Size in Pixels    = 118
+      Style             = Other
+      Tab Order         = 2
+      Termination Value = 0
+      Title             = "Rafraîchir"
+      Transparent Color = -1
+      Visible           = 1:TRUE
+      Link To           = Screen1-Pb-Refresh-LinkTo
+   End
+   Begin Push-Button Screen1-Pb-Rappeler
+      SCREEN-COL        = 34,57
+      SCREEN-LINE       = 1,38
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Pb-Rappeler
+      ATW CSS Class     = button-rechercher
+      Bitmap            = "ZOOMxxx16.BMP"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = ZOOMxxx16-BMP
+      Bitmap Number     = 1
+      Bitmap Square     = FALSE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 34,57
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 1004
+      Flat              = FALSE
+      Font              = Small Font
+      Font Variable     = Small-Font
+      Help ID           = 0
+      ID                = 6
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,38
+      Lines             = 2,38
+      Lines in Pixels   = 24
+      Multiline         = FALSE
+      No Auto Default   = TRUE
+      No Tab            = TRUE
+      Self Act          = FALSE
+      Size              = 18,00
+      Size in Pixels    = 118
+      Style             = Other
+      Tab Order         = 3
+      Termination Value = 0
+      Title             = "Rappeler un commentaire mémorisé"
+      Transparent Color = -1
+      Visible           = 1:TRUE
+      Link To           = Screen1-Pb-Rappeler-Link
+   End
+   Begin Push-Button Screen1-Pb-Quit
+      SCREEN-COL        = 108,29
+      SCREEN-LINE       = 1,38
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Pb-Quit
+      ATW CSS Class     = button-quitter
+      Bitmap            = "VALIDER16.BMP"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = VALIDER16-BMP
+      Bitmap Number     = 1
+      Bitmap Square     = FALSE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 108,29
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 9858
+      Flat              = FALSE
+      Font              = Default Font
+      Font Variable     = Default-Font
+      Help ID           = 0
+      ID                = 11
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,38
+      Lines             = 2,38
+      Lines in Pixels   = 24
+      Multiline         = FALSE
+      No Auto Default   = TRUE
+      No Tab            = TRUE
+      Self Act          = FALSE
+      Size              = 18,00
+      Size in Pixels    = 118
+      Style             = Default Button
+      Tab Order         = 4
+      Termination Value = 0
+      Transparent Color = -1
+      Visible           = 0:FALSE
+      Link To           = Screen1-Pb-Quit-LinkTo
+   End
+   Begin Push-Button Screen1-Pb-Delete
+      SCREEN-COL        = 89,86
+      SCREEN-LINE       = 1,38
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Pb-Delete
+      ATW CSS Class     = button-annuler
+      Bitmap            = "SUPPRIM16.BMP"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = SUPPRIM16-BMP
+      Bitmap Number     = 1
+      Bitmap Square     = FALSE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 89,86
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 9856
+      Flat              = FALSE
+      Font              = Default Font
+      Help ID           = 0
+      ID                = 19
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,38
+      Lines             = 2,38
+      Lines in Pixels   = 24
+      Multiline         = FALSE
+      No Auto Default   = TRUE
+      No Tab            = TRUE
+      Self Act          = FALSE
+      Size              = 18,00
+      Size in Pixels    = 118
+      Style             = Other
+      Tab Order         = 5
+      Termination Value = 0
+      Title             = "Effacer"
+      Transparent Color = -1
+      Visible           = 1:TRUE
+      Link To           = Screen1-Pb-Delete-LinkTo
+   End
+   Begin Entry-Field Screen1-Ef-Lib
+      SCREEN-COL        = 2,14
+      SCREEN-LINE       = 8,69
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Ef-Lib
+      Auto              = FALSE
+      Auto Decimal      = 0
+      Autofill ID       = 0
+      Autofill Max Lines = 0
+      Border            = 3D
+      Case              = Mixed
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 2
+      Column            = 2,14
+      Csize             = 0
+      Cursor            = 0
+      Cursor Col        = 0
+      Cursor Row        = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Font              = Default Font
+      Help ID           = 0
+      ID                = 1
+      Justification     = Unaligned
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 8,69
+      Lines             = 17,23
+      Max Lines         = 0
+      Max Text          = 320
+      Max Value         = 0
+      Min Value         = 0
+      No AutoSel        = TRUE
+      No Tab            = FALSE
+      Notify Change     = FALSE
+      Numeric           = FALSE
+      Read Only         = FALSE
+      Required          = FALSE
+      Secure            = FALSE
+      Size              = 124,14
+      Style             = Multiline
+      Tab Order         = 6
+      Use Return        = TRUE
+      Use Tab           = FALSE
+      Value Multiple    = FALSE
+      Value Picture     = X(30)
+      Value Variable    = Rech-Nom
+      Visible           = 1:TRUE
+   End
+   Begin Check-Box Screen1-Cb-DV
+      SCREEN-COL        = 37,00
+      SCREEN-LINE       = 5,38
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Cb-DV
+      Bitmap Frame      = FALSE
+      Bitmap Number     = 1
+      Bitmap Square     = TRUE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 514
+      Column            = 37,00
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 0
+      Flat              = FALSE
+      Font              = Small Font
+      Font Variable     = Small-Font
+      Help ID           = 0
+      ID                = 2
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Left Text         = FALSE
+      Line              = 5,38
+      Lines             = 1,23
+      Multiline         = FALSE
+      No Tab            = FALSE
+      Notify            = FALSE
+      Self Act          = FALSE
+      Size              = 20,14
+      Tab Order         = 7
+      Termination Value = 0
+      Text Only         = FALSE
+      Title             = "Devis/Contrat"
+      Value             = 0:FALSE
+      Value Variable    = Screen1-Cb-DV-Value
+      Visible           = 0:FALSE
+      Vtop              = FALSE
+   End
+   Begin Check-Box Screen1-Cb-BL
+      SCREEN-COL        = 105,57
+      SCREEN-LINE       = 5,38
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Cb-BL
+      Bitmap Frame      = FALSE
+      Bitmap Number     = 1
+      Bitmap Square     = TRUE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 514
+      Column            = 105,57
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 0
+      Flat              = FALSE
+      Font              = Small Font
+      Font Variable     = Small-Font
+      Help ID           = 0
+      ID                = 3
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Left Text         = FALSE
+      Line              = 5,38
+      Lines             = 1,23
+      Multiline         = FALSE
+      No Tab            = FALSE
+      Notify            = FALSE
+      Self Act          = FALSE
+      Size              = 20,14
+      Tab Order         = 8
+      Termination Value = 0
+      Text Only         = FALSE
+      Title             = "B/L"
+      Value             = 0:FALSE
+      Value Variable    = Screen1-Cb-BL-Value
+      Visible           = 0:FALSE
+      Vtop              = FALSE
+   End
+   Begin Check-Box Screen1-Cb-BP
+      SCREEN-COL        = 57,29
+      SCREEN-LINE       = 5,38
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Cb-BP
+      Bitmap Frame      = FALSE
+      Bitmap Number     = 1
+      Bitmap Square     = TRUE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 514
+      Column            = 57,29
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 0
+      Flat              = FALSE
+      Font              = Small Font
+      Font Variable     = Small-Font
+      Help ID           = 0
+      ID                = 4
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Left Text         = FALSE
+      Line              = 5,38
+      Lines             = 1,23
+      Multiline         = FALSE
+      No Tab            = FALSE
+      Notify            = FALSE
+      Self Act          = FALSE
+      Size              = 20,14
+      Tab Order         = 9
+      Termination Value = 0
+      Text Only         = FALSE
+      Title             = "Bon de préparation"
+      Value             = 0:FALSE
+      Value Variable    = Screen1-Cb-BP-Value
+      Visible           = 0:FALSE
+      Vtop              = FALSE
+   End
+   Begin Check-Box Screen1-Cb-Fac
+      SCREEN-COL        = 82,71
+      SCREEN-LINE       = 5,38
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Cb-Fac
+      Bitmap Frame      = FALSE
+      Bitmap Number     = 1
+      Bitmap Square     = TRUE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 514
+      Column            = 82,71
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 0
+      Flat              = FALSE
+      Font              = Small Font
+      Font Variable     = Small-Font
+      Help ID           = 0
+      ID                = 7
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Left Text         = FALSE
+      Line              = 5,38
+      Lines             = 1,23
+      Multiline         = FALSE
+      No Tab            = FALSE
+      Notify            = FALSE
+      Self Act          = FALSE
+      Size              = 20,14
+      Tab Order         = 10
+      Termination Value = 0
+      Text Only         = FALSE
+      Title             = "Facture"
+      Value             = 0:FALSE
+      Value Variable    = Screen1-Cb-Fac-Value
+      Visible           = 0:FALSE
+      Vtop              = FALSE
+   End
+   Begin Label Screen1-La-Edi
+      SCREEN-COL        = 3,43
+      SCREEN-LINE       = 5,46
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-La-Edi
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 194
+      Column            = 3,43
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Font              = Small Font
+      Font Variable     = Small-Font
+      Help ID           = 0
+      ID                = 9
+      Justification     = Left
+      Label Offset      = 0
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 5,46
+      Lines             = 1,69
+      No Key Letter     = FALSE
+      Size              = 30,43
+      Tab Order         = 11
+      Title             = "Impression sur documents"
+      Transparent       = FALSE
+      Visible           = 0:FALSE
+   End
+   Begin Bitmap Screen1-Bt-2
+      SCREEN-COL        = 26,71
+      SCREEN-LINE       = 1,77
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Bt-2
+      Bitmap            = "QUITTER16.JPG"
+      Bitmap End        = 0
+      Bitmap Handle     = QUITTER16-JPG
+      Bitmap Number     = 1
+      Bitmap Scale      = FALSE
+      Bitmap Start      = 0
+      Bitmap Timer      = 0
+      Column            = 26,71
+      Copy Resource     = TRUE
+      Destroy Type      = Automatic
+      Font              = Default Font
+      Help ID           = 0
+      ID                = 10
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,77
+      Lines in Pixels   = 16
+      Size in Pixels    = 24
+      Tab Order         = 12
+      Transparent Color = -1
+      Visible           = 0:FALSE
+   End
+   Begin Push-Button Screen1-Pb-Sauvegarder
+      SCREEN-COL        = 53,00
+      SCREEN-LINE       = 1,38
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Pb-Sauvegarder
+      ATW CSS Class     = button-sauvegarder
+      Bitmap            = "SAUVEGA16.BMP"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = SAUVEGA16-BMP
+      Bitmap Number     = 1
+      Bitmap Square     = FALSE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 53,00
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 9819
+      Flat              = FALSE
+      Font              = Small Font
+      Font Variable     = Small-Font
+      Help ID           = 0
+      ID                = 13
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,38
+      Lines             = 2,38
+      Lines in Pixels   = 24
+      Multiline         = FALSE
+      No Auto Default   = TRUE
+      No Tab            = TRUE
+      Self Act          = FALSE
+      Size              = 18,00
+      Size in Pixels    = 118
+      Style             = Other
+      Tab Order         = 13
+      Termination Value = 0
+      Title             = "Mémoriser le commentaire"
+      Transparent Color = -1
+      Visible           = 1:TRUE
+      Visible Variable  = WV-MOD
+      Link To           = Screen1-Pb-Sauvegarder-Link
+   End
+   Begin Check-Box Screen1-Cb-Sto
+      SCREEN-COL        = 2,14
+      SCREEN-LINE       = 1,92
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Cb-Sto
+      Bitmap Frame      = FALSE
+      Bitmap Number     = 1
+      Bitmap Square     = TRUE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 2
+      Column            = 2,14
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 0
+      Flat              = FALSE
+      Font              = Small Font
+      Font Variable     = Small-Font
+      Help ID           = 0
+      ID                = 12
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Left Text         = FALSE
+      Line              = 1,92
+      Lines             = 1,23
+      Multiline         = FALSE
+      No Tab            = FALSE
+      Notify            = FALSE
+      Self Act          = FALSE
+      Size              = 16,57
+      Tab Order         = 14
+      Termination Value = 0
+      Text Only         = FALSE
+      Title             = "Sous-total"
+      Value             = 0:FALSE
+      Value Variable    = Screen1-Cb-Sto-Value
+      Visible           = 0:FALSE
+      Vtop              = FALSE
+      Event Procedure   = Screen1-Cb-Sto-Event-Proc
+      Cmd-Clicked       = Screen1-Cb-Sto-Ev-Cmd-Clicked
+   End
+   Begin Push-Button Screen1-Pb-Quita
+      SCREEN-COL        = 108,29
+      SCREEN-LINE       = 1,38
+      LOCK-CONTROL      = FALSE
+      (Name)            = Screen1-Pb-Quita
+      ATW CSS Class     = button-valider
+      Bitmap            = "VALIDER16.BMP"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = VALIDER16-BMP
+      Bitmap Number     = 1
+      Bitmap Square     = FALSE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 108,29
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 9858
+      Flat              = FALSE
+      Font              = Default Font
+      Font Variable     = Default-Font
+      Help ID           = 0
+      ID                = 14
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,38
+      Lines             = 2,38
+      Lines in Pixels   = 24
+      Multiline         = FALSE
+      No Auto Default   = TRUE
+      No Tab            = TRUE
+      Self Act          = FALSE
+      Size              = 18,00
+      Size in Pixels    = 118
+      Style             = Default Button
+      Tab Order         = 15
+      Termination Value = 0
+      Transparent Color = -1
+      Visible           = 1:TRUE
+      Link To           = Screen1-Pb-Quit-LinkTo
+   End
+End
+
+Begin Screen Screen2
+   PREFIX            = Screen2
+   LOCK-CONTROL      = TRUE
+   (Name)            = Screen2
+   Absolute Column   = 0
+   Absolute Line     = 0
+   Action            = (None)
+   Auto Minimize     = FALSE
+   Auto Resize       = FALSE
+   Bind To Thread    = FALSE
+   Boxed             = FALSE
+   Cell              = TRUE
+   Cell Height       = 13
+   Cell Measure      = Pixels
+   Cell Width        = 7
+   Color             = 65793
+   Controls Uncropped = FALSE
+   Erase Screen      = FALSE
+   Font              = Default Font
+   Handle Variable   = Screen2-Handle
+   Help ID           = 0
+   Label Offset      = 0
+   Layout Manager    = None
+   Lines             = 27,31
+   Link To Thread    = TRUE
+   Max Lines         = 0,00
+   Max Size          = 0,00
+   Measuring Control = Label
+   Measuring Font    = Default Font
+   Measuring Style   = [None]
+   Min Lines         = 0,00
+   Min Size          = 0,00
+   Modeless          = TRUE
+   No Close          = FALSE
+   Resizable         = FALSE
+   Scroll            = FALSE
+   Size              = 78,00
+   System Menu       = FALSE
+   Title             = "COMMENTAIRES EXISTANTS"
+   Title Bar         = TRUE
+   Unit              = Cells
+   User Gray         = TRUE
+   User White        = TRUE
+   Visible           = 0:FALSE
+   Window Type       = Floating
+   Wrap              = FALSE
+   Event Procedure   = Screen2-Event-Proc
+   Before Create     = Screen2-Bef-Create
+   After Initdata    = Screen2-Aft-Initdata
+   Begin Grid Screen2-Gd-1
+      SCREEN-COL        = 1,71
+      SCREEN-LINE       = 4,77
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen2-Gd-1
+      Action            = (None)
+      Adjustable Columns = FALSE
+      Auto load         = 0
+      Auto load ReadDirection = next
+      Auto load StartDirection = >=
+      Auto load StartValue = low-value
+      Border            = 3D
+      Centered Headings = TRUE
+      Color             = 2
+      Column            = 1,71
+      Column Headings   = FALSE
+      Columns' Setting  = ( X = 1, Name = Screen2-Gd-1-LIB )
+      Columns' Setting  = ( PIC = "X(90)", ALIGN = "L" )
+      Columns' Setting  = ( DISP = 80, SEPA = 5, DIVI = 1 )
+      Columns' Setting  = ( X = 2, Name = Screen2-Gd-1-NUM )
+      Columns' Setting  = ( PIC = "9(6)", ALIGN = "U" )
+      Columns' Setting  = ( DISP = 0, SEPA = 5, DIVI = 1 )
+      Cursor Color      = 0
+      Cursor Frame Width = 0
+      Cursor X          = 0
+      Cursor Y          = 0
+      Destroy Type      = Automatic
+      Divider Color     = 8
+      Divider Color Variable = W-Divider-Color
+      Drag Color        = 0
+      Enable            = 1:TRUE
+      End Color         = 16
+      End Color Variable = W-End-Color
+      Font              = Default Font
+      Font Variable     = Default-Font
+      Heading Color     = 257
+      Heading Color Variable = W-Heading-Color
+      Heading Divider Color = 8
+      Heading Divider Color Variable = W-Heading-Divider-Color
+      Heading Font      = Default Font
+      Heading Font Variable = Default-Font
+      Help ID           = 0
+      Hscroll           = FALSE
+      ID                = 1
+      Last Row          = 0
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 4,77
+      Lines             = 12,46
+      No Cell Drag      = FALSE
+      No Tab            = TRUE
+      Num Column Headings = 1
+      Num Columns       = 2
+      Num Rows          = 50
+      Num Rows Variable = W-Num-Rows
+      Paged             = FALSE
+      Record Data       = Screen2-Gd-1-Record
+      Row Dividers      = 1
+      Row Headings      = FALSE
+      Size              = 76,57
+      Tab Order         = 1
+      Tiled Headings    = TRUE
+      Use Tab           = FALSE
+      Virtual Width     = 0
+      Visible           = 1:TRUE
+      Vpadding          = 50
+      Vscroll           = TRUE
+      Event Procedure   = Screen2-Gd-1-Event-Proc
+      Msg-Begin-Entry   = Screen2-Gd-1-Ev-Msg-Begin-Entry
+      Msg-End-Drag      = Screen2-Gd-1-Ev-Msg-Goto-Cell
+      Msg-Goto-Cell     = Screen2-Gd-1-Ev-Msg-Goto-Cell
+      Msg-Goto-Cell-Mouse = Screen2-Gd-1-Ev-Msg-Goto-Cell
+   End
+   Begin Entry-Field Screen2-Ef-Com
+      SCREEN-COL        = 1,71
+      SCREEN-LINE       = 18,92
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen2-Ef-Com
+      Auto              = FALSE
+      Auto Decimal      = 0
+      Autofill ID       = 0
+      Autofill Max Lines = 0
+      Border            = 3D
+      Case              = Mixed
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 2
+      Column            = 1,71
+      Csize             = 0
+      Cursor            = 0
+      Cursor Col        = 0
+      Cursor Row        = 0
+      Destroy Type      = Automatic
+      Enable            = 0:FALSE
+      Font              = Default Font
+      Help ID           = 0
+      ID                = 2
+      Justification     = Unaligned
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 18,92
+      Lines             = 9,00
+      Max Lines         = 0
+      Max Text          = 240
+      Max Value         = 0
+      Min Value         = 0
+      No AutoSel        = FALSE
+      No Tab            = FALSE
+      Notify Change     = FALSE
+      Numeric           = FALSE
+      Read Only         = FALSE
+      Required          = FALSE
+      Secure            = FALSE
+      Size              = 76,57
+      Style             = Multiline
+      Tab Order         = 2
+      Use Return        = TRUE
+      Use Tab           = FALSE
+      Value Multiple    = FALSE
+      Visible           = 1:TRUE
+   End
+   Begin Push-Button Screen2-Pb-Supprimer
+      SCREEN-COL        = 69,57
+      SCREEN-LINE       = 1,23
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen2-Pb-Supprimer
+      Bitmap            = "SUPPRIM24.JPG"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = SUPPRIM24-JPG
+      Bitmap Number     = 1
+      Bitmap Square     = TRUE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 69,57
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 2002
+      Flat              = FALSE
+      Font              = Default Font
+      Help ID           = 0
+      ID                = 3
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,23
+      Lines             = 2,38
+      Lines in Pixels   = 24
+      Multiline         = FALSE
+      No Auto Default   = FALSE
+      No Tab            = FALSE
+      Self Act          = FALSE
+      Size              = 4,57
+      Size in Pixels    = 24
+      Style             = Other
+      Tab Order         = 3
+      Termination Value = 0
+      Title             = "Supprimer"
+      Transparent Color = -1
+      Visible           = 1:TRUE
+      Visible Variable  = WV-MOD
+      Link To           = Screen2-Pb-Supprimer-Link
+   End
+   Begin Push-Button Screen2-Pb-Quitter
+      SCREEN-COL        = 74,14
+      SCREEN-LINE       = 1,23
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen2-Pb-Quitter
+      Bitmap            = "QUITTER24.JPG"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = QUITTER24-JPG
+      Bitmap Number     = 1
+      Bitmap Square     = TRUE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 74,14
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 2003
+      Flat              = FALSE
+      Font              = Default Font
+      Help ID           = 0
+      ID                = 4
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,23
+      Lines             = 2,38
+      Lines in Pixels   = 24
+      Multiline         = FALSE
+      No Auto Default   = FALSE
+      No Tab            = FALSE
+      Self Act          = FALSE
+      Size              = 4,57
+      Size in Pixels    = 24
+      Style             = Other
+      Tab Order         = 4
+      Termination Value = 0
+      Title             = "Quitter"
+      Transparent Color = -1
+      Visible           = 1:TRUE
+      Link To           = Screen2-Pb-Quitter-Link
+   End
+   Begin Push-Button Screen2-Pb-Modifier
+      SCREEN-COL        = 65,00
+      SCREEN-LINE       = 1,23
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen2-Pb-Modifier
+      Bitmap            = "MODIFIE24.JPG"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = MODIFIE24-JPG
+      Bitmap Number     = 1
+      Bitmap Square     = TRUE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 65,00
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 2001
+      Flat              = FALSE
+      Font              = Default Font
+      Help ID           = 0
+      ID                = 5
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,23
+      Lines             = 2,38
+      Lines in Pixels   = 24
+      Multiline         = FALSE
+      No Auto Default   = FALSE
+      No Tab            = FALSE
+      Self Act          = FALSE
+      Size              = 4,57
+      Size in Pixels    = 24
+      Style             = Other
+      Tab Order         = 5
+      Termination Value = 0
+      Title             = "Modifier"
+      Transparent Color = -1
+      Visible           = 1:TRUE
+      Visible Variable  = WV-MOD
+      Link To           = Screen2-Pb-Modifier-Link
+   End
+   Begin Push-Button Screen2-Pb-Rafraichir
+      SCREEN-COL        = 60,43
+      SCREEN-LINE       = 1,23
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen2-Pb-Rafraichir
+      Bitmap            = "RAFRAIC24.JPG"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = RAFRAIC24-JPG
+      Bitmap Number     = 1
+      Bitmap Square     = TRUE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 60,43
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 2004
+      Flat              = FALSE
+      Font              = Default Font
+      Help ID           = 0
+      ID                = 8
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,23
+      Lines             = 2,38
+      Lines in Pixels   = 24
+      Multiline         = FALSE
+      No Auto Default   = FALSE
+      No Tab            = FALSE
+      Self Act          = FALSE
+      Size              = 4,57
+      Size in Pixels    = 24
+      Style             = Other
+      Tab Order         = 6
+      Termination Value = 0
+      Title             = "Rafraichir"
+      Transparent Color = -1
+      Visible           = 0:FALSE
+      Link To           = Screen2-Pb-Rafraichir-Link
+   End
+   Begin Push-Button Screen2-Pb-Valider
+      SCREEN-COL        = 55,86
+      SCREEN-LINE       = 1,23
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen2-Pb-Valider
+      Bitmap            = "VALIDER24.JPG"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = VALIDER24-JPG
+      Bitmap Number     = 1
+      Bitmap Square     = TRUE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 55,86
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 2005
+      Flat              = FALSE
+      Font              = Default Font
+      Help ID           = 0
+      ID                = 9
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,23
+      Lines             = 2,38
+      Lines in Pixels   = 24
+      Multiline         = FALSE
+      No Auto Default   = FALSE
+      No Tab            = FALSE
+      Self Act          = FALSE
+      Size              = 4,57
+      Size in Pixels    = 24
+      Style             = Other
+      Tab Order         = 7
+      Termination Value = 0
+      Title             = "Sélectionner"
+      Transparent Color = -1
+      Visible           = 0:FALSE
+      Link To           = Screen2-Pb-Valider-Link
+   End
+   Begin Label Screen2-La-1
+      SCREEN-COL        = 18,00
+      SCREEN-LINE       = 17,54
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen2-La-1
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 2
+      Column            = 18,00
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Font              = Small Font
+      Font Variable     = Small-Font
+      Help ID           = 0
+      ID                = 10
+      Justification     = Center
+      Label Offset      = 0
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 17,54
+      Lines             = 1,23
+      No Key Letter     = FALSE
+      Size              = 44,00
+      Tab Order         = 8
+      Title             = "DETAIL"
+      Transparent       = TRUE
+      Visible           = 1:TRUE
+   End
+   Begin Entry-Field Screen1-Ef-Rech
+      SCREEN-COL        = 14,57
+      SCREEN-LINE       = 1,54
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen1-Ef-Rech
+      Auto              = FALSE
+      Auto Decimal      = 0
+      Autofill ID       = 0
+      Autofill Max Lines = 0
+      Border            = 3D
+      Case              = Mixed
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 2
+      Column            = 14,57
+      Csize             = 0
+      Cursor            = 0
+      Cursor Col        = 0
+      Cursor Row        = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Font              = Default Font
+      Help ID           = 0
+      ID                = 14
+      Justification     = Unaligned
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,54
+      Lines             = 1,46
+      Max Lines         = 0
+      Max Text          = 0
+      Max Value         = 0
+      Min Value         = 0
+      No AutoSel        = FALSE
+      No Tab            = FALSE
+      Notify Change     = FALSE
+      Numeric           = FALSE
+      Read Only         = FALSE
+      Required          = FALSE
+      Secure            = FALSE
+      Size              = 29,00
+      Style             = Singleline
+      Tab Order         = 9
+      Use Return        = FALSE
+      Use Tab           = FALSE
+      Value Multiple    = FALSE
+      Value Picture     = X(30)
+      Value Variable    = Rech-Nom
+      Visible           = 1:TRUE
+      Before Procedure  = Screen1-Ef-Rech-Bef-Procedure
+      After Procedure   = Screen1-Ef-Rech-Aft-Procedure
+   End
+   Begin Push-Button Screen1-Pb-Rechercher
+      SCREEN-COL        = 44,29
+      SCREEN-LINE       = 1,23
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen1-Pb-Rechercher
+      Bitmap            = "W:\mx\resource\RECHERC16.BMP"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = RECHERC16-BMP
+      Bitmap Number     = 1
+      Bitmap Square     = TRUE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 44,29
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 1204
+      Flat              = FALSE
+      Font              = Default Font
+      Help ID           = 0
+      ID                = 27
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,23
+      Lines             = 1,77
+      Lines in Pixels   = 16
+      Multiline         = FALSE
+      No Auto Default   = TRUE
+      No Tab            = TRUE
+      Self Act          = FALSE
+      Size              = 3,43
+      Size in Pixels    = 16
+      Style             = Other
+      Tab Order         = 10
+      Termination Value = 0
+      Title             = "Rechercher un nom dans la liste"
+      Transparent Color = -1
+      Visible           = 1:TRUE
+      Link To           = Screen1-Pb-Rechercher-Link
+   End
+   Begin Label Screen1-La-2
+      SCREEN-COL        = 2,57
+      SCREEN-LINE       = 1,85
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen1-La-2
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 2
+      Column            = 2,57
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Font              = Small Font
+      Font Variable     = Small-Font
+      Help ID           = 0
+      ID                = 18
+      Justification     = Right
+      Label Offset      = 0
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,85
+      Lines             = 1,00
+      No Key Letter     = FALSE
+      Size              = 11,14
+      Tab Order         = 11
+      Title             = "Rechercher "
+      Transparent       = TRUE
+      Visible           = 1:TRUE
+   End
+   Begin Label Screen1-La-Rech
+      SCREEN-COL        = 1,00
+      SCREEN-LINE       = 3,23
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen1-La-Rech
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 5
+      Column            = 1,00
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Font              = Small Font
+      Font Variable     = Small-Font
+      Help ID           = 0
+      ID                = 42
+      Justification     = Center
+      Label Offset      = 0
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 3,23
+      Lines             = 0,92
+      No Key Letter     = FALSE
+      Size              = 50,43
+      Tab Order         = 12
+      Title             = "Recherche chaine de caractères : Faire précéder par le symbole /"
+      Transparent       = TRUE
+      Visible           = 0:FALSE
+   End
+   Begin Push-Button Screen2-Pb-Classement
+      SCREEN-COL        = 51,29
+      SCREEN-LINE       = 1,23
+      LOCK-CONTROL      = TRUE
+      (Name)            = Screen2-Pb-Classement
+      Bitmap            = "CLASSER24.JPG"
+      Bitmap Frame      = FALSE
+      Bitmap Handle     = CLASSER24-JPG
+      Bitmap Number     = 1
+      Bitmap Square     = TRUE
+      Ccol              = 0
+      Cline             = 0
+      Clines            = 0
+      Color             = 0
+      Column            = 51,29
+      Copy Resource     = TRUE
+      Csize             = 0
+      Destroy Type      = Automatic
+      Enable            = 1:TRUE
+      Exception Value   = 5632
+      Flat              = FALSE
+      Font              = Default Font
+      Help ID           = 0
+      ID                = 6
+      Is Link           = FALSE
+      Layout Data       = 0
+      Layout Data Max Height Cells = 0,00
+      Layout Data Max Height Pixels = 0
+      Layout Data Max Width Cells = 0,00
+      Layout Data Max Width Pixels = 0
+      Layout Data Min Height Cells = 0,00
+      Layout Data Min Height Pixels = 0
+      Layout Data Min Width Cells = 0,00
+      Layout Data Min Width Pixels = 0
+      Line              = 1,23
+      Lines             = 2,38
+      Lines in Pixels   = 24
+      Multiline         = FALSE
+      No Auto Default   = FALSE
+      No Tab            = FALSE
+      Self Act          = FALSE
+      Size              = 4,57
+      Size in Pixels    = 24
+      Style             = Other
+      Tab Order         = 13
+      Termination Value = 0
+      Title             = "Classer par ordre de création"
+      Transparent Color = -1
+      Visible           = 1:TRUE
+      Link To           = Screen2-Pb-Classement-Link
+   End
+End
+
+END-SPDATA
+
+@}}
+
+{{@REPORT:
+*   Report Writer Data
+*   Schema 6.0
+*
+BEGIN-RWDATA-6.0A
+
+END-RWDATA
+
+@}}
+
+{{@PARAGRAPH:
+           COPY "../../MISTRAL/COPY/ENVMIS.CBL".
+120819 COPY "W:/mistral/copy/MisCentrefenetre.cbl".
+
+       Init-BMP.
+
+       Open-File-Rtn.
+           OPEN I-O MXCOMMENT  PERFORM STAT.
+           OPEN I-O MXCOMMENT2 PERFORM STAT.
+           
+       Close-File-Rtn.
+           CLOSE MXCOMMENT MXCOMMENT2.
+           
+       Recup-Mxcomment.
+           INQUIRE Screen1-Ef-Lib, VALUE IN LIB-MCMO
+            IF LK-CCOMMENT-STA = "D"
+              IF Screen1-Cb-DV-Value = 1
+                   MOVE 0 TO EAR-MCMO
+              ELSE MOVE 1 TO EAR-MCMO
+              END-IF
+              IF Screen1-Cb-Fac-VALUE = 1
+                   MOVE 0 TO EFAC-MCMO
+              ELSE MOVE 1 TO EFAC-MCMO
+              END-IF.
+           IF LK-CCOMMENT-STA = "C"
+              IF Screen1-Cb-DV-Value = 1
+                   MOVE 0 TO EAR-MCMO
+              ELSE MOVE 1 TO EAR-MCMO
+              END-IF
+              IF Screen1-Cb-BP-VALUE = 1
+                   MOVE 0 TO EBP-MCMO
+              ELSE MOVE 1 TO EBP-MCMO
+              END-IF
+              IF Screen1-Cb-Fac-VALUE = 1
+                   MOVE 0 TO EFAC-MCMO
+              ELSE MOVE 1 TO EFAC-MCMO
+              END-IF.
+           IF LK-CCOMMENT-STA = "L"
+              IF Screen1-Cb-BL-VALUE = 1
+                   MOVE 0 TO EBL-MCMO
+              ELSE MOVE 1 TO EBL-MCMO
+              END-IF
+              IF Screen1-Cb-Fac-VALUE = 1
+                   MOVE 0 TO EFAC-MCMO
+              ELSE MOVE 1 TO EFAC-MCMO
+              END-IF.
+           MOVE Screen1-Cb-Sto-VALUE TO STO-MCMO
+          
+      *    Calcule le nombre de lignes
+           PERFORM CAL-LIB-MCMO.
+
+       Maj-Mxcomment.
+           PERFORM Recup-Mxcomment
+           IF CDF = "M" 
+                REWRITE ENR-MCMO INVALID
+                    MOVE "Rewrite MXCOMMENT " TO ACU-MSG-1
+                    MOVE CLE1-MCMO TO ACU-MSG-2
+                    PERFORM MSG-ERREUR
+                    PERFORM Acu-Screen1-Exit
+                END-REWRITE
+           ELSE WRITE ENR-MCMO INVALID
+                    MOVE "Write MXCOMMENT " TO ACU-MSG-1
+                    MOVE CLE1-MCMO TO ACU-MSG-2
+                    PERFORM MSG-ERREUR
+                    PERFORM Acu-Screen1-Exit
+                END-WRITE
+           END-IF
+           PERFORM STAT
+      *    Coupe à la première fin de ligne
+251005     MOVE 0 TO J
+
+           PERFORM VARYING I FROM 1 BY 1
+              UNTIL I > 320
+                 OR ( LIB-MCMO(I:1) < " "
+                      AND J > 0 )
+
+251005        IF  J = 0
+              AND LIB-MCMO(I:1) > " " THEN
+                 MOVE I TO J
+251005        END-IF
+              
+           END-PERFORM
+
+           SUBTRACT J FROM I
+           IF  I > 0
+251005     AND J > 0 THEN
+                MOVE LIB-MCMO(J:I) TO LK-CCOMMENT-LIB
+           ELSE MOVE SPACE TO LK-CCOMMENT-LIB.
+           MOVE "M" TO CDF.
+
+       CAL-LIB-MCMO.
+           MOVE 1 TO I J
+           MOVE 0 TO K NBRL-MCMO
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > 320
+                 OR LIB-MCMO(I:) = SPACE
+              ADD 1 TO K
+              IF LIB-MCMO(I:1) < SPACE AND K > 1 THEN
+      *          2 caractères de fin de ligne
+                 SUBTRACT 1 FROM K
+                 IF LIB-MCMO(J:K) NOT = SPACE
+                    ADD 1 TO NBRL-MCMO
+                 END-IF
+                 MOVE 0 TO K
+      *          Evite le deuxième caractère de fin de ligne
+                 ADD 1 TO I
+                 ADD 1 TO I GIVING J
+                 ADD 1 TO Z
+              END-IF
+           END-PERFORM
+           IF K <> 0 THEN
+              IF LIB-MCMO(J:K) NOT = SPACE
+                 ADD 1 TO NBRL-MCMO
+              END-IF
+           END-IF.           
+
+       LECT-MXCOMMENT.
+           INITIALIZE ENR-MCMO                    
+           MOVE LK-CCOMMENT-ORI TO ORI-MCMO
+           MOVE LK-CCOMMENT-CLE TO CLE-MCMO
+           MOVE "M" TO CDF
+           IF LK-CCOMMENT-CDF = "I"         
+                READ MXCOMMENT INVALID MOVE "C" TO CDF
+                END-READ
+           ELSE READ MXCOMMENT LOCK INVALID MOVE "C" TO CDF
+                END-READ
+           END-IF
+           PERFORM STAT
+           IF IND-STAT = 1 
+270114*       blocage PXR sans message lock... LEM EQUIPEMENT
+              PERFORM ACU-Show-Msg
+              MOVE "I" TO LK-CCOMMENT-CDF
+270114        
+              GO LECT-MXCOMMENT.
+           IF LIB-MCMO = SPACE
+                MOVE 0 TO EAR-MCMO EBP-MCMO EFAC-MCMO EBL-MCMO
+           END-IF 
+           MOVE LIB-MCMO TO W-LIB-MCMO.
+
+       INIT-MXCOMMENT.
+           INITIALIZE ENR-MCMO W-LIB-MCMO
+           MOVE LK-CCOMMENT-ORI TO ORI-MCMO
+           MOVE LK-CCOMMENT-CLE TO CLE-MCMO.
+
+       DEL-MXCOMMENT.
+           MOVE LK-CCOMMENT-ORI TO ORI-MCMO
+           MOVE LK-CCOMMENT-CLE TO CLE-MCMO
+           READ MXCOMMENT INVALID EXIT PARAGRAPH
+           END-READ
+           PERFORM STAT
+           IF IND-STAT = 1
+              MOVE "399" TO Acu-Msg-Id
+              PERFORM Acu-Show-Msg
+              EXIT PARAGRAPH
+           END-IF
+           DELETE MXCOMMENT INVALID
+              MOVE "Delete MXCOMMENT " TO ACU-MSG-1
+              MOVE CLE1-MCMO TO ACU-MSG-2
+              PERFORM MSG-INFO
+              PERFORM Acu-Screen1-Exit
+           END-DELETE
+           PERFORM STAT.
+
+       Screen1-Bef-Create.
+           PERFORM Controle-Call
+           
+
+           PERFORM Open-File-Rtn
+           PERFORM Init-BMP
+
+           OPEN INPUT MXPARAM
+           PERFORM STAT
+           MOVE 1 TO W-MXPARAM
+           READ MXPARAM
+           PERFORM STAT
+           CLOSE MXPARAM
+
+261114*---- contrôle possibilité modification
+      *     MOVE 25 TO LK-CPERMIS-LOG
+      *     MOVE 311 TO LK-CPERMIS-RUB
+      *     MOVE IDE-PALM TO LK-CPERMIS-IDE
+      *     CALL "cpermis.acu" USING ZONE-PALM LK-CPERMIS
+      *     CANCEL "cpermis.acu"
+      *     MOVE LK-CPERMIS-PER TO AUTO-MOD.
+      *     if auto-mod = 2 move 0 to wv-mod
+      *                else 
+                      move 1 to wv-mod
+      *     end-if.
+
+           PERFORM Lect-Mxcomment.
+           MOVE 16 TO W-SCR-LINES
+
+           IF LK-CCOMMENT-INO = "E"
+              MOVE 87,00 TO W-EF-SIZE  
+              MOVE 87,29 TO W-SCR-SIZE  
+              MOVE 87,00 TO W-FR-SIZE
+              MOVE 78,00 TO W-Refresh-Col
+              MOVE 81,43 TO W-Delete-Col
+              MOVE 84,57 TO W-Quit-Col 
+              MOVE 4,50 TO W-EF-LINES
+              IF LK-CCOMMENT-ACT = "A" THEN
+                 MOVE "Commentaire sur la variante" TO W-TITLE
+              ELSE
+                 MOVE "Texte de fin de document" TO W-TITLE
+              END-IF
+              IF LK-CCOMMENT-ACT = "R"
+              AND LK-CCOMMENT-NIT = "P"
+                 MOVE "Instructions de livraison" TO W-TITLE
+              END-IF
+           ELSE
+              IF LK-CCOMMENT-INO = "P"
+                 MOVE 57,00 TO W-EF-SIZE  
+                 MOVE 57,29 TO W-SCR-SIZE  
+                 MOVE 57,00 TO W-FR-SIZE
+                 MOVE 48,00 TO W-Refresh-Col  
+                 MOVE 51,43 TO W-Delete-Col
+                 MOVE 54,57 TO W-Quit-Col 
+                 MOVE 12,50 TO W-EF-LINES
+                 MOVE 15 TO W-SCR-LINES
+                 IF LK-CCOMMENT-ACT = "R" OR "M"
+                    MOVE "Note" TO W-TITLE
+                 ELSE
+                    MOVE "Clauses particulieres" TO W-TITLE
+                 END-IF
+              ELSE
+                 IF LK-CCOMMENT-INO = "I"
+                    MOVE "Instructions internes" TO W-TITLE
+                 END-IF
+                 IF LK-CCOMMENT-ORI = "RE"
+                    MOVE "Commentaire / intervention" 
+                    TO W-TITLE
+                 END-IF
+                 IF LK-CCOMMENT-ORI = "REC"
+                    MOVE "Remarques client" TO W-TITLE
+                 END-IF
+                 IF LK-CCOMMENT-ORI = "RET"
+                    MOVE "Remarques technicien" TO W-TITLE
+                 END-IF
+                 MOVE 56,71 TO W-EF-SIZE  
+                 MOVE 56,71 TO W-SCR-SIZE  
+                 MOVE 56,57 TO W-FR-SIZE
+                 MOVE 47,71 TO W-Refresh-Col
+                 MOVE 51,14 TO W-Delete-Col
+                 MOVE 54,14 TO W-Quit-Col 
+                 MOVE 8,5 TO W-EF-LINES
+              END-IF
+           END-IF.         
+           
+       Screen1-AfterInitData.
+260919* modification pour mettre les tailles en variables car sinon problème
+      * de saisie avec le centrefenetre (saisie bloquée)
+      *     MODIFY Screen1-Handle, SIZE W-SCR-SIZE, LINES W-SCR-LINES
+120819     PERFORM MisCentreFenetreScreen1
+      *     MODIFY Screen1-Ef-Lib, SIZE W-Ef-SIZE, LINES W-EF-LINES
+010720*           MODIFY Screen1-Pb-Quit, COLUMN W-Quit-Col
+010720*           MODIFY Screen1-Pb-Refresh, COLUMN W-Refresh-Col
+010720*           MODIFY Screen1-Pb-Delete, COLUMN W-Delete-Col
+010720*     MODIFY Screen1-Fr-Edi, SIZE W-FR-SIZE
+           IF LK-CCOMMENT-INO = "E" 
+           OR AUTO-MOD = 2
+             MODIFY Screen1-Pb-Sauvegarder, VISIBLE 0
+           END-IF
+
+           IF LK-CCOMMENT-STA = "D" AND LK-CCOMMENT-INO <> "I"
+              IF EAR-MCMO = 1 MOVE 0 TO Screen1-Cb-DV-Value
+                         ELSE MOVE 1 TO Screen1-Cb-DV-Value
+              END-IF
+              MODIFY Screen1-Fr-Edi, VISIBLE 1
+              MODIFY Screen1-La-Edi, VISIBLE 1
+              MODIFY Screen1-Cb-DV, VISIBLE 1, TITLE "Devis",
+                                    VALUE Screen1-Cb-DV-Value
+               IF EFAC-MCMO = 1 MOVE 0 TO Screen1-Cb-Fac-Value
+                          ELSE MOVE 1 TO Screen1-Cb-Fac-Value
+              END-IF
+              MODIFY Screen1-Cb-Fac, VISIBLE 1, TITLE "Proforma",
+                    , VALUE Screen1-Cb-Fac-Value.
+070720*              , COLUMN 14,00, VALUE Screen1-Cb-Fac-Value.
+
+           IF LK-CCOMMENT-STA = "C" AND LK-CCOMMENT-INO <> "I"
+              MODIFY Screen1-Fr-Edi, VISIBLE 1
+              MODIFY Screen1-La-Edi, VISIBLE 1 
+              IF EAR-MCMO = 1 MOVE 0 TO Screen1-Cb-DV-Value
+                         ELSE MOVE 1 TO Screen1-Cb-DV-Value
+              END-IF
+              MODIFY Screen1-Cb-DV, VISIBLE 1, TITLE "A/R", 
+                                    VALUE Screen1-Cb-DV-Value  
+              IF EBP-MCMO = 1 MOVE 0 TO Screen1-Cb-BP-Value
+                         ELSE MOVE 1 TO Screen1-Cb-BP-Value
+              END-IF
+              MODIFY Screen1-Cb-BP, VISIBLE 1, 
+                                    VALUE Screen1-Cb-BP-Value
+              IF EFAC-MCMO = 1 MOVE 0 TO Screen1-Cb-Fac-Value
+                          ELSE MOVE 1 TO Screen1-Cb-Fac-Value
+              END-IF
+              MODIFY Screen1-Cb-Fac, VISIBLE 1, TITLE "Proforma",
+                                     VALUE Screen1-Cb-Fac-Value.
+
+           IF LK-CCOMMENT-STA = "L" AND LK-CCOMMENT-INO <> "I"
+                                    AND LK-CCOMMENT-NIT <> "P" |istructions de livraison pièces / OR
+              MODIFY Screen1-Fr-Edi, VISIBLE 1
+              MODIFY Screen1-La-Edi, VISIBLE 1
+              IF EBL-MCMO = 1 MOVE 0 TO Screen1-Cb-BL-Value
+                         ELSE MOVE 1 TO Screen1-Cb-BL-Value
+              END-IF
+070720*      MODIFY Screen1-Cb-BL, VISIBLE 1, COLUMN 14,00, 
+              MODIFY Screen1-Cb-BL, VISIBLE 1, 
+                                    VALUE Screen1-Cb-BL-Value
+              IF EFAC-MCMO = 1 MOVE 0 TO Screen1-Cb-Fac-Value
+                          ELSE MOVE 1 TO Screen1-Cb-Fac-Value
+              END-IF
+070720*       MODIFY Screen1-Cb-Fac, VISIBLE 1, COLUMN 14,00
+              MODIFY Screen1-Cb-Fac, VISIBLE 1, 
+                                     VALUE Screen1-Cb-Fac-Value.
+
+           IF (LK-CCOMMENT-ACT = "D" OR "M" OR "R") 
+           AND LK-CCOMMENT-INO = " "
+           AND LK-CCOMMENT-ORI(1:2) <> "RE"
+              MOVE STO-MCMO TO Screen1-Cb-STO-Value 
+              MODIFY Screen1-Cb-STO, VISIBLE 1, VALUE STO-MCMO
+              PERFORM Enable-Sto
+           END-IF.
+                    
+260218
+           IF LK-CCOMMENT-EBP = 1
+              IF EBP-MCMO = 1 MOVE 0 TO Screen1-Cb-BP-Value
+                         ELSE MOVE 1 TO Screen1-Cb-BP-Value
+              END-IF
+070720*       MODIFY Screen1-Cb-BP, VISIBLE 1, column 37 
+              MODIFY Screen1-Cb-BP, VISIBLE 1, 
+                                    VALUE Screen1-Cb-BP-Value
+           END-IF.
+260218
+           IF LK-CCOMMENT-CDF NOT = "M"
+              MODIFY Screen1-Pb-Refresh, VISIBLE FALSE
+              MODIFY Screen1-Pb-Delete, VISIBLE FALSE
+              MODIFY Screen1-Pb-Sauvegarder, VISIBLE FALSE
+              MODIFY Screen1-Pb-Rappeler, VISIBLE FALSE
+              MODIFY Screen1-Ef-Lib, ENABLED FALSE
+              MODIFY Screen1-Cb-DV, ENABLED FALSE
+              MODIFY Screen1-Cb-BL, ENABLED FALSE
+              MODIFY Screen1-Cb-BP, ENABLED FALSE
+              MODIFY Screen1-Cb-Fac, ENABLED FALSE
+              MODIFY Screen1-Cb-Sto, ENABLED FALSE
+010720*        MODIFY Screen1-Pb-Quit, BITMAP-HANDLE QUITTER16-JPG
+      *                                TITLE "Quitter"
+              MODIFY Screen1-Pb-Quita, VISIBLE FALSE
+              MODIFY Screen1-Pb-Quit, Visible TRUE
+           END-IF.
+           
+       Screen1-Pb-Refresh-LinkTo.
+           MODIFY Screen1-Ef-Lib, VALUE LIB-MCMO.
+
+       Screen1-Pb-Rappeler-Link.
+              PERFORM ACU-SCREEN2-ROUTINE
+              if lib-mcmo2 <> space
+                 modify Screen1-Ef-Lib, VALUE lib-mcmo2
+                 move lib-mcmo2 to W-LIB-MCMO
+              end-if
+
+           DISPLAY SCREEN1-Ef-LIB.
+                                  
+       Screen1-Pb-Quit-LinkTo.
+           IF LK-CCOMMENT-CDF = "I"
+              PERFORM ACU-SCREEN1-EXIT
+           END-IF
+           PERFORM MAJ-MXCOMMENT
+           PERFORM ACU-SCREEN1-EXIT
+           .
+
+       Screen1-Ev-Cmd-Close.
+           PERFORM Mistral-WindowClosing
+           .
+
+       Screen1-Aft-Routine.
+           PERFORM Close-File-Rtn
+
+
+           .
+       Screen1-Pb-Delete-LinkTo.
+           IF LK-CCOMMENT-CDF NOT = "M" EXIT PARAGRAPH
+           END-IF
+           MODIFY Screen1-Ef-Lib, VALUE SPACE.
+      *
+       Screen1-Pb-Sauvegarder-Link.
+           IF LK-CCOMMENT-CDF NOT = "M" EXIT PARAGRAPH
+           END-IF
+           MOVE "Souhaitez-vous mémoriser ce commentaire dans le "
+           to acu-msg-1
+           MOVE 
+           "répertoire afin de pouvoir le réutiliser ultérieurement ?"
+           to acu-msg-2
+           perform msg-on
+           if acu-return-value = 1
+              perform sauve thru f-sauve
+           end-if
+           .
+
+       Sauve.
+           MOVE SPACE TO ENR-MCMO2
+           MOVE 0 TO DER-NUM
+           MOVE "B" TO ACT-MCMO2
+           MOVE 999999 TO NUM-MCMO2
+           START MXCOMMENT2 KEY NOT > CLE1-MCMO2 INVALID GO S-Sauve.
+           READ MXCOMMENT2 PREVIOUS END GO S-Sauve.
+           PERFORM STAT.
+           IF ACT-MCMO2 NOT = "B" GO S-Sauve.
+           MOVE NUM-MCMO2 TO DER-NUM.
+       S-Sauve.
+           PERFORM Recup-Mxcomment
+           MOVE ENR-MCMO TO ENR-MCMO2
+           MOVE SPACE TO CLE1-MCMO2
+           MOVE "B" TO ACT-MCMO2
+           ADD 1 TO DER-NUM
+           MOVE DER-NUM TO NUM-MCMO2
+           WRITE ENR-MCMO2 INVALID GO S-Sauve
+           END-WRITE
+           PERFORM STAT.
+           move "Commentaire mémorisé" to acu-msg-1
+           perform msg-info.
+       F-Sauve.
+      *
+       Screen2-Bef-Create.
+           
+           .
+      *
+       Screen2-Aft-Initdata.
+200819     MOVE Screen2-Handle TO MCF-HANDLE-FS
+200819     PERFORM MisCentreFenetre
+           PERFORM Init-Grille thru F-Init-Grille
+           .
+
+       Init-Grille.
+311017     PERFORM Curseur-Sablier
+           modify Screen2-Gd-1, RESET-GRID = 1, mass-update = 1
+           perform Acu-Screen2-Gd-1-Content
+           MOVE SPACE TO ENR-MCMO2
+           MOVE "B" TO ACT-MCMO2
+           move 0 to TMP-9-3
+311017     
+           IF W-CLA = 2 THEN
+              COPY "W:/mx/copy/Assign-FICTMP.cbl" REPLACING 
+                 ==FICTMP==   BY ==TRI==
+                 =='FICTMP'== BY ==TRI==.
+           END-IF
+311017
+           START MXCOMMENT2 KEY NOT < CLE1-MCMO2 INVALID 
+                 GO F-INIT-GRILLE.
+       Bcl-Init.
+           READ MXCOMMENT2 NEXT END GO F-INIT-GRILLE.
+           PERFORM STAT
+           IF ACT-MCMO2 NOT = "B" GO F-INIT-GRILLE.
+           ADD 1 TO TMP-9-3
+311017     
+           IF W-CLA = 2 THEN
+              MOVE NUM-MCMO2 TO NUM-TRI
+              MOVE LIB-MCMO2 TO LIB-TRI
+130218        INSPECT LIB-TRI REPLACING ALL W-NEWLINE BY "  " | sinon n'affiche pas les lignes qui commencent par w-newline
+              WRITE ENR-TRI
+              PERFORM STAT
+              GO Bcl-Init
+           END-IF
+311017
+           move space to Screen2-Gd-1-Record
+           MOVE LIB-MCMO2 to Screen2-Gd-1-lib
+           MOVE NUM-MCMO2 to Screen2-Gd-1-num
+030907
+           IF Screen2-Gd-1-lib = SPACE THEN
+      *       Sinon n'ajoute pas de ligne et décale les clés de 1...
+              MOVE "." TO Screen2-Gd-1-lib(60:1)
+           END-IF
+030907
+           modify Screen2-Gd-1, RECORD-TO-ADD Screen2-Gd-1-Record
+      *     modify Screen2-Gd-1(tmp-9-3, 1), 
+      *            Hidden-Data NUM-MCMO2 
+           go Bcl-Init.
+       F-Init-Grille.
+           IF W-CLA = 2 
+311017*       LOIRE *OCEAN trop long en accés distant
+      *        COPY "../../mistral/copy/Gd-Sort.cbl"
+      *              REPLACING ==CPYSRT-GRD== BY ==Screen2-Gd-1==
+      *                        ==CPYSRT-ROW== BY ==1==
+      *                        ==CPYSRT-KEY== BY ==1==
+      *                        ==CPYSRT-ORD== BY =="A"==. 
+311017
+              INITIALIZE ENR-TRI
+              START TRI KEY >= CLE2-TRI
+              INVALID
+                 MOVE 1 TO W-EOF
+              NOT INVALID
+                 MOVE 0 TO W-EOF
+              END-START
+              PERFORM STAT
+              PERFORM UNTIL W-EOF = 1 
+                 READ TRI NEXT AT END MOVE 1 TO W-EOF
+                 END-READ
+                 PERFORM STAT                 
+                 IF W-EOF = 0 THEN
+                    move space to Screen2-Gd-1-Record
+                    MOVE LIB-TRI to Screen2-Gd-1-lib
+                    MOVE NUM-TRI to Screen2-Gd-1-num
+                    IF Screen2-Gd-1-lib = SPACE THEN
+      *                Sinon n'ajoute pas de ligne et décale les clés de 1...
+                       MOVE "." TO Screen2-Gd-1-lib(60:1)
+                    END-IF
+                    modify Screen2-Gd-1, 
+                       RECORD-TO-ADD Screen2-Gd-1-Record
+                 END-IF
+              END-PERFORM
+              CLOSE TRI
+              DELETE FILE TRI
+311017
+           end-if
+           modify Screen2-Gd-1, mass-update = 0
+           move 1 to w-gd1col event-data-2
+           perform Screen2-Gd-1-Ev-Msg-Goto-Cell
+           modify Screen2-Gd-1, CURSOR-Y = 1, y = 1.
+311017     PERFORM Curseur-Fleche
+           .
+      *
+       Screen2-Gd-1-Ev-Msg-Begin-Entry.
+110311     MOVE Event-Action-Fail TO Event-Action
+           Perform Mistral-CloseCurrentWindow.
+
+       Modif-Ligne.
+           Inquire Screen2-Gd-1(w-gd1Col, 2), 
+                  cell-Data In w-sel
+           MOVE SPACE TO ENR-MCMO2
+           MOVE "B" TO ACT-MCMO2
+           move w-sel to NUM-MCMO2 
+           MOVE 1 TO W-OK
+           read MXCOMMENT2 lock invalid 
+                           move "Lecture MXCOMMENT2" to acu-msg-1
+                           move cle1-mcmo2 to acu-msg-2
+                           perform msg-erreur
+                           MOVE 0 TO W-OK
+                           exit paragraph
+           end-read
+           perform stat
+           if ind-stat = 1 
+                           move "Enregistrement occupé" to acu-msg-1
+                           perform msg-info
+                           MOVE 0 TO W-OK
+                           exit paragraph
+           end-if
+           .
+
+       Lect-Ligne.
+           Inquire Screen2-Gd-1(w-gd1Col, 2), 
+                  cell-Data In w-sel
+           MOVE SPACE TO ENR-MCMO2
+110309     
+           IF W-SEL = 0 THEN
+              EXIT PARAGRAPH   
+           END-IF
+110309
+           MOVE "B" TO ACT-MCMO2
+           move w-sel to NUM-MCMO2 
+           read MXCOMMENT2 invalid 
+                           move "Lecture MXCOMMENT2" to acu-msg-1
+                           move cle1-mcmo2 to acu-msg-2
+                           perform msg-erreur
+                           exit paragraph
+           end-read
+           perform stat.
+      *
+       Sauve-Ligne.
+           rewrite enr-mcmo2 invalid move "Réécrit. SVINT" to acu-msg-1
+                           move cle1-mcmo2 to acu-msg-2
+                           perform msg-erreur
+           end-rewrite
+           perform stat.
+
+       Screen2-Gd-1-Ev-Msg-Goto-Cell.
+           If w-gd1Col Not = 0
+              Modify Screen2-Gd-1, Y = w-gd1Col,
+                Row-Color = 0
+           End-If          
+           Move Event-Data-2 to w-gd1Col
+           Modify Screen2-Gd-1, Y = w-gd1Col,
+              Row-Color = w-row-high-color
+           perform Lect-Ligne
+           modify Screen2-Ef-Com, VALUE lib-mcmo2.
+           .
+      *
+       Screen2-Pb-Quitter-Link.
+           move space to lib-mcmo2
+           PERFORM Acu-Screen2-Exit
+           .
+      *
+       Screen2-Pb-Supprimer-Link.
+           if w-gd1col = 0 exit paragraph
+           end-if
+           move "203" to Acu-Msg-Id
+           perform Acu-Show-Msg
+           if Acu-Return-Value not = 1
+              exit paragraph
+           end-if
+           perform modif-ligne
+           if w-ok = 0 exit paragraph
+           end-if
+           delete mxcomment2
+           perform stat
+           PERFORM Init-Grille thru F-Init-Grille.
+           .
+      *
+       Screen2-Pb-Modifier-Link.
+           perform modif-ligne
+           if w-ok = 0 exit paragraph
+           end-if
+           modify Screen2-Pb-Modifier, VISIBLE 0
+           modify Screen2-Pb-Valider, VISIBLE 1
+           modify Screen2-Pb-Rafraichir, VISIBLE 1
+           modify Screen2-Pb-Quitter, VISIBLE 0
+           modify Screen2-Pb-Supprimer, VISIBLE 0
+           MODIFY Screen2-Ef-Com, ENABLED 1
+           .
+      *
+       Screen2-Pb-Rafraichir-Link.
+           perform lect-ligne
+           modify Screen2-Pb-Modifier, VISIBLE 1
+           modify Screen2-Pb-Valider, VISIBLE 0
+           modify Screen2-Pb-Rafraichir, VISIBLE 0
+           modify Screen2-Pb-Quitter, VISIBLE 1
+           modify Screen2-Pb-Supprimer, VISIBLE 1
+           MODIFY Screen2-Ef-Com, ENABLED 0
+           .
+      *
+       Screen2-Pb-Valider-Link.
+           inquire Screen2-Ef-Com, VALUE LIB-MCMO2
+           rewrite enr-mcmo2
+           perform stat
+           modify Screen2-Pb-Modifier, VISIBLE 1
+           modify Screen2-Pb-Valider, VISIBLE 0
+           modify Screen2-Pb-Rafraichir, VISIBLE 0
+           modify Screen2-Pb-Quitter, VISIBLE 1
+           modify Screen2-Pb-Supprimer, VISIBLE 1
+           MODIFY Screen2-Ef-Com, ENABLED 0
+           Modify Screen2-Gd-1, Y = w-gd1Col, x = 1
+              cell-data = lib-mcmo2.
+      *
+       Screen1-Cb-Sto-Ev-Cmd-Clicked.
+           inquire Screen1-Cb-Sto, VALUE Screen1-Cb-Sto-Value  
+           if Screen1-Cb-Sto-Value = 1
+                if W-LIB-MCMO = space
+                   move "Sous-total" to W-LIB-MCMO
+                   modify Screen1-Ef-Lib, value w-lib-mcmo
+                end-if
+           end-if
+           perform Enable-Sto
+           .
+
+       Enable-Sto.
+           if Screen1-Cb-Sto-Value = 1
+                move 0 to wenable
+           else move wv-mod to wenable
+           end-if.
+           modify Screen1-Pb-Sauvegarder, visible wenable
+           if Screen1-Cb-Sto-Value = 1
+                move 0 to wenable
+           else move 1 to wenable
+           end-if.
+           modify Screen1-Pb-Rappeler, VISIBLE wenable
+           .
+      *
+       Screen1-Pb-Rechercher-Link.
+           Inquire Screen1-Ef-Rech, Value In Rech-NOM  
+           IF RECH-NOM = SPACE EXIT PARAGRAPH
+           END-IF
+           Set GRID-SEARCH-FORWARDS To True
+           Set GRID-SEARCH-WRAP To True
+           Set GRID-SEARCH-IGNORE-CASE To True
+           Set GRID-SEARCH-VISIBLE To True
+           Set GRID-SEARCH-SKIP-CURRENT To True
+           Move 1 To GRID-SEARCH-COLUMN
+           Set GRID-SEARCH-MOVES-CURSOR To True
+           If Rech-NOM(1:1) = "/"
+             Move Rech-NOM(2:29) To Rech-NOM(1:29)
+             Move Space To Rech-NOM(30:1)
+             Set GRID-SEARCH-MATCH-ANY To True
+           Else
+             Set GRID-SEARCH-MATCH-LEADING To True             
+           End-If
+
+           Modify Screen2-Gd-1, Search-Options = GRID-SEARCH-OPTIONS
+
+           Modify Screen2-Gd-1, Search-Text = Rech-NOM  Giving i
+           
+           If i = GRDSRCH-NOT-FOUND
+             MOVE "Texte non trouvé" to acu-msg-1
+             perform msg-info
+           Else
+             Inquire Screen2-Gd-1, Y In event-data-2
+             Inquire Screen2-Gd-1, X In event-data-1
+             Perform Screen2-Gd-1-Ev-Msg-Goto-Cell
+           End-If           
+           .
+
+       Screen1-Ef-Rech-Bef-Procedure.
+           MODIFY Screen1-La-Rech, VISIBLE TRUE
+           .
+
+       Screen1-Ef-Rech-Aft-Procedure.
+           MODIFY Screen1-La-Rech, VISIBLE FALSE.
+           PERFORM Screen1-Pb-Rechercher-Link.
+      *
+       Screen2-Pb-Classement-Link.
+           if w-cla = 1
+                move 2 to w-cla
+                modify Screen2-Pb-Classement, TITLE
+                 "Classer par ordre de création"
+           else move 1 to w-cla
+                modify Screen2-Pb-Classement, TITLE
+                 "Classer par ordre alphabétique"
+           end-if
+           PERFORM Init-Grille thru F-Init-Grille.
+           .
+
+@}}
+
+[KEY_STATUS_FIELD_FORMAT]
+PIC=9(5)
+USAGE=[None]
+
+[KEYSTATUS_CONTENT:KS1]
+CONDITION=Exit-Pushed
+VALUE=27
+
+[KEYSTATUS_CONTENT:KS2]
+CONDITION=Message-Received
+VALUE=95
+
+[KEYSTATUS_CONTENT:KS3]
+CONDITION=Event-Occurred
+VALUE=96
+
+[CODE_GENERATION_OPTIONS]
+FOLLOW_PROJECT_OPTIONS=1
+GENERATE_PROGRAM_FILE=1
+GENERATE_WORKING_STORAGE=1
+GENERATE_EVENT_PARAGRAPH=1
+GENERATE_SCREEN_SECTION=1
+GENERATE_REPORT_SECTION=1
+GENERATE_PROCEDURE_DIVISION=1
+GENERATE_MENU_PARAGRAPH=1
+GENERATE_LINKAGE_SECTION=1
+REPLACE_REMARK_PART=1
+EXCLUDE_PROGRAM_VARIABLE=1
+EXCLUDE_PROGRAM_PARAGRAPH=1
+PROGRAM_EXTENSION=.cbl
+WORKINGSTORAGE_EXTENSION=.wrk
+EVENT_EXTENSION=.evt
+SCREEN_EXTENSION=.scr
+REPORT_EXTENSION=.rpt
+PROCEDURE_EXTENSION=.prd
+MENU_EXTENSION=.mnu
+LINKAGE_EXTENSION=.lks
+PROGRAM_FILE_READ_ONLY=0
+LINK_CLOSE_TO_OPEN=0
+COPYBOOK_READ_ONLY=1
+GENERATE_COPY_FILES=0
+ACCEPT_CONTROL=1
+ANSI_DOCUMENT_FORMAT=1

@@ -1,0 +1,27 @@
+rm /tmp/ctrldns 2>>/dev/null
+if [ -f /etc/resolv.conf ]
+then rm /tmp/ctrldns 2>>/dev/null
+     ping www.google.fr >>/tmp/ctrldns 2>>/tmp/ctrldns&
+     sleep 6
+     if [ -s /tmp/ctrldns ]
+     then echo "DNS OK" >>/tmp/ctrldns 
+          kill -9 $!
+          exit
+     else echo "DNS off le `date +\"%d %h %Y a %T \"`" >>/acu/mistral/f/PROBLEMEDNS
+          mv /etc/resolv.conf /etc/resolv.MIS
+          kill -9 $!
+     fi
+else if [ -f /etc/resolv.MIS ]
+     then mv /etc/resolv.MIS /etc/resolv.conf
+          rm /tmp/ctrldns 2>>/dev/null
+          ping www.google.fr >>/tmp/ctrldns 2>>/tmp/ctrldns&
+          sleep 6
+          if [ -s /tmp/ctrldns ]
+          then echo "DNS on le `date +\"%d %h %Y a %T \"`" >>/acu/mistral/f/PROBLEMEDNS
+               kill -9 $!
+               exit
+          else mv /etc/resolv.conf /etc/resolv.MIS
+               kill -9 $!
+          fi
+     fi
+fi

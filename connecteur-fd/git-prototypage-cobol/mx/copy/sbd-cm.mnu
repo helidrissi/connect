@@ -1,0 +1,92 @@
+      * sbd-cm.mnu
+      * sbd-cm.mnu is generated from W:\mx\spro\sbd-cm.Psf
+      * This is a generated file. DO NOT modify this file directly.
+
+      * Screen2-Mn-2
+       Acu-Screen2-Mn-2-Menu.
+           PERFORM Acu-Screen2-Mn-2
+              THRU Acu-Screen2-Mn-2-Exit.
+
+       Acu-Screen2-Mn-2.
+           CALL "W$MENU" USING Wmenu-New-Popup GIVING Menu-Handle
+           IF Menu-Handle = ZERO
+              GO TO Acu-Screen2-Mn-2-Exit
+           END-IF
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Articles", 1001
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Familles articles", 1005
+           .
+
+       Acu-Screen2-Mn-2-Exit.
+           MOVE ZERO TO Return-Code.
+
+      * Screen2-Mn-fonction
+       Acu-Screen2-Mn-fonction-Menu.
+           PERFORM Acu-Screen2-Mn-fonction
+              THRU Acu-Screen2-Mn-fonction-Exit.
+
+       Acu-Screen2-Mn-fonction.
+           CALL "W$MENU" USING Wmenu-New-Popup GIVING Menu-Handle
+           IF Menu-Handle = ZERO
+              GO TO Acu-Screen2-Mn-fonction-Exit
+           END-IF
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Voir la fiche article", 4001
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Voir la documentation article", 4002
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Rechercher dans la commande", 4003
+           .
+
+       Acu-Screen2-Mn-fonction-Exit.
+           MOVE ZERO TO Return-Code.
+
+      * Screen1-Mn-Fonctions
+       Acu-Screen1-Mn-Fonctions-Menu.
+           PERFORM Acu-Screen1-Mn-Fonctions
+              THRU Acu-Screen1-Mn-Fonctions-Exit.
+
+       Acu-Screen1-Mn-Fonctions.
+           CALL "W$MENU" USING Wmenu-New-Popup GIVING Menu-Handle
+           IF Menu-Handle = ZERO
+              GO TO Acu-Screen1-Mn-Fonctions-Exit
+           END-IF
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Sortie de pièces sur OR", 6001
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Retours de pièces sur OR", 6002
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Prestations sur OR", 6003
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "B/L pièces sous garantie", 6004
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Import devis  SAV", 6005
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Encaissement / décaissement", 6006
+           .
+
+       Acu-Screen1-Mn-Fonctions-Exit.
+           MOVE ZERO TO Return-Code.
+
+      * Screen1-Mn-Boutons
+       Acu-Screen1-Mn-Boutons-Menu.
+           PERFORM Acu-Screen1-Mn-Boutons
+              THRU Acu-Screen1-Mn-Boutons-Exit.
+
+       Acu-Screen1-Mn-Boutons.
+           CALL "W$MENU" USING Wmenu-New-Popup GIVING Menu-Handle
+           IF Menu-Handle = ZERO
+              GO TO Acu-Screen1-Mn-Boutons-Exit
+           END-IF
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Dupliquer", 2328
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Supprimer", 2329
+           CALL "W$MENU" USING WMENU-ADD, Menu-Handle, 0, 0, 
+              "Ajouter un bon", 2330
+           .
+
+       Acu-Screen1-Mn-Boutons-Exit.
+           MOVE ZERO TO Return-Code.
+

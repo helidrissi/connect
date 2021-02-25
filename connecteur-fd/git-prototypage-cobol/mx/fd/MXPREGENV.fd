@@ -1,0 +1,71 @@
+      *(( XFD FILE = PREGENV ))
+      *PRESTATIONS - Module  Distribution - Vente Matériel. - Achats
+      *
+      *ats
+      *      *
+      *
+      *    *ats
+      *      *      *
+      *      *
+      *      *    *ats
+      *      *      *      *
+       FD  MXPREGENV
+           LABEL RECORD IS STANDARD.
+       01 ENR-MPGEV.
+           02 CLE1-MPGEV.
+      *(( XFD NAME = CODE_PRESTATION ))
+      *(( XFD COMMENT Code ))
+               03 COD-MPGEV        PIC  XXXX.
+      *(( XFD NAME = MODE_CALCUL ))
+      *(( XFD COMMENT Mode de calcul (1=montant saisi ))
+           02 CAL-MPGEV        PIC  9.
+      *(( XFD NAME = MODE_IMPRESSION ))
+      *(( XFD COMMENT Mode d'impression (1=nombre/PU/montant 2=résultat ))
+           02 IMP-MPGEV        PIC  9.
+      *(( XFD NAME = PRIX_ACHAT ))
+      *(( XFD COMMENT Prix d'achat ))
+           02 PAC-MPGEV        PIC  9(7)V99.
+      *(( XFD NAME = PRIX_VENTE ))
+      *(( XFD COMMENT Prix de vente ))
+           02 PVT-MPGEV        PIC  9(7)V99.
+      *(( XFD NAME = MODE_CALCUL_PR ))
+      *(( XFD COMMENT Mode de calcul prix de revient (1=montant    2=% sur PV  3= Coeff. sur PA) ))
+           02 TPR-MPGEV        PIC  9.
+      *(( XFD NAME = PRIX_REVIENT ))
+      *(( XFD COMMENT Prix de revient ))
+           02 PRS-MPGEV        PIC  9(7)V99.
+           02 PPRS-MPGEV REDEFINES PRS-MPGEV  PIC  9(7)V99.
+      *(( XFD NAME = NOMBRE_TEMPS ))
+      *(( XFD COMMENT Indicateur quantité ou heures (0=non 1=oui ))
+           02 NBT-MPGEV        PIC  9.
+      *(( XFD NAME = DATE_MAJ_PA ))
+      *(( XFD COMMENT Date mise à jour PA ))
+           02 DPA-MPGEV        PIC  9(8).
+      *(( XFD NAME = DATE_MAJ_PV ))
+      *(( XFD COMMENT Date mise à jour PV ))
+           02 DPV-MPGEV        PIC  9(8).
+      *(( XFD NAME = RUBRIQUE_TG_ACHATS ))
+      *(( XFD COMMENT Rubrique tableau de gestion achats ))
+           02 RTA-MPGEV        PIC  999.
+      *(( XFD NAME = RUBRIQUE_TG_VENTES ))
+      *(( XFD COMMENT Rubrique tableau de gestion ventes ))
+           02 RTV-MPGEV        PIC  999.
+      *(( XFD NAME = SOUMIS_ESCOMPTE ))
+      *(( XFD COMMENT Indicateur soumis à escompte (0=oui 1=non ))
+           02 AES-MPGEV        PIC  9.
+
+      *(( XFD COMMENT 1=Départ/Retour Domicile (SFA ))
+           02 FILLER           PIC  9.
+      *(( XFD NAME = IMPUT_CPT_MAT ))
+      *(( XFD COMMENT Imputation Comptable / matériel:  0=Non   1=Oui ))
+           02 ICM-MPGEV        PIC  9.
+      *(( XFD NAME = EDIT_INFOS_MAT ))
+      *(( XFD COMMENT Edition infos / matériel sur factures:  0=Non   1=Oui ))
+           02 EIM-MPGEV        PIC  9.
+      *(( XFD NAME = EDIT_INFOS_MAT ))
+      *(( XFD COMMENT Mise à jour compte gestion prévisionnel à la commande d'achat :  0=Non   1=Oui ))
+           02 GPA-MPGEV        PIC  9.
+
+      *(( XFD COMMENT 1 = Comptabilisation automatique dans DGT (MACHDEAL) ))
+           02 DGT-MPGEV        PIC  9.
+           02 FILLER           PIC  X(45).

@@ -1,0 +1,25 @@
+      * Linkage du programme ATT qui permet de gérer les fichiers rattachés à un élément
+       01 lk-att.
+      *    [i] Type de l'élément dont les fichiers sont à gérer (ex : MAT pour les matériels)
+           02 lk-att-typ PIC X(4).
+      *    [i] N° de la société auquel est rattaché l'élément, ou 0 si l'élément est commun à toutes les sociétés
+           02 lk-att-soc PIC 9(4).
+      *    [i] Clé de l'élément dont les fichiers sont à gérer
+           02 lk-att-cle PIC X(30).
+           02 lk-att-cle-r redefines lk-att-cle.
+             03 lk-att-clen PIC 9(18).
+             03 FILLER PIC X(12).
+      *    [i] Nom de l'élément (pour affichage uniquement)
+           02 lk-att-name PIC X(64).
+      *    [i] Dossier contenant les fichiers des documents
+           02 lk-att-folder PIC X(128).
+      *    Mode d'affichage : I=Interrogation M=modification (230819 I ne marchant pas : ajout i pour interro autres documents RAC FFA)
+           02 lk-att-cho PIC X.
+      *    [o] Retourne le nombre de documents attachés à l'élément
+           02 lk-att-count PIC 99.
+      *    Adresse mail pour envoi (notamment pour fiche travail Mobitec)
+           02 lk-att-ema PIC x(60).
+      *    Pour vérif existence nom fichier dnas ATTACH
+           02 lk-att-test PIC 9.
+           02 lk-att-cle1 PIC x(10).
+           02 FILLER PIC X(174).

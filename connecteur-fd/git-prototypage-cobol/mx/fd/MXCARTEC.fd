@@ -1,0 +1,40 @@
+      *(( XFD FILE = CARTEC ))
+       FD  MXCARTEC
+           LABEL RECORD IS STANDARD.
+       01 ENR-MCTC.
+           02 CLE1-MCTC.
+      *(( XFD NAME = CODE_CTE ))
+      *(( XFD COMMENT Code caractéristique technique : si commence par | = pipe : critère TBA ))
+               04 COD-MCTC         PIC  X(3).
+           02 CLE2-MCTC.
+      *(( XFD NAME = LIBELLE_CTE ))
+      *(( XFD COMMENT Libellé ))
+               04 LIB-MCTC         PIC  X(30).
+      *(( XFD NAME = ABREGE_CTE ))
+      *(( XFD COMMENT Abrégé ))
+           02 ABR-MCTC         PIC  X(10).
+      *(( XFD NAME = TYPE_ZONE ))
+      *(( XFD COMMENT Type de zone (1=alpha 2=numérique 3=binaire 4=choix 5=date 6=texte étendu ))
+           02 TDZ-MCTC         PIC  9.
+      *(( XFD NAME = LONGUEUR_ZONE ))
+      *(( XFD COMMENT Longueur zone ))
+           02 LDZ-MCTC         PIC  99.
+      *(( XFD NAME = NB_DECIMALES ))
+      *(( XFD COMMENT Nombre de décimales (0 à 5 + contrôle > LDZ - 1 ))
+           02 DEC-MCTC         PIC  9.
+      *(( XFD NAME = USAGE_INTERNE_EXTE ))
+      *(( XFD COMMENT Usage (0=externe 1=interne 2=fournisseur 3=client ))
+           02 USA-MCTC         PIC  9.
+      *(( XFD NAME = GRAS ))
+           02 STGRA-MCTC       PIC  9.
+      *(( XFD NAME = ITALIQUE ))
+           02 STITA-MCTC       PIC  9.
+      *(( XFD NAME = SOULIGNE ))
+           02 STSOU-MCTC       PIC  9.
+      *(( XFD NAME = REGROUPEMENT ))
+      *(( XFD COMMENT Code regroupement ))
+           02 REG-MCTC         PIC  X(3).
+      *(( XFD NAME = PUBLIABLE ))
+      *(( XFD COMMENT Publication web: 1=non ))
+           02 WEB-MCTC         PIC  9.
+           02 FILLER           PIC  X(25).

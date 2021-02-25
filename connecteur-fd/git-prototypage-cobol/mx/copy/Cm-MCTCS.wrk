@@ -1,0 +1,14 @@
+      * Zones utilisées par la ComboBox des Postes CI.
+       01 Cm-MCTCS.
+           05 Cm-MCTCS-Handle HANDLE OF COMBO-BOX.
+           78 Cm-MCTCS-NbMaxItems VALUE IS 100. 
+           05 Cm-MCTCS-9-3 PIC 9(3) COMP-1.
+           05 Cm-MCTCS-Items OCCURS Cm-MCTCS-NbMaxItems TIMES.
+               10 Cm-MCTCS-LIB PIC X(40).
+               10 FILLER      PIC X(3).
+               10 Cm-MCTCS-COD PIC 9(3).
+           05 Cm-MCTCS-SelectedItem PIC 9(3).
+           05 Cm-MCTCS-LoadedItems PIC 9(3) COMP-1 VALUE IS 0.
+           05 WOPEN-MXCARTECS   PIC 9.
+           05 WCTE-MXCARTECS    PIC X(3).
+

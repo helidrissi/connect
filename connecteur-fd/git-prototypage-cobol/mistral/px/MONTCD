@@ -1,0 +1,11 @@
+#
+clear
+if [ -d /cdrom ]
+   then  su root -c "echo '     Montage du CD-ROM'; mount -v cdrfs  -r /dev/cd0 /cdrom"
+else     su root -c "mkdir /cdrom; chmod 777 /cdrom; mount -v cdrfs -r /dev/cd0 /cdrom"
+fi
+if [ "$?" != 0 ] ; then
+          banner Echec
+          echo "Echec : Le montage du CD-ROM n'a pas abouti " ; exit 1
+else      echo "OK : Montage r‚ussi "
+fi

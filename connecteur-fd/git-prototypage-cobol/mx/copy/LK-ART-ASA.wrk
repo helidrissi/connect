@@ -1,0 +1,9 @@
+      * Linkage de ART-ASA
+       01 LK-ART-ASA.
+      * Code article.
+           05 LK-ART-ASA-COD PIC X(20).
+      * CDF = "C" si fonction création, Blanc sinon
+           05 LK-ART-ASA-CHO PIC X.
+      *    Handle fenêtre appelante pour centrage fenetre
+           05 LK-ART-ASA-handle PIC 9(4).
+           05 FILLER PIC X(95).

@@ -1,0 +1,63 @@
+      *(( XFD FILE = DOCTEC ))
+      **********************************************************
+      * TYP-MDTE:                                               *
+      *           A = article (ART)                            *
+      *           M = catalogue mat‚riel (MATCAT)              *
+      *           P = description compl‚mentaire prestation    *
+      **********************************************************
+      **
+      *****************************
+      ********
+      *      **
+      *      ***
+      *      ***
+       FD  MXDOCTEC
+           LABEL RECORD IS STANDARD.
+       01 ENR-MDTE.
+           02 CLE1-MDTE.
+      *(( XFD NAME = origine ))
+               04 ORI-MDTE         PIC  XXX.
+               04 R-ORI-MDTE REDEFINES ORI-MDTE.
+
+      *(( XFD COMMENT Module: A=achats D=distribution J=LSD M=vente matériel R=réparation  L=location F=LLD E=Contrat entretien B=Fichiers de base P=Parc ))
+                   05 ACT-MDTE         PIC  X.
+
+      *(( XFD COMMENT Stade: A=Articles M=Catalogue matériel  P=Prestations  D=devis "T"=TBA ))
+                   05 NIT-MDTE         PIC  X.
+
+      *(( XFD COMMENT Indicateur composition:  E=si entête ))
+                   05 INO-MDTE         PIC  X.
+      *(( XFD NAME = cle_fichier ))
+               04 CLE-MDTE         PIC  X(30).
+      *(( XFD NAME = no_ligne ))
+               04 LIG-MDTE         PIC  999.
+      *(( XFD NAME = rang ))
+           02 RAN-MDTE         PIC  9(3).
+      *(( XFD NAME = code_cte ))
+      *(( XFD COMMENT Code caractéristique technique ))
+           02 CTE-MDTE         PIC  X(3).
+      *(( XFD NAME = valeur ))
+           02 VAL-MDTE         PIC  X(40).
+           02 R1-VAL-MDTE REDEFINES VAL-MDTE.
+               03 DAT-MDTE         PIC  9(8).
+               03 AUT-MDTE         PIC  XXXX.
+               03 FILLER           PIC  X(28).
+           02 R2-VAL-MDTE REDEFINES VAL-MDTE.
+               03 V18-MDTE         PIC  9(18).
+               03 FILLER           PIC  X(22).
+           02 R3-VAL-MDTE REDEFINES VAL-MDTE.
+               03 V17-MDTE         PIC  9(17)V9.
+               03 FILLER           PIC  X(22).
+           02 R4-VAL-MDTE REDEFINES VAL-MDTE.
+               03 V16-MDTE         PIC  9(16)V99.
+               03 FILLER           PIC  X(22).
+           02 R5-VAL-MDTE REDEFINES VAL-MDTE.
+               03 V15-MDTE         PIC  9(15)V999.
+               03 FILLER           PIC  X(22).
+           02 R6-VAL-MDTE REDEFINES VAL-MDTE.
+               03 V14-MDTE         PIC  9(14)V9999.
+               03 FILLER           PIC  X(22).
+           02 R7-VAL-MDTE REDEFINES VAL-MDTE.
+               03 V13-MDTE         PIC  9(13)V9(5).
+               03 FILLER           PIC  X(22).
+           02 FILLER           PIC  X(20).

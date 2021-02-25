@@ -1,0 +1,308 @@
+      *(( XFD FILE = CLI ))
+      *CLIENTS DLRIX
+      *
+      *
+      *PIC 9.
+      *][0-9]+
+      *K
+      *mt.acu
+      **mt.acu
+      *      **mt.acu
+       FD  MXCLI
+           LABEL RECORD IS STANDARD.
+       01 ENR-MCLI.
+           02 CLE1-MCLI.
+      *(( XFD NAME = NO_INTERNE_CLIENT ))
+      *(( XFD COMMENT N° d'ordre interne ))
+               03 ORD-MCLI         PIC  9(9).
+               03 R-ORD-MCLI REDEFINES ORD-MCLI.
+
+      *(( XFD COMMENT N° de Mobile (ou PPC ))
+                   05 MOB-MCLI         PIC  9(3).
+
+      *(( XFD COMMENT N° d'ordre par portable ou PPC ))
+                   05 ORD2-MCLI        PIC  9(6).
+           02 CLE6-MCLI.
+      *(( XFD NAME = CODE_CLIENT ))
+      *(( XFD COMMENT Code client ))
+               03 COD-MCLI         PIC  9(6).
+           02 CLE7-MCLI.
+      *(( XFD NAME = NO_FICHE_PROSPECT ))
+      *(( XFD COMMENT N° de fiche prospect ))
+               03 FCO-MCLI         PIC  9(8).
+               03 R-FCO-MCLI REDEFINES FCO-MCLI.
+
+      *(( XFD COMMENT N° d'ordre portable ou PPC ))
+                   05 FCO1-MCLI        PIC  9(2).
+                   05 FCO2-MCLI        PIC  9(6).
+               03 R2-FCO-MCLI REDEFINES FCO-MCLI.
+
+      *(( XFD COMMENT N° d'ordre portable MobiVipSmart ))
+                   05 FCO1M-MCLI       PIC  9(3).
+                   05 FCO2M-MCLI       PIC  9(5).
+           02 CLE8-MCLI.
+      *(( XFD NAME = CODE_CLIENT_COMPTA ))
+      *(( XFD COMMENT N° client comptable ))
+               03 COC-MCLI         PIC  9(6).
+      *(( XFD NAME = INDIC_EXPORT ))
+      *(( XFD COMMENT Type client ))
+           02 TYP-MCLI         PIC  9(1).
+      *(( XFD NAME = INDIC_DIVERS ))
+      *(( XFD COMMENT Type client (1=Client Divers ))
+           02 IDV-MCLI         PIC  9(1).
+      *(( XFD NAME = CODE_PAYS ))
+      *(( XFD COMMENT Code pays (000=national ))
+           02 PAY-MCLI         PIC  X(3).
+      *(( XFD NAME = CODE_DEVISE ))
+      *(( XFD COMMENT Code devise ))
+           02 DEV-MCLI         PIC  X(3).
+      *(( XFD NAME = CODE_LANGUE ))
+      *(( XFD COMMENT Code langue ))
+           02 LAN-MCLI         PIC  9(2).
+      *(( XFD NAME = TITRE_SOCIAL ))
+      *(( XFD COMMENT Titre social (table TITSOC ))
+           02 TIT-MCLI         PIC  9(2).
+           02 CLE2-MCLI.
+      *(( XFD NAME = RAISON_SOCIALE_CLI ))
+      *(( XFD COMMENT Raison sociale ))
+               05 RAI-MCLI         PIC  X(30).
+      *(( XFD NAME = ADRESSE_CLIENT ))
+      *(( XFD COMMENT Adresse client ))
+           02 ADR-MCLI         PIC  X(75).
+      *(( XFD NAME = CODE_POSTAL_CLIENT ))
+      *(( XFD COMMENT Code postal ))
+           02 POS-MCLI         PIC  X(8).
+           02 R-POS-MCLI REDEFINES POS-MCLI.
+               03 POS1-MCLI        PIC  X(3).
+               03 POS2-MCLI        PIC  9(5).
+               03 R-POS2-MCLI REDEFINES POS2-MCLI.
+                   05 POS21-MCLI       PIC  9(2).
+                   05 POS22-MCLI       PIC  9(3).
+      *(( XFD NAME = VILLE_CLIENT ))
+      *(( XFD COMMENT Ville ))
+           02 VIL-MCLI         PIC  X(25).
+      *(( XFD NAME = MOT_DIRECTEUR ))
+      *(( XFD COMMENT Ville ))
+           02 DIR-MCLI         PIC  X(4).
+           02 CLE5-MCLI.
+      *(( XFD NAME = NO_TEL_CLIENT ))
+      *(( XFD COMMENT N° téléphone ))
+               03 TEL-MCLI         PIC  X(12).
+      *(( XFD NAME = NO_TEL2_CLIENT ))
+      *(( XFD COMMENT N° téléphone 2 ))
+           02 TE2-MCLI         PIC  X(12).
+      *(( XFD NAME = NO_FAX_CLIENT ))
+      *(( XFD COMMENT N° télécopie ))
+           02 FAX-MCLI         PIC  X(12).
+      *(( XFD NAME = CODE_FAMILLE_CLI ))
+      *(( XFD COMMENT Code famille ))
+           02 FA0-MCLI.
+      *(( XFD NAME = CODE_FAMILLE_CLI ))
+               05 FA1-MCLI         PIC  X.
+      *(( XFD NAME = CODE_SOUS_FAM_CLI ))
+               05 FA2-MCLI         PIC  X.
+           02 FAM-MCLI REDEFINES FA0-MCLI  PIC  X(2).
+      *(( XFD NAME = CODE_AGENCE ))
+      *(( XFD COMMENT Agence de rattachement ))
+           02 AGE-MCLI         PIC  X(3).
+      *(( XFD NAME = INDIC_DELAI_RELEVE ))
+           02 IDR-MCLI         PIC  9(1).
+      *(( XFD NAME = CODE_RELEVE_FACT ))
+      *(( XFD COMMENT Indicateur paiement sur relevé 0 pas de relevé 1 relevé sans traite 2 relevé avec traite ))
+           02 REL-MCLI         PIC  9(1).
+      *(( XFD NAME = CODE_PAIEMENT ))
+      *(( XFD COMMENT Mode de paiement ))
+           02 PAI-MCLI         PIC  9(2).
+      *(( XFD NAME = CODE_ECHEANCE ))
+      *(( XFD COMMENT Code échéance ))
+           02 ECH-MCLI         PIC  9(1).
+      *(( XFD NAME = CODE_TERME ))
+      *(( XFD COMMENT Code terme ))
+           02 TER-MCLI         PIC  9(1).
+      *(( XFD NAME = DATE_OUVERTURE ))
+      *(( XFD COMMENT Date d'ouverture ))
+           02 DOU-MCLI         PIC  9(6).
+      *(( XFD NAME = CODE_CLIENT_FACT ))
+      *(( XFD COMMENT N° client facturé ))
+           02 CLF-MCLI         PIC  9(6).
+      *(( XFD NAME = FRAIS_DEB ))
+           02 PFTA-MCLI        PIC  X(5).
+           02 R-PFTA-MCLI REDEFINES PFTA-MCLI.
+
+      *(( XFD COMMENT % frais transport et assurance / DEB ))
+               03 PFT-MCLI         PIC  S99V99
+                          SIGN IS TRAILING SEPARATE CHARACTER.
+      *(( XFD NAME = DISTANCE ))
+      *(( XFD COMMENT Distance en km par rapport à la société ))
+           02 DIS-MCLI         PIC  9(4).
+      *(( XFD NAME = DERNIER_NO_WEBTOP ))
+           02 DAF-MCLI         PIC  9(4).
+      *(( XFD NAME = CODE_APE_NAF_OLD ))
+      *(( XFD COMMENT Code APE ))
+           02 OLDAPE-MCLI      PIC  X(4).
+      *(( XFD NAME = CODE_SIRET_CLIENT ))
+           02 SIR-MCLI.
+      *(( XFD NAME = SIRET1_CLIENT ))
+               03 SIR1-MCLI        PIC  X(9).
+               03 SIR1N-MCLI REDEFINES SIR1-MCLI  PIC  9(9).
+      *(( XFD NAME = SIRET2_CLIENT ))
+               03 SIR2-MCLI        PIC  X(5).
+               03 SIR2N-MCLI REDEFINES SIR2-MCLI  PIC  9(5).
+      *(( XFD NAME = NO_SOCIETE_LIEE ))
+      *(( XFD COMMENT N° société liée ))
+           02 STE-MCLI         PIC  9(4).
+      *(( XFD NAME = NO_FRN_LIE ))
+      *(( XFD COMMENT N° fournisseur société liée ))
+           02 FOU-MCLI         PIC  9(6).
+      *(( XFD NAME = INDIC_LIE_DIS ))
+      *(( XFD COMMENT Indicateur liaison module distribution ))
+           02 ILD-MCLI         PIC  9(1).
+      *(( XFD NAME = INDIC_LIE_SAV ))
+      *(( XFD COMMENT Indicateur liaison module réparation ))
+           02 ILR-MCLI         PIC  9(1).
+      *(( XFD NAME = INDIC_LIE_LOC ))
+      *(( XFD COMMENT Indicateur liaison module location ))
+           02 ILL-MCLI         PIC  9(1).
+      *(( XFD NAME = INDIC_CLIENT_AGCE ))
+      *(( XFD COMMENT Indicateur client agence = 1 (intégration comptable par agence) ))
+           02 IAG-MCLI         PIC  9(1).
+      *(( XFD NAME = CODE_AGENCE_ICA ))
+      *(( XFD COMMENT N° agence (intégration comptable par agence ))
+           02 AGL-MCLI         PIC  X(3).
+      *(( XFD NAME = CODE_ACTIVITE ))
+      *(( XFD COMMENT Activité principale ))
+           02 ACT-MCLI         PIC  X(2)
+                      OCCURS 4 TIMES.
+      *(( XFD NAME = INDIC_SIEGE ))
+      *(( XFD COMMENT Indicateur siège de la société ))
+           02 SIE-MCLI         PIC  9(1).
+      *(( XFD NAME = NO_FCP_SIEGE ))
+      *(( XFD COMMENT N° prospect siège ))
+           02 CSI-MCLI         PIC  9(8).
+      *(( XFD NAME = DATE_CREATION_STE ))
+      *(( XFD COMMENT Date de création de l'entreprise ))
+           02 CRE-MCLI.
+      *(( XFD NAME = SIECLE_CRE_ENTREP ))
+               03 SCRE-MCLI        PIC  9(2).
+      *(( XFD NAME = ANNEE_CRE_ENTREP ))
+               03 ACRE-MCLI        PIC  9(2).
+      *(( XFD NAME = MOIS_CRE_ENTREP ))
+               03 MCRE-MCLI        PIC  9(2).
+      *(( XFD NAME = CODE_EFFECTIF ))
+      *(( XFD COMMENT Code effectif ))
+           02 EFF-MCLI         PIC  9(2).
+      *(( XFD NAME = EFFECTIF ))
+      *(( XFD COMMENT Effectif ))
+           02 EFC-MCLI         PIC  9(6).
+           02 R-EFC-MCLI REDEFINES EFC-MCLI  PIC  X(6).
+      *(( XFD NAME = CA_ANNUEL ))
+      *(( XFD COMMENT CA en millions d'euros ))
+           02 CA-MCLI          PIC  9(5)V9(2).
+      *(( XFD NAME = COMMENTAIRE ))
+      *(( XFD COMMENT Commentaire ))
+           02 COM-MCLI         PIC  X(60).
+      *(( XFD NAME = CAPITAL ))
+      *(( XFD COMMENT Capital ))
+           02 CAP-MCLI         PIC  9(11).
+      *--- informations relatives … la fiche prospect
+           02 DCRE-MCLI        PIC  9(8).
+      *(( XFD NAME = AUTEUR_CREATION ))
+      *(( XFD COMMENT Initiales utilisateur création sur le système ))
+           02 ICRE-MCLI        PIC  X(4).
+      *(( XFD NAME = DATE_MAJ ))
+      *(( XFD COMMENT Date dernière modification ))
+           02 DMAJ-MCLI        PIC  9(8).
+      *(( XFD NAME = AUTEUR_MAJ ))
+      *(( XFD COMMENT Initiales de l'utilisateur qui a fait la dernière modification ))
+           02 IMAJ-MCLI        PIC  X(4).
+      *(( XFD NAME = DATE_MAJ_MOBIVIP ))
+      *(( XFD COMMENT Date mise à jour (pour synchro portables ))
+           02 DME-MCLI         PIC  9(8).
+      *(( XFD NAME = CODE_SUPPRESSION ))
+      *(( XFD COMMENT Indicateur client annulé (1= Annulé ))
+           02 CANN-MCLI        PIC  9(1).
+      *(( XFD NAME = DATE_SUPPRESSION ))
+      *(( XFD COMMENT Date d'annulation Client ))
+           02 DANN-MCLI        PIC  9(8).
+      *(( XFD NAME = AUTEUR_SUPPRESSION ))
+      *(( XFD COMMENT Initiales de l'utilisateur qui a annulé ))
+           02 IANN-MCLI        PIC  X(4).
+      *(( XFD NAME = CODE_SUPPR_FCP ))
+      *(( XFD COMMENT Indicateur Prospect annulé ))
+           02 CANNP-MCLI       PIC  9(1).
+      *(( XFD NAME = DATE_SUPPR_FCP ))
+      *(( XFD COMMENT Date d'annulation du Prospect ))
+           02 DANNP-MCLI       PIC  9(8).
+      *(( XFD NAME = AUTEUR_SUPPR_FCP ))
+      *(( XFD COMMENT Initiales utilisateur prospect annulé ))
+           02 IANNP-MCLI       PIC  X(4).
+      *(( XFD NAME = SPECIAL_EDI ))
+      *(( XFD COMMENT Indicateur dématérialisation factures ))
+           02 FWED-MCLI        PIC  X(1).
+      *(( XFD NAME = DIVISION_PRINCIPAL ))
+      *(( XFD COMMENT division principale ))
+           02 DVS-MCLI         PIC  9(1).
+      *-- Code Prospect FENWICK
+      *
+           02 PFL-MCLI         PIC  9(1).
+      *(( XFD NAME = CODE_REL_MOBIVIP ))
+      *(( XFD COMMENT Spécifique Mobiloc et MobiVip: Code Relationnel: 0=Client normal   1=A surveiller   2=Suspendu  3=Interdit  (Info Comptable ))
+           02 RLA-MCLI         PIC  9.
+      *(( XFD NAME = COUV_SFAC_MOBILOC ))
+      *(( XFD COMMENT Spécifique Mobiloc : Couverture SFAC   (Info Comptable ))
+           02 SFAC-MCLI        PIC  9(8).
+      *(( XFD NAME = PLAFOND_MOBILOC ))
+      *(( XFD COMMENT Spécifique Mobiloc: Plafond de crédit Autorisé  (Info Comptable ))
+           02 PLI-MCLI         PIC  9(8).
+      *(( XFD NAME = COMTE ))
+      *(( XFD COMMENT Comté ou province (département pour pays autre que France ))
+           02 CTE-MCLI         PIC  9(3).
+      *(( XFD NAME = prospect_jd ))
+      *(( XFD COMMENT N° Prospect / Profile John Deere ))
+           02 NPPJD-MCLI       PIC  9(9).
+      *(( XFD NAME = prospect_jd ))
+      *(( XFD COMMENT Interlocuteur contact / démat Fenwick ))
+           02 ITCFWK-MCLI REDEFINES NPPJD-MCLI  PIC  9(9).
+      *(( XFD NAME = synchro_jd ))
+      *(( XFD COMMENT A synchroniser / Profile JD:  1=Oui   2=Non   0=Nouveau Prospect  3=A synchroniser mais pas associé à un Prospect Profile    4=Export vers Profile réalisé mais pas associé à un propspect Profile ))
+           02 SYPJD-MCLI       PIC  9.
+      *(( XFD NAME = Specif_JD_pub ))
+      *(( XFD COMMENT Reçoit Campagne publicitaire JD (Profile): 0=Non  1=Oui ))
+           02 IEMAJD-MCLI      PIC  9.
+      *(( XFD NAME = Specif_JD_mag ))
+      *(( XFD COMMENT Reçoit Magazine JD (Profile):  0=Non  1=oui ))
+           02 IREVJD-MCLI      PIC  9.
+      *(( XFD NAME = CODE_APE_NAF ))
+      *(( XFD COMMENT Code APE ))
+           02 APE-MCLI         PIC  X(5).
+      *(( XFD NAME = indic_eurofactor ))
+      *(( XFD COMMENT Indicateur Transfert /Eurofactor ))
+           02 IFAC-MCLI        PIC  9.
+      *(( XFD NAME = indic_fidelite ))
+      *(( XFD COMMENT Client éligible programme fidélité ))
+           02 FID-MCLI         PIC  9.
+      *(( XFD NAME = liv_partielle ))
+      *(( XFD COMMENT Livraison partielle autorisée - spécifique M3 ))
+           02 LIP-MCLI         PIC  9.
+      *(( XFD NAME = client_divers_orig ))
+      *(( XFD COMMENT N° client divers d'origine ))
+           02 CDV-MCLI         PIC  9(6).
+      *(( XFD NAME = ref_obligatoire ))
+      *(( XFD COMMENT Référence commande obligatoire ))
+           02 RBO-MCLI         PIC  9.
+      *(( XFD NAME = App_groupe ))
+      *(( XFD COMMENT Appartenance groupe client (spécif Eurolev) ou 1=client Gonnin 2=Migaud 3=Newloc ))
+           02 APG-MCLI         PIC  9.
+      *(( XFD NAME = GLN ))
+      *(( XFD COMMENT Code GLN ))
+           02 GLN-MCLI         PIC  9(13).
+
+      *(( XFD COMMENT Statut RGPD : 0 = Consentement, 1 = Droit à la portabilité, 2 = Retrait consentement, 3 = Droit à l'oubli ))
+           02 RGPD-MCLI        PIC  9.
+      *(( XFD NAME = App_groupe ))
+      *(( XFD COMMENT Impression documents attachés sur factures ))
+           02 IDA-MCLI         PIC  9.
+      *(( XFD NAME = NO_CLIENT_SIEGE ))
+      *(( XFD COMMENT N° client siège ))
+           02 CCS-MCLI         PIC  9(6).
+           02 FILLER           PIC  X(9).

@@ -1,0 +1,101 @@
+      *    copy pour lancer la commande rech (recherche dans un fichier)
+      *    il faut créer un fichier RECH avec une définition dans FDT
+
+      *    en Working: ajouter:
+      *           77 WASS-RECH        PIC  X(20)
+      *              VALUE IS "MCLI-L-RECH".
+      *                       en changeant la value
+      *    en Working, modifier:
+      *           77 ASSIGN-RECH      PIC  X(60).
+      *           77 ASSIGN-RECHCMD   PIC  X(60). 
+      *                 pic à 60 au lieu de 32 par défaut
+
+
+      *    dans l'Event Paragraph:
+      *     COPY "../../mx/copy/Assign-FICTMP.cbl" REPLACING 
+      *           ==FICTMP==   BY ==RECH==
+      *           =='FICTMP'== BY ==RECH==.
+      *     CLOSE RECH.
+      
+      *     MOVE "CLI" TO CMD-RECH-FIC
+      *     MOVE MX-DIR TO CMD-RECH-DIR
+      *     MOVE ASSIGN-RECH TO CMD-RECH-RESULT
+      *     MOVE 1 TO CMD-RECH-DEBSOR
+      *     MOVE 80 TO CMD-RECH-FINSOR
+
+      *     MOVE 42 TO CMD-RECH-POSR(1)
+      *      ou MOVE RECORD-POSITION OF RAI-MCLI TO CMD-RECH-POSR(1)
+      *     MOVE 30 TO CMD-RECH-LONR(1)
+      *      ou MOVE LENGTH OF RAI-MCLI TO CMD-RECH-LONR(1)
+      *     MOVE "DUPONT" TO CMD-RECH-VAL(1)
+      *     MOVE "s2" TO CMD-RECH-OPE(1)
+
+      *     MOVE "T" TO CMD-RECH-T(1)
+      *     MOVE 42 TO CMD-RECH-POSDT(1)
+      *     MOVE 72 TO CMD-RECH-POSFT(1)
+           
+      *     COPY "U:/mistral/copy/rech.cbl".
+
+      *     OPEN INPUT RECH
+      *     PERFORM STAT
+      *     READ RECH END ...
+
+      * commande de base
+       01  CMD-RECH-BASE.
+      *****     05 FILLER           PIC X(22) VALUE "../../mistral/o/RechV4".
+      *****        | .linux ou .unix selonn système machine
+      *****     05 CMD-RECH-EXT     PIC X(12).
+           05 CMD-RECH-RECH    PIC X(45).
+              | nom du fichier sur lequel on recherche
+           05 CMD-RECH-FIC     PIC X(12).
+              | répertoire dans lequel se trouve le fichier
+           05 CMD-RECH-DIR     PIC X(40).
+              | nom entier du fichier résultat(assign-rech)
+           05 CMD-RECH-RESULT  PIC X(60).
+              | position début sortie
+           05 CMD-RECH-DEBSOR  PIC ZZ9B.
+              |position fin sortie
+           05 CMD-RECH-FINSOR  PIC ZZ9.
+
+      * blocs de condition   (15 maximum) 
+       01  CMD-RECH-CONDI OCCURS 15.
+           03 FILLER           PIC XXX VALUE " C".
+           03 CMD-RECH-CONDI1.
+              | position à partir de laquelle on recherche
+              05 CMD-RECH-POSR    PIC ZZZ9.
+              05 FILLER           PIC X.
+              | longueur du champ de recherche dans le fichier
+              05 CMD-RECH-LONR    PIC ZZZ9.
+              05 CMD-RECH-DEB-VAL PIC XX VALUE " '".
+              | valeur recherchée
+              05 CMD-RECH-VAL     PIC X(30).
+              05 CMD-RECH-FIN-VAL PIC XX VALUE "' ".
+              | opérande:  ==  identique
+              |            !=  différent
+              |            =   commençant par
+              |            s1  chaine dans
+              |            s2  chaine dans avec conversion min->MAJ et .
+              |            s3  identique avec conversion min->MAJ et .
+              |            '<=' '>=' '<' '>'  (attention! entre guillemets)
+              05 CMD-RECH-OPE     PIC X(4).
+      
+      * blocs de tri   (optionnels - 10 maximum)  
+       01  CMD-RECH-TRI OCCURS 10.
+              | tri T pour croissant, R pour décroissant 
+           05 FILLER           PIC X  VALUE SPACE.
+           05 CMD-RECH-T       PIC XX VALUE "T".
+              | position à partir de laquelle on trie
+           05 CMD-RECH-POSDT   PIC ZZZ9.
+           05 FILLER           PIC X.
+              | position jusqu'à laquelle on trie
+           05 CMD-RECH-POSFT   PIC ZZZ9.
+      
+       01  FIN-CMD-RECH        PIC  X  VALUE IS X"00".
+       01  CMD-RECH            PIC X(4096).
+       01  CMD-RECH1           PIC X(4096).
+       77  CMD-RECH-I          PIC 99.
+      * 77  ASSIGN-RECHCMD      PIC  X(60).
+       77  WASS-RECHCMD        PIC  X(20)
+                  VALUE IS "CMDRECH".
+       77  CMD-RECH-OSTYPE     PIC X(15).
+       77  CMD-RECH-STATUS     PIC 99.

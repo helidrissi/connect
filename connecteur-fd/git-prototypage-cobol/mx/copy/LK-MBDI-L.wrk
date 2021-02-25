@@ -1,0 +1,44 @@
+      * Linkage de MBDI-L
+      * LK-MBDI-L-IND : 0 = par no commande                         | non utilisé
+      *               : 1 = par raison sociale                      | non utilisé
+      *               : 2 = par date                                | non utilisé
+      *               : 3 = pour un client                          | non utilisé
+      *               : 4 = pour une référence client               | non utilisé
+      *               : 8 = seule valeur utilisée: recherche devis d'un prospect sans affichage
+      *                     renvoi du nombre dans nbsel
+110619*               : 9 = liste les commandes et bons d'une affaire
+      * LK-MBDI-L-TYP : 0 = les commandes
+      *               : 1 = les B/L
+      *               : 2 = les B/L remise refacturée/fou (tyc-bdi = 7)
+      *               : 3 = les avoirs
+      *               : 4 = les B/L entre agences (tyc-bdi = 1)
+      *               : 6 = les B/L + les avoirs
+      *               : 7 = les devis + commandes
+      *               : 8 = les devis
+      *               : 9 = tous les bons
+      * LK-MBDI-L-STA : 0 = non facturés
+      *               : 1 = facturés
+      *               : 2 = non facturés et facturés
+      *               : 3 = commandes - étoile dans col T si contremarque
+      * LK-MBDI-L-VIS : 1 = avec visu possible       
+      *                 2 = avec visu possible mais pas de sélection
+       01 LK-MBDI-L.
+          05 LK-MBDI-L-AGE           PIC XXX   OCCURS 40.
+          05 LK-MBDI-L-CLI           PIC 9(6).
+          05 LK-MBDI-L-FCO           PIC 9(8).
+          05 LK-MBDI-L-CDV           PIC 9(6).
+          05 LK-MBDI-L-TYP           PIC 9.
+          05 LK-MBDI-L-BON           PIC 9(8)  OCCURS 40.
+          05 LK-MBDI-L-IND           PIC 9.
+          05 LK-MBDI-L-STA           PIC 9.
+          05 LK-MBDI-L-VIS           PIC 9.
+          05 LK-MBDI-L-VIDE          PIC X(20).
+          05 R-LK-MBDI-L-VIDE REDEFINES LK-MBDI-L-VIDE.
+             06 LK-MBDI-L-FAC        PIC X(10).
+             06 LK-MBDI-L-DFA        PIC 9(8).
+          05 LK-MBDI-L-MAXSEL        PIC 99.  
+          05 LK-MBDI-L-NBSEL         PIC 99.
+      *   Recherche par référence client IND = 9 
+          05 LK-MBDI-L-REF1          PIC X(30).
+          05 LK-MBDI-L-REF2          PIC X(30).
+          05 FILLER PIC X(40).

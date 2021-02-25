@@ -1,0 +1,2 @@
+( echo oui  ; sleep 1 ;
+echo y ; sleep 1 ) | mkfs -olog=INLINE,ea=v2 -Vjfs2 /dev/usbms0 

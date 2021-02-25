@@ -1,0 +1,11 @@
+#    Purge dans /tmp des répertoires virtual... et keyring... 
+
+cd /tmp
+   find . -name "virtual*" -mtime +10 |while read fic
+        do
+            \rm -r $fic
+        done
+   find . -name "keyring*" -mtime +10 |while read fic
+        do
+            \rm -r $fic
+        done

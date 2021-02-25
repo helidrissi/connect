@@ -1,0 +1,52 @@
+Ce fichier est stocké dans /acu/mistral/px/X11VNC sur FORMATION
+
+
+Fichier /home/mistral/.profile
+______________________________
+
+modifier le ligne de test pour inclure le display :1 et :1.0
+
+cd $DIRMIS
+if  [ "$DISPLAY" = '' -o "$DISPLAY" = ":0" -o "$DISPLAY" = ":0.0" -o "$DISPLAY"
+= ":1" -o "$DISPLAY" = ":1.0" ]
+then  echo "" >/dev/null
+else CONTROLE-DISPLAY ; export DISPLAY=`cat $DIRMIS/ft/DISPLAY$ECRAN`;
+      rm $DIRMIS/ft/DISPLAY$ECRAN
+fi
+
+
+Fichier /usr/lib/X11/fr_FR/system.mwmrc
+_______________________________________
+modifier ce fichier pour y inclure le ligne "Fenêtre mistral"
+remarque:ce menu s'accèdera par un clic droit sur le fond gris de la fenêtre vnc
+
+Menu DefaultRootMenu
+{
+        " Menu Root "   f.title
+         no-label       f.separator
+        " Nouvelle fenêtre "    f.exec "/usr/lpp/X11/defaults/xstartterm"
+        " Fenêtre Mistral  "    f.exec "/usr/local/bin/sudo -u mistral aixterm -tn aixterm-m -display $DISPLAY -geometry 80x25 -fn misaix20 -e /home/mistral/.profile "
+        " Clients "     f.menu "clients"
+        " Custom "      f.exec "custom"
+         no-label       f.separator
+!       " Haut de pile "        f.circle_up
+!       " Bas de pile " f.circle_down
+        " Régénération "        f.refresh
+
+
+Fichier /.vnc/xstartup
+______________________
+configurer ce fichier pour qu'il contienne uniquement les lignes ci-dessous
+après modification tuer et relancer le vnc par   vncserver -kill :1 
+                                                 vncserver :1 -geometry 1000x700
+
+xhost +
+xset +fp /usr/lib/X11/fonts/mistralfonts
+xrdb $HOME/.Xdefaults
+xsetroot -solid grey
+/usr/local/bin/sudo -u mistral aixterm -tn aixterm-m -display $DISPLAY -geometry 80x25+10+10 -fn misaix20 -e /home/mistral/.profile &
+mwm &
+
+
+Pour se connecter chez le client, passer par le windows W2K3 et lancer un 
+vnvviewer adresse-risc-client:1 mot de passe misibm

@@ -1,0 +1,40 @@
+      * Zones utilisées par la ComboBox des Mois.
+       77  Cm-Mois-Ouvert-Handle HANDLE OF COMBO-BOX.
+       78  Cm-Mois-Ouvert-NbMaxItems VALUE IS 15. 
+       77  Cm-Mois-Ouvert-9-3 PIC 9(3) COMP-1.
+       01  Cm-Mois-Ouvert-Items OCCURS Cm-Mois-Ouvert-NbMaxItems TIMES.
+           05 Cm-Mois-Ouvert-LIB PIC X(9).
+           05 FILLER      PIC X(1).
+           05 Cm-Mois-Ouvert-ANN PIC X(4).
+           05 FILLER2      PIC X(30).
+           05 Cm-Mois-Ouvert-COD PIC 9(2).
+           05 Cm-Mois-Ouvert-DAT PIC 9(8).         
+       77  Cm-Mois-Ouvert-SelectedItem PIC X(9).
+       77  Cm-Mois-Ouvert-LoadedItems PIC 9(3) COMP-1 VALUE IS 0.
+       
+      * Période mini (facultative): utilisée dans les saisies de B/L
+      * pour ne pas pouvoir choisir une période < à la création du bon
+       01 Cm-Mois-Ouvert-PerMini PIC 9(6).
+       01 R-Cm-Mois-Ouvert-PerMini redefines Cm-Mois-Ouvert-PerMini.
+           02 Cm-Mois-Ouvert-PerMini-SA pic 9999.
+           02 R-Cm-Mois-Ouvert-PerMini-SA 
+                 redefines Cm-Mois-Ouvert-PerMini-SA.
+              04 Cm-Mois-Ouvert-PerMini-S pic 99.
+              04 Cm-Mois-Ouvert-PerMini-A pic 99.
+           02 Cm-Mois-Ouvert-PerMini-M pic 99.
+
+       01  TAB-MOIS.
+           02 FILLER          PIC X(9) VALUE "Janvier  ".
+           02 FILLER          PIC X(9) VALUE "Février  ". 
+           02 FILLER          PIC X(9) VALUE "Mars     ".
+           02 FILLER          PIC X(9) VALUE "Avril    ".
+           02 FILLER          PIC X(9) VALUE "Mai      ".
+           02 FILLER          PIC X(9) VALUE "Juin     ".
+           02 FILLER          PIC X(9) VALUE "Juillet  ".
+           02 FILLER          PIC X(9) VALUE "Août     ".
+           02 FILLER          PIC X(9) VALUE "Septembre".
+           02 FILLER          PIC X(9) VALUE "Octobre  ".
+           02 FILLER          PIC X(9) VALUE "Novembre ".
+           02 FILLER          PIC X(9) VALUE "Décembre ".
+       01 R-TAB-MOIS REDEFINES TAB-MOIS.
+           02 ELT-MOIS        PIC X(9) OCCURS 12.

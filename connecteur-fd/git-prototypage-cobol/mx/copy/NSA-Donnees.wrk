@@ -1,0 +1,279 @@
+      *    Working utilisée avec une sélection sur l'entité
+      *     1 = Société
+      *     2 = Agence
+      *     3 = Région
+      *     4 = Plusieurs Agences (sélection multiple)
+      *     5 = Société Comptable / Agence Siège
+      *     6 = Plusieurs Dépôts (sélection multiple)
+      *     7 = Atelier
+      *     8 = Dépôt
+      *     9 = Plusieurs Régions (sélection multiple)
+      ******************************************************************
+      *    indicateur de sortie des COPY
+       01 NSA-EXIT         PIC  9             |0 EXIT PROGRAM   (-e)
+                  VALUE IS 0.                 |1 EXIT PARAGRAPH
+      
+       01 NSA-Donnees.
+      *    Agences
+           02 TNSA-TAB-AGENCE.                |table des agences
+               04 TNSA-AGE         PIC  X(3)  |code agence
+                          OCCURS 500 TIMES.
+           02 TNSA-NAGE         PIC  9(3).    |nombre d'agences
+           02 TNSA-IAGE         PIC  9(3).    |indice table des agences
+           02 TNSA-IAGE2        PIC  9(3).    |indice table des agences
+           02 TNSA-RAGE         PIC  9.       |indicateur recherche
+           02 TNSA-RAGE2        PIC  9.       |indicateur recherche
+
+      *    Dépôts
+           02 TNSA-TAB-DEPOT.                 |table des dépôts
+               04 TNSA-DEP         PIC  9(3)  |code dépôt
+                          OCCURS 40 TIMES.
+           02 TNSA-IDEP         PIC  9(3).    |indice table des dépôts
+           02 TNSA-NDEP         PIC  9(3).    |nombre de dépôts
+           02 TNSA-RDEP         PIC  9.       |indicateur recherche
+
+      *    Indicateurs des fichiers ouverts (1:oui / 0:non)
+           02 WOPEN-CXSOC      PIC  9.
+           02 WOPEN-MXAGEREG   PIC  9.
+           02 WOPEN-MXATEL     PIC  9.
+ 
+      *    Société comptable
+           02 W-STC            PIC  9(4).
+
+      ******************************************************************
+      *    Working utilisée dans les programmes de sélection & d'édition
+      * 01 INT.
+      *     05 NSA-INT          PIC  9.       |niveau(entité)
+      *     05 AGE-INT          PIC  X(3).    |code agence
+      *     05 REG-INT          PIC  X(2).    |code région
+      *     05 AGS-INT          PIC  X(3).    |code agence siège
+      *     05 ATE-INT          PIC  9(2).    |code atelier
+      *     05 DEP-INT          PIC  9(3).    |code dépôt
+      *     05 ...
+      * 01 LK-LISTE4.                         |plusieurs agences
+      * 01 LK-LISTE5.                         |listes (sélection)
+      * 01 LK-LISTE6.                         |plusieurs dépôts
+      ******************************************************************
+      *    SELECTION -s
+      ******************************************************************
+      *=================================================================
+      *      ENTRY FIELD / PUSH BUTTON / RADIO BUTTON
+      *=================================================================
+      *(1) Screen1-Rb-NIV1        > Value NSA-INT, Group-Value 1, Title "Société"
+      *-----------------------------------------------------------------
+      *(2) Screen1-Rb-NIV2        > Value NSA-INT, Group-Value 2, Title "Agence" 
+      *    Screen1-Ef-AGE         > Value AGE-INT
+      *    Screen1-Ef-NOMAGE      > Value NOM-MAGC
+      *    Screen1-Pb-AGC         > magc-l.acu (liste des agences)
+      *-----------------------------------------------------------------
+      *(3) Screen1-Rb-NIV3        > Value NSA-INT, Group-Value 3, Title "Région"
+      *    Screen1-Ef-REG         > Value REG-INT
+      *    Screen1-Ef-NOMREG      > Value NOM-MREG
+      *    Screen1-Pb-REG         > mreg-l.acu (liste des régions)
+      *-----------------------------------------------------------------
+      *(4) Screen1-Rb-NIV4        > Value NSA-INT, Group-Value 4, Title "Plusieurs Agences"
+      *                           > magc-l.acu (liste des agences)
+      *-----------------------------------------------------------------
+      *(5) Screen1-Rb-NIV5        > Value NSA-INT, Group-Value 5, Title "Société Comptable"
+      *    Screen1-La-AGS         > Tilte "Agence Siège"
+      *    Screen1-Ef-AGS         > Value AGS-INT
+      *    Screen1-Ef-NOMAGS      > Value NOM-MAGC
+      *    Screen1-Pb-AGS         > magc-l.acu (liste des agences)
+      *-----------------------------------------------------------------
+      *(6) Screen1-Rb-NIV6        > Value NSA-INT, Group-Value 6, Title "Plusieurs Dépôts"
+      *                           > mdep-l.acu (liste des dépôts)
+      *-----------------------------------------------------------------
+      *(7) Screen1-Rb-NIV7        > Value NSA-INT, Group-Value 7, Title "Atelier"
+      *    Screen1-Ef-ATE         > Value ATE-INT
+      *    Screen1-Ef-NOMATE      > Value DES-MATE
+      *    Screen1-Pb-ATE         > mate-l.acu (liste des ateliers)
+      *-----------------------------------------------------------------
+      *(8) Screen1-Rb-NIV8        > Value NSA-INT, Group-Value 8, Title "Dépôts"
+      *    Screen1-Ef-DEP         > Value DEP-INT
+      *    Screen1-Ef-NOMDEP      > Value NOM-MDEP
+      *    Screen1-Pb-DEP         > mdep-l.acu (liste des dépôts)
+      *=================================================================
+      *      COPY
+      *=================================================================
+      *(1)
+      *-----------------------------------------------------------------
+      *(2) Screen1-Ef-AGE-Aft-Procedure.
+      *        COPY "../../mx/copy/NSA-Ef-Agence.cbl".
+      *        .
+      *    Screen1-Pb-AGC-Link ou Ev-Cmd-Clicked.
+      *        COPY "../../mx/copy/NSA-Pb-Agence.cbl".
+      *        .
+      *-----------------------------------------------------------------
+      *(3) Screen1-Ef-REG-Aft-Procedure.
+      *        COPY "../../mx/copy/NSA-Ef-Region.cbl".
+      *        . 
+      *    Screen1-Pb-REG-Link ou Ev-Cmd-Clicked.
+      *        COPY "../../mx/copy/NSA-Pb-Region.cbl".
+      *        .
+      *-----------------------------------------------------------------
+      *(4) Screen1-Rb-NIV4-Link ou Ev-Cmd-Clicked
+      *        COPY "../../mx/copy/NSA-Pb-PlusieursAgences.cbl".
+      *        .
+      *-----------------------------------------------------------------
+      *(5) Screen1-Ef-AGS-Aft-Procedure.
+      *        COPY "../../mx/copy/NSA-Ef-SocieteComptable.cbl".
+      *        .
+      *    Screen1-Pb-AGS-Link ou Ev-Cmd-Clicked.
+      *        COPY "../../mx/copy/NSA-Pb-SocieteComptable.cbl".
+      *        .
+      *-----------------------------------------------------------------
+      *(6) Screen1-Rb-NIV6-Link ou Ev-Cmd-Clicked.
+      *        COPY "../../mx/copy/NSA-Pb-PlusieursDepots.cbl". 
+      *        .
+      *-----------------------------------------------------------------
+      *(7) Screen1-Ef-ATE-Aft-Procedure.
+      *        COPY "../../mx/copy/NSA-Ef-Atelier.cbl".
+      *        .
+      *    Screen1-Pb-ATE-Link ou Ev-Cmd-Clicked.
+      *        COPY "../../mx/copy/NSA-Pb-Atelier.cbl".
+      *        .
+      *-----------------------------------------------------------------
+      *(8) Screen1-Ef-DEP-Aft-Procedure.
+      *        COPY "../../mx/copy/NSA-Ef-Depot.cbl".
+      *        .   
+      *    Screen1-Pb-DEP-Link ou Ev-Cmd-Clicked.
+      *        COPY "../../mx/copy/NSA-Pb-Depot.cbl".
+      *        .
+      ******************************************************************
+      *    EDITION -e
+      ******************************************************************
+      *    Dans les programmes d'édition : 
+      *    (niveau : société / agence / région / dépôt / atelier)
+      *
+      *    -> la variable NSA-INT est utilisée uniquement pour remplir
+      *    la table des agences et afficher l'entête. (EVALUATE)
+      *
+      *    -> les variables AGE-INT, REG-INT et AGS-INT sont utilisées
+      *    dans les COPY pour remplir la table des agences mais ne sont 
+      *    pas utilisées dans les programmes. Ces variables sont testées 
+      *    dans les COPY au moment de remplir la table des agences.
+      *
+      *    STANDARDISATION :
+      *    Afin d'avoir un traitement identique des données dans les 
+      *    différents programmes, seule la table des agences doit être
+      *    utilisée et non les variables AGE-INT, REG-INT et AGS-INT. Et 
+      *    ce quelque soit le niveau sélectionné afin de limiter les 
+      *    traitements et les tests. (si possible)
+      *
+      ******************************************************************
+      *OPEN-FILE-RTN.
+      *
+      *    lecture PARAM
+      *    lecture INT
+      *
+      *    Remplir la table des agences ou la table des dépôts(6)
+      *    ------------------------------------------------------
+      *    EVALUATE NSA-INT
+      *       WHEN 1 COPY "../../mx/copy/NSA-Tab-Societe.cbl".
+      *       WHEN 2 COPY "../../mx/copy/NSA-Tab-Agence.cbl".
+      *       WHEN 3 COPY "../../mx/copy/NSA-Tab-Region.cbl".
+      *       WHEN 4 COPY "../../mx/copy/NSA-Tab-PlusieursAgences.cbl".
+      *       WHEN 5 COPY "../../mx/copy/NSA-Tab-SocieteComptable.cbl".
+      *       WHEN 6 COPY "../../mx/copy/NSA-Tab-PlusieursDepots.cbl".
+      *       WHEN 7 COPY "../../mx/copy/NSA-Tab-Atelier.cbl".
+      *    END-EVALUATE
+      *
+      *    -> dans les copy  EXIT PROGRAM  si aucune donnée sélectionnée
+      *                    (société / agence / région / dépôt / atelier)
+      *       évite la création des fichiers TRI et XMLOut
+      *
+      *    ouverture des autres fichiers MX ...
+      *    création TRI
+      *    création XMLOut  
+      *
+      *=================================================================
+      *    Afficher l'entête de l'éditon
+      *    -----------------------------
+      *    EVALUATE NSA-INT
+      *       WHEN 1 COPY "../../mx/copy/NSA-Ent-Societe.cbl".
+      *       WHEN 2 COPY "../../mx/copy/NSA-Ent-Agence.cbl".
+      *       WHEN 3 COPY "../../mx/copy/NSA-Ent-Region.cbl".
+      *       WHEN 4 COPY "../../mx/copy/NSA-Ent-PlusieursAgences.cbl".
+      *       WHEN 5 COPY "../../mx/copy/NSA-Ent-SocieteComptable.cbl".
+      *       WHEN 6 COPY "../../mx/copy/NSA-Ent-PlusieursDepots.cbl".
+      *       WHEN 7 COPY "../../mx/copy/NSA-Ent-Atelier.cbl".
+      *    END-EVALUATE
+      *
+      *    MOVE "Titre" TO XMLOut-Titre
+      *       
+      *    MOVE "Période/Sous-titre" TO XMLOut-Periode    
+      *
+      *    MOVE " " TO XMLOut-NomTit(1)
+      *    MOVE " " TO XMLOut-ZonTit(1)
+      *    ...
+      *
+      *    PERFORM XMLOut-EnteteListe THRU F-XMLOut-EnteteListe
+      *    PERFORM XMLOut-PiedListe   THRU F-XMLOut-PiedListe
+      *
+      *=================================================================
+      *    Pour tester l'agence dans le traitement
+      *    ---------------------------------------
+      *  -> si l'agence est le premier champ de la clé
+      *     boucle sur la lecture (table agences classement alphabétique (ou non))
+      *
+      *INI-LECTURE-XXXX.                                                           
+      *    MOVE 0 TO TNSA-IAGE
+      *    .
+      *DEB-LECTURE-XXXX.
+      *    ADD 1 TO TNSA-IAGE
+      *    IF TNSA-IAGE > TNSA-NAGE       GO FIN-LECTURE-XXXX.
+      *    IF TNSA-AGE(TNSA-IAGE) = SPACE GO FIN-LECTURE-XXXX.
+      *    
+      *    INITIALIZE ENR-XXXX
+      *    MOVE TNSA-AGE(TNSA-IAGE) TO AGE-XXXX
+      *    ...
+      *    START XXXX KEY NOT < CLE1-XXXX INVALID GO FIN-LECTURE-XXXX (ou DEB-LECTURE-XXXX)
+      *    END-START
+      *    PERFORM STAT
+      *    .
+      *BCL-LECTURE-XXXX.
+      *    READ XXXX NEXT AT END GO FIN-LECTURE-XXXX (ou DEB-LECTURE-XXXX)
+      *    END-READ
+      *    PERFORM STAT
+      *
+      *    IF TNSA-AGE(TNSA-IAGE) NOT = AGE-XXXX GO DEB-LECTURE-XXXX.
+      *    
+      *    traitement ...
+      *    
+      *    GO BCL-LECTURE-XXXX
+      *    .
+      *FIN-LECTURE-XXXX.
+      *
+      *  -> si l'agence n'est pas le premier champ de la clé
+      *     dans le traitement
+      *
+      *    MOVE 0 TO TNSA-RAGE
+      *    PERFORM VARYING TNSA-IAGE FROM 1 BY 1
+      *    UNTIL TNSA-IAGE > TNSA-NAGE
+      *       OR TNSA-AGE(TNSA-IAGE) = SPACE 
+      *       OR TNSA-RAGE = 1
+      *          IF TNSA-AGE(TNSA-IAGE) = AGE-XXXX THEN    (test agence)
+      *             MOVE 1 TO TNSA-RAGE
+      *          END-IF
+      *    END-PERFORM
+      *
+      *    IF TNSA-RAGE = 0 THEN                    (test si non trouvé)
+      *       MOVE yy TO zz
+      *(ou)   GO BCL-XXXXXX
+      *(ou)   EXIT PARAGRAPH
+      *(ou)   ...
+      *    END-IF
+      *
+      *=================================================================
+      *    Afficher les critères d'édition ("cri")
+      *    ---------------------------------------
+      *    IF NSA-INT = 4 THEN
+      *       COPY "../../mx/copy/NSA-Cri-PlusieursAgences.cbl".
+      *    END-IF
+      *
+      *    IF NSA-INT = 6 THEN
+      *       COPY "../../mx/copy/NSA-Cri-PlusieursDepots.cbl".
+      *    END-IF
+      *
+      *    critères Société / Agence / Région dans l'entête
+      *

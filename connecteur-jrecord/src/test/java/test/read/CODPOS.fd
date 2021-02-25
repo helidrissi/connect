@@ -1,0 +1,19 @@
+      *(( XFD FILE = CODPOS ))
+       FD  CODPOS
+           LABEL RECORD IS STANDARD.
+       01 ENR-CDP.
+           02 CLE1-CDP.
+               04 ORD-CDP          PIC  9(6).
+           02 VIL-CDP          PIC  X(25).
+           02 CLE3-CDP.
+               04 CISO-CDP         PIC  XX.
+               04 POS-CDP          PIC  X(8).
+
+      *(( XFD COMMENT Code canton ))
+           02 CAN-CDP          PIC  9(5).
+
+      *(( XFD COMMENT Code insee ))
+           02 INS-CDP          PIC  9(5).
+
+      *(( XFD COMMENT Commune avant changement communes 2015 ))
+           02 VIL2-CDP         PIC  X(20).

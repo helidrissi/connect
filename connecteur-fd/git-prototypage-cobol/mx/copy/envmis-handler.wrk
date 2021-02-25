@@ -1,0 +1,10 @@
+      * variables exploitées dans le handler autres que les variables
+      * de handler.cpy (définition sépcifiques de AcuCobol)
+       01 Handler-Name                     PIC X(25) VALUE
+                                           "/webp/mx/o/newhandler.acu".
+       01 Handler-Previous-Name            PIC X(25).
+       01 Handler-Status                   PIC s9(9).
+
+      * Initialisation du handler
+       01 Handler-init                     PIC 9(1) VALUE 0.
+

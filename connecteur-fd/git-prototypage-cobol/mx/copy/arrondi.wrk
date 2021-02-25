@@ -1,0 +1,23 @@
+      *====   Zones Travail de Calculs des Arrondis  =======
+190116* 01  PRIARR             PIC 9(8)V99. SRM SENEGAL
+190116 01  PRIARR             PIC 9(10)V99.
+       01  R-PRIARR REDEFINES PRIARR.
+           02 FILLER          PIC 9(8).
+           02 ARR4            PIC 9(4).
+           02 R-ARR4 REDEFINES ARR4.
+              04 FILLER       PIC 9.
+              04 ARR3         PIC 999.
+              04 R-ARR3 REDEFINES ARR3.
+                 06 FILLER    PIC 9.
+                 06 ARR2      PIC 99.
+                 06 R-ARR2 REDEFINES ARR2.
+                    08 FILLER PIC 9.
+                    08 ARR1   PIC 9.
+       77  I-ARR              PIC 99.
+       77  INDARR             PIC 9.
+       77  TVAARR             PIC 9.
+       77  NIAARR             PIC 9.
+       77  MOAARR             PIC 9.
+190116* 77  TTCARR             PIC 9(8)V99.
+       77  TTCARR             PIC 9(10)V99.
+

@@ -1,0 +1,47 @@
+#	Script de purge des fichiers archive de MobiTec et MobiVip Smart - Tab
+# 
+#	Principe du script 
+#	Rechercher les répertoires ARCHIVE de fmobi 
+#	ensuite dans chacun de ces répertoires rechercher
+#	les fichiers plus anciens de X jours X étant le nombre
+#	spécifié après le paramètre -mtime de la commande find
+
+if [ "$OSTYPE" = "linux-gnu" ]
+then RM="rm -f "
+else RM="rm "
+fi
+#--- Suppression des fichiers des répertoires ARCHIVE
+find /acuf/*/fmobi -name ARCHIVE -print | while read repert
+do 
+   cd $repert
+   find . -mtime +30 |while read fic
+        do 
+           if [ "$fic" != "." -a "$fic" != ".." ]
+           then $RM $fic
+           fi
+        done
+done
+
+#--- Suppression des fichiers pdf des répertoires download
+find /acuf/*/fmobi -name download -print | while read repert
+do
+   cd $repert
+   find . -mtime +60 -name "*.pdf" | while read fic
+        do
+           if [ "$fic" != "." -a "$fic" != ".." ]
+           then $RM $fic
+           fi
+        done
+done
+
+#--- Suppression des fichiers jpg des répertoires download
+find /acuf/*/fmobi -name download -print | while read repert
+do
+   cd $repert
+   find . -mtime +60 -name "*.jpg" | while read fic
+        do
+           if [ "$fic" != "." -a "$fic" != ".." ]
+           then $RM $fic
+           fi
+        done
+done

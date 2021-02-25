@@ -1,0 +1,11 @@
+      *(( XFD FILE = ATTREL ))
+       FD  ATTREL.
+       01 ENR-ATTR.
+           02 CLE1-ATTR.
+      *(( XFD NAME = no_ordre_doc ))
+      *(( XFD COMMENT N° d'ordre du document attaché ))
+               04 ATT-ATTR         PIC  9(10).
+      *(( XFD NAME = no_classification ))
+      *(( XFD COMMENT Classification associée ))
+               04 CLA-ATTR         PIC  9(5).
+           02 FILLER           PIC  X(37).

@@ -1,0 +1,16 @@
+if [ -f /unix ]
+then
+    if [ -d /usr/java6_64 ]
+    then /usr/java6_64/jre/bin/java -Djava.class.path=/acu/mistral/java/mistral.jar fr.mistral.dlrix.miami.MiamiServer start 4250 /acu/mistral/ft/TRACEMIAMI &
+    else if [ -d /usr/java5_64 ]
+         then /usr/java5_64/jre/bin/java -Djava.class.path=/acu/mistral/java/mistral.jar fr.mistral.dlrix.miami.MiamiServer start 4250 /acu/mistral/ft/TRACEMIAMI &
+         else /usr/java14_64/jre/bin/java -Djava.class.path=/acu/mistral/java/mistral.jar fr.mistral.dlrix.miami.MiamiServer start 4250 /acu/mistral/ft/TRACEMIAMI &
+         fi
+    fi
+else 
+   if [ -d /usr/java/jre1.6.0_29 ]
+   then /usr/java/jre1.6.0_29/bin/java  -Djava.class.path=/acu/mistral/java/mistral.jar fr.mistral.dlrix.miami.MiamiServer start 4250 /acu/mistral/ft/TRACEMIAMI &
+   else /usr/java/jre1.5.0_04/bin/java  -Djava.class.path=/acu/mistral/java/mistral.jar fr.mistral.dlrix.miami.MiamiServer start 4250 /acu/mistral/ft/TRACEMIAMI &
+   fi
+fi
+

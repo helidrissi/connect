@@ -1,0 +1,29 @@
+      * Linkage de MCLI-L
+       01 LK-MCLI-L.
+      * Numéro d'ordre du client pré-sélectionné.
+           05 LK-MCLI-L-Preselect          PIC  X(8).
+      * Type du filtre : 0 = Clients, 2 = Prospects
+      *                  3 = Prospects uniquement (pas client)
+      *                  4 = Clients uniquement (pas prospect)
+           05 LK-MCLI-L-NumFiltre          PIC  9
+                      USAGE IS COMP-1.
+      * Nombre d'enregistrements chargés par requètes/non utilis‚.
+           05 LK-MCLI-L-TailleReq          PIC  9(3)
+                      USAGE IS COMP-1.
+      * Code client.
+           05 LK-MCLI-L-COD    PIC  9(6).
+      * Raison Sociale.
+           05 LK-MCLI-L-RAI    PIC  X(25).
+      * Code Postal.
+           05 LK-MCLI-L-POS    PIC  X(8).
+      * Ville.
+           05 LK-MCLI-L-VIL    PIC  X(25).
+      * Premier numéro de téléphone.
+           05 LK-MCLI-L-TEL    PIC  X(12).
+      * Code de regroupement Client.
+           05 LK-MCLI-L-RGC    PIC  X(2).
+      * Code prospect.
+           05 LK-MCLI-L-FCO    PIC  9(8).
+      * Pour la liste des clients "agences", mettre 1.
+           05 LK-MCLI-L-IAG    PIC  9.
+           05 FILLER           PIC  X(91).

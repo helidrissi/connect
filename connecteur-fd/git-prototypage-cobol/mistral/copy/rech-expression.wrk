@@ -1,0 +1,29 @@
+      * Pour rechercher une chaine de caractères dans une zone
+      * comme le fait le "rech" mais à l'intérieur d'un programme
+      * ex: dans mmat-l on recherche le type de cette façon 
+
+       77  RE-HANDLE-EXPRESSION       USAGE IS HANDLE.
+       77  RE-HANDLE-TROUVE           USAGE IS HANDLE.
+       01  RE-EXPRESSION       PIC  X(81).
+       01  RE-LOWV             PIC  X
+                  VALUE IS LOW-VALUE.
+      * chaine recherchée
+       77  RE-RECH             PIC  X(80).
+       77  SV-RE-RECH          PIC  X(80).
+      * zone dans laquelle on recherche
+       77  RE-CHAINE           PIC  X(80).
+       77  RE-LG-CHAINE        PIC  9999
+                  VALUE IS 80.
+      * position trouvée(0 si expression non trouvée)
+       77  RE-DEBUT            PIC  9999.
+      * fin de position trouvée + 1
+       77  RE-SUIVANT          PIC  9999.
+      * code retour (14 = non trouvé)
+       77  RE-CODE-RETOUR      PIC  9999.
+      * type recherche (non utilisé pour l'instant)
+       77  RE-TYPE-RECH        PIC 99.
+      * affichage message 0=oui 1=non
+       77  RE-TYPE-SILENT       PIC 9.
+      * 
+       77  RE-LONC              PIC 99.
+

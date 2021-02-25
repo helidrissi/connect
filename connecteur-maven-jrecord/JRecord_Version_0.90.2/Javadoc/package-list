@@ -1,0 +1,16 @@
+net.sf.JRecord
+net.sf.JRecord.ByteIO
+net.sf.JRecord.Common
+net.sf.JRecord.CsvParser
+net.sf.JRecord.Details
+net.sf.JRecord.External
+net.sf.JRecord.IO
+net.sf.JRecord.Log
+net.sf.JRecord.Numeric
+net.sf.JRecord.Types
+net.sf.JRecord.def.IO.builders
+net.sf.JRecord.schema
+net.sf.JRecord.utilityClasses
+net.sf.JRecord.zExamples.cobol.toCsv
+net.sf.JRecord.zExamples.cobol.toCsv.test
+net.sf.JRecord.zExamples.copy

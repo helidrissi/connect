@@ -1,0 +1,22 @@
+       77 NUMVAL-ENT        PIC X(80).
+290216* 01 NUMVAL-SOR        PIC S9(8)V9(4). SCOMAS dsk.acu tronquait les tailles disques
+290216 01 NUMVAL-SOR        PIC S9(12)V9(4).
+       01 NUMVAL-SOR-R REDEFINES NUMVAL-SOR.
+290216*     05 NUMVAL-SOR-E  PIC 9(8).
+290216     05 NUMVAL-SOR-E  PIC 9(12).
+           05 NUMVAL-SOR-D  PIC 9(4).
+       77 NUMVAL-I          PIC 9(2).
+       77 NUMVAL-NEG        PIC 9.
+       77 NUMVAL-DEB        PIC 9(2).
+       77 NUMVAL-VIR        PIC 9(2).
+       77 NUMVAL-LON        PIC 9(2).
+      * nombre de décimales maximum (ne pas renseigner sauf si risque d'avoir + de 5 dans le fichie reçu)
+       77 NUMVAL-NBDEC      PIC 9.
+      * si la virgule est un point
+       77 NUMVAL-POINT       PIC 9.
+       77 NUMVAL-MARQDEC     PIC 9.
+       01 NUMVAL-SOR5        PIC S9(8)V9(5).
+       01 NUMVAL-SOR5-R REDEFINES NUMVAL-SOR5.
+           05 NUMVAL-SOR5-E  PIC 9(8).
+           05 NUMVAL-SOR5-D  PIC 9(5).
+
