@@ -11,6 +11,9 @@
         <module>connecteur-socket</module>
         <module>connecteur-data-server</module>
         <module>connecteur-model</module>
+        <module>connecteur-main</module>
+        <module>connecteur-master</module>
+
 
     </modules>
     <parent>
@@ -31,37 +34,7 @@
         <junit.jupiter.version>5.5.2</junit.jupiter.version>
         <animal.sniffer.skip>true</animal.sniffer.skip>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>fr.mistral</groupId>
-            <artifactId>connecteur-data-server</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
 
 
     <build>

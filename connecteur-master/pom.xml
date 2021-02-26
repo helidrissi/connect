@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>connecteur</artifactId>
+        <groupId>fr.mistral</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>connecteur-master</artifactId>
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>fr.mistral</groupId>
+        <artifactId>connecteur-data-server</artifactId>
+        <version>${project.version}</version>
+    </dependency>
+
+    <!-- Igloo -->
+    <dependency>
+        <groupId>org.iglooproject.packages</groupId>
+        <artifactId>igloo-package-core-spring-jpa-app</artifactId>
+        <version>${igloo.version}</version>
+        <type>pom</type>
+    </dependency>
+    <!-- Intellij needs processor to be added as project dependency
+         despite it is a build only dependency -->
+    <dependency>
+        <groupId>com.querydsl</groupId>
+        <artifactId>querydsl-apt</artifactId>
+        <version>4.3.1</version>
+        <classifier>jpa</classifier>
+        <scope>compile</scope>
+    </dependency>
+
+
+    <dependency>
+        <groupId>org.iglooproject.components</groupId>
+        <artifactId>igloo-spring-autoconfigure</artifactId>
+        <version>${igloo.version}</version>
+    </dependency>
+
+    <!-- JDBC Driver -->
+    <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+    </dependency>
+
+    <!-- Test dependencies -->
+    <dependency>
+        <groupId>org.iglooproject.dependencies</groupId>
+        <artifactId>igloo-dependency-test</artifactId>
+        <scope>test</scope>
+        <type>pom</type>
+    </dependency>
+    <dependency>
+        <groupId>org.iglooproject.components</groupId>
+        <artifactId>igloo-component-jpa-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>fr.mistral</groupId>
+        <artifactId>connecteur-data-server</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <scope>compile</scope>
+    </dependency>
+</dependencies>
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+</project>
